@@ -466,6 +466,9 @@ export const adminDashboard = {
             // Get review stats
             const reviewStats = await adminReviews.getStats()
 
+            // Get visitor count (import from visitor API logic)
+            const visitorCount = await this.getVisitorCount()
+
             // Get recent activity (last 7 days)
             const sevenDaysAgo = new Date()
             sevenDaysAgo.setDate(sevenDaysAgo.getDate() - 7)
@@ -485,6 +488,9 @@ export const adminDashboard = {
                 overview: {
                     messages: messageStats.success ? messageStats.stats : null,
                     reviews: reviewStats.success ? reviewStats.stats : null,
+                    visitors: {
+                        total: visitorCount
+                    },
                     recentActivity: {
                         newMessages: recentMessages?.length || 0,
                         newReviews: recentReviews?.length || 0
@@ -494,6 +500,22 @@ export const adminDashboard = {
         } catch (error) {
             console.error('Get dashboard overview error:', error)
             return { success: false, error: 'Failed to fetch dashboard overview' }
+        }
+    },
+
+    /**
+     * Get visitor count - interface with the visitor API
+     */
+    async getVisitorCount() {
+        // For simplicity, we'll read from the same global storage used by the visitors API
+        // In a real application, this would be stored in the database
+        try {
+            // Access the global visitor count
+            const globalAny = global as { visitorCount?: number }
+            return globalAny.visitorCount || 0
+        } catch (error) {
+            console.error('Error getting visitor count:', error)
+            return 0
         }
     }
 }

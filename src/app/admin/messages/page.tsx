@@ -28,36 +28,38 @@ function AdminNav() {
     }
 
     return (
-        <nav className="bg-gray-800/50 backdrop-blur-sm border-b border-gray-700/50 px-6 py-4">
+        <nav className="cosmic-nav">
             <div className="flex items-center justify-between">
                 <div className="flex items-center space-x-8">
-                    <h1 className="text-xl font-bold text-white">Admin Dashboard</h1>
+                    <h1 className="text-xl font-extralight text-white tracking-wide">
+                        Cosmic <span className="text-cosmic">Admin</span>
+                    </h1>
                     <div className="flex space-x-6">
                         <Link
                             href="/admin/dashboard"
-                            className="text-gray-300 hover:text-white transition-colors"
+                            className="text-white/80 hover:text-cosmic transition-colors font-light cursor-pointer"
                         >
                             Overview
                         </Link>
                         <Link
                             href="/admin/reviews"
-                            className="text-gray-300 hover:text-white transition-colors"
+                            className="text-white/80 hover:text-cosmic transition-colors font-light cursor-pointer"
                         >
-                            Reviews
+                            Consciousness Reviews
                         </Link>
                         <Link
                             href="/admin/messages"
-                            className="text-white font-semibold"
+                            className="text-cosmic font-light cursor-pointer"
                         >
-                            Messages
+                            Cosmic Transmissions
                         </Link>
                     </div>
                 </div>
                 <div className="flex items-center space-x-4">
-                    <span className="text-gray-300">Welcome, {admin?.full_name}</span>
+                    <span className="text-white/70 font-light">Welcome, {admin?.full_name}</span>
                     <button
                         onClick={handleLogout}
-                        className="bg-red-600 hover:bg-red-700 text-white px-4 py-2 rounded-lg transition-colors"
+                        className="cosmic-button-secondary cursor-pointer"
                     >
                         Logout
                     </button>
@@ -94,32 +96,32 @@ function MessageCard({ message, onMarkRead, onMarkReplied }: {
         <motion.div
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
-            className={`bg-gray-800/50 backdrop-blur-sm border rounded-xl p-6 ${message.is_read ? 'border-gray-700/50' : 'border-blue-500/30 bg-blue-500/5'
-                }`}
+            className={`card ${message.is_read ? 'border-purple-400/20' : 'border-purple-400/40 bg-purple-500/5'
+                } hover:shadow-lg hover:shadow-purple-500/20 transition-all duration-300`}
         >
             {/* Message header */}
             <div className="flex items-start justify-between mb-4">
                 <div className="flex-1">
                     <div className="flex items-center space-x-3 mb-2">
-                        <h3 className="text-lg font-semibold text-white">{message.name}</h3>
+                        <h3 className="text-lg font-extralight text-white tracking-wide">{message.name}</h3>
                         {!message.is_read && (
-                            <span className="bg-blue-500 text-white text-xs px-2 py-1 rounded-full">
-                                New
+                            <span className="bg-gradient-to-r from-purple-500 to-blue-500 text-white text-xs px-2 py-1 rounded-full font-light">
+                                New Transmission
                             </span>
                         )}
                         {message.replied && (
-                            <span className="bg-green-500 text-white text-xs px-2 py-1 rounded-full">
+                            <span className="bg-gradient-to-r from-green-500 to-emerald-500 text-white text-xs px-2 py-1 rounded-full font-light">
                                 Replied
                             </span>
                         )}
                     </div>
-                    <div className="flex items-center space-x-4 text-sm text-gray-400">
+                    <div className="flex items-center space-x-4 text-sm text-white/60 font-light">
                         <span>{message.email}</span>
                         <span>•</span>
                         <span>{formatDate(message.created_at)}</span>
                     </div>
                     {message.subject && (
-                        <p className="text-gray-300 font-medium mt-2">Subject: {message.subject}</p>
+                        <p className="text-white/80 font-light mt-2">Subject: {message.subject}</p>
                     )}
                 </div>
 
@@ -127,14 +129,14 @@ function MessageCard({ message, onMarkRead, onMarkReplied }: {
                     {!message.is_read && (
                         <button
                             onClick={() => onMarkRead(message.id)}
-                            className="bg-blue-600 hover:bg-blue-700 text-white px-3 py-1 rounded text-sm transition-colors"
+                            className="bg-gradient-to-r from-purple-600/20 to-blue-600/20 border border-purple-400/30 text-purple-300 hover:text-white hover:from-purple-600/30 hover:to-blue-600/30 px-3 py-1 rounded text-sm transition-all font-light hover:shadow-lg hover:shadow-purple-500/25"
                         >
                             Mark Read
                         </button>
                     )}
                     <button
                         onClick={handleEmailReply}
-                        className="bg-green-600 hover:bg-green-700 text-white px-3 py-1 rounded text-sm transition-colors"
+                        className="bg-gradient-to-r from-green-600/20 to-emerald-600/20 border border-green-400/30 text-green-300 hover:text-white hover:from-green-600/30 hover:to-emerald-600/30 px-3 py-1 rounded text-sm transition-all font-light hover:shadow-lg hover:shadow-green-500/25"
                     >
                         Email Reply
                     </button>
@@ -142,15 +144,15 @@ function MessageCard({ message, onMarkRead, onMarkReplied }: {
             </div>
 
             {/* Message content */}
-            <div className="bg-gray-700/30 rounded-lg p-4">
-                <p className="text-gray-300 leading-relaxed whitespace-pre-wrap">
+            <div className="bg-white/5 border border-purple-400/20 rounded-lg p-4 backdrop-blur-sm">
+                <p className="text-white/80 leading-relaxed whitespace-pre-wrap font-light">
                     {message.message}
                 </p>
             </div>
 
             {/* Message metadata */}
-            <div className="mt-4 flex items-center justify-between text-xs text-gray-500">
-                <span>Message ID: {message.id}</span>
+            <div className="mt-4 flex items-center justify-between text-xs text-white/50 font-light">
+                <span>Transmission ID: {message.id}</span>
                 <span>
                     Status: {message.replied ? 'Replied' : message.is_read ? 'Read' : 'Unread'}
                 </span>
@@ -197,7 +199,7 @@ export default function AdminMessages() {
     }
 
     return (
-        <div className="min-h-screen bg-gradient-to-br from-gray-900 via-black to-gray-800">
+        <div className="min-h-screen bg-gradient-to-br from-slate-900 via-purple-900 to-slate-900">
             <AdminNav />
 
             <div className="p-6">
@@ -206,8 +208,10 @@ export default function AdminMessages() {
                     animate={{ opacity: 1, y: 0 }}
                     className="mb-8"
                 >
-                    <h2 className="text-3xl font-bold text-white mb-2">Message Management</h2>
-                    <p className="text-gray-400">Review and respond to contact messages</p>
+                    <h2 className="text-3xl font-extralight text-white mb-2 tracking-wide">
+                        Cosmic <span className="text-cosmic">Transmissions</span>
+                    </h2>
+                    <p className="text-white/60 font-light">Manage consciousness messages from seekers</p>
                 </motion.div>
 
                 {/* Filter tabs */}
@@ -226,9 +230,9 @@ export default function AdminMessages() {
                         <button
                             key={filter.key}
                             onClick={() => handleFilterChange(filter.key)}
-                            className={`px-6 py-3 rounded-lg font-medium transition-all ${currentFilter === filter.key
-                                ? 'bg-blue-600 text-white shadow-lg'
-                                : 'bg-gray-700 text-gray-300 hover:bg-gray-600'
+                            className={`px-6 py-3 rounded-lg font-light transition-all duration-300 ${currentFilter === filter.key
+                                ? 'bg-gradient-to-r from-purple-600 to-blue-600 text-white shadow-lg shadow-purple-500/25'
+                                : 'bg-white/5 border border-purple-400/20 text-white/70 hover:text-white hover:bg-white/10 hover:border-purple-400/40'
                                 }`}
                         >
                             {filter.label}
@@ -238,25 +242,25 @@ export default function AdminMessages() {
 
                 {/* Stats */}
                 <div className="grid grid-cols-1 md:grid-cols-4 gap-6 mb-8">
-                    <div className="bg-gray-800/50 backdrop-blur-sm border border-gray-700/50 rounded-xl p-6">
-                        <h3 className="text-lg font-semibold text-white mb-2">Total</h3>
-                        <p className="text-3xl font-bold text-blue-400">{pagination.totalCount}</p>
+                    <div className="card">
+                        <h3 className="text-lg font-extralight text-white mb-2 tracking-wide">Total</h3>
+                        <p className="text-3xl font-extralight text-cosmic">{pagination.totalCount}</p>
                     </div>
-                    <div className="bg-gray-800/50 backdrop-blur-sm border border-gray-700/50 rounded-xl p-6">
-                        <h3 className="text-lg font-semibold text-white mb-2">Unread</h3>
-                        <p className="text-3xl font-bold text-red-400">
+                    <div className="card">
+                        <h3 className="text-lg font-extralight text-white mb-2 tracking-wide">Unread</h3>
+                        <p className="text-3xl font-extralight text-red-400">
                             {messages.filter(m => !m.is_read).length}
                         </p>
                     </div>
-                    <div className="bg-gray-800/50 backdrop-blur-sm border border-gray-700/50 rounded-xl p-6">
-                        <h3 className="text-lg font-semibold text-white mb-2">Read</h3>
-                        <p className="text-3xl font-bold text-yellow-400">
+                    <div className="card">
+                        <h3 className="text-lg font-extralight text-white mb-2 tracking-wide">Read</h3>
+                        <p className="text-3xl font-extralight text-yellow-400">
                             {messages.filter(m => m.is_read && !m.replied).length}
                         </p>
                     </div>
-                    <div className="bg-gray-800/50 backdrop-blur-sm border border-gray-700/50 rounded-xl p-6">
-                        <h3 className="text-lg font-semibold text-white mb-2">Replied</h3>
-                        <p className="text-3xl font-bold text-green-400">
+                    <div className="card">
+                        <h3 className="text-lg font-extralight text-white mb-2 tracking-wide">Replied</h3>
+                        <p className="text-3xl font-extralight text-green-400">
                             {messages.filter(m => m.replied).length}
                         </p>
                     </div>
@@ -301,9 +305,9 @@ export default function AdminMessages() {
                                     <button
                                         key={page}
                                         onClick={() => handlePageChange(page)}
-                                        className={`px-4 py-2 rounded-lg transition-colors ${page === pagination.currentPage
-                                            ? 'bg-blue-600 text-white'
-                                            : 'bg-gray-700 text-gray-300 hover:bg-gray-600'
+                                        className={`px-4 py-2 rounded-lg transition-all duration-300 font-light ${page === pagination.currentPage
+                                            ? 'bg-gradient-to-r from-purple-600 to-blue-600 text-white shadow-lg shadow-purple-500/25'
+                                            : 'bg-white/5 border border-purple-400/20 text-white/70 hover:text-white hover:bg-white/10 hover:border-purple-400/40'
                                             }`}
                                     >
                                         {page}
@@ -317,8 +321,10 @@ export default function AdminMessages() {
 
             {/* Background decoration */}
             <div className="fixed inset-0 -z-10 overflow-hidden pointer-events-none">
-                <div className="absolute -top-1/2 -left-1/2 w-full h-full bg-gradient-to-br from-blue-500/5 to-purple-500/5 rounded-full blur-3xl"></div>
-                <div className="absolute -bottom-1/2 -right-1/2 w-full h-full bg-gradient-to-tl from-green-500/5 to-blue-500/5 rounded-full blur-3xl"></div>
+                <div className="absolute -top-1/2 -left-1/2 w-full h-full bg-gradient-to-br from-purple-500/10 to-blue-500/10 rounded-full blur-3xl"></div>
+                <div className="absolute -bottom-1/2 -right-1/2 w-full h-full bg-gradient-to-tl from-blue-500/10 to-purple-500/10 rounded-full blur-3xl"></div>
+                <div className="absolute top-1/4 left-1/4 w-96 h-96 bg-gradient-to-r from-purple-400/5 to-blue-400/5 rounded-full blur-2xl animate-pulse"></div>
+                <div className="absolute bottom-1/4 right-1/4 w-96 h-96 bg-gradient-to-l from-blue-400/5 to-purple-400/5 rounded-full blur-2xl animate-pulse" style={{ animationDelay: '2s' }}></div>
             </div>
         </div>
     )

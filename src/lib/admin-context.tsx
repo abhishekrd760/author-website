@@ -1,6 +1,7 @@
 'use client'
 
 import React, { createContext, useContext, useState, useEffect } from 'react'
+import { DashboardData, ContactMessage, ReviewWithBook } from '../types/database'
 
 interface AdminUser {
     id: string
@@ -116,7 +117,7 @@ export function useAdmin() {
 
 // Hook for fetching dashboard data
 export function useDashboard() {
-    const [data, setData] = useState<any>(null)
+    const [data, setData] = useState<DashboardData | null>(null)
     const [isLoading, setIsLoading] = useState(true)
     const [error, setError] = useState<string | null>(null)
 
@@ -154,7 +155,7 @@ export function useDashboard() {
 
 // Hook for managing contact messages
 export function useMessages() {
-    const [messages, setMessages] = useState<any[]>([])
+    const [messages, setMessages] = useState<ContactMessage[]>([])
     const [isLoading, setIsLoading] = useState(true)
     const [error, setError] = useState<string | null>(null)
     const [pagination, setPagination] = useState({
@@ -254,7 +255,7 @@ export function useMessages() {
 
 // Hook for managing reviews
 export function useReviews() {
-    const [reviews, setReviews] = useState<any[]>([])
+    const [reviews, setReviews] = useState<ReviewWithBook[]>([])
     const [isLoading, setIsLoading] = useState(true)
     const [error, setError] = useState<string | null>(null)
     const [pagination, setPagination] = useState({

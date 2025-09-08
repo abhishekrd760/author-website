@@ -41,10 +41,12 @@ export interface ContactMessage {
     message: string
     created_at: string
     is_read: boolean
+    replied: boolean
 }
 
 export interface ReviewWithBook extends Review {
     book: { title: string }
+    replies?: Reply[]
 }
 
 export interface User {
@@ -55,4 +57,46 @@ export interface User {
 
 export interface BookWithReviews extends Book {
     reviews: (Review & { replies: Reply[] })[]
+}
+
+export interface DashboardStats {
+    totalBooks: number
+    totalReviews: number
+    totalMessages: number
+    homepageVisitors: number
+}
+
+export interface DashboardData {
+    stats: DashboardStats
+    recentReviews: ReviewWithBook[]
+    recentMessages: ContactMessage[]
+    visitors?: {
+        total: number
+    }
+    messages?: {
+        total: number
+        unread: number
+    }
+    reviews?: {
+        total: number
+        averageRating: number
+    }
+    recentActivity?: {
+        newMessages: number
+        newReviews: number
+    }
+}
+
+export interface ReviewSubmissionData {
+    book_id: string
+    reviewer_name: string
+    review_text: string
+    rating: number
+}
+
+export interface ContactMessageSubmissionData {
+    name: string
+    email: string
+    subject: string
+    message: string
 }

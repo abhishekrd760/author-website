@@ -38,36 +38,38 @@ function AdminNav() {
     }
 
     return (
-        <nav className="bg-gray-800/50 backdrop-blur-sm border-b border-gray-700/50 px-6 py-4">
+        <nav className="cosmic-nav">
             <div className="flex items-center justify-between">
                 <div className="flex items-center space-x-8">
-                    <h1 className="text-xl font-bold text-white">Admin Dashboard</h1>
+                    <h1 className="text-xl font-extralight text-white tracking-wide">
+                        Cosmic <span className="text-cosmic">Admin</span>
+                    </h1>
                     <div className="flex space-x-6">
                         <Link
                             href="/admin/dashboard"
-                            className="text-gray-300 hover:text-white transition-colors"
+                            className="text-white/80 hover:text-cosmic transition-colors font-light cursor-pointer"
                         >
                             Overview
                         </Link>
                         <Link
                             href="/admin/reviews"
-                            className="text-white font-semibold"
+                            className="text-cosmic font-light cursor-pointer"
                         >
-                            Reviews
+                            Consciousness Reviews
                         </Link>
                         <Link
                             href="/admin/messages"
-                            className="text-gray-300 hover:text-white transition-colors"
+                            className="text-white/80 hover:text-cosmic transition-colors font-light cursor-pointer"
                         >
-                            Messages
+                            Cosmic Transmissions
                         </Link>
                     </div>
                 </div>
                 <div className="flex items-center space-x-4">
-                    <span className="text-gray-300">Welcome, {admin?.full_name}</span>
+                    <span className="text-white/70 font-light">Welcome, {admin?.full_name}</span>
                     <button
                         onClick={handleLogout}
-                        className="bg-red-600 hover:bg-red-700 text-white px-4 py-2 rounded-lg transition-colors"
+                        className="cosmic-button-secondary cursor-pointer"
                     >
                         Logout
                     </button>
@@ -125,7 +127,7 @@ function ReviewCard({ review, onReply }: { review: Review, onReply: (id: string,
         <motion.div
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
-            className="bg-gray-800/50 backdrop-blur-sm border border-gray-700/50 rounded-xl p-6"
+            className="card hover:shadow-lg hover:shadow-purple-500/20 transition-all duration-300"
         >
             {/* Review header */}
             <div className="flex items-start justify-between mb-4">
@@ -138,12 +140,12 @@ function ReviewCard({ review, onReply }: { review: Review, onReply: (id: string,
                         />
                     )}
                     <div>
-                        <h3 className="text-lg font-semibold text-white">{review.books?.title || 'Unknown Book'}</h3>
+                        <h3 className="text-lg font-extralight text-white tracking-wide">{review.books?.title || 'Unknown Book'}</h3>
                         <div className="flex items-center space-x-2 mt-1">
                             {renderStars(review.rating)}
-                            <span className="text-gray-400 text-sm">({review.rating}/5)</span>
+                            <span className="text-white/60 text-sm font-light">({review.rating}/5)</span>
                         </div>
-                        <p className="text-gray-400 text-sm mt-1">
+                        <p className="text-white/50 text-sm mt-1 font-light">
                             by {review.reviewer_name} • {formatDate(review.created_at)}
                         </p>
                     </div>
@@ -151,7 +153,7 @@ function ReviewCard({ review, onReply }: { review: Review, onReply: (id: string,
                 <div className="flex space-x-2">
                     <button
                         onClick={() => setIsReplyOpen(!isReplyOpen)}
-                        className="bg-blue-600 hover:bg-blue-700 text-white px-4 py-2 rounded-lg text-sm transition-colors"
+                        className="bg-gradient-to-r from-purple-600/20 to-blue-600/20 border border-purple-400/30 text-purple-300 hover:text-white hover:from-purple-600/30 hover:to-blue-600/30 px-4 py-2 rounded-lg text-sm transition-all font-light hover:shadow-lg hover:shadow-purple-500/25"
                     >
                         {review.replies && review.replies.length > 0 ? 'View Reply' : 'Reply'}
                     </button>
@@ -160,17 +162,17 @@ function ReviewCard({ review, onReply }: { review: Review, onReply: (id: string,
 
             {/* Review content */}
             <div className="mb-4">
-                <p className="text-gray-300 leading-relaxed">{review.review_text}</p>
+                <p className="text-white/80 leading-relaxed font-light">{review.review_text}</p>
             </div>
 
             {/* Existing replies */}
             {review.replies && review.replies.length > 0 && (
-                <div className="border-t border-gray-700/50 pt-4 mb-4">
-                    <h4 className="text-sm font-semibold text-gray-400 mb-2">Admin Reply:</h4>
+                <div className="border-t border-purple-400/20 pt-4 mb-4">
+                    <h4 className="text-sm font-extralight text-white/70 mb-2 tracking-wide">Admin Reply:</h4>
                     {review.replies.map((reply: ReviewReply) => (
-                        <div key={reply.id} className="bg-blue-500/10 border border-blue-500/30 rounded-lg p-4">
-                            <p className="text-gray-300">{reply.reply_text}</p>
-                            <p className="text-gray-500 text-xs mt-2">
+                        <div key={reply.id} className="bg-gradient-to-r from-purple-500/10 to-blue-500/10 border border-purple-400/30 rounded-lg p-4 backdrop-blur-sm">
+                            <p className="text-white/80 font-light">{reply.reply_text}</p>
+                            <p className="text-white/50 text-xs mt-2 font-light">
                                 Replied on {formatDate(reply.created_at)}
                             </p>
                         </div>
@@ -192,13 +194,13 @@ function ReviewCard({ review, onReply }: { review: Review, onReply: (id: string,
                             onChange={(e) => setReplyText(e.target.value)}
                             placeholder="Write your reply to this review..."
                             rows={4}
-                            className="w-full px-4 py-3 bg-gray-700/50 border border-gray-600 rounded-lg text-white placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent resize-none"
+                            className="w-full px-4 py-3 bg-white/5 border border-purple-400/30 rounded-lg text-white placeholder-white/50 focus:outline-none focus:ring-2 focus:ring-purple-400/50 focus:border-purple-400/50 transition-all backdrop-blur-sm resize-none"
                         />
                         <div className="flex space-x-3">
                             <button
                                 onClick={handleSubmitReply}
                                 disabled={!replyText.trim() || isSubmitting}
-                                className="bg-blue-600 hover:bg-blue-700 disabled:bg-gray-600 text-white px-6 py-2 rounded-lg transition-colors disabled:cursor-not-allowed"
+                                className="btn-primary disabled:from-gray-600 disabled:to-gray-600 disabled:scale-100 disabled:cursor-not-allowed font-light"
                             >
                                 {isSubmitting ? 'Sending...' : 'Send Reply'}
                             </button>
@@ -207,7 +209,7 @@ function ReviewCard({ review, onReply }: { review: Review, onReply: (id: string,
                                     setIsReplyOpen(false)
                                     setReplyText('')
                                 }}
-                                className="bg-gray-600 hover:bg-gray-700 text-white px-6 py-2 rounded-lg transition-colors"
+                                className="bg-white/5 border border-purple-400/30 text-white/70 hover:text-white hover:bg-white/10 hover:border-purple-400/40 px-6 py-2 rounded-lg transition-all font-light"
                             >
                                 Cancel
                             </button>
@@ -250,7 +252,7 @@ export default function AdminReviews() {
     }
 
     return (
-        <div className="min-h-screen bg-gradient-to-br from-gray-900 via-black to-gray-800">
+        <div className="min-h-screen bg-gradient-to-br from-slate-900 via-purple-900 to-slate-900">
             <AdminNav />
 
             <div className="p-6">
@@ -259,25 +261,27 @@ export default function AdminReviews() {
                     animate={{ opacity: 1, y: 0 }}
                     className="mb-8"
                 >
-                    <h2 className="text-3xl font-bold text-white mb-2">Review Management</h2>
-                    <p className="text-gray-400">Reply to customer reviews and manage feedback</p>
+                    <h2 className="text-3xl font-extralight text-white mb-2 tracking-wide">
+                        Consciousness <span className="text-cosmic">Reviews</span>
+                    </h2>
+                    <p className="text-white/60 font-light">Engage with soul experiences and cosmic feedback</p>
                 </motion.div>
 
                 {/* Stats */}
                 <div className="grid grid-cols-1 md:grid-cols-3 gap-6 mb-8">
-                    <div className="bg-gray-800/50 backdrop-blur-sm border border-gray-700/50 rounded-xl p-6">
-                        <h3 className="text-lg font-semibold text-white mb-2">Total Reviews</h3>
-                        <p className="text-3xl font-bold text-blue-400">{pagination.totalCount}</p>
+                    <div className="card">
+                        <h3 className="text-lg font-extralight text-white mb-2 tracking-wide">Total Reviews</h3>
+                        <p className="text-3xl font-extralight text-cosmic">{pagination.totalCount}</p>
                     </div>
-                    <div className="bg-gray-800/50 backdrop-blur-sm border border-gray-700/50 rounded-xl p-6">
-                        <h3 className="text-lg font-semibold text-white mb-2">With Replies</h3>
-                        <p className="text-3xl font-bold text-green-400">
+                    <div className="card">
+                        <h3 className="text-lg font-extralight text-white mb-2 tracking-wide">With Replies</h3>
+                        <p className="text-3xl font-extralight text-green-400">
                             {reviews.filter(r => r.replies && r.replies.length > 0).length}
                         </p>
                     </div>
-                    <div className="bg-gray-800/50 backdrop-blur-sm border border-gray-700/50 rounded-xl p-6">
-                        <h3 className="text-lg font-semibold text-white mb-2">Need Reply</h3>
-                        <p className="text-3xl font-bold text-yellow-400">
+                    <div className="card">
+                        <h3 className="text-lg font-extralight text-white mb-2 tracking-wide">Need Reply</h3>
+                        <p className="text-3xl font-extralight text-yellow-400">
                             {reviews.filter(r => !r.replies || r.replies.length === 0).length}
                         </p>
                     </div>
@@ -319,9 +323,9 @@ export default function AdminReviews() {
                                     <button
                                         key={page}
                                         onClick={() => handlePageChange(page)}
-                                        className={`px-4 py-2 rounded-lg transition-colors ${page === pagination.currentPage
-                                            ? 'bg-blue-600 text-white'
-                                            : 'bg-gray-700 text-gray-300 hover:bg-gray-600'
+                                        className={`px-4 py-2 rounded-lg transition-all duration-300 font-light ${page === pagination.currentPage
+                                            ? 'bg-gradient-to-r from-purple-600 to-blue-600 text-white shadow-lg shadow-purple-500/25'
+                                            : 'bg-white/5 border border-purple-400/20 text-white/70 hover:text-white hover:bg-white/10 hover:border-purple-400/40'
                                             }`}
                                     >
                                         {page}
@@ -335,8 +339,10 @@ export default function AdminReviews() {
 
             {/* Background decoration */}
             <div className="fixed inset-0 -z-10 overflow-hidden pointer-events-none">
-                <div className="absolute -top-1/2 -left-1/2 w-full h-full bg-gradient-to-br from-blue-500/5 to-purple-500/5 rounded-full blur-3xl"></div>
-                <div className="absolute -bottom-1/2 -right-1/2 w-full h-full bg-gradient-to-tl from-green-500/5 to-blue-500/5 rounded-full blur-3xl"></div>
+                <div className="absolute -top-1/2 -left-1/2 w-full h-full bg-gradient-to-br from-purple-500/10 to-blue-500/10 rounded-full blur-3xl"></div>
+                <div className="absolute -bottom-1/2 -right-1/2 w-full h-full bg-gradient-to-tl from-blue-500/10 to-purple-500/10 rounded-full blur-3xl"></div>
+                <div className="absolute top-1/4 left-1/4 w-96 h-96 bg-gradient-to-r from-purple-400/5 to-blue-400/5 rounded-full blur-2xl animate-pulse"></div>
+                <div className="absolute bottom-1/4 right-1/4 w-96 h-96 bg-gradient-to-l from-blue-400/5 to-purple-400/5 rounded-full blur-2xl animate-pulse" style={{ animationDelay: '2s' }}></div>
             </div>
         </div>
     )

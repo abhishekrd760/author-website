@@ -2,6 +2,7 @@
 // This will need to be updated with your actual database UUIDs
 
 import { createClient } from '@supabase/supabase-js'
+import { Book } from '../types/database'
 
 const supabaseUrl = process.env.NEXT_PUBLIC_SUPABASE_URL!
 const supabaseServiceKey = process.env.SUPABASE_SERVICE_ROLE_KEY!
@@ -31,7 +32,7 @@ export async function getBookIdMapping(): Promise<Record<string, string>> {
         // For now, let's assume the database books are in the same order as frontend books
         const mapping: Record<string, string> = {}
 
-        books.forEach((book: any, index: number) => {
+        books.forEach((book: Book, index: number) => {
             const frontendId = (index + 1).toString()
             mapping[frontendId] = book.id
         })

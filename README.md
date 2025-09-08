@@ -1,13 +1,19 @@
-# Jane Doe Author Website
+# 🌟 Cosmic Author Website
 
-A modern, full-stack author website built with Next.js, featuring book showcases, reader reviews, contact forms, and an admin dashboard.
+A modern, cosmic-themed author website built with Next.js 15, featuring stunning 3D animations, visitor tracking, and a complete admin dashboard. Experience the intersection of spirituality and technology with cosmic cursors, floating books, and ethereal backgrounds.
 
-## 🚀 Features
+## ✨ Features
 
-### Public Features
-- **Hero Landing Page** - Animated introduction with call-to-action buttons
-- **About Page** - Author biography with achievement timeline
-- **Books Showcase** - Grid layout with book covers, descriptions, and purchase links
+### 🌌 Cosmic Experience
+- **Custom Cosmic Cursor** - Interactive cursor with glow effects and perfect positioning
+- **3D Floating Books** - Animated book covers with physics-based movement
+- **Cosmic Background** - Animated starfield with particle effects
+- **Spiritual Typography** - Custom fonts with cosmic gradients and animations
+
+### 📚 Public Features
+- **Hero Landing Page** - Cosmic-themed introduction with animated elements
+- **About Page** - Author journey with consciousness philosophy and cosmic design
+- **Books Showcase** - 3D book gallery with hover effects and detailed pages
 - **Individual Book Pages** - Detailed book information with review system
 - **Reviews System** - Readers can leave reviews and ratings without registration
 - **Contact Form** - Email integration with auto-replies

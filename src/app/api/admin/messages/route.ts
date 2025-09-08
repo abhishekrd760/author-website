@@ -23,7 +23,7 @@ export async function GET(request: NextRequest) {
         const searchParams = request.nextUrl.searchParams
         const page = parseInt(searchParams.get('page') || '1')
         const limit = parseInt(searchParams.get('limit') || '10')
-        const filter = searchParams.get('filter') || 'all'
+        const filter = (searchParams.get('filter') || 'all') as 'all' | 'unread' | 'read' | 'replied'
 
         const result = await adminContactMessages.getMessages(page, limit, filter)
 

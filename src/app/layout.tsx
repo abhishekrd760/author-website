@@ -3,7 +3,9 @@ import { Geist, Geist_Mono, Noto_Sans_JP } from "next/font/google";
 import "./globals.css";
 import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
-import Floating3DBooks from "@/components/Floating3DBooks";
+import CosmicBackground from "@/components/CosmicBackground";
+import CosmicCursor from "@/components/CosmicCursor";
+import LoadingScreen from "@/components/LoadingScreen";
 import PageTransition from "@/components/PageTransition";
 
 const geistSans = Geist({
@@ -44,9 +46,11 @@ export default function RootLayout({
       <body
         className={`${geistSans.variable} ${geistMono.variable} ${notoSansJP.variable} antialiased min-h-screen flex flex-col`}
       >
-        <Floating3DBooks />
+        <LoadingScreen />
+        <CosmicBackground />
+        <CosmicCursor />
         <Navbar />
-        <main className="flex-grow">
+        <main className="flex-grow relative z-10">
           <PageTransition>
             {children}
           </PageTransition>

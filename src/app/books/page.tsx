@@ -6,15 +6,15 @@ import { Book } from '@/types/database'
 import Image from 'next/image'
 import Link from 'next/link'
 
-// Function to generate random book covers (same as FeaturedBooks)
+// Function to generate cosmic book covers
 const getRandomBookCover = (title: string, index: number) => {
     const colors = [
-        { bg: '#1a1a1a', accent: '#8B5CF6' }, // Dark gray with purple accent
-        { bg: '#0f0f0f', accent: '#10B981' }, // Very dark with emerald
-        { bg: '#2d1b69', accent: '#F59E0B' }, // Dark purple with amber
-        { bg: '#1e3a8a', accent: '#EC4899' }, // Dark blue with pink
-        { bg: '#7c2d12', accent: '#06B6D4' }, // Dark red with cyan
-        { bg: '#064e3b', accent: '#F97316' }  // Dark green with orange
+        { bg: '#0f1419', accent: '#8B5CF6' }, // Deep space with purple
+        { bg: '#1a0b2e', accent: '#10B981' }, // Dark purple with emerald
+        { bg: '#2d1b69', accent: '#F59E0B' }, // Cosmic purple with amber
+        { bg: '#1e3a8a', accent: '#EC4899' }, // Deep blue with pink
+        { bg: '#7c2d12', accent: '#06B6D4' }, // Cosmic red with cyan
+        { bg: '#064e3b', accent: '#F97316' }  // Deep teal with orange
     ]
 
     const color = colors[index % colors.length]
@@ -35,52 +35,52 @@ const getRandomBookCover = (title: string, index: number) => {
   `)}`
 }
 
-// Hardcoded books data that will always be available
+// Cosmic consciousness books collection
 const hardcodedBooks: Book[] = [
     {
         id: '1',
         author_id: '1',
-        title: 'The Midnight Garden',
-        description: 'A haunting tale of mystery and romance set in Victorian England. When Sarah inherits her grandmother\'s estate, she discovers secrets that have been buried for generations. As she explores the sprawling mansion and its mysterious gardens, she uncovers a love story that transcends time itself.',
+        title: 'Beyond Time: A Journey into Consciousness',
+        description: 'A transformative exploration of consciousness beyond the boundaries of linear time. Discover how to access higher dimensions of awareness and unlock the infinite potential that lies dormant within your soul. This book bridges ancient wisdom with quantum physics, revealing the true nature of reality.',
         cover_image_url: '/images/book1-cover.jpg',
         publication_date: '2023-03-15',
-        buy_link: 'https://amazon.com/midnight-garden'
+        buy_link: 'https://amazon.com/beyond-time-consciousness'
     },
     {
         id: '2',
         author_id: '1',
-        title: 'Whispers in the Wind',
-        description: 'An epic fantasy adventure that follows a young mage on her quest to save her kingdom from an ancient evil. Magic, friendship, and courage collide in this unforgettable story. With breathtaking world-building and characters you\'ll fall in love with, this is fantasy at its finest.',
+        title: 'Cosmic Awakening: The Science of Spirit',
+        description: 'A groundbreaking synthesis of mystical experiences and scientific understanding. Journey through the quantum field of pure possibility as you learn to navigate multiple dimensions of reality. This book offers practical techniques for transcending ordinary consciousness and stepping into your cosmic nature.',
         cover_image_url: '/images/book2-cover.jpg',
         publication_date: '2022-11-08',
-        buy_link: 'https://amazon.com/whispers-wind'
+        buy_link: 'https://amazon.com/cosmic-awakening'
     },
     {
         id: '3',
         author_id: '1',
-        title: 'City of Dreams',
-        description: 'A contemporary romance set in bustling New York City. Two ambitious professionals find love in the most unexpected places while chasing their dreams. This heartwarming story explores themes of ambition, love, and finding balance in a fast-paced world.',
+        title: 'The Infinite Field: Meditation Beyond Mind',
+        description: 'Dive deep into the vast ocean of consciousness that exists beyond thought and emotion. This profound guide teaches advanced meditation techniques for accessing states of pure awareness, where time dissolves and infinite wisdom emerges. Perfect for serious seekers of truth.',
         cover_image_url: '/images/book3-cover.jpg',
         publication_date: '2024-01-20',
-        buy_link: 'https://amazon.com/city-dreams'
+        buy_link: 'https://amazon.com/infinite-field'
     },
     {
         id: '4',
         author_id: '1',
-        title: 'Shadows of the Past',
-        description: 'A psychological thriller that will keep you on the edge of your seat. Detective Lisa Morgan must confront her own demons while hunting a serial killer who seems to know her every move. Dark secrets and unexpected twists await in this gripping tale.',
+        title: 'Quantum Hearts: Love in the Cosmic Dance',
+        description: 'Explore love as the fundamental force that binds the universe together. This beautiful work reveals how consciousness and love are one and the same, showing readers how to embody divine love in everyday life. A spiritual romance with the cosmos itself.',
         cover_image_url: '/images/book4-cover.jpg',
         publication_date: '2023-08-12',
-        buy_link: 'https://amazon.com/shadows-past'
+        buy_link: 'https://amazon.com/quantum-hearts'
     },
     {
         id: '5',
         author_id: '1',
-        title: 'The Ocean\'s Secret',
-        description: 'A magical realism novel about a marine biologist who discovers that mermaids are real. As she delves deeper into their world, she must choose between her scientific career and protecting their ancient secrets. A beautiful tale of discovery and wonder.',
+        title: 'Starseeds: Awakening to Your Cosmic Origins',
+        description: 'A profound journey into the understanding that we are cosmic beings having a human experience. Discover your star origins, learn to communicate with your higher self, and remember why you chose to incarnate on Earth at this pivotal time in human evolution.',
         cover_image_url: '/images/book5-cover.jpg',
         publication_date: '2023-12-05',
-        buy_link: 'https://amazon.com/oceans-secret'
+        buy_link: 'https://amazon.com/starseeds-cosmic-origins'
     }
 ]
 
@@ -104,30 +104,38 @@ const Books = () => {
 
     if (loading) {
         return (
-            <div className="min-h-screen bg-gray-900">
+            <div className="min-h-screen relative overflow-hidden">
+                {/* Cosmic Pattern Background */}
+                <div className="absolute inset-0 opacity-5">
+                    <div className="absolute inset-0" style={{
+                        backgroundImage: `url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cg fill='%23ffffff' fill-opacity='0.1'%3E%3Cpath d='M36 34v-4h-2v4h-4v2h4v4h2v-4h4v-2h-4zm0-30V0h-2v4h-4v2h4v4h2V6h4V4h-4zM6 34v-4H4v4H0v2h4v4h2v-4h4v-2H6zM6 4V0H4v4H0v2h4v4h2V6h4V4H6z'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E")`,
+                        backgroundSize: '60px 60px'
+                    }}></div>
+                </div>
+
                 {/* Hero Section */}
-                <section className="py-20 bg-gradient-to-r from-gray-800 to-gray-900 text-white">
+                <section className="py-20 cosmic-gradient text-white relative">
                     <div className="container-custom text-center">
-                        <h1 className="text-4xl lg:text-6xl font-bold mb-6">My Books</h1>
-                        <p className="text-xl lg:text-2xl text-gray-300 max-w-3xl mx-auto">
-                            Explore the collection of stories that have captivated readers worldwide
+                        <h1 className="text-4xl lg:text-6xl font-extralight tracking-wide mb-6 text-cosmic">Cosmic Library</h1>
+                        <p className="text-xl lg:text-2xl text-white/80 max-w-3xl mx-auto font-light">
+                            Discover books that transcend ordinary reality and awaken cosmic consciousness
                         </p>
                     </div>
                 </section>
 
                 {/* Loading Books */}
-                <section className="py-16">
+                <section className="py-16 relative z-10">
                     <div className="container-custom">
                         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
                             {[1, 2, 3, 4, 5, 6].map((i) => (
-                                <div key={i} className="bg-gray-800 border border-gray-700 rounded-lg p-6 animate-pulse">
-                                    <div className="aspect-[3/4] bg-gray-700 rounded-lg mb-4"></div>
-                                    <div className="h-6 bg-gray-700 rounded mb-2"></div>
-                                    <div className="h-4 bg-gray-700 rounded mb-2"></div>
-                                    <div className="h-4 bg-gray-700 rounded mb-4 w-3/4"></div>
+                                <div key={i} className="card animate-pulse">
+                                    <div className="aspect-[3/4] bg-white/5 rounded-lg mb-4"></div>
+                                    <div className="h-6 bg-white/5 rounded mb-2"></div>
+                                    <div className="h-4 bg-white/5 rounded mb-2"></div>
+                                    <div className="h-4 bg-white/5 rounded mb-4 w-3/4"></div>
                                     <div className="flex gap-3">
-                                        <div className="h-10 bg-gray-700 rounded flex-1"></div>
-                                        <div className="h-10 bg-gray-700 rounded w-20"></div>
+                                        <div className="h-10 bg-white/5 rounded flex-1"></div>
+                                        <div className="h-10 bg-white/5 rounded w-20"></div>
                                     </div>
                                 </div>
                             ))}
@@ -139,9 +147,46 @@ const Books = () => {
     }
 
     return (
-        <div className="min-h-screen bg-gray-900">
+        <div className="min-h-screen relative overflow-hidden">
+            {/* Cosmic Pattern Background */}
+            <div className="absolute inset-0 opacity-5">
+                <div className="absolute inset-0" style={{
+                    backgroundImage: `url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cg fill='%23ffffff' fill-opacity='0.1'%3E%3Cpath d='M36 34v-4h-2v4h-4v2h4v4h2v-4h4v-2h-4zm0-30V0h-2v4h-4v2h4v4h2V6h4V4h-4zM6 34v-4H4v4H0v2h4v4h2v-4h4v-2H6zM6 4V0H4v4H0v2h4v4h2V6h4V4H6z'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E")`,
+                    backgroundSize: '60px 60px'
+                }}></div>
+            </div>
+
+            {/* Floating Cosmic Elements */}
+            <motion.div
+                animate={{
+                    rotate: 360,
+                    scale: [1, 1.1, 1]
+                }}
+                transition={{
+                    rotate: { duration: 20, repeat: Infinity, ease: "linear" },
+                    scale: { duration: 4, repeat: Infinity, ease: "easeInOut" }
+                }}
+                className="absolute top-40 right-20 text-4xl opacity-20"
+            >
+                📚
+            </motion.div>
+
+            <motion.div
+                animate={{
+                    rotate: -360,
+                    y: [0, -20, 0]
+                }}
+                transition={{
+                    rotate: { duration: 25, repeat: Infinity, ease: "linear" },
+                    y: { duration: 6, repeat: Infinity, ease: "easeInOut" }
+                }}
+                className="absolute bottom-40 left-20 text-3xl opacity-20"
+            >
+                🌌
+            </motion.div>
+
             {/* Hero Section */}
-            <section className="py-20 bg-gradient-to-r from-gray-800 to-gray-900 text-white">
+            <section className="py-20 cosmic-gradient text-white relative">
                 <div className="container-custom">
                     <motion.div
                         initial={{ opacity: 0, y: 30 }}
@@ -149,17 +194,19 @@ const Books = () => {
                         transition={{ duration: 0.8 }}
                         className="text-center"
                     >
-                        <h1 className="text-4xl lg:text-6xl font-bold mb-6">My Books</h1>
-                        <p className="text-xl lg:text-2xl text-gray-300 max-w-3xl mx-auto">
-                            Explore the collection of stories that have captivated readers worldwide.
-                            From mystery to romance, fantasy to contemporary fiction, discover your next favorite read.
+                        <h1 className="text-4xl lg:text-6xl font-extralight tracking-wide mb-6 text-cosmic">Cosmic Library</h1>
+                        <p className="text-xl lg:text-2xl text-white/80 max-w-3xl mx-auto mb-4 font-light">
+                            Books that bridge the gap between science and spirit, reality and consciousness
+                        </p>
+                        <p className="text-lg text-white/70 font-light tracking-wide">
+                            Each book is a doorway to expanded awareness
                         </p>
                     </motion.div>
                 </div>
             </section>
 
             {/* Books Grid */}
-            <section className="py-16">
+            <section className="py-16 relative z-10">
                 <div className="container-custom">
                     <motion.div
                         initial={{ opacity: 0, y: 30 }}
@@ -167,9 +214,11 @@ const Books = () => {
                         transition={{ duration: 0.6, delay: 0.3 }}
                         className="text-center mb-12"
                     >
-                        <h2 className="text-3xl lg:text-4xl font-bold mb-4 text-white">Complete Collection</h2>
-                        <p className="text-xl text-gray-300 max-w-2xl mx-auto">
-                            Each book is a unique journey. Click on any title to learn more and read reviews from fellow readers.
+                        <h2 className="text-3xl lg:text-4xl font-extralight tracking-wide mb-4 text-white">
+                            The <span className="text-cosmic">Consciousness</span> Collection
+                        </h2>
+                        <p className="text-xl text-white/70 max-w-2xl mx-auto font-light">
+                            Five transformative journeys into the infinite realms of cosmic awareness
                         </p>
                     </motion.div>
 
@@ -180,10 +229,10 @@ const Books = () => {
                                 initial={{ opacity: 0, y: 50 }}
                                 animate={{ opacity: 1, y: 0 }}
                                 transition={{ duration: 0.6, delay: 0.5 + index * 0.1 }}
-                                className="bg-gray-800 border border-gray-700 rounded-lg p-6 group hover:shadow-2xl hover:shadow-purple-500/20 transition-all duration-300"
+                                className="card group hover:shadow-2xl hover:shadow-purple-500/20 transition-all duration-300"
                             >
                                 {/* Book Cover */}
-                                <div className="aspect-[3/4] overflow-hidden rounded-lg mb-6 bg-gray-700 relative">
+                                <div className="aspect-[3/4] overflow-hidden rounded-lg mb-6 bg-white/5 relative">
                                     <Image
                                         src={getRandomBookCover(book.title, index)}
                                         alt={book.title}
@@ -193,22 +242,25 @@ const Books = () => {
                                     />
 
                                     {/* Overlay with publication date */}
-                                    <div className="absolute top-4 right-4 bg-black/70 text-white px-3 py-1 rounded-full text-sm">
+                                    <div className="absolute top-4 right-4 bg-black/70 text-white px-3 py-1 rounded-full text-sm font-light">
                                         {new Date(book.publication_date).getFullYear()}
                                     </div>
+
+                                    {/* Cosmic glow overlay */}
+                                    <div className="absolute inset-0 bg-gradient-to-t from-purple-900/30 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
                                 </div>
 
                                 {/* Book Info */}
                                 <div className="space-y-4">
-                                    <h3 className="text-xl font-bold text-white group-hover:text-purple-400 transition-colors">
+                                    <h3 className="text-xl font-light text-white group-hover:text-cosmic transition-colors tracking-wide">
                                         {book.title}
                                     </h3>
 
-                                    <p className="text-gray-400 text-sm mb-2">
+                                    <p className="text-purple-300/80 text-sm mb-2 font-light">
                                         Published: {formatDate(book.publication_date)}
                                     </p>
 
-                                    <p className="text-gray-300 line-clamp-4">
+                                    <p className="text-white/70 line-clamp-4 font-light leading-relaxed">
                                         {book.description}
                                     </p>
 
@@ -216,17 +268,17 @@ const Books = () => {
                                     <div className="flex gap-3 pt-4">
                                         <Link
                                             href={`/books/${book.id}`}
-                                            className="bg-gray-700 border border-gray-600 text-gray-300 px-4 py-2 rounded-lg flex-1 text-center hover:bg-gray-600 hover:text-white hover:border-gray-500 transition-colors"
+                                            className="cosmic-button-secondary flex-1 text-center"
                                         >
-                                            Learn More
+                                            Explore Book
                                         </Link>
                                         <a
                                             href={book.buy_link}
                                             target="_blank"
                                             rel="noopener noreferrer"
-                                            className="bg-purple-600 text-white px-6 py-2 rounded-lg hover:bg-purple-700 transition-colors"
+                                            className="cosmic-button px-6"
                                         >
-                                            Buy Now
+                                            Awaken
                                         </a>
                                     </div>
                                 </div>
@@ -234,20 +286,49 @@ const Books = () => {
                         ))}
                     </div>
 
-                    {/* Call to Action */}
+                    {/* Cosmic Call to Action */}
                     <motion.div
                         initial={{ opacity: 0, y: 30 }}
                         animate={{ opacity: 1, y: 0 }}
                         transition={{ duration: 0.6, delay: 1.5 }}
-                        className="text-center mt-16 bg-gradient-to-r from-gray-800 to-gray-900 border border-gray-700 rounded-lg p-8"
+                        className="text-center mt-16 card relative overflow-hidden"
                     >
-                        <h3 className="text-2xl font-bold mb-4 text-white">Can&apos;t decide which book to read first?</h3>
-                        <p className="text-gray-300 mb-6 max-w-2xl mx-auto">
-                            Check out what other readers are saying! Reading reviews can help you find the perfect book to match your mood.
-                        </p>
-                        <Link href="/reviews" className="bg-purple-600 text-white px-8 py-3 rounded-lg hover:bg-purple-700 transition-colors inline-block">
-                            Read Reviews & Recommendations
-                        </Link>
+                        {/* Cosmic Pattern Overlay */}
+                        <div className="absolute inset-0 opacity-10">
+                            <div className="absolute inset-0" style={{
+                                backgroundImage: `url("data:image/svg+xml,%3Csvg width='40' height='40' viewBox='0 0 40 40' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='%23ffffff' fill-opacity='0.1'%3E%3Cpath d='M20 20c0-5.5-4.5-10-10-10s-10 4.5-10 10 4.5 10 10 10 10-4.5 10-10zm10 0c0-5.5-4.5-10-10-10s-10 4.5-10 10 4.5 10 10 10 10-4.5 10-10z'/%3E%3C/g%3E%3C/svg%3E")`,
+                                backgroundSize: '40px 40px'
+                            }}></div>
+                        </div>
+
+                        <div className="relative z-10">
+                            <motion.div
+                                animate={{
+                                    rotate: 360
+                                }}
+                                transition={{
+                                    duration: 20,
+                                    repeat: Infinity,
+                                    ease: "linear"
+                                }}
+                                className="text-4xl mb-4 inline-block"
+                            >
+                                🌟
+                            </motion.div>
+                            <h3 className="text-2xl font-extralight mb-4 text-white tracking-wide">
+                                Ready to <span className="text-cosmic">Transcend</span> Ordinary Reality?
+                            </h3>
+                            <p className="text-white/70 mb-6 max-w-2xl mx-auto font-light leading-relaxed">
+                                Join thousands of awakened souls who have shared their transformational experiences.
+                                Reading cosmic consciousness reviews can guide you to your next evolutionary leap.
+                            </p>
+                            <Link
+                                href="/reviews"
+                                className="cosmic-button inline-block"
+                            >
+                                Explore Consciousness Reviews
+                            </Link>
+                        </div>
                     </motion.div>
                 </div>
             </section>

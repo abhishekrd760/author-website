@@ -1,5 +1,6 @@
 import { createClient } from '@supabase/supabase-js'
 import { mockAPI } from './mockData'
+import { Review, ReviewSubmissionData, ContactMessageSubmissionData } from '../types/database'
 
 // Supabase configuration
 const supabaseUrl = process.env.NEXT_PUBLIC_SUPABASE_URL!
@@ -152,14 +153,14 @@ export const api = {
             } catch (error) {
                 console.error('❌ Supabase error, falling back to mock data:', error)
                 const mockData = await mockAPI.getReviews()
-                return mockData.filter((r: any) => r.book_id === bookId)
+                return mockData.filter((r: Review) => r.book_id === bookId)
             }
         }
         const mockData = await mockAPI.getReviews()
-        return mockData.filter((r: any) => r.book_id === bookId)
+        return mockData.filter((r: Review) => r.book_id === bookId)
     },
 
-    async submitReview(reviewData: any) {
+    async submitReview(reviewData: ReviewSubmissionData) {
         if (supabase) {
             try {
                 const { data, error } = await supabase
@@ -192,7 +193,7 @@ export const api = {
     },
 
     // Contact
-    async submitContactMessage(messageData: any) {
+    async submitContactMessage(messageData: ContactMessageSubmissionData) {
         if (supabase) {
             try {
                 const { data, error } = await supabase

@@ -62,7 +62,8 @@ export const mockContactMessages: ContactMessage[] = [
         subject: 'Book signing event',
         message: 'I loved your latest book! Are you planning any book signing events in New York?',
         created_at: '2024-02-15T10:30:00Z',
-        is_read: false
+        is_read: false,
+        replied: false
     },
     {
         id: '2',
@@ -71,7 +72,8 @@ export const mockContactMessages: ContactMessage[] = [
         subject: 'Writing advice',
         message: 'I am an aspiring writer and would love some advice on getting started.',
         created_at: '2024-02-10T14:20:00Z',
-        is_read: true
+        is_read: true,
+        replied: false
     }
 ]
 
@@ -128,7 +130,8 @@ export const mockAPI = {
             subject: messageData.subject || '',
             message: messageData.message || '',
             created_at: new Date().toISOString(),
-            is_read: false
+            is_read: false,
+            replied: false
         }
         mockContactMessages.unshift(newMessage)
         return newMessage

@@ -41,29 +41,29 @@ export default function AdminLogin() {
     }
 
     return (
-        <div className="min-h-screen bg-gradient-to-br from-gray-900 via-black to-gray-800 flex items-center justify-center p-4">
+        <div className="min-h-screen bg-gradient-to-br from-slate-900 via-purple-900 to-slate-900 flex items-center justify-center p-4">
             <motion.div
                 initial={{ opacity: 0, scale: 0.95 }}
                 animate={{ opacity: 1, scale: 1 }}
                 transition={{ duration: 0.5 }}
-                className="bg-gray-800/50 backdrop-blur-sm border border-gray-700/50 rounded-2xl p-8 w-full max-w-md shadow-2xl"
+                className="card w-full max-w-md"
             >
                 <div className="text-center mb-8">
                     <motion.h1
                         initial={{ opacity: 0, y: -20 }}
                         animate={{ opacity: 1, y: 0 }}
                         transition={{ delay: 0.2 }}
-                        className="text-3xl font-bold text-white mb-2"
+                        className="text-3xl font-extralight text-white mb-2 tracking-wide"
                     >
-                        Admin Login
+                        Cosmic <span className="text-cosmic">Access</span>
                     </motion.h1>
                     <motion.p
                         initial={{ opacity: 0, y: -20 }}
                         animate={{ opacity: 1, y: 0 }}
                         transition={{ delay: 0.3 }}
-                        className="text-gray-400"
+                        className="text-white/60 font-light"
                     >
-                        Access the administration panel
+                        Enter the quantum realm
                     </motion.p>
                 </div>
 
@@ -82,7 +82,7 @@ export default function AdminLogin() {
                             value={username}
                             onChange={(e) => setUsername(e.target.value)}
                             required
-                            className="w-full px-4 py-3 bg-gray-700/50 border border-gray-600 rounded-lg text-white placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent transition-all"
+                            className="w-full px-4 py-3 bg-white/5 border border-purple-400/30 rounded-lg text-white placeholder-white/50 focus:outline-none focus:ring-2 focus:ring-purple-400/50 focus:border-purple-400/50 transition-all backdrop-blur-sm"
                             placeholder="Enter your username"
                         />
                     </motion.div>
@@ -101,7 +101,7 @@ export default function AdminLogin() {
                             value={password}
                             onChange={(e) => setPassword(e.target.value)}
                             required
-                            className="w-full px-4 py-3 bg-gray-700/50 border border-gray-600 rounded-lg text-white placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent transition-all"
+                            className="w-full px-4 py-3 bg-white/5 border border-purple-400/30 rounded-lg text-white placeholder-white/50 focus:outline-none focus:ring-2 focus:ring-purple-400/50 focus:border-purple-400/50 transition-all backdrop-blur-sm"
                             placeholder="Enter your password"
                         />
                     </motion.div>
@@ -122,7 +122,7 @@ export default function AdminLogin() {
                         transition={{ delay: 0.6 }}
                         type="submit"
                         disabled={isLoading}
-                        className="w-full bg-gradient-to-r from-blue-600 to-purple-600 hover:from-blue-700 hover:to-purple-700 disabled:from-gray-600 disabled:to-gray-600 text-white font-semibold py-3 px-6 rounded-lg transition-all duration-300 transform hover:scale-[1.02] disabled:scale-100 disabled:cursor-not-allowed"
+                        className="w-full btn-primary disabled:from-gray-600 disabled:to-gray-600 disabled:scale-100 disabled:cursor-not-allowed font-light"
                     >
                         {isLoading ? (
                             <div className="flex items-center justify-center">
@@ -141,16 +141,18 @@ export default function AdminLogin() {
                     transition={{ delay: 0.8 }}
                     className="mt-8 text-center"
                 >
-                    <p className="text-gray-500 text-sm">
-                        Secure admin access only
+                    <p className="text-white/50 text-sm font-light">
+                        Quantum consciousness access only
                     </p>
                 </motion.div>
             </motion.div>
 
             {/* Background decoration */}
-            <div className="fixed inset-0 -z-10 overflow-hidden">
-                <div className="absolute -top-1/2 -left-1/2 w-full h-full bg-gradient-to-br from-blue-500/10 to-purple-500/10 rounded-full blur-3xl"></div>
-                <div className="absolute -bottom-1/2 -right-1/2 w-full h-full bg-gradient-to-tl from-green-500/10 to-blue-500/10 rounded-full blur-3xl"></div>
+            <div className="fixed inset-0 -z-10 overflow-hidden pointer-events-none">
+                <div className="absolute -top-1/2 -left-1/2 w-full h-full bg-gradient-to-br from-purple-500/10 to-blue-500/10 rounded-full blur-3xl"></div>
+                <div className="absolute -bottom-1/2 -right-1/2 w-full h-full bg-gradient-to-tl from-blue-500/10 to-purple-500/10 rounded-full blur-3xl"></div>
+                <div className="absolute top-1/4 left-1/4 w-96 h-96 bg-gradient-to-r from-purple-400/5 to-blue-400/5 rounded-full blur-2xl animate-pulse"></div>
+                <div className="absolute bottom-1/4 right-1/4 w-96 h-96 bg-gradient-to-l from-blue-400/5 to-purple-400/5 rounded-full blur-2xl animate-pulse" style={{ animationDelay: '2s' }}></div>
             </div>
         </div>
     )
