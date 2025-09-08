@@ -1,0 +1,14 @@
+[build]
+  publish = ".next"
+  command = "npm run build"
+
+[build.environment]
+  NPM_FLAGS = "--prefix=/opt/buildhome/repo"
+
+[[redirects]]
+  from = "/*"
+  to = "/index.html"
+  status = 200
+
+[functions]
+  directory = ".netlify/functions"
