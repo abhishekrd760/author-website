@@ -84,9 +84,9 @@ const Contact = () => {
     }
 
     return (
-        <div className="min-h-screen bg-gray-50">
+        <div className="min-h-screen bg-gray-900 text-gray-100">
             {/* Hero Section */}
-            <section className="py-20 bg-gradient-to-r from-teal-600 to-blue-600 text-white">
+            <section className="py-20 bg-gradient-to-r from-gray-800 to-gray-900 text-white">
                 <div className="container-custom">
                     <motion.div
                         initial={{ opacity: 0, y: 30 }}
@@ -95,7 +95,7 @@ const Contact = () => {
                         className="text-center"
                     >
                         <h1 className="text-4xl lg:text-6xl font-bold mb-6">Get in Touch</h1>
-                        <p className="text-xl lg:text-2xl text-teal-100 max-w-3xl mx-auto">
+                        <p className="text-xl lg:text-2xl text-gray-300 max-w-3xl mx-auto">
                             I&apos;d love to hear from you! Whether you have questions about my books, want to discuss a story,
                             or just want to say hello, don&apos;t hesitate to reach out.
                         </p>
@@ -117,8 +117,8 @@ const Contact = () => {
                                 {submitted ? (
                                     <div className="text-center py-8">
                                         <div className="text-6xl mb-4">✉️</div>
-                                        <h3 className="text-2xl font-bold mb-4 text-green-600">Message Sent!</h3>
-                                        <p className="text-gray-700 mb-6">
+                                        <h3 className="text-2xl font-bold mb-4 text-green-400">Message Sent!</h3>
+                                        <p className="text-gray-300 mb-6">
                                             Thank you for reaching out! I appreciate you taking the time to contact me.
                                             I&apos;ll get back to you as soon as possible, usually within 24-48 hours.
                                         </p>
@@ -131,10 +131,10 @@ const Contact = () => {
                                     </div>
                                 ) : (
                                     <>
-                                        <h2 className="text-3xl font-bold mb-6">Send me a message</h2>
+                                        <h2 className="text-3xl font-bold mb-6 text-white">Send me a message</h2>
 
                                         {error && (
-                                            <div className="bg-red-100 border border-red-400 text-red-700 px-4 py-3 rounded mb-6">
+                                            <div className="bg-red-900/50 border border-red-700 text-red-300 px-4 py-3 rounded mb-6">
                                                 {error}
                                             </div>
                                         )}
@@ -142,7 +142,7 @@ const Contact = () => {
                                         <form onSubmit={handleSubmit} className="space-y-6">
                                             {/* Name */}
                                             <div>
-                                                <label htmlFor="name" className="block text-sm font-medium text-gray-700 mb-2">
+                                                <label htmlFor="name" className="block text-sm font-medium text-gray-300 mb-2">
                                                     Your Name *
                                                 </label>
                                                 <input
@@ -151,7 +151,7 @@ const Contact = () => {
                                                     name="name"
                                                     value={formData.name}
                                                     onChange={handleChange}
-                                                    className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-blue-500 transition-colors"
+                                                    className="w-full px-4 py-3 bg-gray-800 border border-gray-600 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-blue-500 transition-colors text-white placeholder-gray-400"
                                                     placeholder="Enter your full name"
                                                     maxLength={100}
                                                 />
@@ -159,7 +159,7 @@ const Contact = () => {
 
                                             {/* Email */}
                                             <div>
-                                                <label htmlFor="email" className="block text-sm font-medium text-gray-700 mb-2">
+                                                <label htmlFor="email" className="block text-sm font-medium text-gray-300 mb-2">
                                                     Email Address *
                                                 </label>
                                                 <input
@@ -168,7 +168,7 @@ const Contact = () => {
                                                     name="email"
                                                     value={formData.email}
                                                     onChange={handleChange}
-                                                    className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-blue-500 transition-colors"
+                                                    className="w-full px-4 py-3 bg-gray-800 border border-gray-600 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-blue-500 transition-colors text-white placeholder-gray-400"
                                                     placeholder="Enter your email address"
                                                     maxLength={100}
                                                 />
@@ -176,7 +176,7 @@ const Contact = () => {
 
                                             {/* Message */}
                                             <div>
-                                                <label htmlFor="message" className="block text-sm font-medium text-gray-700 mb-2">
+                                                <label htmlFor="message" className="block text-sm font-medium text-gray-300 mb-2">
                                                     Your Message *
                                                 </label>
                                                 <textarea
@@ -185,11 +185,11 @@ const Contact = () => {
                                                     rows={6}
                                                     value={formData.message}
                                                     onChange={handleChange}
-                                                    className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-blue-500 transition-colors"
+                                                    className="w-full px-4 py-3 bg-gray-800 border border-gray-600 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-blue-500 transition-colors text-white placeholder-gray-400"
                                                     placeholder="Share your thoughts, questions, or feedback..."
                                                     maxLength={2000}
                                                 />
-                                                <div className="text-right text-sm text-gray-500 mt-1">
+                                                <div className="text-right text-sm text-gray-400 mt-1">
                                                     {formData.message.length}/2000 characters
                                                 </div>
                                             </div>
@@ -217,47 +217,47 @@ const Contact = () => {
                         >
                             {/* Contact Information */}
                             <div className="card">
-                                <h3 className="text-2xl font-bold mb-6">Other Ways to Connect</h3>
+                                <h3 className="text-2xl font-bold mb-6 text-white">Other Ways to Connect</h3>
 
                                 <div className="space-y-4">
                                     <div className="flex items-center gap-4">
-                                        <div className="w-12 h-12 bg-blue-100 rounded-full flex items-center justify-center">
-                                            <span className="text-blue-600 text-xl">📧</span>
+                                        <div className="w-12 h-12 bg-blue-900/50 rounded-full flex items-center justify-center border border-blue-700">
+                                            <span className="text-blue-400 text-xl">📧</span>
                                         </div>
                                         <div>
-                                            <h4 className="font-semibold">Email</h4>
-                                            <p className="text-gray-600">jane@janedoeauthor.com</p>
+                                            <h4 className="font-semibold text-white">Email</h4>
+                                            <p className="text-gray-400">jane@janedoeauthor.com</p>
                                         </div>
                                     </div>
 
                                     <div className="flex items-center gap-4">
-                                        <div className="w-12 h-12 bg-purple-100 rounded-full flex items-center justify-center">
-                                            <span className="text-purple-600 text-xl">📍</span>
+                                        <div className="w-12 h-12 bg-purple-900/50 rounded-full flex items-center justify-center border border-purple-700">
+                                            <span className="text-purple-400 text-xl">📍</span>
                                         </div>
                                         <div>
-                                            <h4 className="font-semibold">Location</h4>
-                                            <p className="text-gray-600">New York, NY</p>
+                                            <h4 className="font-semibold text-white">Location</h4>
+                                            <p className="text-gray-400">New York, NY</p>
                                         </div>
                                     </div>
 
                                     <div className="flex items-center gap-4">
-                                        <div className="w-12 h-12 bg-green-100 rounded-full flex items-center justify-center">
-                                            <span className="text-green-600 text-xl">⏰</span>
+                                        <div className="w-12 h-12 bg-green-900/50 rounded-full flex items-center justify-center border border-green-700">
+                                            <span className="text-green-400 text-xl">⏰</span>
                                         </div>
                                         <div>
-                                            <h4 className="font-semibold">Response Time</h4>
-                                            <p className="text-gray-600">Usually within 24-48 hours</p>
+                                            <h4 className="font-semibold text-white">Response Time</h4>
+                                            <p className="text-gray-400">Usually within 24-48 hours</p>
                                         </div>
                                     </div>
                                 </div>
 
                                 {/* Social Media */}
-                                <div className="mt-8 pt-6 border-t border-gray-200">
-                                    <h4 className="font-semibold mb-4">Follow me on social media</h4>
+                                <div className="mt-8 pt-6 border-t border-gray-700">
+                                    <h4 className="font-semibold mb-4 text-white">Follow me on social media</h4>
                                     <div className="flex gap-4">
                                         <a
                                             href="https://twitter.com"
-                                            className="w-10 h-10 bg-indigo-500 text-white rounded-full flex items-center justify-center hover:bg-indigo-600 transition-colors"
+                                            className="w-10 h-10 bg-indigo-600 text-white rounded-full flex items-center justify-center hover:bg-indigo-500 transition-colors"
                                             aria-label="Twitter"
                                         >
                                             <svg className="w-5 h-5" fill="currentColor" viewBox="0 0 24 24">
@@ -266,7 +266,7 @@ const Contact = () => {
                                         </a>
                                         <a
                                             href="https://instagram.com"
-                                            className="w-10 h-10 bg-pink-500 text-white rounded-full flex items-center justify-center hover:bg-pink-600 transition-colors"
+                                            className="w-10 h-10 bg-pink-600 text-white rounded-full flex items-center justify-center hover:bg-pink-500 transition-colors"
                                             aria-label="Instagram"
                                         >
                                             <svg className="w-5 h-5" fill="currentColor" viewBox="0 0 24 24">
@@ -275,7 +275,7 @@ const Contact = () => {
                                         </a>
                                         <a
                                             href="https://goodreads.com"
-                                            className="w-10 h-10 bg-amber-500 text-white rounded-full flex items-center justify-center hover:bg-amber-600 transition-colors"
+                                            className="w-10 h-10 bg-amber-600 text-white rounded-full flex items-center justify-center hover:bg-amber-500 transition-colors"
                                             aria-label="Goodreads"
                                         >
                                             <svg className="w-5 h-5" fill="currentColor" viewBox="0 0 24 24">
@@ -288,36 +288,36 @@ const Contact = () => {
 
                             {/* FAQs */}
                             <div className="card">
-                                <h3 className="text-2xl font-bold mb-6">Frequently Asked Questions</h3>
+                                <h3 className="text-2xl font-bold mb-6 text-white">Frequently Asked Questions</h3>
 
                                 <div className="space-y-6">
                                     <div>
-                                        <h4 className="font-semibold mb-2">Do you respond to all messages?</h4>
-                                        <p className="text-gray-600 text-sm">
+                                        <h4 className="font-semibold mb-2 text-white">Do you respond to all messages?</h4>
+                                        <p className="text-gray-400 text-sm">
                                             I try my best to respond to every message I receive! While I may not be able to reply to
                                             every single message due to volume, I read them all and truly appreciate each one.
                                         </p>
                                     </div>
 
                                     <div>
-                                        <h4 className="font-semibold mb-2">Can I request a book signing or event?</h4>
-                                        <p className="text-gray-600 text-sm">
+                                        <h4 className="font-semibold mb-2 text-white">Can I request a book signing or event?</h4>
+                                        <p className="text-gray-400 text-sm">
                                             Absolutely! I love meeting readers. Please include event details, location, and
                                             expected attendance in your message, and I&apos;ll do my best to accommodate.
                                         </p>
                                     </div>
 
                                     <div>
-                                        <h4 className="font-semibold mb-2">Do you accept manuscript reviews?</h4>
-                                        <p className="text-gray-600 text-sm">
+                                        <h4 className="font-semibold mb-2 text-white">Do you accept manuscript reviews?</h4>
+                                        <p className="text-gray-400 text-sm">
                                             While I&apos;d love to help every aspiring writer, I&apos;m unable to review unpublished manuscripts
                                             due to legal concerns and time constraints. I recommend joining writing groups and workshops!
                                         </p>
                                     </div>
 
                                     <div>
-                                        <h4 className="font-semibold mb-2">When will your next book be released?</h4>
-                                        <p className="text-gray-600 text-sm">
+                                        <h4 className="font-semibold mb-2 text-white">When will your next book be released?</h4>
+                                        <p className="text-gray-400 text-sm">
                                             I&apos;m always working on new stories! Follow me on social media or sign up for my newsletter
                                             to be the first to know about upcoming releases.
                                         </p>
