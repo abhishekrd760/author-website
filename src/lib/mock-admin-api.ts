@@ -3,7 +3,7 @@ const mockAdminUser = {
     id: '1',
     username: 'admin',
     password_hash: '$2b$10$7gNkSqNgngVPdW2/s5GsWuvg2D2AivYDCDPbrOOKNnj.jjsOZHxtC', // admin123
-    full_name: 'Tori Man',
+    full_name: 'Kazutoshi Yoshida',
     role: 'super_admin'
 }
 

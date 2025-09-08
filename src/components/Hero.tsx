@@ -45,7 +45,7 @@ const Hero = () => {
                     <div className="w-18 h-18 bg-pink-400 rounded-full opacity-45 shadow-xl blur-sm"></div>
                 </motion.div>
 
-                {/* Dot 3 - Extra Large Blue - Around Tori Man text */}
+                {/* Dot 3 - Extra Large Blue - Around Kazutoshi Yoshida text */}
                 <motion.div
                     animate={{
                         x: [0, 180, -110, 160, 0],
@@ -185,7 +185,7 @@ const Hero = () => {
                                 Welcome to the World of{' '}
                             </h1>
                             <Text3D
-                                text="Tori Man"
+                                text="Kazutoshi Yoshida"
                                 className="text-4xl lg:text-6xl font-bold leading-tight"
                                 depth={4}
                             />
@@ -227,8 +227,8 @@ const Hero = () => {
                                 transition={{ duration: 0.3 }}
                             >
                                 <Image
-                                    src="/images/chor.jpeg"
-                                    alt="Tori Man - Author"
+                                    src="/images/chor.jpg"
+                                    alt="Kazutoshi Yoshida - Author"
                                     width={500}
                                     height={500}
                                     className="w-full h-full object-cover object-top"

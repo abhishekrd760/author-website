@@ -25,12 +25,12 @@ const notoSansJP = Noto_Sans_JP({
 });
 
 export const metadata: Metadata = {
-  title: "Tori Man - Author",
-  description: "Official website of bestselling author Tori Man. Discover her latest books, read reviews, and connect with the author.",
-  keywords: "Tori Man, author, books, fiction, romance, fantasy, bestselling",
+  title: "Kazutoshi Yoshida - Author",
+  description: "Official website of bestselling author Kazutoshi Yoshida. Discover his latest books, read reviews, and connect with the author.",
+  keywords: "Kazutoshi Yoshida, author, books, fiction, romance, fantasy, bestselling",
   openGraph: {
-    title: "Tori Man - Author",
-    description: "Official website of bestselling author Tori Man",
+    title: "Kazutoshi Yoshida - Author",
+    description: "Official website of bestselling author Kazutoshi Yoshida",
     type: "website",
     locale: "en_US",
   },

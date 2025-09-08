@@ -93,7 +93,7 @@ const About = () => {
                                 <div className="absolute -bottom-2 -right-2 w-6 h-6 border-b-2 border-r-2 border-purple-400"></div>
 
                                 <Image
-                                    src="/images/chor.jpeg"
+                                    src="/images/chor.jpg"
                                     alt="Beyond Time - Author"
                                     width={500}
                                     height={500}

@@ -7,7 +7,7 @@ const Footer = () => {
                 <div className="grid grid-cols-1 md:grid-cols-4 gap-8">
                     {/* Author Info */}
                     <div className="md:col-span-2">
-                        <h3 className="text-2xl font-bold mb-4">Tori Man</h3>
+                        <h3 className="text-2xl font-bold mb-4">Kazutoshi Yoshida</h3>
                         <p className="text-gray-300 mb-4 max-w-md">
                             Bestselling author of captivating fiction novels. Follow my journey and discover stories that will touch your heart.
                         </p>
@@ -52,7 +52,7 @@ const Footer = () => {
                 </div>
 
                 <div className="border-t border-gray-700 mt-8 pt-8 text-center text-gray-400">
-                    <p>&copy; {new Date().getFullYear()} Tori Man. All rights reserved.</p>
+                    <p>&copy; {new Date().getFullYear()} Kazutoshi Yoshida. All rights reserved.</p>
                 </div>
             </div>
         </footer>

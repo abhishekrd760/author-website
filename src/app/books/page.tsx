@@ -29,7 +29,7 @@ const getRandomBookCover = (title: string, index: number) => {
         <tspan x="150" dy="0">${title.split(' ').slice(0, 2).join(' ')}</tspan>
         ${title.split(' ').length > 2 ? `<tspan x="150" dy="25">${title.split(' ').slice(2).join(' ')}</tspan>` : ''}
       </text>
-      <text x="150" y="250" text-anchor="middle" fill="${color.accent}" font-family="Arial, sans-serif" font-size="14">Tori Man</text>
+      <text x="150" y="250" text-anchor="middle" fill="${color.accent}" font-family="Arial, sans-serif" font-size="14">Kazutoshi Yoshida</text>
       <rect x="40" y="340" width="220" height="2" fill="${color.accent}"/>
     </svg>
   `)}`
