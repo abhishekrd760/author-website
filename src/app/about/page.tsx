@@ -18,7 +18,7 @@ const About = () => {
             {/* Cosmic Pattern Background */}
             <div className="absolute inset-0 opacity-10">
                 <div className="absolute inset-0" style={{
-                    backgroundImage: `url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cg fill='%23ffffff' fill-opacity='0.1'%3E%3Cpath d='M36 34v-4h-2v4h-4v2h4v4h2v-4h4v-2h-4zm0-30V0h-2v4h-4v2h4v4h2V6h4V4h-4zM6 34v-4H4v4H0v2h4v4h2v-4h4v-2H6zM6 4V0H4v4H0v2h4v4h2V6h4V4H6z'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E")`,
+                    backgroundImage: `url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cg fill='%23ffffff' fill-opacity='0.08'%3E%3Cpath d='M36 34v-4h-2v4h-4v2h4v4h2v-4h4v-2h-4zm0-30V0h-2v4h-4v2h4v4h2V6h4V4h-4zM6 34v-4H4v4H0v2h4v4h2v-4h4v-2H6zM6 4V0H4v4H0v2h4v4h2V6h4V4H6zM50 50v-2h-2v2h-2v2h2v2h2v-2h2v-2h-2zM20 10v-2h-2v2h-2v2h2v2h2v-2h2v-2h-2zM45 15v-2h-2v2h-2v2h2v2h2v-2h2v-2h-2zM10 45v-2h-2v2h-2v2h2v2h2v-2h2v-2h-2zM30 20v-2h-2v2h-2v2h2v2h2v-2h2v-2h-2zM40 40v-2h-2v2h-2v2h2v2h2v-2h2v-2h-2zM15 25v-2h-2v2h-2v2h2v2h2v-2h2v-2h-2zM55 5v-2h-2v2h-2v2h2v2h2v-2h2v-2h-2zM25 55v-2h-2v2h-2v2h2v2h2v-2h2v-2h-2zM5 15v-2h-2v2H1v2h2v2h2v-2h2v-2H5zM35 45v-2h-2v2h-2v2h2v2h2v-2h2v-2h-2zM50 25v-2h-2v2h-2v2h2v2h2v-2h2v-2h-2zM12 35v-2h-2v2h-2v2h2v2h2v-2h2v-2h-2zM28 8v-2h-2v2h-2v2h2v2h2v-2h2v-2h-2zM42 52v-2h-2v2h-2v2h2v2h2v-2h2v-2h-2zM8 50v-2H6v2H4v2h2v2h2v-2h2v-2H8zM52 12v-2h-2v2h-2v2h2v2h2v-2h2v-2h-2zM18 42v-2h-2v2h-2v2h2v2h2v-2h2v-2h-2zM38 18v-2h-2v2h-2v2h2v2h2v-2h2v-2h-2zM22 28v-2h-2v2h-2v2h2v2h2v-2h2v-2h-2zM48 38v-2h-2v2h-2v2h2v2h2v-2h2v-2h-2zM2 22v-2H0v2H-2v2h2v2h2v-2h2v-2H2zM32 32v-2h-2v2h-2v2h2v2h2v-2h2v-2h-2zM58 28v-2h-2v2h-2v2h2v2h2v-2h2v-2h-2zM14 2v-2h-2v2h-2v2h2v2h2v-2h2v-2h-2zM26 48v-2h-2v2h-2v2h2v2h2v-2h2v-2h-2zM44 8v-2h-2v2h-2v2h2v2h2v-2h2v-2h-2zM6 28v-2H4v2H2v2h2v2h2v-2h2v-2H6zM54 42v-2h-2v2h-2v2h2v2h2v-2h2v-2h-2zM16 12v-2h-2v2h-2v2h2v2h2v-2h2v-2h-2zM34 58v-2h-2v2h-2v2h2v2h2v-2h2v-2h-2zM24 16v-2h-2v2h-2v2h2v2h2v-2h2v-2h-2zM46 22v-2h-2v2h-2v2h2v2h2v-2h2v-2h-2zM4 38v-2H2v2H0v2h2v2h2v-2h2v-2H4zM56 18v-2h-2v2h-2v2h2v2h2v-2h2v-2h-2zM12 52v-2h-2v2h-2v2h2v2h2v-2h2v-2h-2zM28 2v-2h-2v2h-2v2h2v2h2v-2h2v-2h-2zM40 48v-2h-2v2h-2v2h2v2h2v-2h2v-2h-2zM8 8v-2H6v2H4v2h2v2h2v-2h2v-2H8zM52 32v-2h-2v2h-2v2h2v2h2v-2h2v-2h-2zM18 58v-2h-2v2h-2v2h2v2h2v-2h2v-2h-2zM30 12v-2h-2v2h-2v2h2v2h2v-2h2v-2h-2zM42 28v-2h-2v2h-2v2h2v2h2v-2h2v-2h-2zM2 48v-2H0v2H-2v2h2v2h2v-2h2v-2H2zM58 8v-2h-2v2h-2v2h2v2h2v-2h2v-2h-2zM10 18v-2h-2v2h-2v2h2v2h2v-2h2v-2h-2zM38 38v-2h-2v2h-2v2h2v2h2v-2h2v-2h-2zM22 4v-2h-2v2h-2v2h2v2h2v-2h2v-2h-2zM48 58v-2h-2v2h-2v2h2v2h2v-2h2v-2h-2zM6 42v-2H4v2H2v2h2v2h2v-2h2v-2H6zM54 2v-2h-2v2h-2v2h2v2h2v-2h2v-2h-2zM14 28v-2h-2v2h-2v2h2v2h2v-2h2v-2h-2zM26 38v-2h-2v2h-2v2h2v2h2v-2h2v-2h-2zM44 12v-2h-2v2h-2v2h2v2h2v-2h2v-2h-2zM1 30v-2h-2v2h-2v2h2v2h2v-2h2v-2H1zM53 20v-2h-2v2h-2v2h2v2h2v-2h2v-2h-2zM19 50v-2h-2v2h-2v2h2v2h2v-2h2v-2h-2zM41 6v-2h-2v2h-2v2h2v2h2v-2h2v-2h-2zM7 20v-2h-2v2h-2v2h2v2h2v-2h2v-2H7zM49 30v-2h-2v2h-2v2h2v2h2v-2h2v-2h-2zM33 50v-2h-2v2h-2v2h2v2h2v-2h2v-2h-2zM11 6v-2h-2v2h-2v2h2v2h2v-2h2v-2h-2zM57 40v-2h-2v2h-2v2h2v2h2v-2h2v-2h-2zM29 16v-2h-2v2h-2v2h2v2h2v-2h2v-2h-2zM47 46v-2h-2v2h-2v2h2v2h2v-2h2v-2h-2zM3 40v-2h-2v2h-2v2h2v2h2v-2h2v-2H3zM51 10v-2h-2v2h-2v2h2v2h2v-2h2v-2h-2zM17 30v-2h-2v2h-2v2h2v2h2v-2h2v-2h-2zM39 20v-2h-2v2h-2v2h2v2h2v-2h2v-2h-2zM9 50v-2h-2v2h-2v2h2v2h2v-2h2v-2H9zM55 0v-2h-2v2h-2v2h2v2h2v-2h2v-2h-2zM27 40v-2h-2v2h-2v2h2v2h2v-2h2v-2h-2zM45 16v-2h-2v2h-2v2h2v2h2v-2h2v-2h-2zM13 10v-2h-2v2h-2v2h2v2h2v-2h2v-2h-2zM59 50v-2h-2v2h-2v2h2v2h2v-2h2v-2h-2zM31 26v-2h-2v2h-2v2h2v2h2v-2h2v-2h-2zM49 36v-2h-2v2h-2v2h2v2h2v-2h2v-2h-2zM5 10v-2h-2v2h-2v2h2v2h2v-2h2v-2H5zM53 50v-2h-2v2h-2v2h2v2h2v-2h2v-2h-2z'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E")`,
                     backgroundSize: '60px 60px'
                 }}></div>
             </div>
@@ -52,6 +52,247 @@ const About = () => {
                 ॐ
             </motion.div>
 
+            {/* Additional Floating Stars */}
+            <motion.div
+                animate={{
+                    rotate: 180,
+                    scale: [1, 1.2, 1],
+                    y: [0, -10, 0]
+                }}
+                transition={{
+                    rotate: { duration: 15, repeat: Infinity, ease: "linear" },
+                    scale: { duration: 3, repeat: Infinity, ease: "easeInOut" },
+                    y: { duration: 4, repeat: Infinity, ease: "easeInOut" }
+                }}
+                className="absolute top-32 left-16 text-3xl opacity-15"
+            >
+                ★
+            </motion.div>
+
+            <motion.div
+                animate={{
+                    rotate: -180,
+                    scale: [1, 0.8, 1],
+                    x: [0, 15, 0]
+                }}
+                transition={{
+                    rotate: { duration: 18, repeat: Infinity, ease: "linear" },
+                    scale: { duration: 4, repeat: Infinity, ease: "easeInOut" },
+                    x: { duration: 5, repeat: Infinity, ease: "easeInOut" }
+                }}
+                className="absolute top-48 right-32 text-2xl opacity-20"
+            >
+                ✦
+            </motion.div>
+
+            <motion.div
+                animate={{
+                    rotate: 360,
+                    scale: [1, 1.3, 1],
+                    y: [0, 8, 0]
+                }}
+                transition={{
+                    rotate: { duration: 22, repeat: Infinity, ease: "linear" },
+                    scale: { duration: 3.5, repeat: Infinity, ease: "easeInOut" },
+                    y: { duration: 4.5, repeat: Infinity, ease: "easeInOut" }
+                }}
+                className="absolute top-64 left-1/4 text-4xl opacity-10"
+            >
+                ✧
+            </motion.div>
+
+            <motion.div
+                animate={{
+                    rotate: -360,
+                    scale: [1, 0.7, 1],
+                    x: [0, -12, 0]
+                }}
+                transition={{
+                    rotate: { duration: 16, repeat: Infinity, ease: "linear" },
+                    scale: { duration: 4.2, repeat: Infinity, ease: "easeInOut" },
+                    x: { duration: 3.8, repeat: Infinity, ease: "easeInOut" }
+                }}
+                className="absolute top-80 right-1/3 text-2xl opacity-18"
+            >
+                ✩
+            </motion.div>
+
+            <motion.div
+                animate={{
+                    rotate: 270,
+                    scale: [1, 1.4, 1],
+                    y: [0, -6, 0]
+                }}
+                transition={{
+                    rotate: { duration: 19, repeat: Infinity, ease: "linear" },
+                    scale: { duration: 3.8, repeat: Infinity, ease: "easeInOut" },
+                    y: { duration: 4.2, repeat: Infinity, ease: "easeInOut" }
+                }}
+                className="absolute top-96 left-12 text-3xl opacity-12"
+            >
+                ✪
+            </motion.div>
+
+            <motion.div
+                animate={{
+                    rotate: -270,
+                    scale: [1, 0.9, 1],
+                    x: [0, 10, 0]
+                }}
+                transition={{
+                    rotate: { duration: 21, repeat: Infinity, ease: "linear" },
+                    scale: { duration: 4.5, repeat: Infinity, ease: "easeInOut" },
+                    x: { duration: 3.5, repeat: Infinity, ease: "easeInOut" }
+                }}
+                className="absolute bottom-32 right-16 text-2xl opacity-15"
+            >
+                ✫
+            </motion.div>
+
+            <motion.div
+                animate={{
+                    rotate: 360,
+                    scale: [1, 1.1, 1],
+                    y: [0, 12, 0]
+                }}
+                transition={{
+                    rotate: { duration: 17, repeat: Infinity, ease: "linear" },
+                    scale: { duration: 3.2, repeat: Infinity, ease: "easeInOut" },
+                    y: { duration: 4.8, repeat: Infinity, ease: "easeInOut" }
+                }}
+                className="absolute bottom-48 left-1/3 text-3xl opacity-18"
+            >
+                ✬
+            </motion.div>
+
+            <motion.div
+                animate={{
+                    rotate: -360,
+                    scale: [1, 0.8, 1],
+                    x: [0, -8, 0]
+                }}
+                transition={{
+                    rotate: { duration: 23, repeat: Infinity, ease: "linear" },
+                    scale: { duration: 4.1, repeat: Infinity, ease: "easeInOut" },
+                    x: { duration: 3.9, repeat: Infinity, ease: "easeInOut" }
+                }}
+                className="absolute bottom-64 right-1/4 text-2xl opacity-14"
+            >
+                ✭
+            </motion.div>
+
+            <motion.div
+                animate={{
+                    rotate: 180,
+                    scale: [1, 1.5, 1],
+                    y: [0, -15, 0]
+                }}
+                transition={{
+                    rotate: { duration: 14, repeat: Infinity, ease: "linear" },
+                    scale: { duration: 3.9, repeat: Infinity, ease: "easeInOut" },
+                    y: { duration: 4.1, repeat: Infinity, ease: "easeInOut" }
+                }}
+                className="absolute top-1/2 left-8 text-4xl opacity-8"
+            >
+                ✮
+            </motion.div>
+
+            <motion.div
+                animate={{
+                    rotate: -180,
+                    scale: [1, 0.6, 1],
+                    x: [0, 18, 0]
+                }}
+                transition={{
+                    rotate: { duration: 26, repeat: Infinity, ease: "linear" },
+                    scale: { duration: 4.3, repeat: Infinity, ease: "easeInOut" },
+                    x: { duration: 3.7, repeat: Infinity, ease: "easeInOut" }
+                }}
+                className="absolute top-1/3 right-8 text-2xl opacity-16"
+            >
+                ✯
+            </motion.div>
+
+            <motion.div
+                animate={{
+                    rotate: 360,
+                    scale: [1, 1.2, 1],
+                    y: [0, 9, 0]
+                }}
+                transition={{
+                    rotate: { duration: 20, repeat: Infinity, ease: "linear" },
+                    scale: { duration: 3.6, repeat: Infinity, ease: "easeInOut" },
+                    y: { duration: 4.4, repeat: Infinity, ease: "easeInOut" }
+                }}
+                className="absolute bottom-1/3 left-16 text-3xl opacity-11"
+            >
+                ✰
+            </motion.div>
+
+            <motion.div
+                animate={{
+                    rotate: -360,
+                    scale: [1, 0.85, 1],
+                    x: [0, -14, 0]
+                }}
+                transition={{
+                    rotate: { duration: 24, repeat: Infinity, ease: "linear" },
+                    scale: { duration: 4.0, repeat: Infinity, ease: "easeInOut" },
+                    x: { duration: 4.0, repeat: Infinity, ease: "easeInOut" }
+                }}
+                className="absolute bottom-1/4 right-12 text-2xl opacity-13"
+            >
+                ★
+            </motion.div>
+
+            <motion.div
+                animate={{
+                    rotate: 270,
+                    scale: [1, 1.3, 1],
+                    y: [0, -11, 0]
+                }}
+                transition={{
+                    rotate: { duration: 18, repeat: Infinity, ease: "linear" },
+                    scale: { duration: 3.7, repeat: Infinity, ease: "easeInOut" },
+                    y: { duration: 4.3, repeat: Infinity, ease: "easeInOut" }
+                }}
+                className="absolute top-3/4 left-1/2 text-3xl opacity-9"
+            >
+                ✦
+            </motion.div>
+
+            <motion.div
+                animate={{
+                    rotate: -270,
+                    scale: [1, 0.75, 1],
+                    x: [0, 16, 0]
+                }}
+                transition={{
+                    rotate: { duration: 22, repeat: Infinity, ease: "linear" },
+                    scale: { duration: 4.4, repeat: Infinity, ease: "easeInOut" },
+                    x: { duration: 3.6, repeat: Infinity, ease: "easeInOut" }
+                }}
+                className="absolute top-1/4 right-1/4 text-2xl opacity-17"
+            >
+                ✧
+            </motion.div>
+
+            <motion.div
+                animate={{
+                    rotate: 360,
+                    scale: [1, 1.1, 1],
+                    y: [0, 7, 0]
+                }}
+                transition={{
+                    rotate: { duration: 19, repeat: Infinity, ease: "linear" },
+                    scale: { duration: 3.3, repeat: Infinity, ease: "easeInOut" },
+                    y: { duration: 4.7, repeat: Infinity, ease: "easeInOut" }
+                }}
+                className="absolute bottom-3/4 right-1/2 text-3xl opacity-10"
+            >
+                ✩
+            </motion.div>
+
             {/* Hero Section */}
             <section className="py-20 cosmic-gradient text-white relative">
                 <div className="container-custom relative">
@@ -81,9 +322,8 @@ const About = () => {
                         {/* Author Photo */}
                         <motion.div
                             initial={{ opacity: 0, x: -50 }}
-                            whileInView={{ opacity: 1, x: 0 }}
-                            transition={{ duration: 0.8 }}
-                            viewport={{ once: true }}
+                            animate={{ opacity: 1, x: 0 }}
+                            transition={{ duration: 0.8, delay: 0.2 }}
                             className="relative"
                         >
                             <div className="aspect-square max-w-md mx-auto rounded-2xl overflow-hidden shadow-2xl border border-purple-400/30 relative glow-purple">
@@ -94,7 +334,7 @@ const About = () => {
 
                                 <Image
                                     src="/images/chor.jpg"
-                                    alt="Beyond Time - Author"
+                                    alt="Kazutoshi Yoshida - Author"
                                     width={500}
                                     height={500}
                                     className="w-full h-full object-cover object-top"
@@ -107,13 +347,12 @@ const About = () => {
                         {/* About Text */}
                         <motion.div
                             initial={{ opacity: 0, x: 50 }}
-                            whileInView={{ opacity: 1, x: 0 }}
-                            transition={{ duration: 0.8 }}
-                            viewport={{ once: true }}
+                            animate={{ opacity: 1, x: 0 }}
+                            transition={{ duration: 0.8, delay: 0.4 }}
                             className="space-y-6"
                         >
                             <h2 className="text-3xl lg:text-4xl font-extralight tracking-wide text-white mb-6">
-                                The Journey of <span className="text-cosmic">Consciousness</span>
+                                About <span className="text-cosmic font-semibold">Kazutoshi Yoshida</span>
                             </h2>
 
                             <p className="text-white/80 leading-relaxed font-light text-lg">
@@ -140,9 +379,8 @@ const About = () => {
                     {/* Cosmic Journey Timeline */}
                     <motion.div
                         initial={{ opacity: 0, y: 50 }}
-                        whileInView={{ opacity: 1, y: 0 }}
-                        transition={{ duration: 0.8 }}
-                        viewport={{ once: true }}
+                        animate={{ opacity: 1, y: 0 }}
+                        transition={{ duration: 0.8, delay: 0.6 }}
                         className="card mb-16"
                     >
                         <h3 className="text-3xl font-extralight tracking-wide text-white mb-8 text-center">
@@ -154,9 +392,8 @@ const About = () => {
                                 <motion.div
                                     key={index}
                                     initial={{ opacity: 0, y: 30 }}
-                                    whileInView={{ opacity: 1, y: 0 }}
-                                    transition={{ duration: 0.6, delay: index * 0.1 }}
-                                    viewport={{ once: true }}
+                                    animate={{ opacity: 1, y: 0 }}
+                                    transition={{ duration: 0.6, delay: 0.8 + index * 0.1 }}
                                     className="relative p-6 bg-white/5 rounded-xl border border-white/10 hover:border-purple-400/30 transition-all duration-300 group"
                                 >
                                     <div className="absolute -top-3 -left-3 w-8 h-8 bg-gradient-to-r from-purple-400 to-blue-400 rounded-full flex items-center justify-center text-white text-sm font-light">
@@ -177,9 +414,8 @@ const About = () => {
                     {/* Cosmic Philosophy */}
                     <motion.div
                         initial={{ opacity: 0, y: 50 }}
-                        whileInView={{ opacity: 1, y: 0 }}
-                        transition={{ duration: 0.8 }}
-                        viewport={{ once: true }}
+                        animate={{ opacity: 1, y: 0 }}
+                        transition={{ duration: 0.8, delay: 1.2 }}
                         className="card"
                     >
                         <h3 className="text-3xl font-extralight tracking-wide text-white mb-8 text-center">

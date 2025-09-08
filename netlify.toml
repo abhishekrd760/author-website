@@ -3,7 +3,12 @@
   command = "npm run build"
 
 [build.environment]
-  NPM_FLAGS = "--prefix=/opt/buildhome/repo"
+  NODE_VERSION = "18"
+
+[[redirects]]
+  from = "/api/*"
+  to = "/.netlify/functions/:splat"
+  status = 200
 
 [[redirects]]
   from = "/*"
