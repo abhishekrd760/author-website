@@ -338,6 +338,18 @@ const About = () => {
                                     width={500}
                                     height={500}
                                     className="w-full h-full object-cover object-top"
+                                    unoptimized={true}
+                                    onError={(e) => {
+                                        const target = e.target as HTMLImageElement;
+                                        console.error('Image failed to load:', target.src);
+                                        // Fallback to direct img tag
+                                        target.style.display = 'none';
+                                        const fallbackImg = document.createElement('img');
+                                        fallbackImg.src = '/images/chor.jpg';
+                                        fallbackImg.alt = 'Kazutoshi Yoshida - Author';
+                                        fallbackImg.className = 'w-full h-full object-cover object-top';
+                                        target.parentNode?.appendChild(fallbackImg);
+                                    }}
                                 />
 
                                 <div className="absolute inset-0 bg-gradient-to-t from-purple-900/50 via-transparent to-transparent"></div>

@@ -232,9 +232,14 @@ const Hero = () => {
                                     width={500}
                                     height={500}
                                     className="w-full h-full object-cover object-top"
+                                    unoptimized={true}
                                     onError={(e) => {
                                         const target = e.target as HTMLImageElement;
-                                        target.src = 'data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iNTAwIiBoZWlnaHQ9IjUwMCIgdmlld0JveD0iMCAwIDUwMCA1MDAiIGZpbGw9Im5vbmUiIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyI+CjxyZWN0IHdpZHRoPSI1MDAiIGhlaWdodD0iNTAwIiBmaWxsPSIjRjNGNEY2Ii8+CjxwYXRoIGQ9Ik0yMDAgMjAwSDMwMFYzMDBIMjAwVjIwMFoiIGZpbGw9IiM5Q0E0QUIiLz4KPHN2Zz4K';
+                                        console.error('Hero image failed to load:', target.src);
+                                        // Try to reload the image
+                                        setTimeout(() => {
+                                            target.src = '/images/chor.jpg';
+                                        }, 1000);
                                     }}
                                 />
                             </motion.div>
