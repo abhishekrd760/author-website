@@ -140,7 +140,7 @@ INSERT INTO users (username, password_hash) VALUES
 
 -- Insert admin user (username: 'admin', password: 'admin123')
 INSERT INTO admin_users (username, password_hash, full_name, role) VALUES 
-('admin', '$2b$10$7gNkSqNgngVPdW2/s5GsWuvg2D2AivYDCDPbrOOKNnj.jjsOZHxtC', 'Kazutoshi Yoshida', 'super_admin');
+('admin', '$2b$10$udHJTk8AXEWyP8DWow5VoOR6BQ9euB8VGlsiDjNMLLhigW09Sy6Ge', 'Kazutoshi Yoshida', 'super_admin');
 
 -- Insert sample contact messages
 INSERT INTO contact_messages (name, email, subject, message, is_read) VALUES 
