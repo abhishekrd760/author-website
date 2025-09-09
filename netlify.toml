@@ -5,15 +5,8 @@
 [build.environment]
   NODE_VERSION = "18"
 
-[[redirects]]
-  from = "/api/*"
-  to = "/.netlify/functions/:splat"
-  status = 200
-
+# Let Next.js handle all routing including API routes
 [[redirects]]
   from = "/*"
-  to = "/index.html"
+  to = "/.netlify/functions/___netlify-server-handler"
   status = 200
-
-[functions]
-  directory = ".netlify/functions"
