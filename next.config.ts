@@ -14,6 +14,8 @@ const nextConfig: NextConfig = {
   experimental: {
     optimizePackageImports: ['framer-motion'],
   },
+  // Ensure API routes work on Netlify
+  trailingSlash: false,
 };
 
 export default nextConfig;
