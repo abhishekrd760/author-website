@@ -23,274 +23,292 @@ const About = () => {
                 }}></div>
             </div>
 
-            {/* Floating Cosmic Elements */}
+            {/* Elegant Floating Star Field */}
+            {/* Large Central Stars */}
             <motion.div
                 animate={{
-                    rotate: 360,
-                    scale: [1, 1.1, 1]
+                    rotate: [0, 360],
+                    scale: [1, 1.2, 0.8, 1.1, 1],
+                    x: [0, 20, -15, 10, 0],
+                    y: [0, -25, 15, -10, 0]
                 }}
                 transition={{
-                    rotate: { duration: 20, repeat: Infinity, ease: "linear" },
-                    scale: { duration: 4, repeat: Infinity, ease: "easeInOut" }
+                    rotate: { duration: 25, repeat: Infinity, ease: "linear" },
+                    scale: { duration: 6, repeat: Infinity, ease: "easeInOut" },
+                    x: { duration: 18, repeat: Infinity, ease: "easeInOut" },
+                    y: { duration: 22, repeat: Infinity, ease: "easeInOut" }
                 }}
-                className="absolute top-20 right-20 text-6xl opacity-20"
+                className="absolute top-20 left-1/4 text-5xl opacity-15 text-yellow-200"
+            >
+                ✨
+            </motion.div>
+
+            <motion.div
+                animate={{
+                    rotate: [360, 0],
+                    scale: [1, 0.7, 1.3, 0.9, 1],
+                    x: [0, -30, 20, -10, 0],
+                    y: [0, 20, -30, 15, 0]
+                }}
+                transition={{
+                    rotate: { duration: 30, repeat: Infinity, ease: "linear" },
+                    scale: { duration: 7, repeat: Infinity, ease: "easeInOut" },
+                    x: { duration: 20, repeat: Infinity, ease: "easeInOut" },
+                    y: { duration: 25, repeat: Infinity, ease: "easeInOut" }
+                }}
+                className="absolute top-32 right-1/3 text-4xl opacity-20 text-blue-200"
+            >
+                ⭐
+            </motion.div>
+
+            {/* Medium Stars with Complex Paths */}
+            <motion.div
+                animate={{
+                    rotate: [0, 180, 360],
+                    scale: [1, 1.4, 0.6, 1.2, 1],
+                    x: [0, 25, -20, 15, 0],
+                    y: [0, -18, 22, -12, 0]
+                }}
+                transition={{
+                    rotate: { duration: 20, repeat: Infinity, ease: "easeInOut" },
+                    scale: { duration: 5, repeat: Infinity, ease: "easeInOut" },
+                    x: { duration: 15, repeat: Infinity, ease: "easeInOut" },
+                    y: { duration: 17, repeat: Infinity, ease: "easeInOut" }
+                }}
+                className="absolute top-48 left-16 text-3xl opacity-25 text-purple-300"
+            >
+                *
+            </motion.div>
+
+            <motion.div
+                animate={{
+                    rotate: [360, 180, 0],
+                    scale: [1, 0.8, 1.5, 0.7, 1],
+                    x: [0, -22, 18, -8, 0],
+                    y: [0, 16, -24, 12, 0]
+                }}
+                transition={{
+                    rotate: { duration: 22, repeat: Infinity, ease: "easeInOut" },
+                    scale: { duration: 6, repeat: Infinity, ease: "easeInOut" },
+                    x: { duration: 19, repeat: Infinity, ease: "easeInOut" },
+                    y: { duration: 21, repeat: Infinity, ease: "easeInOut" }
+                }}
+                className="absolute top-64 right-20 text-3xl opacity-18 text-pink-300"
+            >
+                *
+            </motion.div>
+
+            <motion.div
+                animate={{
+                    rotate: [0, 270, 180, 90, 0],
+                    scale: [1, 1.3, 0.5, 1.1, 1],
+                    x: [0, 18, -25, 12, 0],
+                    y: [0, -20, 16, -8, 0]
+                }}
+                transition={{
+                    rotate: { duration: 28, repeat: Infinity, ease: "easeInOut" },
+                    scale: { duration: 8, repeat: Infinity, ease: "easeInOut" },
+                    x: { duration: 16, repeat: Infinity, ease: "easeInOut" },
+                    y: { duration: 20, repeat: Infinity, ease: "easeInOut" }
+                }}
+                className="absolute top-80 left-1/3 text-4xl opacity-12 text-cyan-300"
+            >
+                *
+            </motion.div>
+
+            {/* Small Twinkling Stars */}
+            <motion.div
+                animate={{
+                    rotate: [0, 360],
+                    scale: [1, 1.8, 0.3, 1.2, 1],
+                    opacity: [0.1, 0.4, 0.1, 0.3, 0.1]
+                }}
+                transition={{
+                    rotate: { duration: 15, repeat: Infinity, ease: "linear" },
+                    scale: { duration: 4, repeat: Infinity, ease: "easeInOut" },
+                    opacity: { duration: 3, repeat: Infinity, ease: "easeInOut" }
+                }}
+                className="absolute top-1/4 left-12 text-2xl opacity-20 text-yellow-100"
+            >
+                *
+            </motion.div>
+
+            <motion.div
+                animate={{
+                    rotate: [360, 0],
+                    scale: [1, 0.4, 1.5, 0.6, 1],
+                    opacity: [0.15, 0.5, 0.15, 0.35, 0.15]
+                }}
+                transition={{
+                    rotate: { duration: 18, repeat: Infinity, ease: "linear" },
+                    scale: { duration: 5, repeat: Infinity, ease: "easeInOut" },
+                    opacity: { duration: 4, repeat: Infinity, ease: "easeInOut" }
+                }}
+                className="absolute top-1/3 right-16 text-2xl opacity-18 text-blue-100"
+            >
+                *
+            </motion.div>
+
+            <motion.div
+                animate={{
+                    rotate: [0, 180, 360],
+                    scale: [1, 1.6, 0.2, 1.3, 1],
+                    opacity: [0.12, 0.45, 0.12, 0.28, 0.12]
+                }}
+                transition={{
+                    rotate: { duration: 12, repeat: Infinity, ease: "easeInOut" },
+                    scale: { duration: 3.5, repeat: Infinity, ease: "easeInOut" },
+                    opacity: { duration: 2.5, repeat: Infinity, ease: "easeInOut" }
+                }}
+                className="absolute top-1/2 left-20 text-xl opacity-25 text-purple-100"
+            >
+                *
+            </motion.div>
+
+            <motion.div
+                animate={{
+                    rotate: [360, 180, 0],
+                    scale: [1, 0.5, 1.7, 0.4, 1],
+                    opacity: [0.18, 0.6, 0.18, 0.4, 0.18]
+                }}
+                transition={{
+                    rotate: { duration: 16, repeat: Infinity, ease: "easeInOut" },
+                    scale: { duration: 4.5, repeat: Infinity, ease: "easeInOut" },
+                    opacity: { duration: 3.5, repeat: Infinity, ease: "easeInOut" }
+                }}
+                className="absolute top-2/3 right-12 text-xl opacity-22 text-pink-100"
+            >
+                *
+            </motion.div>
+
+            <motion.div
+                animate={{
+                    rotate: [0, 270, 180, 90, 0],
+                    scale: [1, 1.4, 0.3, 1.1, 1],
+                    opacity: [0.14, 0.5, 0.14, 0.32, 0.14]
+                }}
+                transition={{
+                    rotate: { duration: 20, repeat: Infinity, ease: "easeInOut" },
+                    scale: { duration: 6, repeat: Infinity, ease: "easeInOut" },
+                    opacity: { duration: 4, repeat: Infinity, ease: "easeInOut" }
+                }}
+                className="absolute bottom-32 left-16 text-2xl opacity-20 text-cyan-100"
+            >
+                ✯
+            </motion.div>
+
+            {/* Additional Elegant Stars */}
+            <motion.div
+                animate={{
+                    rotate: [0, 360],
+                    scale: [1, 1.2, 0.8, 1.1, 1],
+                    x: [0, 12, -8, 6, 0],
+                    y: [0, -10, 8, -4, 0],
+                    opacity: [0.2, 0.4, 0.2, 0.35, 0.2]
+                }}
+                transition={{
+                    rotate: { duration: 26, repeat: Infinity, ease: "linear" },
+                    scale: { duration: 5, repeat: Infinity, ease: "easeInOut" },
+                    x: { duration: 14, repeat: Infinity, ease: "easeInOut" },
+                    y: { duration: 16, repeat: Infinity, ease: "easeInOut" },
+                    opacity: { duration: 4, repeat: Infinity, ease: "easeInOut" }
+                }}
+                className="absolute top-40 left-2/3 text-2xl opacity-15 text-indigo-200"
+            >
+                ★
+            </motion.div>
+
+            <motion.div
+                animate={{
+                    rotate: [360, 0],
+                    scale: [1, 0.9, 1.3, 0.7, 1],
+                    x: [0, -14, 10, -6, 0],
+                    y: [0, 12, -16, 8, 0],
+                    opacity: [0.18, 0.42, 0.18, 0.3, 0.18]
+                }}
+                transition={{
+                    rotate: { duration: 19, repeat: Infinity, ease: "linear" },
+                    scale: { duration: 6.5, repeat: Infinity, ease: "easeInOut" },
+                    x: { duration: 17, repeat: Infinity, ease: "easeInOut" },
+                    y: { duration: 19, repeat: Infinity, ease: "easeInOut" },
+                    opacity: { duration: 5, repeat: Infinity, ease: "easeInOut" }
+                }}
+                className="absolute top-56 right-2/3 text-3xl opacity-12 text-violet-200"
+            >
+                ✦
+            </motion.div>
+
+            <motion.div
+                animate={{
+                    rotate: [0, 180, 360],
+                    scale: [1, 1.5, 0.4, 1.2, 1],
+                    x: [0, 16, -12, 8, 0],
+                    y: [0, -14, 18, -6, 0],
+                    opacity: [0.15, 0.48, 0.15, 0.33, 0.15]
+                }}
+                transition={{
+                    rotate: { duration: 23, repeat: Infinity, ease: "easeInOut" },
+                    scale: { duration: 7, repeat: Infinity, ease: "easeInOut" },
+                    x: { duration: 18, repeat: Infinity, ease: "easeInOut" },
+                    y: { duration: 21, repeat: Infinity, ease: "easeInOut" },
+                    opacity: { duration: 4.5, repeat: Infinity, ease: "easeInOut" }
+                }}
+                className="absolute bottom-24 left-2/3 text-2xl opacity-18 text-orange-200"
+            >
+                ✧
+            </motion.div>
+
+            <motion.div
+                animate={{
+                    rotate: [360, 180, 0],
+                    scale: [1, 0.7, 1.4, 0.8, 1],
+                    x: [0, -18, 14, -10, 0],
+                    y: [0, 16, -12, 8, 0],
+                    opacity: [0.2, 0.45, 0.2, 0.35, 0.2]
+                }}
+                transition={{
+                    rotate: { duration: 21, repeat: Infinity, ease: "easeInOut" },
+                    scale: { duration: 6, repeat: Infinity, ease: "easeInOut" },
+                    x: { duration: 20, repeat: Infinity, ease: "easeInOut" },
+                    y: { duration: 18, repeat: Infinity, ease: "easeInOut" },
+                    opacity: { duration: 4.2, repeat: Infinity, ease: "easeInOut" }
+                }}
+                className="absolute bottom-40 right-1/3 text-3xl opacity-14 text-teal-200"
+            >
+                ✩
+            </motion.div>
+
+            {/* Cosmic Symbols with Elegant Movement */}
+            <motion.div
+                animate={{
+                    rotate: [0, 360],
+                    scale: [1, 1.1, 0.9, 1.05, 1],
+                    opacity: [0.1, 0.25, 0.1, 0.2, 0.1]
+                }}
+                transition={{
+                    rotate: { duration: 40, repeat: Infinity, ease: "linear" },
+                    scale: { duration: 8, repeat: Infinity, ease: "easeInOut" },
+                    opacity: { duration: 6, repeat: Infinity, ease: "easeInOut" }
+                }}
+                className="absolute top-16 right-12 text-4xl opacity-15 text-white"
             >
                 ∞
             </motion.div>
 
             <motion.div
                 animate={{
-                    rotate: -360,
-                    scale: [1, 0.9, 1]
+                    rotate: [360, 0],
+                    scale: [1, 0.95, 1.15, 0.85, 1],
+                    opacity: [0.12, 0.28, 0.12, 0.22, 0.12]
                 }}
                 transition={{
-                    rotate: { duration: 25, repeat: Infinity, ease: "linear" },
-                    scale: { duration: 5, repeat: Infinity, ease: "easeInOut" }
+                    rotate: { duration: 35, repeat: Infinity, ease: "linear" },
+                    scale: { duration: 9, repeat: Infinity, ease: "easeInOut" },
+                    opacity: { duration: 7, repeat: Infinity, ease: "easeInOut" }
                 }}
-                className="absolute bottom-20 left-20 text-4xl opacity-20"
+                className="absolute bottom-16 left-12 text-3xl opacity-18 text-white"
             >
                 ॐ
-            </motion.div>
-
-            {/* Additional Floating Stars */}
-            <motion.div
-                animate={{
-                    rotate: 180,
-                    scale: [1, 1.2, 1],
-                    y: [0, -10, 0]
-                }}
-                transition={{
-                    rotate: { duration: 15, repeat: Infinity, ease: "linear" },
-                    scale: { duration: 3, repeat: Infinity, ease: "easeInOut" },
-                    y: { duration: 4, repeat: Infinity, ease: "easeInOut" }
-                }}
-                className="absolute top-32 left-16 text-3xl opacity-15"
-            >
-                ★
-            </motion.div>
-
-            <motion.div
-                animate={{
-                    rotate: -180,
-                    scale: [1, 0.8, 1],
-                    x: [0, 15, 0]
-                }}
-                transition={{
-                    rotate: { duration: 18, repeat: Infinity, ease: "linear" },
-                    scale: { duration: 4, repeat: Infinity, ease: "easeInOut" },
-                    x: { duration: 5, repeat: Infinity, ease: "easeInOut" }
-                }}
-                className="absolute top-48 right-32 text-2xl opacity-20"
-            >
-                ✦
-            </motion.div>
-
-            <motion.div
-                animate={{
-                    rotate: 360,
-                    scale: [1, 1.3, 1],
-                    y: [0, 8, 0]
-                }}
-                transition={{
-                    rotate: { duration: 22, repeat: Infinity, ease: "linear" },
-                    scale: { duration: 3.5, repeat: Infinity, ease: "easeInOut" },
-                    y: { duration: 4.5, repeat: Infinity, ease: "easeInOut" }
-                }}
-                className="absolute top-64 left-1/4 text-4xl opacity-10"
-            >
-                ✧
-            </motion.div>
-
-            <motion.div
-                animate={{
-                    rotate: -360,
-                    scale: [1, 0.7, 1],
-                    x: [0, -12, 0]
-                }}
-                transition={{
-                    rotate: { duration: 16, repeat: Infinity, ease: "linear" },
-                    scale: { duration: 4.2, repeat: Infinity, ease: "easeInOut" },
-                    x: { duration: 3.8, repeat: Infinity, ease: "easeInOut" }
-                }}
-                className="absolute top-80 right-1/3 text-2xl opacity-18"
-            >
-                ✩
-            </motion.div>
-
-            <motion.div
-                animate={{
-                    rotate: 270,
-                    scale: [1, 1.4, 1],
-                    y: [0, -6, 0]
-                }}
-                transition={{
-                    rotate: { duration: 19, repeat: Infinity, ease: "linear" },
-                    scale: { duration: 3.8, repeat: Infinity, ease: "easeInOut" },
-                    y: { duration: 4.2, repeat: Infinity, ease: "easeInOut" }
-                }}
-                className="absolute top-96 left-12 text-3xl opacity-12"
-            >
-                ✪
-            </motion.div>
-
-            <motion.div
-                animate={{
-                    rotate: -270,
-                    scale: [1, 0.9, 1],
-                    x: [0, 10, 0]
-                }}
-                transition={{
-                    rotate: { duration: 21, repeat: Infinity, ease: "linear" },
-                    scale: { duration: 4.5, repeat: Infinity, ease: "easeInOut" },
-                    x: { duration: 3.5, repeat: Infinity, ease: "easeInOut" }
-                }}
-                className="absolute bottom-32 right-16 text-2xl opacity-15"
-            >
-                ✫
-            </motion.div>
-
-            <motion.div
-                animate={{
-                    rotate: 360,
-                    scale: [1, 1.1, 1],
-                    y: [0, 12, 0]
-                }}
-                transition={{
-                    rotate: { duration: 17, repeat: Infinity, ease: "linear" },
-                    scale: { duration: 3.2, repeat: Infinity, ease: "easeInOut" },
-                    y: { duration: 4.8, repeat: Infinity, ease: "easeInOut" }
-                }}
-                className="absolute bottom-48 left-1/3 text-3xl opacity-18"
-            >
-                ✬
-            </motion.div>
-
-            <motion.div
-                animate={{
-                    rotate: -360,
-                    scale: [1, 0.8, 1],
-                    x: [0, -8, 0]
-                }}
-                transition={{
-                    rotate: { duration: 23, repeat: Infinity, ease: "linear" },
-                    scale: { duration: 4.1, repeat: Infinity, ease: "easeInOut" },
-                    x: { duration: 3.9, repeat: Infinity, ease: "easeInOut" }
-                }}
-                className="absolute bottom-64 right-1/4 text-2xl opacity-14"
-            >
-                ✭
-            </motion.div>
-
-            <motion.div
-                animate={{
-                    rotate: 180,
-                    scale: [1, 1.5, 1],
-                    y: [0, -15, 0]
-                }}
-                transition={{
-                    rotate: { duration: 14, repeat: Infinity, ease: "linear" },
-                    scale: { duration: 3.9, repeat: Infinity, ease: "easeInOut" },
-                    y: { duration: 4.1, repeat: Infinity, ease: "easeInOut" }
-                }}
-                className="absolute top-1/2 left-8 text-4xl opacity-8"
-            >
-                ✮
-            </motion.div>
-
-            <motion.div
-                animate={{
-                    rotate: -180,
-                    scale: [1, 0.6, 1],
-                    x: [0, 18, 0]
-                }}
-                transition={{
-                    rotate: { duration: 26, repeat: Infinity, ease: "linear" },
-                    scale: { duration: 4.3, repeat: Infinity, ease: "easeInOut" },
-                    x: { duration: 3.7, repeat: Infinity, ease: "easeInOut" }
-                }}
-                className="absolute top-1/3 right-8 text-2xl opacity-16"
-            >
-                ✯
-            </motion.div>
-
-            <motion.div
-                animate={{
-                    rotate: 360,
-                    scale: [1, 1.2, 1],
-                    y: [0, 9, 0]
-                }}
-                transition={{
-                    rotate: { duration: 20, repeat: Infinity, ease: "linear" },
-                    scale: { duration: 3.6, repeat: Infinity, ease: "easeInOut" },
-                    y: { duration: 4.4, repeat: Infinity, ease: "easeInOut" }
-                }}
-                className="absolute bottom-1/3 left-16 text-3xl opacity-11"
-            >
-                ✰
-            </motion.div>
-
-            <motion.div
-                animate={{
-                    rotate: -360,
-                    scale: [1, 0.85, 1],
-                    x: [0, -14, 0]
-                }}
-                transition={{
-                    rotate: { duration: 24, repeat: Infinity, ease: "linear" },
-                    scale: { duration: 4.0, repeat: Infinity, ease: "easeInOut" },
-                    x: { duration: 4.0, repeat: Infinity, ease: "easeInOut" }
-                }}
-                className="absolute bottom-1/4 right-12 text-2xl opacity-13"
-            >
-                ★
-            </motion.div>
-
-            <motion.div
-                animate={{
-                    rotate: 270,
-                    scale: [1, 1.3, 1],
-                    y: [0, -11, 0]
-                }}
-                transition={{
-                    rotate: { duration: 18, repeat: Infinity, ease: "linear" },
-                    scale: { duration: 3.7, repeat: Infinity, ease: "easeInOut" },
-                    y: { duration: 4.3, repeat: Infinity, ease: "easeInOut" }
-                }}
-                className="absolute top-3/4 left-1/2 text-3xl opacity-9"
-            >
-                ✦
-            </motion.div>
-
-            <motion.div
-                animate={{
-                    rotate: -270,
-                    scale: [1, 0.75, 1],
-                    x: [0, 16, 0]
-                }}
-                transition={{
-                    rotate: { duration: 22, repeat: Infinity, ease: "linear" },
-                    scale: { duration: 4.4, repeat: Infinity, ease: "easeInOut" },
-                    x: { duration: 3.6, repeat: Infinity, ease: "easeInOut" }
-                }}
-                className="absolute top-1/4 right-1/4 text-2xl opacity-17"
-            >
-                ✧
-            </motion.div>
-
-            <motion.div
-                animate={{
-                    rotate: 360,
-                    scale: [1, 1.1, 1],
-                    y: [0, 7, 0]
-                }}
-                transition={{
-                    rotate: { duration: 19, repeat: Infinity, ease: "linear" },
-                    scale: { duration: 3.3, repeat: Infinity, ease: "easeInOut" },
-                    y: { duration: 4.7, repeat: Infinity, ease: "easeInOut" }
-                }}
-                className="absolute bottom-3/4 right-1/2 text-3xl opacity-10"
-            >
-                ✩
             </motion.div>
 
             {/* Hero Section */}

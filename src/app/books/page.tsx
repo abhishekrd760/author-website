@@ -157,32 +157,93 @@ const Books = () => {
             </div>
 
             {/* Floating Cosmic Elements */}
+            {/* Top Right Galaxy */}
             <motion.div
+                className="absolute top-32 right-16 w-24 h-24 opacity-30"
+                animate={{ rotate: 360 }}
+                transition={{ duration: 25, repeat: Infinity, ease: "linear" }}
+            >
+                <svg viewBox="0 0 400 400" className="w-full h-full">
+                    <defs>
+                        <radialGradient id="floatingGalaxy1" cx="50%" cy="50%" r="50%">
+                            <stop offset="0%" stopColor="#8b5cf6" stopOpacity="0.8" />
+                            <stop offset="60%" stopColor="#00bcd4" stopOpacity="0.4" />
+                            <stop offset="100%" stopColor="#1e1b4b" stopOpacity="0.1" />
+                        </radialGradient>
+                    </defs>
+                    <path
+                        d="M200,200 Q210,190 220,200 Q210,210 200,200 Q190,210 180,200 Q190,190 200,200 
+                           M200,200 Q220,180 240,200 Q220,220 200,200 Q180,220 160,200 Q180,180 200,200"
+                        fill="none"
+                        stroke="url(#floatingGalaxy1)"
+                        strokeWidth="2"
+                        opacity="0.6"
+                    />
+                    <ellipse cx="200" cy="200" rx="6" ry="3" fill="url(#floatingGalaxy1)" opacity="0.8" />
+                </svg>
+            </motion.div>
+
+            {/* Bottom Left Star Field */}
+            <motion.div
+                className="absolute bottom-32 left-16 w-32 h-32 opacity-25"
                 animate={{
-                    rotate: 360,
+                    y: [0, -15, 0],
+                    scale: [1, 1.05, 1]
+                }}
+                transition={{
+                    y: { duration: 8, repeat: Infinity, ease: "easeInOut" },
+                    scale: { duration: 6, repeat: Infinity, ease: "easeInOut" }
+                }}
+            >
+                <svg viewBox="0 0 100 100" className="w-full h-full">
+                    <defs>
+                        <radialGradient id="starField1" cx="50%" cy="50%" r="50%">
+                            <stop offset="0%" stopColor="#ffffff" stopOpacity="0.9" />
+                            <stop offset="100%" stopColor="#00bcd4" stopOpacity="0.3" />
+                        </radialGradient>
+                    </defs>
+                    {/* Multiple stars */}
+                    <circle cx="20" cy="25" r="1.5" fill="url(#starField1)" opacity="0.8" />
+                    <circle cx="45" cy="15" r="1" fill="url(#starField1)" opacity="0.6" />
+                    <circle cx="70" cy="30" r="1.2" fill="url(#starField1)" opacity="0.7" />
+                    <circle cx="80" cy="60" r="0.8" fill="url(#starField1)" opacity="0.5" />
+                    <circle cx="35" cy="50" r="1.5" fill="url(#starField1)" opacity="0.9" />
+                    <circle cx="15" cy="70" r="1" fill="url(#starField1)" opacity="0.6" />
+                    <circle cx="60" cy="75" r="1.3" fill="url(#starField1)" opacity="0.8" />
+                    <circle cx="50" cy="40" r="0.9" fill="url(#starField1)" opacity="0.5" />
+                </svg>
+            </motion.div>
+
+            {/* Middle Right Small Galaxy */}
+            <motion.div
+                className="absolute top-1/2 right-8 w-20 h-20 opacity-20"
+                animate={{
+                    rotate: -360,
                     scale: [1, 1.1, 1]
                 }}
                 transition={{
-                    rotate: { duration: 20, repeat: Infinity, ease: "linear" },
-                    scale: { duration: 4, repeat: Infinity, ease: "easeInOut" }
+                    rotate: { duration: 30, repeat: Infinity, ease: "linear" },
+                    scale: { duration: 5, repeat: Infinity, ease: "easeInOut" }
                 }}
-                className="absolute top-40 right-20 text-4xl opacity-20"
             >
-                📚
-            </motion.div>
-
-            <motion.div
-                animate={{
-                    rotate: -360,
-                    y: [0, -20, 0]
-                }}
-                transition={{
-                    rotate: { duration: 25, repeat: Infinity, ease: "linear" },
-                    y: { duration: 6, repeat: Infinity, ease: "easeInOut" }
-                }}
-                className="absolute bottom-40 left-20 text-3xl opacity-20"
-            >
-                🌌
+                <svg viewBox="0 0 400 400" className="w-full h-full">
+                    <defs>
+                        <radialGradient id="floatingGalaxy2" cx="50%" cy="50%" r="50%">
+                            <stop offset="0%" stopColor="#a855f7" stopOpacity="0.7" />
+                            <stop offset="60%" stopColor="#6366f1" stopOpacity="0.3" />
+                            <stop offset="100%" stopColor="#1e1b4b" stopOpacity="0.1" />
+                        </radialGradient>
+                    </defs>
+                    <path
+                        d="M200,200 Q205,195 210,200 Q205,205 200,200 Q195,205 190,200 Q195,195 200,200 
+                           M200,200 Q212,188 224,200 Q212,212 200,200 Q188,212 176,200 Q188,188 200,200"
+                        fill="none"
+                        stroke="url(#floatingGalaxy2)"
+                        strokeWidth="1.5"
+                        opacity="0.5"
+                    />
+                    <ellipse cx="200" cy="200" rx="4" ry="2" fill="url(#floatingGalaxy2)" opacity="0.6" />
+                </svg>
             </motion.div>
 
             {/* Hero Section */}
@@ -302,7 +363,9 @@ const Books = () => {
                         </div>
 
                         <div className="relative z-10">
+                            {/* Fractal Pyramid */}
                             <motion.div
+                                className="w-16 h-16 mx-auto mb-6"
                                 animate={{
                                     rotate: 360
                                 }}
@@ -311,9 +374,41 @@ const Books = () => {
                                     repeat: Infinity,
                                     ease: "linear"
                                 }}
-                                className="text-4xl mb-4 inline-block"
                             >
-                                🌟
+                                <svg viewBox="0 0 100 100" className="w-full h-full">
+                                    <defs>
+                                        <linearGradient id="pyramidGradient1" x1="0%" y1="0%" x2="100%" y2="100%">
+                                            <stop offset="0%" stopColor="#8b5cf6" stopOpacity="0.9" />
+                                            <stop offset="50%" stopColor="#00bcd4" stopOpacity="0.7" />
+                                            <stop offset="100%" stopColor="#a855f7" stopOpacity="0.5" />
+                                        </linearGradient>
+                                        <linearGradient id="pyramidGradient2" x1="0%" y1="0%" x2="100%" y2="100%">
+                                            <stop offset="0%" stopColor="#00bcd4" stopOpacity="0.8" />
+                                            <stop offset="100%" stopColor="#6366f1" stopOpacity="0.4" />
+                                        </linearGradient>
+                                        <linearGradient id="pyramidGradient3" x1="0%" y1="0%" x2="100%" y2="100%">
+                                            <stop offset="0%" stopColor="#a855f7" stopOpacity="0.7" />
+                                            <stop offset="100%" stopColor="#8b5cf6" stopOpacity="0.3" />
+                                        </linearGradient>
+                                    </defs>
+
+                                    {/* Main pyramid */}
+                                    <polygon points="50,15 20,75 80,75" fill="url(#pyramidGradient1)" stroke="#ffffff" strokeWidth="0.5" opacity="0.8" />
+
+                                    {/* Inner pyramid */}
+                                    <polygon points="50,25 30,65 70,65" fill="url(#pyramidGradient2)" stroke="#00bcd4" strokeWidth="0.3" opacity="0.6" />
+
+                                    {/* Core pyramid */}
+                                    <polygon points="50,35 40,55 60,55" fill="url(#pyramidGradient3)" stroke="#8b5cf6" strokeWidth="0.2" opacity="0.4" />
+
+                                    {/* Apex point */}
+                                    <circle cx="50" cy="15" r="2" fill="#ffffff" opacity="0.9" />
+
+                                    {/* Fractal lines */}
+                                    <line x1="50" y1="15" x2="35" y2="45" stroke="#00bcd4" strokeWidth="0.5" opacity="0.5" />
+                                    <line x1="50" y1="15" x2="65" y2="45" stroke="#00bcd4" strokeWidth="0.5" opacity="0.5" />
+                                    <line x1="50" y1="15" x2="50" y2="55" stroke="#8b5cf6" strokeWidth="0.5" opacity="0.6" />
+                                </svg>
                             </motion.div>
                             <h3 className="text-2xl font-extralight mb-4 text-white tracking-wide">
                                 Ready to <span className="text-cosmic">Transcend</span> Ordinary Reality?

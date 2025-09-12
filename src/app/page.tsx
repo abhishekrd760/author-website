@@ -3,6 +3,7 @@
 import { motion } from 'framer-motion'
 import Link from 'next/link'
 import { useEffect } from 'react'
+import SpaceBackground from '@/components/SpaceBackground'
 
 // Track homepage visit
 const trackVisitor = async () => {
@@ -38,16 +39,29 @@ export default function Home() {
 
   return (
     <div className="relative">
+      {/* Three.js Space Background */}
+      <SpaceBackground />
+
       {/* Full-screen Hero Section */}
       <section className="min-h-screen flex items-center justify-center relative overflow-hidden">
         <div className="container-custom text-center relative z-10">
+          {/* Yoshida Universe Theory subtitle */}
+          <motion.p
+            className="text-xl md:text-2xl lg:text-3xl font-light text-white/70 mb-4 tracking-wide italic"
+            initial={{ opacity: 0, y: 30 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 1, delay: 0.3 }}
+          >
+            Yoshida Universe Theory
+          </motion.p>
+
           <motion.h1
-            className="text-6xl md:text-8xl lg:text-9xl font-extralight tracking-widest mb-8 text-cosmic"
+            className="text-5xl md:text-7xl lg:text-8xl font-extralight tracking-widest mb-8 rainbow-text"
             initial={{ opacity: 0, y: 50 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 1, delay: 0.5 }}
           >
-            Beyond Time
+            Beyond Time & Space
           </motion.h1>
 
           <motion.p
