@@ -8,35 +8,35 @@ import * as THREE from 'three'
 function CameraController() {
     const { camera } = useThree()
     const [scrollY, setScrollY] = useState(0)
-    
+
     useEffect(() => {
         const handleScroll = () => {
             setScrollY(window.scrollY)
         }
-        
+
         window.addEventListener('scroll', handleScroll)
         return () => window.removeEventListener('scroll', handleScroll)
     }, [])
-    
+
     useFrame(() => {
         // Calculate camera movement based on scroll
         const scrollProgress = scrollY * 0.001 // Adjust sensitivity
-        
+
         // Original camera position (same as before scroll feature)
         const baseX = 0
         const baseY = 35
         const baseZ = 65
-        
+
         // Smooth transition from the beginning - no abrupt changes
         // Adjust the functions so they start at 0 when scrollProgress is 0
         camera.position.x = baseX + Math.sin(scrollProgress * 0.5) * 6
         camera.position.y = baseY + scrollProgress * 10
         camera.position.z = baseZ + (Math.cos(scrollProgress * 0.3) - 1) * 8
-        
+
         // Always look at the solar system center (new sun position)
         camera.lookAt(0, 16, 0)
     })
-    
+
     return null
 }
 
@@ -158,7 +158,7 @@ function Sun() {
                 color="#ffffff"
                 target-position={[0, 16, 0]}
             />
-            
+
             {/* Main sun body - True 3D with proper shading */}
             <mesh ref={sunRef} position={[0, 16, 0]} receiveShadow>
                 <sphereGeometry args={[3.5, 128, 128]} />
@@ -224,7 +224,7 @@ function Galaxy({ position, size, rotationSpeed, color }: {
                 const t = i / starsPerArm // 0 to 1
                 const radius = t * size * 0.9 // Linear increase in radius
                 const angle = armOffset + t * Math.PI * 3.5 // 1.75 turns per arm
-                
+
                 // Linear spiral arms with slight random variation
                 const x = Math.cos(angle) * radius + (Math.random() - 0.5) * size * 0.05
                 const z = Math.sin(angle) * radius + (Math.random() - 0.5) * size * 0.05
@@ -236,7 +236,7 @@ function Galaxy({ position, size, rotationSpeed, color }: {
 
                 // Brighter stars towards center, dimmer towards edges
                 scales[starIndex] = (0.8 - t * 0.6) * (Math.random() * 0.4 + 0.3)
-                
+
                 starIndex++
             }
         }
@@ -249,7 +249,7 @@ function Galaxy({ position, size, rotationSpeed, color }: {
             timeRef.current += delta
             // Slow, steady rotation like a real galaxy
             galaxyRef.current.rotation.y += delta * rotationSpeed
-            
+
             // Very subtle wobble to simulate distant perspective
             galaxyRef.current.rotation.z = Math.sin(timeRef.current * 0.1) * 0.03
             galaxyRef.current.rotation.x = Math.cos(timeRef.current * 0.08) * 0.02
