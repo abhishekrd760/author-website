@@ -43,7 +43,7 @@ export default function Home() {
       <SpaceBackground />
 
       {/* Full-screen Hero Section */}
-      <section className="min-h-screen flex items-center justify-center relative overflow-hidden">
+      <section className="min-h-screen flex items-center justify-center relative overflow-hidden -mt-4 md:-mt-6 lg:-mt-8">
         <div className="container-custom text-center relative z-10">
           {/* Yoshida Universe Theory subtitle */}
           <motion.p
@@ -65,7 +65,7 @@ export default function Home() {
           </motion.h1>
 
           <motion.p
-            className="text-xl md:text-2xl font-light text-white/80 max-w-4xl mx-auto mb-12 tracking-wide leading-relaxed"
+            className="text-xl md:text-2xl font-light text-white/80 max-w-4xl mx-auto mb-12 tracking-wide leading-relaxed mt-16 md:mt-20"
             initial={{ opacity: 0, y: 30 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 1, delay: 1 }}
@@ -74,7 +74,7 @@ export default function Home() {
           </motion.p>
 
           <motion.div
-            className="flex flex-col sm:flex-row gap-6 justify-center items-center"
+            className="flex flex-col sm:flex-row gap-6 justify-center items-center mt-24 md:mt-32"
             initial={{ opacity: 0, y: 30 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 1, delay: 1.5 }}
@@ -90,7 +90,7 @@ export default function Home() {
 
         {/* Scroll Indicator */}
         <motion.div
-          className="absolute bottom-8 left-1/2 transform -translate-x-1/2"
+          className="absolute bottom-12 left-1/2 transform -translate-x-1/2"
           animate={{ y: [0, 10, 0] }}
           transition={{ duration: 2, repeat: Infinity }}
         >

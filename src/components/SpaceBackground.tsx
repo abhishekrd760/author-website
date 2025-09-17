@@ -23,9 +23,9 @@ function CameraController() {
         const scrollProgress = scrollY * 0.001 // Adjust sensitivity
 
         // Original camera position (same as before scroll feature)
-        const baseX = 0
-        const baseY = 35
-        const baseZ = 65
+        const baseX = 20
+        const baseY = 45
+        const baseZ = 85
 
         // Smooth transition from the beginning - no abrupt changes
         // Adjust the functions so they start at 0 when scrollProgress is 0
@@ -34,7 +34,7 @@ function CameraController() {
         camera.position.z = baseZ + (Math.cos(scrollProgress * 0.3) - 1) * 8
 
         // Always look at the solar system center (new sun position)
-        camera.lookAt(0, 16, 0)
+        camera.lookAt(0, 19, 0)
     })
 
     return null
@@ -131,9 +131,9 @@ function Sun() {
         if (sunRef.current) {
             sunRef.current.rotation.y += delta * 0.1
             sunRef.current.rotation.x += delta * 0.05
-            const material = sunRef.current.material as THREE.MeshPhongMaterial
-            // Gentle pulsing intensity
-            material.emissiveIntensity = 0.6 + Math.sin(timeRef.current * 0.6) * 0.3
+            const material = sunRef.current.material as THREE.MeshPhysicalMaterial
+            // Subtle emissive pulse still present but lower
+            material.emissiveIntensity = 0.22 + Math.sin(timeRef.current * 0.6) * 0.075
         }
 
         if (glowRef.current) {
@@ -156,40 +156,46 @@ function Sun() {
                 position={[5, 20, 8]}
                 intensity={2.0}
                 color="#ffffff"
-                target-position={[0, 16, 0]}
+                target-position={[0, 19, 0]}
             />
 
             {/* Main sun body - True 3D with proper shading */}
-            <mesh ref={sunRef} position={[0, 16, 0]} receiveShadow>
+            <mesh ref={sunRef} position={[0, 19, 0]} receiveShadow>
                 <sphereGeometry args={[3.5, 128, 128]} />
-                <meshPhongMaterial
-                    color="#ffdd66"
-                    emissive="#ff6611"
-                    emissiveIntensity={0.9}
-                    shininess={5}
-                    specular="#ffaa44"
-                    transparent={false}
+                <meshPhysicalMaterial
+                    color="#d1b955"                /* Slightly brighter muted gold */
+                    emissive="#903600"              /* Slightly brighter emissive tint */
+                    emissiveIntensity={0.3}
+                    roughness={0.8}
+                    metalness={0.25}
+                    transmission={0.52}
+                    thickness={0.65}
+                    ior={1.16}
+                    attenuationColor="#ffc266"
+                    attenuationDistance={4.8}
+                    transparent
+                    opacity={0.87}
                 />
             </mesh>
 
             {/* Inner corona glow effect */}
-            <mesh ref={glowRef} position={[0, 16, 0]}>
+            <mesh ref={glowRef} position={[0, 19, 0]}>
                 <sphereGeometry args={[6, 32, 32]} />
                 <meshBasicMaterial
-                    color="#ffaa33"
+                    color="#ff9f33"
                     transparent
-                    opacity={0.12}
+                    opacity={0.055}                 /* Slightly brighter inner glow */
                     blending={THREE.AdditiveBlending}
                 />
             </mesh>
 
             {/* Outer corona glow effect */}
-            <mesh ref={outerGlowRef} position={[0, 16, 0]}>
+            <mesh ref={outerGlowRef} position={[0, 19, 0]}>
                 <sphereGeometry args={[9, 32, 32]} />
                 <meshBasicMaterial
-                    color="#ff9911"
+                    color="#ff9322"
                     transparent
-                    opacity={0.06}
+                    opacity={0.026}                 /* Slightly brighter outer glow */
                     blending={THREE.AdditiveBlending}
                 />
             </mesh>
@@ -310,17 +316,17 @@ function Planet({ size, color, distance, speed, rotationSpeed, initialAngle = 0 
     })
 
     return (
-        <group ref={orbitRef} position={[0, 16, 0]}>
+        <group ref={orbitRef} position={[0, 19, 0]}>
             <mesh ref={planetRef} position={[distance, 0, 0]} castShadow receiveShadow>
                 <sphereGeometry args={[size, 128, 128]} />
                 <meshStandardMaterial
                     color={color}
                     transparent
-                    opacity={0.98}
-                    roughness={0.7}
-                    metalness={0.1}
-                    emissive={color}
-                    emissiveIntensity={0.05}
+                    opacity={0.85}
+                    roughness={0.9}
+                    metalness={0.05}
+                    emissive="#111111"
+                    emissiveIntensity={0.01}
                 />
             </mesh>
         </group>
@@ -341,7 +347,7 @@ function OrbitRings() {
     return (
         <>
             {orbits.map((orbit, index) => (
-                <mesh key={index} rotation={[Math.PI / 2, 0, 0]} position={[0, 16, 0]}>
+                <mesh key={index} rotation={[Math.PI / 2, 0, 0]} position={[0, 19, 0]}>
                     <ringGeometry args={[orbit.radius - 0.15, orbit.radius + 0.15, 128]} />
                     <meshBasicMaterial
                         color="#ffffff"
@@ -362,17 +368,17 @@ function Scene() {
             {/* Enhanced 3D lighting setup */}
             <directionalLight
                 position={[-15, 15, 10]}
-                intensity={1.5}
+                intensity={1.1}                 /* Reduced directional light */
                 color="#ffffff"
                 castShadow
                 shadow-mapSize-width={2048}
                 shadow-mapSize-height={2048}
             />
             <pointLight
-                position={[0, 16, 0]}
-                intensity={3.0}
+                position={[0, 19, 0]}
+                intensity={2.05}                 /* Slight bump for gentle brightening */
                 color="#ffcc77"
-                distance={180}
+                distance={155}
                 decay={1.8}
                 castShadow
                 shadow-mapSize-width={2048}
@@ -381,13 +387,13 @@ function Scene() {
                 shadow-camera-far={200}
             />
             <pointLight
-                position={[0, 16, 0]}
-                intensity={1.5}
+                position={[0, 19, 0]}
+                intensity={0.9}                 /* Lower secondary warm fill */
                 color="#ffaa55"
-                distance={100}
+                distance={90}
                 decay={2}
             />
-            <ambientLight intensity={0.12} color="#ffffff" />
+            <ambientLight intensity={0.16} color="#ffffff" />  {/* Slightly higher ambient to offset reductions */}
             <hemisphereLight
                 args={["#ffffff", "#333333", 0.2]}
             />
@@ -510,7 +516,7 @@ export default function SpaceBackground() {
                 ref={canvasRef}
                 shadows
                 camera={{
-                    position: [0, 35, 65],
+                    position: [20, 45, 85],
                     fov: 50,
                     near: 0.1,
                     far: 1000

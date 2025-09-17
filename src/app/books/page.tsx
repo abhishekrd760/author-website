@@ -5,6 +5,8 @@ import { useEffect, useState } from 'react'
 import { Book } from '@/types/database'
 import Image from 'next/image'
 import Link from 'next/link'
+import StarryBackground from '@/components/StarryBackground'
+import FractalPyramid from '@/components/FractalPyramid'
 
 // Function to generate cosmic book covers
 const getRandomBookCover = (title: string, index: number) => {
@@ -147,14 +149,8 @@ const Books = () => {
     }
 
     return (
-        <div className="min-h-screen relative overflow-hidden">
-            {/* Cosmic Pattern Background */}
-            <div className="absolute inset-0 opacity-5">
-                <div className="absolute inset-0" style={{
-                    backgroundImage: `url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cg fill='%23ffffff' fill-opacity='0.1'%3E%3Cpath d='M36 34v-4h-2v4h-4v2h4v4h2v-4h4v-2h-4zm0-30V0h-2v4h-4v2h4v4h2V6h4V4h-4zM6 34v-4H4v4H0v2h4v4h2v-4h4v-2H6zM6 4V0H4v4H0v2h4v4h2V6h4V4H6z'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E")`,
-                    backgroundSize: '60px 60px'
-                }}></div>
-            </div>
+        <div className="min-h-screen relative overflow-hidden bg-gradient-to-b from-[#0a0315] via-[#0c0420] to-[#080212]">
+            <StarryBackground />
 
             {/* Floating Cosmic Elements */}
             {/* Top Right Galaxy */}
@@ -363,53 +359,10 @@ const Books = () => {
                         </div>
 
                         <div className="relative z-10">
-                            {/* Fractal Pyramid */}
-                            <motion.div
-                                className="w-16 h-16 mx-auto mb-6"
-                                animate={{
-                                    rotate: 360
-                                }}
-                                transition={{
-                                    duration: 20,
-                                    repeat: Infinity,
-                                    ease: "linear"
-                                }}
-                            >
-                                <svg viewBox="0 0 100 100" className="w-full h-full">
-                                    <defs>
-                                        <linearGradient id="pyramidGradient1" x1="0%" y1="0%" x2="100%" y2="100%">
-                                            <stop offset="0%" stopColor="#8b5cf6" stopOpacity="0.9" />
-                                            <stop offset="50%" stopColor="#00bcd4" stopOpacity="0.7" />
-                                            <stop offset="100%" stopColor="#a855f7" stopOpacity="0.5" />
-                                        </linearGradient>
-                                        <linearGradient id="pyramidGradient2" x1="0%" y1="0%" x2="100%" y2="100%">
-                                            <stop offset="0%" stopColor="#00bcd4" stopOpacity="0.8" />
-                                            <stop offset="100%" stopColor="#6366f1" stopOpacity="0.4" />
-                                        </linearGradient>
-                                        <linearGradient id="pyramidGradient3" x1="0%" y1="0%" x2="100%" y2="100%">
-                                            <stop offset="0%" stopColor="#a855f7" stopOpacity="0.7" />
-                                            <stop offset="100%" stopColor="#8b5cf6" stopOpacity="0.3" />
-                                        </linearGradient>
-                                    </defs>
-
-                                    {/* Main pyramid */}
-                                    <polygon points="50,15 20,75 80,75" fill="url(#pyramidGradient1)" stroke="#ffffff" strokeWidth="0.5" opacity="0.8" />
-
-                                    {/* Inner pyramid */}
-                                    <polygon points="50,25 30,65 70,65" fill="url(#pyramidGradient2)" stroke="#00bcd4" strokeWidth="0.3" opacity="0.6" />
-
-                                    {/* Core pyramid */}
-                                    <polygon points="50,35 40,55 60,55" fill="url(#pyramidGradient3)" stroke="#8b5cf6" strokeWidth="0.2" opacity="0.4" />
-
-                                    {/* Apex point */}
-                                    <circle cx="50" cy="15" r="2" fill="#ffffff" opacity="0.9" />
-
-                                    {/* Fractal lines */}
-                                    <line x1="50" y1="15" x2="35" y2="45" stroke="#00bcd4" strokeWidth="0.5" opacity="0.5" />
-                                    <line x1="50" y1="15" x2="65" y2="45" stroke="#00bcd4" strokeWidth="0.5" opacity="0.5" />
-                                    <line x1="50" y1="15" x2="50" y2="55" stroke="#8b5cf6" strokeWidth="0.5" opacity="0.6" />
-                                </svg>
-                            </motion.div>
+                            {/* 3D Fractal Pyramid */}
+                            <div className="mb-6">
+                                <FractalPyramid />
+                            </div>
                             <h3 className="text-2xl font-extralight mb-4 text-white tracking-wide">
                                 Ready to <span className="text-cosmic">Transcend</span> Ordinary Reality?
                             </h3>
