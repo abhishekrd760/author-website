@@ -25,7 +25,7 @@ function CameraController() {
         // Original camera position (same as before scroll feature)
         const baseX = 20
         const baseY = 45
-        const baseZ = 85
+        const baseZ = 65  // Reduced from 85 to zoom in more
 
         // Smooth transition from the beginning - no abrupt changes
         // Adjust the functions so they start at 0 when scrollProgress is 0
@@ -511,7 +511,7 @@ export default function SpaceBackground() {
     }, [])
 
     return (
-        <div className="fixed inset-0 w-full h-full z-0">
+        <div className="fixed inset-0 w-full h-full z-30">
             <Canvas
                 ref={canvasRef}
                 shadows
@@ -522,13 +522,15 @@ export default function SpaceBackground() {
                     far: 1000
                 }}
                 style={{
-                    background: 'linear-gradient(to bottom, #1a0a2a 0%, #0a0010 25%, #000000 50%, #000000 75%, #000000 100%)',
+                    background: 'transparent',
                     width: '100%',
-                    height: '100%'
+                    height: '100%',
+                    pointerEvents: 'none'
                 }}
                 dpr={[0.5, 1.5]}
                 performance={{ min: 0.5 }}
                 frameloop="always"
+                gl={{ alpha: true }}
             >
                 <CameraController />
                 <Scene />

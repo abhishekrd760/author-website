@@ -3,7 +3,9 @@
 import { motion } from 'framer-motion'
 import Link from 'next/link'
 import { useEffect } from 'react'
+import { useRouter } from 'next/navigation'
 import SpaceBackground from '@/components/SpaceBackground'
+import { ChevronDownIcon } from '@heroicons/react/24/outline'
 
 // Track homepage visit
 const trackVisitor = async () => {
@@ -19,74 +21,85 @@ const trackVisitor = async () => {
   }
 }
 
-const ChevronDownIcon = ({ className }: { className?: string }) => (
-  <svg className={className} fill="none" stroke="currentColor" viewBox="0 0 24 24">
-    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 9l-7 7-7-7" />
-  </svg>
-)
-
-const ArrowRightIcon = ({ className }: { className?: string }) => (
-  <svg className={className} fill="none" stroke="currentColor" viewBox="0 0 24 24">
-    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
-  </svg>
-)
-
 export default function Home() {
+  const router = useRouter()
+
   // Track visitor when component mounts
   useEffect(() => {
     trackVisitor()
   }, [])
 
   return (
-    <div className="relative">
+    <div className="relative" style={{
+      background: 'linear-gradient(to bottom, #1a0a2a 0%, #0a0010 25%, #000000 50%, #000000 75%, #000000 100%)',
+      minHeight: '100vh'
+    }}>
       {/* Three.js Space Background */}
       <SpaceBackground />
 
       {/* Full-screen Hero Section */}
-      <section className="min-h-screen flex items-center justify-center relative overflow-hidden -mt-4 md:-mt-6 lg:-mt-8">
-        <div className="container-custom text-center relative z-10">
-          {/* Yoshida Universe Theory subtitle */}
-          <motion.p
-            className="text-xl md:text-2xl lg:text-3xl font-light text-white/70 mb-4 tracking-wide italic"
-            initial={{ opacity: 0, y: 30 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 1, delay: 0.3 }}
-          >
-            Yoshida Universe Theory
-          </motion.p>
-
+      <section className="min-h-screen flex items-center justify-center relative overflow-hidden -mt-2 md:-mt-0.1 lg:-mt-0.1">
+        <div className="container-custom text-center relative z-20">
+          {/* Main Header with Rainbow Animation - behind sun */}
           <motion.h1
-            className="text-5xl md:text-7xl lg:text-8xl font-extralight tracking-widest mb-8 rainbow-text"
-            initial={{ opacity: 0, y: 50 }}
+            initial={{ opacity: 0, y: 30 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 1, delay: 0.5 }}
+            className="rainbow-text-slow mb-12 relative z-10"
+            style={{
+              fontFamily: 'var(--font-cinzel)',
+              fontSize: 'clamp(2rem, 4vw, 6rem)',
+              fontWeight: 500,
+              letterSpacing: '0.02em',
+              lineHeight: 1.1,
+              position: 'relative',
+              top: '-6rem',
+              pointerEvents: 'none'
+            }}
           >
-            Beyond Time & Space
+            Beyond Time and Space
           </motion.h1>
 
-          <motion.p
-            className="text-xl md:text-2xl font-light text-white/80 max-w-4xl mx-auto mb-12 tracking-wide leading-relaxed mt-16 md:mt-20"
-            initial={{ opacity: 0, y: 30 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 1, delay: 1 }}
-          >
-            A journey through the infinite cosmos of consciousness where spirit meets science
-          </motion.p>
-
-          <motion.div
-            className="flex flex-col sm:flex-row gap-6 justify-center items-center mt-24 md:mt-32"
-            initial={{ opacity: 0, y: 30 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 1, delay: 1.5 }}
-          >
-            <Link href="/books" className="btn-primary">
-              Discover the Book
-            </Link>
-            <Link href="/about" className="btn-secondary">
-              Meet the Author
-            </Link>
-          </motion.div>
+          {/* Call to Action Buttons */}
         </div>
+
+        {/* Call to Action Buttons - Positioned absolutely in front of everything */}
+        <motion.div
+          initial={{ opacity: 0, y: 20 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 1, delay: 1.5 }}
+          className="fixed flex flex-col sm:flex-row gap-6 justify-center items-center"
+          style={{
+            left: '40%',
+            top: 'calc(50vh + 12rem)',
+            transform: 'translateX(-50%)',
+            zIndex: 999999,
+            pointerEvents: 'auto'
+          }}
+        >
+          <a
+            href="/books"
+            className="px-8 py-4 bg-gradient-to-r from-purple-600 to-blue-600 text-white rounded-full font-medium text-lg transition-all duration-300 hover:scale-105 hover:shadow-lg hover:shadow-purple-500/25 cursor-pointer inline-block no-underline"
+            style={{
+              pointerEvents: 'all',
+              cursor: 'pointer',
+              textDecoration: 'none'
+            }}
+          >
+            Explore Books
+          </a>
+          <a
+            href="/about"
+            className="px-8 py-4 border-2 border-white/30 text-white rounded-full font-medium text-lg transition-all duration-300 hover:scale-105 hover:bg-white/10 bg-transparent cursor-pointer inline-block no-underline"
+            style={{
+              pointerEvents: 'all',
+              cursor: 'pointer',
+              textDecoration: 'none'
+            }}
+          >
+            About the Author
+          </a>
+        </motion.div>
 
         {/* Scroll Indicator */}
         <motion.div
@@ -98,96 +111,31 @@ export default function Home() {
         </motion.div>
       </section>
 
-      {/* Preview Cards Section */}
-      <section className="py-20 relative z-10">
-        <div className="container-custom">
-          <motion.h2
-            className="text-4xl md:text-5xl font-extralight tracking-wide text-center mb-16 text-white"
-            initial={{ opacity: 0 }}
-            whileInView={{ opacity: 1 }}
-            transition={{ duration: 1 }}
-          >
-            Explore the Journey
-          </motion.h2>
-
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
-            {/* About Card */}
-            <motion.div
-              className="card group cursor-pointer"
-              initial={{ opacity: 0, y: 50 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.8, delay: 0.1 }}
-              whileHover={{ scale: 1.05 }}
-            >
-              <Link href="/about" className="block">
-                <div className="text-center">
-                  <div className="w-16 h-16 mx-auto mb-6 bg-gradient-to-r from-purple-400 to-blue-400 rounded-full flex items-center justify-center">
-                    <span className="text-2xl">🌟</span>
-                  </div>
-                  <h3 className="text-2xl font-light mb-4 text-white">The Author</h3>
-                  <p className="text-white/70 mb-6 leading-relaxed">
-                    Discover the mind behind the cosmic journey and the spiritual insights that shaped this transformative work.
-                  </p>
-                  <div className="flex items-center justify-center text-purple-300 group-hover:text-purple-200 transition-colors">
-                    <span className="mr-2">Learn More</span>
-                    <ArrowRightIcon className="w-4 h-4 transform group-hover:translate-x-1 transition-transform" />
-                  </div>
-                </div>
-              </Link>
-            </motion.div>
-
-            {/* Book Card */}
-            <motion.div
-              className="card group cursor-pointer"
-              initial={{ opacity: 0, y: 50 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.8, delay: 0.2 }}
-              whileHover={{ scale: 1.05 }}
-            >
-              <Link href="/books" className="block">
-                <div className="text-center">
-                  <div className="w-16 h-16 mx-auto mb-6 bg-gradient-to-r from-blue-400 to-purple-400 rounded-full flex items-center justify-center">
-                    <span className="text-2xl">📚</span>
-                  </div>
-                  <h3 className="text-2xl font-light mb-4 text-white">The Book</h3>
-                  <p className="text-white/70 mb-6 leading-relaxed">
-                    Explore the revolutionary concepts that bridge ancient wisdom with modern consciousness research.
-                  </p>
-                  <div className="flex items-center justify-center text-purple-300 group-hover:text-purple-200 transition-colors">
-                    <span className="mr-2">Read More</span>
-                    <ArrowRightIcon className="w-4 h-4 transform group-hover:translate-x-1 transition-transform" />
-                  </div>
-                </div>
-              </Link>
-            </motion.div>
-
-            {/* Contact Card */}
-            <motion.div
-              className="card group cursor-pointer"
-              initial={{ opacity: 0, y: 50 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.8, delay: 0.3 }}
-              whileHover={{ scale: 1.05 }}
-            >
-              <Link href="/contact" className="block">
-                <div className="text-center">
-                  <div className="w-16 h-16 mx-auto mb-6 bg-gradient-to-r from-purple-400 to-blue-400 rounded-full flex items-center justify-center">
-                    <span className="text-2xl">💫</span>
-                  </div>
-                  <h3 className="text-2xl font-light mb-4 text-white">Connect</h3>
-                  <p className="text-white/70 mb-6 leading-relaxed">
-                    Join the conversation about consciousness, spirituality, and the infinite possibilities of human potential.
-                  </p>
-                  <div className="flex items-center justify-center text-purple-300 group-hover:text-purple-200 transition-colors">
-                    <span className="mr-2">Get in Touch</span>
-                    <ArrowRightIcon className="w-4 h-4 transform group-hover:translate-x-1 transition-transform" />
-                  </div>
-                </div>
-              </Link>
-            </motion.div>
-          </div>
-        </div>
-      </section>
+      {/* Subtitle positioned in front of sun */}
+      <motion.div
+        initial={{ opacity: 0, y: 20 }}
+        animate={{ opacity: 1, y: 0 }}
+        transition={{ duration: 1, delay: 1 }}
+        className="absolute w-full flex justify-center"
+        style={{
+          pointerEvents: 'none',
+          zIndex: 50,
+          top: 'calc(50vh + 2rem)',
+          left: 0
+        }}
+      >
+        <p
+          className="text-xl md:text-2xl lg:text-3xl text-center"
+          style={{
+            fontFamily: 'var(--font-lora)',
+            color: '#F4F4F4',
+            fontWeight: 400,
+            letterSpacing: '0.01em'
+          }}
+        >
+          An artistic journey through the universe.
+        </p>
+      </motion.div>
     </div>
   )
 }

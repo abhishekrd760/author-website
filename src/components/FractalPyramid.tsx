@@ -136,7 +136,7 @@ export default function FractalPyramidComponent() {
         <div className="w-48 h-48 mx-auto">
             <Canvas
                 camera={{
-                    position: [0, 0, 7],  // Moved camera back to zoom out
+                    position: [0, 0, 7],
                     fov: 50,
                     near: 0.1,
                     far: 100
