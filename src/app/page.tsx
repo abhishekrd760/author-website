@@ -68,7 +68,7 @@ export default function Home() {
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 1, delay: 1.5 }}
-          className="fixed flex flex-col sm:flex-row gap-6 justify-center items-center"
+          className="absolute flex flex-col sm:flex-row gap-6 justify-center items-center"
           style={{
             left: '40%',
             top: 'calc(50vh + 12rem)',
@@ -136,6 +136,170 @@ export default function Home() {
           An artistic journey through the universe.
         </p>
       </motion.div>
+
+      {/* Stats Section */}
+      <section className="relative py-32 px-6" style={{ backgroundColor: 'rgba(10, 10, 15, 0.9)' }}>
+        <div className="max-w-7xl mx-auto">
+          {/* Section Title */}
+          <motion.div
+            initial={{ opacity: 0, y: 30 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.8 }}
+            viewport={{ once: true }}
+            className="text-center mb-20"
+          >
+            <h2
+              className="text-4xl md:text-5xl lg:text-6xl mb-6 text-transparent bg-clip-text"
+              style={{
+                fontFamily: 'var(--font-cinzel)',
+                backgroundImage: 'linear-gradient(135deg, #667eea 0%, #764ba2 100%)',
+                fontWeight: 600
+              }}
+            >
+              Cosmic Impact
+            </h2>
+            <div className="w-24 h-1 bg-gradient-to-r from-purple-500 to-blue-500 mx-auto rounded-full"></div>
+          </motion.div>
+
+          {/* Stats Grid */}
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
+            {/* Stat 1: Books Published */}
+            <motion.div
+              initial={{ opacity: 0, y: 30 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.8, delay: 0.1 }}
+              viewport={{ once: true }}
+              className="relative group"
+            >
+              <div className="bg-gradient-to-br from-purple-600/20 to-blue-600/20 backdrop-blur-sm border border-white/10 rounded-2xl p-8 text-center transition-all duration-500 hover:scale-105 hover:border-purple-400/30 hover:shadow-2xl hover:shadow-purple-500/20">
+                <div className="absolute inset-0 bg-gradient-to-br from-purple-600/5 to-blue-600/5 rounded-2xl opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
+                <div className="relative z-10">
+                  <div className="text-5xl mb-4">📚</div>
+                  <div
+                    className="text-4xl md:text-5xl font-bold mb-2 text-transparent bg-clip-text bg-gradient-to-r from-purple-400 to-blue-400"
+                    style={{ fontFamily: 'var(--font-cinzel)' }}
+                  >
+                    7
+                  </div>
+                  <div
+                    className="text-lg text-gray-300"
+                    style={{ fontFamily: 'var(--font-lora)' }}
+                  >
+                    Books Published
+                  </div>
+                </div>
+              </div>
+            </motion.div>
+
+            {/* Stat 2: Lives Touched */}
+            <motion.div
+              initial={{ opacity: 0, y: 30 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.8, delay: 0.2 }}
+              viewport={{ once: true }}
+              className="relative group"
+            >
+              <div className="bg-gradient-to-br from-indigo-600/20 to-purple-600/20 backdrop-blur-sm border border-white/10 rounded-2xl p-8 text-center transition-all duration-500 hover:scale-105 hover:border-indigo-400/30 hover:shadow-2xl hover:shadow-indigo-500/20">
+                <div className="absolute inset-0 bg-gradient-to-br from-indigo-600/5 to-purple-600/5 rounded-2xl opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
+                <div className="relative z-10">
+                  <div className="text-5xl mb-4">✨</div>
+                  <div
+                    className="text-4xl md:text-5xl font-bold mb-2 text-transparent bg-clip-text bg-gradient-to-r from-indigo-400 to-purple-400"
+                    style={{ fontFamily: 'var(--font-cinzel)' }}
+                  >
+                    50K+
+                  </div>
+                  <div
+                    className="text-lg text-gray-300"
+                    style={{ fontFamily: 'var(--font-lora)' }}
+                  >
+                    Lives Touched
+                  </div>
+                </div>
+              </div>
+            </motion.div>
+
+            {/* Stat 3: Cosmic Journeys */}
+            <motion.div
+              initial={{ opacity: 0, y: 30 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.8, delay: 0.3 }}
+              viewport={{ once: true }}
+              className="relative group"
+            >
+              <div className="bg-gradient-to-br from-blue-600/20 to-cyan-600/20 backdrop-blur-sm border border-white/10 rounded-2xl p-8 text-center transition-all duration-500 hover:scale-105 hover:border-blue-400/30 hover:shadow-2xl hover:shadow-blue-500/20">
+                <div className="absolute inset-0 bg-gradient-to-br from-blue-600/5 to-cyan-600/5 rounded-2xl opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
+                <div className="relative z-10">
+                  <div className="text-5xl mb-4">🌌</div>
+                  <div
+                    className="text-4xl md:text-5xl font-bold mb-2 text-transparent bg-clip-text bg-gradient-to-r from-blue-400 to-cyan-400"
+                    style={{ fontFamily: 'var(--font-cinzel)' }}
+                  >
+                    ∞
+                  </div>
+                  <div
+                    className="text-lg text-gray-300"
+                    style={{ fontFamily: 'var(--font-lora)' }}
+                  >
+                    Cosmic Journeys
+                  </div>
+                </div>
+              </div>
+            </motion.div>
+
+            {/* Stat 4: Years of Wisdom */}
+            <motion.div
+              initial={{ opacity: 0, y: 30 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.8, delay: 0.4 }}
+              viewport={{ once: true }}
+              className="relative group"
+            >
+              <div className="bg-gradient-to-br from-violet-600/20 to-pink-600/20 backdrop-blur-sm border border-white/10 rounded-2xl p-8 text-center transition-all duration-500 hover:scale-105 hover:border-violet-400/30 hover:shadow-2xl hover:shadow-violet-500/20">
+                <div className="absolute inset-0 bg-gradient-to-br from-violet-600/5 to-pink-600/5 rounded-2xl opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
+                <div className="relative z-10">
+                  <div className="text-5xl mb-4">⏳</div>
+                  <div
+                    className="text-4xl md:text-5xl font-bold mb-2 text-transparent bg-clip-text bg-gradient-to-r from-violet-400 to-pink-400"
+                    style={{ fontFamily: 'var(--font-cinzel)' }}
+                  >
+                    15+
+                  </div>
+                  <div
+                    className="text-lg text-gray-300"
+                    style={{ fontFamily: 'var(--font-lora)' }}
+                  >
+                    Years of Wisdom
+                  </div>
+                </div>
+              </div>
+            </motion.div>
+          </div>
+
+          {/* Inspirational Quote */}
+          <motion.div
+            initial={{ opacity: 0, y: 30 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.8, delay: 0.6 }}
+            viewport={{ once: true }}
+            className="mt-24 text-center"
+          >
+            <div className="max-w-4xl mx-auto">
+              <blockquote
+                className="text-2xl md:text-3xl lg:text-4xl text-gray-200 italic leading-relaxed mb-8"
+                style={{ fontFamily: 'var(--font-lora)' }}
+              >
+                "In the vastness of space and time, every story matters, every journey transforms, and every reader becomes part of the infinite cosmic dance."
+              </blockquote>
+              <div className="flex items-center justify-center space-x-4">
+                <div className="w-12 h-0.5 bg-gradient-to-r from-transparent to-purple-400"></div>
+                <div className="w-2 h-2 bg-purple-400 rounded-full"></div>
+                <div className="w-12 h-0.5 bg-gradient-to-l from-transparent to-purple-400"></div>
+              </div>
+            </div>
+          </motion.div>
+        </div>
+      </section>
     </div>
   )
 }
