@@ -1,8 +1,8 @@
 'use client'
 
-import { motion } from 'framer-motion'
+import { motion, useInView } from 'framer-motion'
 import Link from 'next/link'
-import { useEffect } from 'react'
+import { useEffect, useRef } from 'react'
 import { useRouter } from 'next/navigation'
 import SpaceBackground from '@/components/SpaceBackground'
 import { ChevronDownIcon } from '@heroicons/react/24/outline'
@@ -23,6 +23,16 @@ const trackVisitor = async () => {
 
 export default function Home() {
   const router = useRouter()
+
+  // Refs for animation triggers
+  const authorRef = useRef(null)
+  const booksRef = useRef(null)
+  const connectRef = useRef(null)
+
+  // Animation triggers
+  const authorInView = useInView(authorRef, { once: true, amount: 0.3 })
+  const booksInView = useInView(booksRef, { once: true, amount: 0.3 })
+  const connectInView = useInView(connectRef, { once: true, amount: 0.3 })
 
   // Track visitor when component mounts
   useEffect(() => {
@@ -138,7 +148,7 @@ export default function Home() {
       </motion.div>
 
       {/* Stats Section */}
-      <section className="relative py-32 px-6" style={{ backgroundColor: 'rgba(18, 24, 38, 0.9)' }}>
+      <section className="relative py-32 px-6 z-40" style={{ backgroundColor: 'rgba(18, 24, 38, 0.9)' }}>
         <div className="max-w-7xl mx-auto">
           {/* Section Title */}
           <motion.div
@@ -149,10 +159,9 @@ export default function Home() {
             className="text-center mb-20"
           >
             <h2
-              className="text-4xl md:text-5xl lg:text-6xl mb-6 text-transparent bg-clip-text"
+              className="text-4xl md:text-5xl lg:text-6xl mb-6 text-white"
               style={{
                 fontFamily: 'var(--font-cinzel)',
-                backgroundImage: 'linear-gradient(135deg, #1F6FEB 0%, #6C63FF 100%)',
                 fontWeight: 600
               }}
             >
@@ -161,118 +170,105 @@ export default function Home() {
             <div className="w-24 h-1 bg-gradient-to-r from-[#1F6FEB] to-[#6C63FF] mx-auto rounded-full"></div>
           </motion.div>
 
-          {/* Stats Grid */}
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
-            {/* Stat 1: Books Published */}
+          {/* Navigation Tiles */}
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
+            {/* Author Tile */}
             <motion.div
+              ref={authorRef}
               initial={{ opacity: 0, y: 30 }}
-              whileInView={{ opacity: 1, y: 0 }}
+              animate={authorInView ? { opacity: 1, y: 0 } : { opacity: 0, y: 30 }}
               transition={{ duration: 0.8, delay: 0.1 }}
-              viewport={{ once: true }}
               className="relative group"
             >
-              <div className="bg-gradient-to-br from-[#1F6FEB]/20 to-[#6C63FF]/20 backdrop-blur-sm border border-white/10 rounded-2xl p-8 text-center transition-all duration-500 hover:scale-105 hover:border-[#1F6FEB]/30 hover:shadow-2xl hover:shadow-[#1F6FEB]/20">
-                <div className="absolute inset-0 bg-gradient-to-br from-[#1F6FEB]/5 to-[#6C63FF]/5 rounded-2xl opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
-                <div className="relative z-10">
-                  <div className="text-5xl mb-4">📚</div>
-                  <div
-                    className="text-4xl md:text-5xl font-bold mb-2 text-transparent bg-clip-text bg-gradient-to-r from-[#1F6FEB] to-[#6C63FF]"
-                    style={{ fontFamily: 'var(--font-cinzel)' }}
-                  >
-                    7
-                  </div>
-                  <div
-                    className="text-lg text-[#C5C6C7]"
-                    style={{ fontFamily: 'var(--font-lora)' }}
-                  >
-                    Books Published
+              <Link href="/about" className="block">
+                <div className="bg-gradient-to-br from-[#1F6FEB]/20 to-[#6C63FF]/20 backdrop-blur-sm border border-white/10 rounded-2xl p-8 text-center transition-all duration-500 hover:scale-105 hover:border-[#1F6FEB]/30 hover:shadow-2xl hover:shadow-[#1F6FEB]/20 cursor-pointer">
+                  <div className="absolute inset-0 bg-gradient-to-br from-[#1F6FEB]/5 to-[#6C63FF]/5 rounded-2xl opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
+                  <div className="relative z-10">
+                    <div className="text-5xl mb-4">�</div>
+                    <div
+                      className="text-2xl md:text-3xl font-bold mb-4 text-white"
+                      style={{ fontFamily: 'var(--font-cinzel)' }}
+                    >
+                      The Author
+                    </div>
+                    <div
+                      className="text-lg text-[#C5C6C7] mb-4"
+                      style={{ fontFamily: 'var(--font-lora)' }}
+                    >
+                      Discover the visionary mind behind the cosmic tales
+                    </div>
+                    <div className="text-[#1F6FEB] font-semibold text-lg hover:text-[#6C63FF] transition-colors duration-300">
+                      Learn more →
+                    </div>
                   </div>
                 </div>
-              </div>
+              </Link>
             </motion.div>
 
-            {/* Stat 2: Lives Touched */}
+            {/* Books Tile */}
             <motion.div
+              ref={booksRef}
               initial={{ opacity: 0, y: 30 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.8, delay: 0.2 }}
-              viewport={{ once: true }}
+              animate={booksInView ? { opacity: 1, y: 0 } : { opacity: 0, y: 30 }}
+              transition={{ duration: 0.8, delay: 0.1 }}
               className="relative group"
             >
-              <div className="bg-gradient-to-br from-[#1F6FEB]/20 to-[#6C63FF]/20 backdrop-blur-sm border border-white/10 rounded-2xl p-8 text-center transition-all duration-500 hover:scale-105 hover:border-[#1F6FEB]/30 hover:shadow-2xl hover:shadow-[#1F6FEB]/20">
-                <div className="absolute inset-0 bg-gradient-to-br from-[#1F6FEB]/5 to-[#6C63FF]/5 rounded-2xl opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
-                <div className="relative z-10">
-                  <div className="text-5xl mb-4">✨</div>
-                  <div
-                    className="text-4xl md:text-5xl font-bold mb-2 text-transparent bg-clip-text bg-gradient-to-r from-[#1F6FEB] to-[#6C63FF]"
-                    style={{ fontFamily: 'var(--font-cinzel)' }}
-                  >
-                    50K+
-                  </div>
-                  <div
-                    className="text-lg text-[#C5C6C7]"
-                    style={{ fontFamily: 'var(--font-lora)' }}
-                  >
-                    Lives Touched
+              <Link href="/books" className="block">
+                <div className="bg-gradient-to-br from-[#1F6FEB]/20 to-[#6C63FF]/20 backdrop-blur-sm border border-white/10 rounded-2xl p-8 text-center transition-all duration-500 hover:scale-105 hover:border-[#1F6FEB]/30 hover:shadow-2xl hover:shadow-[#1F6FEB]/20 cursor-pointer">
+                  <div className="absolute inset-0 bg-gradient-to-br from-[#1F6FEB]/5 to-[#6C63FF]/5 rounded-2xl opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
+                  <div className="relative z-10">
+                    <div className="text-5xl mb-4">📚</div>
+                    <div
+                      className="text-2xl md:text-3xl font-bold mb-4 text-white"
+                      style={{ fontFamily: 'var(--font-cinzel)' }}
+                    >
+                      The Books
+                    </div>
+                    <div
+                      className="text-lg text-[#C5C6C7] mb-4"
+                      style={{ fontFamily: 'var(--font-lora)' }}
+                    >
+                      Journey through captivating stories of space and time
+                    </div>
+                    <div className="text-[#1F6FEB] font-semibold text-lg hover:text-[#6C63FF] transition-colors duration-300">
+                      Read more →
+                    </div>
                   </div>
                 </div>
-              </div>
+              </Link>
             </motion.div>
 
-            {/* Stat 3: Cosmic Journeys */}
+            {/* Connect Tile */}
             <motion.div
+              ref={connectRef}
               initial={{ opacity: 0, y: 30 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.8, delay: 0.3 }}
-              viewport={{ once: true }}
+              animate={connectInView ? { opacity: 1, y: 0 } : { opacity: 0, y: 30 }}
+              transition={{ duration: 0.8, delay: 0.1 }}
               className="relative group"
             >
-              <div className="bg-gradient-to-br from-[#1F6FEB]/20 to-[#6C63FF]/20 backdrop-blur-sm border border-white/10 rounded-2xl p-8 text-center transition-all duration-500 hover:scale-105 hover:border-[#1F6FEB]/30 hover:shadow-2xl hover:shadow-[#1F6FEB]/20">
-                <div className="absolute inset-0 bg-gradient-to-br from-[#1F6FEB]/5 to-[#6C63FF]/5 rounded-2xl opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
-                <div className="relative z-10">
-                  <div className="text-5xl mb-4">🌌</div>
-                  <div
-                    className="text-4xl md:text-5xl font-bold mb-2 text-transparent bg-clip-text bg-gradient-to-r from-[#1F6FEB] to-[#6C63FF]"
-                    style={{ fontFamily: 'var(--font-cinzel)' }}
-                  >
-                    ∞
-                  </div>
-                  <div
-                    className="text-lg text-[#C5C6C7]"
-                    style={{ fontFamily: 'var(--font-lora)' }}
-                  >
-                    Cosmic Journeys
-                  </div>
-                </div>
-              </div>
-            </motion.div>
-
-            {/* Stat 4: Years of Wisdom */}
-            <motion.div
-              initial={{ opacity: 0, y: 30 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.8, delay: 0.4 }}
-              viewport={{ once: true }}
-              className="relative group"
-            >
-              <div className="bg-gradient-to-br from-[#1F6FEB]/20 to-[#6C63FF]/20 backdrop-blur-sm border border-white/10 rounded-2xl p-8 text-center transition-all duration-500 hover:scale-105 hover:border-[#1F6FEB]/30 hover:shadow-2xl hover:shadow-[#1F6FEB]/20">
-                <div className="absolute inset-0 bg-gradient-to-br from-[#1F6FEB]/5 to-[#6C63FF]/5 rounded-2xl opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
-                <div className="relative z-10">
-                  <div className="text-5xl mb-4">⏳</div>
-                  <div
-                    className="text-4xl md:text-5xl font-bold mb-2 text-transparent bg-clip-text bg-gradient-to-r from-[#1F6FEB] to-[#6C63FF]"
-                    style={{ fontFamily: 'var(--font-cinzel)' }}
-                  >
-                    15+
-                  </div>
-                  <div
-                    className="text-lg text-[#C5C6C7]"
-                    style={{ fontFamily: 'var(--font-lora)' }}
-                  >
-                    Years of Wisdom
+              <Link href="/contact" className="block">
+                <div className="bg-gradient-to-br from-[#1F6FEB]/20 to-[#6C63FF]/20 backdrop-blur-sm border border-white/10 rounded-2xl p-8 text-center transition-all duration-500 hover:scale-105 hover:border-[#1F6FEB]/30 hover:shadow-2xl hover:shadow-[#1F6FEB]/20 cursor-pointer">
+                  <div className="absolute inset-0 bg-gradient-to-br from-[#1F6FEB]/5 to-[#6C63FF]/5 rounded-2xl opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
+                  <div className="relative z-10">
+                    <div className="text-5xl mb-4">✉️</div>
+                    <div
+                      className="text-2xl md:text-3xl font-bold mb-4 text-white"
+                      style={{ fontFamily: 'var(--font-cinzel)' }}
+                    >
+                      Connect
+                    </div>
+                    <div
+                      className="text-lg text-[#C5C6C7] mb-4"
+                      style={{ fontFamily: 'var(--font-lora)' }}
+                    >
+                      Join the conversation and share your cosmic thoughts
+                    </div>
+                    <div className="text-[#1F6FEB] font-semibold text-lg hover:text-[#6C63FF] transition-colors duration-300">
+                      Get in touch →
+                    </div>
                   </div>
                 </div>
-              </div>
+              </Link>
             </motion.div>
           </div>
 
