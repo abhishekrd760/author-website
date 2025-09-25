@@ -138,7 +138,7 @@ export default function Home() {
       </motion.div>
 
       {/* Stats Section */}
-      <section className="relative py-32 px-6" style={{ backgroundColor: 'rgba(10, 10, 15, 0.9)' }}>
+      <section className="relative py-32 px-6" style={{ backgroundColor: 'rgba(18, 24, 38, 0.9)' }}>
         <div className="max-w-7xl mx-auto">
           {/* Section Title */}
           <motion.div
@@ -152,13 +152,13 @@ export default function Home() {
               className="text-4xl md:text-5xl lg:text-6xl mb-6 text-transparent bg-clip-text"
               style={{
                 fontFamily: 'var(--font-cinzel)',
-                backgroundImage: 'linear-gradient(135deg, #667eea 0%, #764ba2 100%)',
+                backgroundImage: 'linear-gradient(135deg, #1F6FEB 0%, #6C63FF 100%)',
                 fontWeight: 600
               }}
             >
               Cosmic Impact
             </h2>
-            <div className="w-24 h-1 bg-gradient-to-r from-purple-500 to-blue-500 mx-auto rounded-full"></div>
+            <div className="w-24 h-1 bg-gradient-to-r from-[#1F6FEB] to-[#6C63FF] mx-auto rounded-full"></div>
           </motion.div>
 
           {/* Stats Grid */}
@@ -171,18 +171,18 @@ export default function Home() {
               viewport={{ once: true }}
               className="relative group"
             >
-              <div className="bg-gradient-to-br from-purple-600/20 to-blue-600/20 backdrop-blur-sm border border-white/10 rounded-2xl p-8 text-center transition-all duration-500 hover:scale-105 hover:border-purple-400/30 hover:shadow-2xl hover:shadow-purple-500/20">
-                <div className="absolute inset-0 bg-gradient-to-br from-purple-600/5 to-blue-600/5 rounded-2xl opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
+              <div className="bg-gradient-to-br from-[#1F6FEB]/20 to-[#6C63FF]/20 backdrop-blur-sm border border-white/10 rounded-2xl p-8 text-center transition-all duration-500 hover:scale-105 hover:border-[#1F6FEB]/30 hover:shadow-2xl hover:shadow-[#1F6FEB]/20">
+                <div className="absolute inset-0 bg-gradient-to-br from-[#1F6FEB]/5 to-[#6C63FF]/5 rounded-2xl opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
                 <div className="relative z-10">
                   <div className="text-5xl mb-4">📚</div>
                   <div
-                    className="text-4xl md:text-5xl font-bold mb-2 text-transparent bg-clip-text bg-gradient-to-r from-purple-400 to-blue-400"
+                    className="text-4xl md:text-5xl font-bold mb-2 text-transparent bg-clip-text bg-gradient-to-r from-[#1F6FEB] to-[#6C63FF]"
                     style={{ fontFamily: 'var(--font-cinzel)' }}
                   >
                     7
                   </div>
                   <div
-                    className="text-lg text-gray-300"
+                    className="text-lg text-[#C5C6C7]"
                     style={{ fontFamily: 'var(--font-lora)' }}
                   >
                     Books Published
@@ -199,18 +199,18 @@ export default function Home() {
               viewport={{ once: true }}
               className="relative group"
             >
-              <div className="bg-gradient-to-br from-indigo-600/20 to-purple-600/20 backdrop-blur-sm border border-white/10 rounded-2xl p-8 text-center transition-all duration-500 hover:scale-105 hover:border-indigo-400/30 hover:shadow-2xl hover:shadow-indigo-500/20">
-                <div className="absolute inset-0 bg-gradient-to-br from-indigo-600/5 to-purple-600/5 rounded-2xl opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
+              <div className="bg-gradient-to-br from-[#1F6FEB]/20 to-[#6C63FF]/20 backdrop-blur-sm border border-white/10 rounded-2xl p-8 text-center transition-all duration-500 hover:scale-105 hover:border-[#1F6FEB]/30 hover:shadow-2xl hover:shadow-[#1F6FEB]/20">
+                <div className="absolute inset-0 bg-gradient-to-br from-[#1F6FEB]/5 to-[#6C63FF]/5 rounded-2xl opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
                 <div className="relative z-10">
                   <div className="text-5xl mb-4">✨</div>
                   <div
-                    className="text-4xl md:text-5xl font-bold mb-2 text-transparent bg-clip-text bg-gradient-to-r from-indigo-400 to-purple-400"
+                    className="text-4xl md:text-5xl font-bold mb-2 text-transparent bg-clip-text bg-gradient-to-r from-[#1F6FEB] to-[#6C63FF]"
                     style={{ fontFamily: 'var(--font-cinzel)' }}
                   >
                     50K+
                   </div>
                   <div
-                    className="text-lg text-gray-300"
+                    className="text-lg text-[#C5C6C7]"
                     style={{ fontFamily: 'var(--font-lora)' }}
                   >
                     Lives Touched
@@ -227,18 +227,18 @@ export default function Home() {
               viewport={{ once: true }}
               className="relative group"
             >
-              <div className="bg-gradient-to-br from-blue-600/20 to-cyan-600/20 backdrop-blur-sm border border-white/10 rounded-2xl p-8 text-center transition-all duration-500 hover:scale-105 hover:border-blue-400/30 hover:shadow-2xl hover:shadow-blue-500/20">
-                <div className="absolute inset-0 bg-gradient-to-br from-blue-600/5 to-cyan-600/5 rounded-2xl opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
+              <div className="bg-gradient-to-br from-[#1F6FEB]/20 to-[#6C63FF]/20 backdrop-blur-sm border border-white/10 rounded-2xl p-8 text-center transition-all duration-500 hover:scale-105 hover:border-[#1F6FEB]/30 hover:shadow-2xl hover:shadow-[#1F6FEB]/20">
+                <div className="absolute inset-0 bg-gradient-to-br from-[#1F6FEB]/5 to-[#6C63FF]/5 rounded-2xl opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
                 <div className="relative z-10">
                   <div className="text-5xl mb-4">🌌</div>
                   <div
-                    className="text-4xl md:text-5xl font-bold mb-2 text-transparent bg-clip-text bg-gradient-to-r from-blue-400 to-cyan-400"
+                    className="text-4xl md:text-5xl font-bold mb-2 text-transparent bg-clip-text bg-gradient-to-r from-[#1F6FEB] to-[#6C63FF]"
                     style={{ fontFamily: 'var(--font-cinzel)' }}
                   >
                     ∞
                   </div>
                   <div
-                    className="text-lg text-gray-300"
+                    className="text-lg text-[#C5C6C7]"
                     style={{ fontFamily: 'var(--font-lora)' }}
                   >
                     Cosmic Journeys
@@ -255,18 +255,18 @@ export default function Home() {
               viewport={{ once: true }}
               className="relative group"
             >
-              <div className="bg-gradient-to-br from-violet-600/20 to-pink-600/20 backdrop-blur-sm border border-white/10 rounded-2xl p-8 text-center transition-all duration-500 hover:scale-105 hover:border-violet-400/30 hover:shadow-2xl hover:shadow-violet-500/20">
-                <div className="absolute inset-0 bg-gradient-to-br from-violet-600/5 to-pink-600/5 rounded-2xl opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
+              <div className="bg-gradient-to-br from-[#1F6FEB]/20 to-[#6C63FF]/20 backdrop-blur-sm border border-white/10 rounded-2xl p-8 text-center transition-all duration-500 hover:scale-105 hover:border-[#1F6FEB]/30 hover:shadow-2xl hover:shadow-[#1F6FEB]/20">
+                <div className="absolute inset-0 bg-gradient-to-br from-[#1F6FEB]/5 to-[#6C63FF]/5 rounded-2xl opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
                 <div className="relative z-10">
                   <div className="text-5xl mb-4">⏳</div>
                   <div
-                    className="text-4xl md:text-5xl font-bold mb-2 text-transparent bg-clip-text bg-gradient-to-r from-violet-400 to-pink-400"
+                    className="text-4xl md:text-5xl font-bold mb-2 text-transparent bg-clip-text bg-gradient-to-r from-[#1F6FEB] to-[#6C63FF]"
                     style={{ fontFamily: 'var(--font-cinzel)' }}
                   >
                     15+
                   </div>
                   <div
-                    className="text-lg text-gray-300"
+                    className="text-lg text-[#C5C6C7]"
                     style={{ fontFamily: 'var(--font-lora)' }}
                   >
                     Years of Wisdom
@@ -286,15 +286,15 @@ export default function Home() {
           >
             <div className="max-w-4xl mx-auto">
               <blockquote
-                className="text-2xl md:text-3xl lg:text-4xl text-gray-200 italic leading-relaxed mb-8"
+                className="text-2xl md:text-3xl lg:text-4xl text-[#F4F4F4] italic leading-relaxed mb-8"
                 style={{ fontFamily: 'var(--font-lora)' }}
               >
                 "In the vastness of space and time, every story matters, every journey transforms, and every reader becomes part of the infinite cosmic dance."
               </blockquote>
               <div className="flex items-center justify-center space-x-4">
-                <div className="w-12 h-0.5 bg-gradient-to-r from-transparent to-purple-400"></div>
-                <div className="w-2 h-2 bg-purple-400 rounded-full"></div>
-                <div className="w-12 h-0.5 bg-gradient-to-l from-transparent to-purple-400"></div>
+                <div className="w-12 h-0.5 bg-gradient-to-r from-transparent to-[#1F6FEB]"></div>
+                <div className="w-2 h-2 bg-[#1F6FEB] rounded-full"></div>
+                <div className="w-12 h-0.5 bg-gradient-to-l from-transparent to-[#1F6FEB]"></div>
               </div>
             </div>
           </motion.div>
