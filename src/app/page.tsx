@@ -175,9 +175,15 @@ export default function Home() {
             {/* Author Tile */}
             <motion.div
               ref={authorRef}
-              initial={{ opacity: 0, y: 30 }}
-              animate={authorInView ? { opacity: 1, y: 0 } : { opacity: 0, y: 30 }}
-              transition={{ duration: 0.8, delay: 0.1 }}
+              initial={{ opacity: 0, y: 50, scale: 0.8, rotateY: -15 }}
+              animate={authorInView ? { opacity: 1, y: 0, scale: 1, rotateY: 0 } : { opacity: 0, y: 50, scale: 0.8, rotateY: -15 }}
+              transition={{
+                duration: 0.8,
+                delay: 0.1,
+                type: "spring",
+                stiffness: 100,
+                damping: 15
+              }}
               className="relative group"
             >
               <Link href="/about" className="block">
@@ -208,9 +214,15 @@ export default function Home() {
             {/* Books Tile */}
             <motion.div
               ref={booksRef}
-              initial={{ opacity: 0, y: 30 }}
-              animate={booksInView ? { opacity: 1, y: 0 } : { opacity: 0, y: 30 }}
-              transition={{ duration: 0.8, delay: 0.1 }}
+              initial={{ opacity: 0, y: 50, scale: 0.8, rotateY: 15 }}
+              animate={booksInView ? { opacity: 1, y: 0, scale: 1, rotateY: 0 } : { opacity: 0, y: 50, scale: 0.8, rotateY: 15 }}
+              transition={{
+                duration: 0.8,
+                delay: 0.3,
+                type: "spring",
+                stiffness: 100,
+                damping: 15
+              }}
               className="relative group"
             >
               <Link href="/books" className="block">
@@ -241,9 +253,15 @@ export default function Home() {
             {/* Connect Tile */}
             <motion.div
               ref={connectRef}
-              initial={{ opacity: 0, y: 30 }}
-              animate={connectInView ? { opacity: 1, y: 0 } : { opacity: 0, y: 30 }}
-              transition={{ duration: 0.8, delay: 0.1 }}
+              initial={{ opacity: 0, y: 50, scale: 0.8, rotateX: -10 }}
+              animate={connectInView ? { opacity: 1, y: 0, scale: 1, rotateX: 0 } : { opacity: 0, y: 50, scale: 0.8, rotateX: -10 }}
+              transition={{
+                duration: 0.8,
+                delay: 0.5,
+                type: "spring",
+                stiffness: 100,
+                damping: 15
+              }}
               className="relative group"
             >
               <Link href="/contact" className="block">
