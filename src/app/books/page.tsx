@@ -11,9 +11,9 @@ import FractalPyramid from '@/components/FractalPyramid'
 // Function to generate cosmic book covers
 const getRandomBookCover = (title: string, index: number) => {
     const colors = [
-        { bg: '#0f1419', accent: '#8B5CF6' }, // Deep space with purple
-        { bg: '#1a0b2e', accent: '#10B981' }, // Dark purple with emerald
-        { bg: '#2d1b69', accent: '#F59E0B' }, // Cosmic purple with amber
+        { bg: '#0f1419', accent: '#3B82F6' }, // Deep space with blue
+        { bg: '#1a0b2e', accent: '#10B981' }, // Dark blue with emerald
+        { bg: '#1e3a8a', accent: '#F59E0B' }, // Cosmic blue with amber
         { bg: '#1e3a8a', accent: '#EC4899' }, // Deep blue with pink
         { bg: '#7c2d12', accent: '#06B6D4' }, // Cosmic red with cyan
         { bg: '#064e3b', accent: '#F97316' }  // Deep teal with orange
@@ -286,7 +286,7 @@ const Books = () => {
                                 initial={{ opacity: 0, y: 50 }}
                                 animate={{ opacity: 1, y: 0 }}
                                 transition={{ duration: 0.6, delay: 0.5 + index * 0.1 }}
-                                className="card group hover:shadow-2xl hover:shadow-purple-500/20 transition-all duration-300"
+                                className="card group hover:shadow-2xl hover:shadow-blue-500/20 transition-all duration-300"
                             >
                                 {/* Book Cover */}
                                 <div className="aspect-[3/4] overflow-hidden rounded-lg mb-6 bg-white/5 relative">
@@ -304,7 +304,7 @@ const Books = () => {
                                     </div>
 
                                     {/* Cosmic glow overlay */}
-                                    <div className="absolute inset-0 bg-gradient-to-t from-purple-900/30 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
+                                    <div className="absolute inset-0 bg-gradient-to-t from-blue-900/30 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
                                 </div>
 
                                 {/* Book Info */}
@@ -313,7 +313,7 @@ const Books = () => {
                                         {book.title}
                                     </h3>
 
-                                    <p className="text-purple-300/80 text-sm mb-2 font-light">
+                                    <p className="text-blue-300/80 text-sm mb-2 font-light">
                                         Published: {formatDate(book.publication_date)}
                                     </p>
 

@@ -202,7 +202,7 @@ const Contact = () => {
                                                     name="name"
                                                     value={formData.name}
                                                     onChange={handleChange}
-                                                    className="w-full px-4 py-3 bg-white/5 border border-white/20 rounded-lg focus:ring-2 focus:ring-purple-400 focus:border-purple-400 transition-all text-white placeholder-white/40 font-light"
+                                                    className="w-full px-4 py-3 bg-white/5 border border-white/20 rounded-lg focus:ring-2 focus:ring-blue-400 focus:border-blue-400 transition-all text-white placeholder-white/40 font-light"
                                                     placeholder="Enter your name in this dimension"
                                                     maxLength={100}
                                                 />
@@ -219,7 +219,7 @@ const Contact = () => {
                                                     name="email"
                                                     value={formData.email}
                                                     onChange={handleChange}
-                                                    className="w-full px-4 py-3 bg-white/5 border border-white/20 rounded-lg focus:ring-2 focus:ring-purple-400 focus:border-purple-400 transition-all text-white placeholder-white/40 font-light"
+                                                    className="w-full px-4 py-3 bg-white/5 border border-white/20 rounded-lg focus:ring-2 focus:ring-blue-400 focus:border-blue-400 transition-all text-white placeholder-white/40 font-light"
                                                     placeholder="Enter your email for cosmic correspondence"
                                                     maxLength={100}
                                                 />
@@ -236,7 +236,7 @@ const Contact = () => {
                                                     rows={6}
                                                     value={formData.message}
                                                     onChange={handleChange}
-                                                    className="w-full px-4 py-3 bg-white/5 border border-white/20 rounded-lg focus:ring-2 focus:ring-purple-400 focus:border-purple-400 transition-all text-white placeholder-white/40 font-light"
+                                                    className="w-full px-4 py-3 bg-white/5 border border-white/20 rounded-lg focus:ring-2 focus:ring-blue-400 focus:border-blue-400 transition-all text-white placeholder-white/40 font-light"
                                                     placeholder="Share your thoughts, cosmic insights, spiritual questions, or consciousness experiences..."
                                                     maxLength={2000}
                                                 />
@@ -286,9 +286,9 @@ const Contact = () => {
                                         <motion.div
                                             whileHover={{ scale: 1.1, rotate: 360 }}
                                             transition={{ duration: 0.3 }}
-                                            className="w-12 h-12 bg-gradient-to-r from-purple-500/20 to-blue-500/20 rounded-full flex items-center justify-center border border-purple-400/30"
+                                            className="w-12 h-12 bg-gradient-to-r from-blue-500/20 to-blue-500/20 rounded-full flex items-center justify-center border border-blue-400/30"
                                         >
-                                            <span className="text-purple-400 text-xl">📧</span>
+                                            <span className="text-blue-400 text-xl">📧</span>
                                         </motion.div>
                                         <div>
                                             <h4 className="font-light text-white">Quantum Email</h4>
@@ -300,7 +300,7 @@ const Contact = () => {
                                         <motion.div
                                             whileHover={{ scale: 1.1, rotate: 360 }}
                                             transition={{ duration: 0.3 }}
-                                            className="w-12 h-12 bg-gradient-to-r from-blue-500/20 to-purple-500/20 rounded-full flex items-center justify-center border border-blue-400/30"
+                                            className="w-12 h-12 bg-gradient-to-r from-blue-500/20 to-blue-500/20 rounded-full flex items-center justify-center border border-blue-400/30"
                                         >
                                             <span className="text-blue-400 text-xl">🌌</span>
                                         </motion.div>
@@ -314,7 +314,7 @@ const Contact = () => {
                                         <motion.div
                                             whileHover={{ scale: 1.1, rotate: 360 }}
                                             transition={{ duration: 0.3 }}
-                                            className="w-12 h-12 bg-gradient-to-r from-amber-500/20 to-purple-500/20 rounded-full flex items-center justify-center border border-amber-400/30"
+                                            className="w-12 h-12 bg-gradient-to-r from-amber-500/20 to-blue-500/20 rounded-full flex items-center justify-center border border-amber-400/30"
                                         >
                                             <span className="text-amber-400 text-xl">⏰</span>
                                         </motion.div>
@@ -332,7 +332,7 @@ const Contact = () => {
                                         <motion.a
                                             whileHover={{ scale: 1.1, rotate: 15 }}
                                             href="https://twitter.com"
-                                            className="w-10 h-10 bg-gradient-to-r from-blue-600 to-purple-600 text-white rounded-full flex items-center justify-center hover:shadow-lg hover:shadow-blue-500/25 transition-all"
+                                            className="w-10 h-10 bg-gradient-to-r from-blue-600 to-blue-600 text-white rounded-full flex items-center justify-center hover:shadow-lg hover:shadow-blue-500/25 transition-all"
                                             aria-label="Cosmic Twitter"
                                         >
                                             <svg className="w-5 h-5" fill="currentColor" viewBox="0 0 24 24">
@@ -342,7 +342,7 @@ const Contact = () => {
                                         <motion.a
                                             whileHover={{ scale: 1.1, rotate: -15 }}
                                             href="https://instagram.com"
-                                            className="w-10 h-10 bg-gradient-to-r from-pink-600 to-purple-600 text-white rounded-full flex items-center justify-center hover:shadow-lg hover:shadow-pink-500/25 transition-all"
+                                            className="w-10 h-10 bg-gradient-to-r from-pink-600 to-blue-600 text-white rounded-full flex items-center justify-center hover:shadow-lg hover:shadow-pink-500/25 transition-all"
                                             aria-label="Cosmic Instagram"
                                         >
                                             <svg className="w-5 h-5" fill="currentColor" viewBox="0 0 24 24">

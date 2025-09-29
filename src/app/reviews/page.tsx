@@ -196,7 +196,7 @@ const Reviews = () => {
                                                 <span className="w-8 text-white font-light">{rating}✦</span>
                                                 <div className="flex-1 bg-white/10 rounded-full h-2">
                                                     <div
-                                                        className="bg-gradient-to-r from-amber-400 to-purple-400 h-2 rounded-full transition-all duration-300"
+                                                        className="bg-gradient-to-r from-amber-400 to-blue-400 h-2 rounded-full transition-all duration-300"
                                                         style={{
                                                             width: totalReviews > 0 ? `${(ratingCounts[rating as keyof typeof ratingCounts] / totalReviews) * 100}%` : '0%'
                                                         }}
@@ -215,7 +215,7 @@ const Reviews = () => {
                                         <button
                                             onClick={() => setFilter('all')}
                                             className={`w-full text-left px-3 py-2 rounded-lg font-light transition-all duration-300 ${filter === 'all'
-                                                ? 'bg-gradient-to-r from-purple-600 to-blue-600 text-white'
+                                                ? 'bg-gradient-to-r from-blue-600 to-blue-600 text-white'
                                                 : 'hover:bg-white/10 text-white/80 hover:text-white'
                                                 }`}
                                         >
@@ -226,7 +226,7 @@ const Reviews = () => {
                                                 key={rating}
                                                 onClick={() => setFilter(rating)}
                                                 className={`w-full text-left px-3 py-2 rounded-lg flex items-center justify-between font-light transition-all duration-300 ${filter === rating
-                                                    ? 'bg-gradient-to-r from-purple-600 to-blue-600 text-white'
+                                                    ? 'bg-gradient-to-r from-blue-600 to-blue-600 text-white'
                                                     : 'hover:bg-white/10 text-white/80 hover:text-white'
                                                     }`}
                                             >
@@ -263,7 +263,7 @@ const Reviews = () => {
                                             initial={{ opacity: 0, y: 30 }}
                                             animate={{ opacity: 1, y: 0 }}
                                             transition={{ duration: 0.6, delay: index * 0.1 }}
-                                            className="card hover:shadow-2xl hover:shadow-purple-500/20 transition-all duration-300 group"
+                                            className="card hover:shadow-2xl hover:shadow-blue-500/20 transition-all duration-300 group"
                                         >
                                             {/* Header */}
                                             <div className="flex justify-between items-start mb-4">
@@ -279,7 +279,7 @@ const Reviews = () => {
                                                         <span>•</span>
                                                         <Link
                                                             href={`/books/${review.book.id}`}
-                                                            className="text-purple-300 hover:text-purple-200 font-light transition-colors"
+                                                            className="text-blue-300 hover:text-blue-200 font-light transition-colors"
                                                         >
                                                             {review.book.title}
                                                         </Link>
@@ -289,17 +289,17 @@ const Reviews = () => {
 
                                             {/* Review Text */}
                                             <blockquote className="text-white/80 text-lg leading-relaxed font-light relative pl-6">
-                                                <div className="absolute left-0 top-0 text-purple-400/60 text-2xl">&ldquo;</div>
+                                                <div className="absolute left-0 top-0 text-blue-400/60 text-2xl">&ldquo;</div>
                                                 {review.review_text}
-                                                <div className="absolute bottom-0 right-0 text-purple-400/60 text-2xl">&rdquo;</div>
+                                                <div className="absolute bottom-0 right-0 text-blue-400/60 text-2xl">&rdquo;</div>
                                             </blockquote>
 
                                             {/* Admin Replies */}
                                             {review.replies && review.replies.length > 0 && (
                                                 <div className="mt-6 pt-4 border-t border-white/10">
-                                                    <h4 className="text-sm font-light text-purple-300/80 mb-3">Author&apos;s Cosmic Response:</h4>
+                                                    <h4 className="text-sm font-light text-blue-300/80 mb-3">Author&apos;s Cosmic Response:</h4>
                                                     {review.replies.map((reply: Reply) => (
-                                                        <div key={reply.id} className="bg-purple-500/10 border border-purple-400/30 rounded-lg p-4">
+                                                        <div key={reply.id} className="bg-blue-500/10 border border-blue-400/30 rounded-lg p-4">
                                                             <p className="text-white/80 leading-relaxed font-light">{reply.reply_text}</p>
                                                             <p className="text-white/50 text-sm mt-2 font-light">
                                                                 Shared on {new Date(reply.created_at).toLocaleDateString('en-US', {
@@ -317,7 +317,7 @@ const Reviews = () => {
                                             <div className="mt-4 pt-4 border-t border-white/10">
                                                 <Link
                                                     href={`/books/${review.book.id}`}
-                                                    className="text-white/60 hover:text-purple-300 text-sm font-light transition-colors"
+                                                    className="text-white/60 hover:text-blue-300 text-sm font-light transition-colors"
                                                 >
                                                     Explore more about {review.book.title} →
                                                 </Link>

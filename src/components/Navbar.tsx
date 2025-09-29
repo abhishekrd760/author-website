@@ -43,12 +43,12 @@ const Navbar = () => {
                             >
                                 <Link
                                     href={item.href}
-                                    className={`relative text-white/80 hover:text-white font-light transition-all duration-300 group px-4 py-2 rounded-full cursor-pointer ${pathname === item.href ? 'text-white bg-purple-500/20 border border-purple-400/30' : ''
+                                    className={`relative text-white/80 hover:text-white font-light transition-all duration-300 group px-4 py-2 rounded-full cursor-pointer ${pathname === item.href ? 'text-white bg-blue-500/20 border border-blue-400/30' : ''
                                         }`}
                                 >
                                     {item.label}
                                     <motion.span
-                                        className="absolute inset-x-0 -bottom-1 h-0.5 bg-gradient-to-r from-purple-400 to-blue-400 origin-left"
+                                        className="absolute inset-x-0 -bottom-1 h-0.5 bg-gradient-to-r from-blue-400 to-blue-600 origin-left"
                                         initial={{ scaleX: 0 }}
                                         whileHover={{ scaleX: 1 }}
                                         transition={{ duration: 0.3 }}
@@ -89,7 +89,7 @@ const Navbar = () => {
                                     >
                                         <Link
                                             href={item.href}
-                                            className={`block text-white/80 hover:text-white font-light transition-all duration-200 hover:translate-x-2 transform px-6 py-2 cursor-pointer ${pathname === item.href ? 'text-white border-l-2 border-purple-400 bg-purple-500/10' : ''
+                                            className={`block text-white/80 hover:text-white font-light transition-all duration-200 hover:translate-x-2 transform px-6 py-2 cursor-pointer ${pathname === item.href ? 'text-white border-l-2 border-blue-400 bg-blue-500/10' : ''
                                                 }`}
                                             onClick={() => setIsMenuOpen(false)}
                                         >

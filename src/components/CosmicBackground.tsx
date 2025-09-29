@@ -62,7 +62,7 @@ const CosmicBackground = () => {
 
             {/* Floating Cosmic Particles */}
             <motion.div
-                className="absolute top-1/4 left-1/4 w-8 h-8 bg-purple-500/30 rounded-full"
+                className="absolute top-1/4 left-1/4 w-8 h-8 bg-blue-500/30 rounded-full"
                 animate={{
                     y: [-20, 20, -20],
                     x: [-10, 10, -10],
@@ -93,7 +93,7 @@ const CosmicBackground = () => {
             />
 
             <motion.div
-                className="absolute bottom-1/3 left-1/3 w-10 h-10 bg-purple-400/20 rounded-full"
+                className="absolute bottom-1/3 left-1/3 w-10 h-10 bg-blue-400/20 rounded-full"
                 animate={{
                     y: [-15, 15, -15],
                     x: [-15, 15, -15],
@@ -125,7 +125,7 @@ const CosmicBackground = () => {
             />
 
             <motion.div
-                className="absolute bottom-1/4 right-1/2 w-12 h-12 bg-purple-300/15 rounded-full"
+                className="absolute bottom-1/4 right-1/2 w-12 h-12 bg-blue-300/15 rounded-full"
                 animate={{
                     y: [-30, 30, -30],
                     x: [20, -20, 20],
@@ -141,7 +141,7 @@ const CosmicBackground = () => {
             />
 
             {/* Gradient Overlay */}
-            <div className="absolute inset-0 bg-gradient-to-b from-transparent via-purple-900/10 to-transparent" />
+            <div className="absolute inset-0 bg-gradient-to-b from-transparent via-blue-900/10 to-transparent" />
         </div>
     )
 }

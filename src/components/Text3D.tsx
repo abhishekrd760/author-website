@@ -30,7 +30,7 @@ const Text3D: React.FC<Text3DProps> = ({ text, className = "", depth = 3 }) => {
             {Array.from({ length: depth }).map((_, i) => (
                 <motion.span
                     key={i}
-                    className="absolute inset-0 text-purple-900/20 font-bold select-none"
+                    className="absolute inset-0 text-blue-900/20 font-bold select-none"
                     style={{
                         transform: `translate(${i * 2}px, ${i * 2}px)`,
                         zIndex: depth - i,
@@ -51,7 +51,7 @@ const Text3D: React.FC<Text3DProps> = ({ text, className = "", depth = 3 }) => {
 
             {/* Main text layer */}
             <motion.span
-                className="relative z-10 font-bold bg-gradient-to-r from-purple-400 via-pink-500 to-purple-600 bg-clip-text text-transparent"
+                className="relative z-10 font-bold bg-gradient-to-r from-blue-400 via-blue-500 to-blue-600 bg-clip-text text-transparent"
                 animate={{
                     x: mousePosition.x * 0.5,
                     y: mousePosition.y * 0.5,

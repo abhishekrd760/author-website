@@ -52,11 +52,11 @@ const About = () => {
                             transition={{ duration: 0.8, delay: 0.2 }}
                             className="relative"
                         >
-                            <div className="aspect-square max-w-md mx-auto rounded-2xl overflow-hidden shadow-2xl border border-purple-400/30 relative glow-purple">
-                                <div className="absolute -top-2 -left-2 w-6 h-6 border-t-2 border-l-2 border-purple-400"></div>
-                                <div className="absolute -top-2 -right-2 w-6 h-6 border-t-2 border-r-2 border-purple-400"></div>
-                                <div className="absolute -bottom-2 -left-2 w-6 h-6 border-b-2 border-l-2 border-purple-400"></div>
-                                <div className="absolute -bottom-2 -right-2 w-6 h-6 border-b-2 border-r-2 border-purple-400"></div>
+                            <div className="aspect-square max-w-md mx-auto rounded-2xl overflow-hidden shadow-2xl border border-blue-400/30 relative glow-blue">
+                                <div className="absolute -top-2 -left-2 w-6 h-6 border-t-2 border-l-2 border-blue-400"></div>
+                                <div className="absolute -top-2 -right-2 w-6 h-6 border-t-2 border-r-2 border-blue-400"></div>
+                                <div className="absolute -bottom-2 -left-2 w-6 h-6 border-b-2 border-l-2 border-blue-400"></div>
+                                <div className="absolute -bottom-2 -right-2 w-6 h-6 border-b-2 border-r-2 border-blue-400"></div>
 
                                 <Image
                                     src="/images/chor.jpg"
@@ -78,7 +78,7 @@ const About = () => {
                                     }}
                                 />
 
-                                <div className="absolute inset-0 bg-gradient-to-t from-purple-900/50 via-transparent to-transparent"></div>
+                                <div className="absolute inset-0 bg-gradient-to-t from-blue-900/50 via-transparent to-transparent"></div>
                             </div>
                         </motion.div>
 
@@ -132,16 +132,16 @@ const About = () => {
                                     initial={{ opacity: 0, y: 30 }}
                                     animate={{ opacity: 1, y: 0 }}
                                     transition={{ duration: 0.6, delay: 0.8 + index * 0.1 }}
-                                    className="relative p-6 bg-white/5 rounded-xl border border-white/10 hover:border-purple-400/30 transition-all duration-300 group"
+                                    className="relative p-6 bg-white/5 rounded-xl border border-white/10 hover:border-blue-400/30 transition-all duration-300 group"
                                 >
-                                    <div className="absolute -top-3 -left-3 w-8 h-8 bg-gradient-to-r from-purple-400 to-blue-400 rounded-full flex items-center justify-center text-white text-sm font-light">
+                                    <div className="absolute -top-3 -left-3 w-8 h-8 bg-gradient-to-r from-blue-400 to-blue-600 rounded-full flex items-center justify-center text-white text-sm font-light">
                                         {achievement.year.slice(-2)}
                                     </div>
-                                    <div className="text-sm text-purple-300 font-light mb-2 tracking-wide">{achievement.year}</div>
+                                    <div className="text-sm text-blue-300 font-light mb-2 tracking-wide">{achievement.year}</div>
                                     <div className="text-white/90 font-light leading-relaxed">{achievement.event}</div>
 
                                     <motion.div
-                                        className="absolute inset-0 bg-gradient-to-r from-purple-500/5 to-blue-500/5 rounded-xl opacity-0 group-hover:opacity-100 transition-opacity duration-300"
+                                        className="absolute inset-0 bg-gradient-to-r from-blue-500/5 to-blue-600/5 rounded-xl opacity-0 group-hover:opacity-100 transition-opacity duration-300"
                                         whileHover={{ scale: 1.02 }}
                                     />
                                 </motion.div>
@@ -164,7 +164,7 @@ const About = () => {
                             <div className="text-center group">
                                 <motion.div
                                     whileHover={{ scale: 1.1, rotate: 180 }}
-                                    className="w-16 h-16 mx-auto mb-4 bg-gradient-to-r from-purple-400 to-blue-400 rounded-full flex items-center justify-center text-2xl"
+                                    className="w-16 h-16 mx-auto mb-4 bg-gradient-to-r from-blue-400 to-blue-600 rounded-full flex items-center justify-center text-2xl"
                                 >
                                     ∞
                                 </motion.div>
@@ -177,7 +177,7 @@ const About = () => {
                             <div className="text-center group">
                                 <motion.div
                                     whileHover={{ scale: 1.1, rotate: 360 }}
-                                    className="w-16 h-16 mx-auto mb-4 bg-gradient-to-r from-blue-400 to-purple-400 rounded-full flex items-center justify-center text-2xl"
+                                    className="w-16 h-16 mx-auto mb-4 bg-gradient-to-r from-blue-400 to-blue-600 rounded-full flex items-center justify-center text-2xl"
                                 >
                                     ॐ
                                 </motion.div>
@@ -190,7 +190,7 @@ const About = () => {
                             <div className="text-center group">
                                 <motion.div
                                     whileHover={{ scale: 1.1, rotate: -180 }}
-                                    className="w-16 h-16 mx-auto mb-4 bg-gradient-to-r from-purple-400 to-blue-400 rounded-full flex items-center justify-center text-2xl"
+                                    className="w-16 h-16 mx-auto mb-4 bg-gradient-to-r from-blue-400 to-blue-600 rounded-full flex items-center justify-center text-2xl"
                                 >
                                     🌌
                                 </motion.div>

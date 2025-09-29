@@ -89,7 +89,7 @@ export default function Home() {
         >
           <a
             href="/books"
-            className="px-8 py-4 bg-gradient-to-r from-purple-600 to-blue-600 text-white rounded-full font-medium text-lg transition-all duration-300 hover:scale-105 hover:shadow-lg hover:shadow-purple-500/25 cursor-pointer inline-block no-underline"
+            className="px-8 py-4 bg-gradient-to-r from-blue-600 to-blue-600 text-white rounded-full font-medium text-lg transition-all duration-300 hover:scale-105 hover:shadow-lg hover:shadow-blue-500/25 cursor-pointer inline-block no-underline"
             style={{
               pointerEvents: 'all',
               cursor: 'pointer',

@@ -80,7 +80,7 @@ const Floating3DBooks = () => {
                     zIndex: -10,
                 }}
             >
-                <div className="w-full h-full bg-gradient-to-br from-purple-400/15 to-pink-500/15 rounded-lg shadow-xl opacity-20"></div>
+                <div className="w-full h-full bg-gradient-to-br from-blue-400/15 to-blue-500/15 rounded-lg shadow-xl opacity-20"></div>
             </motion.div>
 
             {/* Additional Spinning Cards/Shapes */}
@@ -144,7 +144,7 @@ const Floating3DBooks = () => {
                     zIndex: -10,
                 }}
             >
-                <div className="w-full h-full bg-gradient-to-br from-indigo-400/15 to-purple-500/15 rounded-lg shadow-xl opacity-30"></div>
+                <div className="w-full h-full bg-gradient-to-br from-blue-400/15 to-blue-500/15 rounded-lg shadow-xl opacity-30"></div>
             </motion.div>
 
             <motion.div
@@ -229,7 +229,7 @@ const Floating3DBooks = () => {
                     zIndex: -10,
                 }}
             >
-                <div className="w-full h-full bg-gradient-to-br from-violet-400/20 to-purple-500/20 transform rotate-45 shadow-lg opacity-30"></div>
+                <div className="w-full h-full bg-gradient-to-br from-blue-400/20 to-blue-500/20 transform rotate-45 shadow-lg opacity-30"></div>
             </motion.div>
 
             <motion.div

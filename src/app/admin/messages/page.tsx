@@ -96,8 +96,8 @@ function MessageCard({ message, onMarkRead, onMarkReplied }: {
         <motion.div
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
-            className={`card ${message.is_read ? 'border-purple-400/20' : 'border-purple-400/40 bg-purple-500/5'
-                } hover:shadow-lg hover:shadow-purple-500/20 transition-all duration-300`}
+            className={`card ${message.is_read ? 'border-blue-400/20' : 'border-blue-400/40 bg-blue-500/5'
+                } hover:shadow-lg hover:shadow-blue-500/20 transition-all duration-300`}
         >
             {/* Message header */}
             <div className="flex items-start justify-between mb-4">
@@ -105,7 +105,7 @@ function MessageCard({ message, onMarkRead, onMarkReplied }: {
                     <div className="flex items-center space-x-3 mb-2">
                         <h3 className="text-lg font-extralight text-white tracking-wide">{message.name}</h3>
                         {!message.is_read && (
-                            <span className="bg-gradient-to-r from-purple-500 to-blue-500 text-white text-xs px-2 py-1 rounded-full font-light">
+                            <span className="bg-gradient-to-r from-blue-500 to-blue-500 text-white text-xs px-2 py-1 rounded-full font-light">
                                 New Transmission
                             </span>
                         )}
@@ -129,7 +129,7 @@ function MessageCard({ message, onMarkRead, onMarkReplied }: {
                     {!message.is_read && (
                         <button
                             onClick={() => onMarkRead(message.id)}
-                            className="bg-gradient-to-r from-purple-600/20 to-blue-600/20 border border-purple-400/30 text-purple-300 hover:text-white hover:from-purple-600/30 hover:to-blue-600/30 px-3 py-1 rounded text-sm transition-all font-light hover:shadow-lg hover:shadow-purple-500/25"
+                            className="bg-gradient-to-r from-blue-600/20 to-blue-600/20 border border-blue-400/30 text-blue-300 hover:text-white hover:from-blue-600/30 hover:to-blue-600/30 px-3 py-1 rounded text-sm transition-all font-light hover:shadow-lg hover:shadow-blue-500/25"
                         >
                             Mark Read
                         </button>
@@ -144,7 +144,7 @@ function MessageCard({ message, onMarkRead, onMarkReplied }: {
             </div>
 
             {/* Message content */}
-            <div className="bg-white/5 border border-purple-400/20 rounded-lg p-4 backdrop-blur-sm">
+            <div className="bg-white/5 border border-blue-400/20 rounded-lg p-4 backdrop-blur-sm">
                 <p className="text-white/80 leading-relaxed whitespace-pre-wrap font-light">
                     {message.message}
                 </p>
@@ -199,7 +199,7 @@ export default function AdminMessages() {
     }
 
     return (
-        <div className="min-h-screen bg-gradient-to-br from-slate-900 via-purple-900 to-slate-900">
+        <div className="min-h-screen bg-gradient-to-br from-slate-900 via-blue-900 to-slate-900">
             <AdminNav />
 
             <div className="p-6">
@@ -231,8 +231,8 @@ export default function AdminMessages() {
                             key={filter.key}
                             onClick={() => handleFilterChange(filter.key)}
                             className={`px-6 py-3 rounded-lg font-light transition-all duration-300 ${currentFilter === filter.key
-                                ? 'bg-gradient-to-r from-purple-600 to-blue-600 text-white shadow-lg shadow-purple-500/25'
-                                : 'bg-white/5 border border-purple-400/20 text-white/70 hover:text-white hover:bg-white/10 hover:border-purple-400/40'
+                                ? 'bg-gradient-to-r from-blue-600 to-blue-600 text-white shadow-lg shadow-blue-500/25'
+                                : 'bg-white/5 border border-blue-400/20 text-white/70 hover:text-white hover:bg-white/10 hover:border-blue-400/40'
                                 }`}
                         >
                             {filter.label}
@@ -306,8 +306,8 @@ export default function AdminMessages() {
                                         key={page}
                                         onClick={() => handlePageChange(page)}
                                         className={`px-4 py-2 rounded-lg transition-all duration-300 font-light ${page === pagination.currentPage
-                                            ? 'bg-gradient-to-r from-purple-600 to-blue-600 text-white shadow-lg shadow-purple-500/25'
-                                            : 'bg-white/5 border border-purple-400/20 text-white/70 hover:text-white hover:bg-white/10 hover:border-purple-400/40'
+                                            ? 'bg-gradient-to-r from-blue-600 to-blue-600 text-white shadow-lg shadow-blue-500/25'
+                                            : 'bg-white/5 border border-blue-400/20 text-white/70 hover:text-white hover:bg-white/10 hover:border-blue-400/40'
                                             }`}
                                     >
                                         {page}
@@ -321,10 +321,10 @@ export default function AdminMessages() {
 
             {/* Background decoration */}
             <div className="fixed inset-0 -z-10 overflow-hidden pointer-events-none">
-                <div className="absolute -top-1/2 -left-1/2 w-full h-full bg-gradient-to-br from-purple-500/10 to-blue-500/10 rounded-full blur-3xl"></div>
-                <div className="absolute -bottom-1/2 -right-1/2 w-full h-full bg-gradient-to-tl from-blue-500/10 to-purple-500/10 rounded-full blur-3xl"></div>
-                <div className="absolute top-1/4 left-1/4 w-96 h-96 bg-gradient-to-r from-purple-400/5 to-blue-400/5 rounded-full blur-2xl animate-pulse"></div>
-                <div className="absolute bottom-1/4 right-1/4 w-96 h-96 bg-gradient-to-l from-blue-400/5 to-purple-400/5 rounded-full blur-2xl animate-pulse" style={{ animationDelay: '2s' }}></div>
+                <div className="absolute -top-1/2 -left-1/2 w-full h-full bg-gradient-to-br from-blue-500/10 to-blue-500/10 rounded-full blur-3xl"></div>
+                <div className="absolute -bottom-1/2 -right-1/2 w-full h-full bg-gradient-to-tl from-blue-500/10 to-blue-500/10 rounded-full blur-3xl"></div>
+                <div className="absolute top-1/4 left-1/4 w-96 h-96 bg-gradient-to-r from-blue-400/5 to-blue-400/5 rounded-full blur-2xl animate-pulse"></div>
+                <div className="absolute bottom-1/4 right-1/4 w-96 h-96 bg-gradient-to-l from-blue-400/5 to-blue-400/5 rounded-full blur-2xl animate-pulse" style={{ animationDelay: '2s' }}></div>
             </div>
         </div>
     )

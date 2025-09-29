@@ -277,7 +277,7 @@ const DashboardContent = ({ onLogout }: { onLogout: () => void }) => {
                         <p className="text-gray-600">New Messages</p>
                     </div>
                     <div className="card text-center">
-                        <h3 className="text-3xl font-bold text-purple-600 mb-2">4.8</h3>
+                        <h3 className="text-3xl font-bold text-blue-600 mb-2">4.8</h3>
                         <p className="text-gray-600">Avg Rating</p>
                     </div>
                     <div className="card text-center">

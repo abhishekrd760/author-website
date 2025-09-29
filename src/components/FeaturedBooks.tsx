@@ -13,7 +13,7 @@ const getRandomBookCover = (title: string, index: number) => {
         { bg: '#374151', accent: '#F59E0B' },
         { bg: '#1F2937', accent: '#10B981' },
         { bg: '#111827', accent: '#3B82F6' },
-        { bg: '#581C87', accent: '#EC4899' },
+        { bg: '#1E40AF', accent: '#EC4899' },
         { bg: '#7C2D12', accent: '#F97316' },
         { bg: '#064E3B', accent: '#6EE7B7' }
     ]
