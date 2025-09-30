@@ -4,7 +4,7 @@ import { motion, useInView } from 'framer-motion'
 import Link from 'next/link'
 import { useEffect, useRef } from 'react'
 import { useRouter } from 'next/navigation'
-import SpaceBackground from '@/components/SpaceBackground'
+import MovingSpace from '@/components/MovingSpace'
 import { ChevronDownIcon } from '@heroicons/react/24/outline'
 
 // Track homepage visit
@@ -44,8 +44,8 @@ export default function Home() {
       background: 'linear-gradient(to bottom, #1a0a2a 0%, #0a0010 25%, #000000 50%, #000000 75%, #000000 100%)',
       minHeight: '100vh'
     }}>
-      {/* Three.js Space Background */}
-      <SpaceBackground />
+      {/* Three.js Moving Space Background */}
+      <MovingSpace />
 
       {/* Full-screen Hero Section */}
       <section className="min-h-screen flex items-center justify-center relative overflow-hidden -mt-2 md:-mt-0.1 lg:-mt-0.1">
@@ -107,7 +107,7 @@ export default function Home() {
             pointerEvents: 'auto'
           }}
         >
-          <a
+          <Link
             href="/books"
             className="px-8 py-4 bg-gradient-to-r from-blue-600 to-blue-600 text-white rounded-full font-medium text-lg transition-all duration-300 hover:scale-105 hover:shadow-lg hover:shadow-blue-500/25 cursor-pointer inline-block no-underline"
             style={{
@@ -117,7 +117,7 @@ export default function Home() {
             }}
           >
             Explore Books
-          </a>
+          </Link>
           <a
             href="/about"
             className="px-8 py-4 border-2 border-white/30 text-white rounded-full font-medium text-lg transition-all duration-300 hover:scale-105 hover:bg-white/10 bg-transparent cursor-pointer inline-block no-underline"
@@ -323,7 +323,7 @@ export default function Home() {
                 className="text-2xl md:text-3xl lg:text-4xl text-[#F4F4F4] italic leading-relaxed mb-8"
                 style={{ fontFamily: 'var(--font-lora)' }}
               >
-                "In the vastness of space and time, every story matters, every journey transforms, and every reader becomes part of the infinite cosmic dance."
+                &ldquo;In the vastness of space and time, every story matters, every journey transforms, and every reader becomes part of the infinite cosmic dance.&rdquo;
               </blockquote>
               <div className="flex items-center justify-center space-x-4">
                 <div className="w-12 h-0.5 bg-gradient-to-r from-transparent to-[#1F6FEB]"></div>
