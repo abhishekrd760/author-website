@@ -4,6 +4,7 @@ import { useState, useEffect } from 'react'
 import { useRouter } from 'next/navigation'
 import { useAdmin } from '@/lib/admin-context'
 import { motion } from 'framer-motion'
+import StarryBackground from '@/components/StarryBackground'
 
 export default function AdminLogin() {
     const [username, setUsername] = useState('')
@@ -41,12 +42,19 @@ export default function AdminLogin() {
     }
 
     return (
-        <div className="min-h-screen bg-gradient-to-br from-slate-900 via-blue-900 to-slate-900 flex items-center justify-center p-4">
+        <div className="min-h-screen relative flex items-center justify-center p-4">
+            {/* Starry Background */}
+            <div className="fixed inset-0" style={{ zIndex: 1 }}>
+                <StarryBackground />
+            </div>
+
+            {/* Overlay to ensure content is readable */}
+            <div className="absolute inset-0 bg-gradient-to-br from-black/20 via-slate-900/20 to-black/20" style={{ zIndex: 2 }}></div>
             <motion.div
                 initial={{ opacity: 0, scale: 0.95 }}
                 animate={{ opacity: 1, scale: 1 }}
                 transition={{ duration: 0.5 }}
-                className="card w-full max-w-md"
+                className="card w-full max-w-md relative z-10"
             >
                 <div className="text-center mb-8">
                     <motion.h1
@@ -147,12 +155,10 @@ export default function AdminLogin() {
                 </motion.div>
             </motion.div>
 
-            {/* Background decoration */}
+            {/* Background decoration - subtle enhancement */}
             <div className="fixed inset-0 -z-10 overflow-hidden pointer-events-none">
-                <div className="absolute -top-1/2 -left-1/2 w-full h-full bg-gradient-to-br from-blue-500/10 to-blue-500/10 rounded-full blur-3xl"></div>
-                <div className="absolute -bottom-1/2 -right-1/2 w-full h-full bg-gradient-to-tl from-blue-500/10 to-blue-500/10 rounded-full blur-3xl"></div>
-                <div className="absolute top-1/4 left-1/4 w-96 h-96 bg-gradient-to-r from-blue-400/5 to-blue-400/5 rounded-full blur-2xl animate-pulse"></div>
-                <div className="absolute bottom-1/4 right-1/4 w-96 h-96 bg-gradient-to-l from-blue-400/5 to-blue-400/5 rounded-full blur-2xl animate-pulse" style={{ animationDelay: '2s' }}></div>
+                <div className="absolute -top-1/2 -left-1/2 w-full h-full bg-gradient-to-br from-blue-500/5 to-blue-500/5 rounded-full blur-3xl"></div>
+                <div className="absolute -bottom-1/2 -right-1/2 w-full h-full bg-gradient-to-tl from-blue-500/5 to-blue-500/5 rounded-full blur-3xl"></div>
             </div>
         </div>
     )

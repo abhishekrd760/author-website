@@ -89,7 +89,7 @@ function Galaxy({ position, size, rotationSpeed, color }: {
     const timeRef = useRef(Math.random() * Math.PI * 2)
 
     const galaxyGeometry = useMemo(() => {
-        const starsPerArm = 120  // Doubled for denser spirals
+        const starsPerArm = 200  // Increased for denser spirals
         const armCount = 4       // Four spiral arms for more detailed galaxy
         const totalStars = starsPerArm * armCount
         const positions = new Float32Array(totalStars * 3)
@@ -154,10 +154,10 @@ function Galaxy({ position, size, rotationSpeed, color }: {
                     />
                 </bufferGeometry>
                 <pointsMaterial
-                    size={0.6}
+                    size={0.8}
                     color={color}
                     transparent
-                    opacity={0.6}
+                    opacity={0.9}
                     sizeAttenuation={true}
                     blending={THREE.AdditiveBlending}
                 />
@@ -176,24 +176,12 @@ function StarryScene() {
             {/* Stars scattered throughout the scene */}
             <Stars />
 
-            {/* Multiple spiral galaxies at different positions and sizes - matching homepage quality */}
+            {/* Single prominent spiral galaxy for admin page */}
             <Galaxy
-                position={[-120, 50, -90]}
-                size={30}
-                rotationSpeed={0.02}
-                color="#ccddff"
-            />
-            <Galaxy
-                position={[110, -35, -100]}
-                size={24}
-                rotationSpeed={-0.015}
-                color="#ccddff"
-            />
-            <Galaxy
-                position={[95, 65, -85]}
-                size={22}
-                rotationSpeed={0.025}
-                color="#ccddff"
+                position={[-80, -220, -80]}
+                size={35}
+                rotationSpeed={0.03}
+                color="#e6f3ff"
             />
         </>
     )
@@ -205,7 +193,7 @@ export default function StarryBackground() {
         <div className="fixed inset-0 w-full h-full pointer-events-none" style={{ zIndex: 1 }}>
             <Canvas
                 camera={{
-                    position: [0, 80, 0],  // Top-down view from above
+                    position: [0, 60, 20],  // Adjusted view to better see spiral arms
                     fov: 60,
                     near: 0.1,
                     far: 1000
