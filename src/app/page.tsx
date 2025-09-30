@@ -5,6 +5,7 @@ import Link from 'next/link'
 import { useEffect, useRef } from 'react'
 import { useRouter } from 'next/navigation'
 import MovingSpace from '@/components/MovingSpace'
+import GlowingDust from '@/components/GlowingDust'
 import { ChevronDownIcon } from '@heroicons/react/24/outline'
 
 // Track homepage visit
@@ -41,15 +42,48 @@ export default function Home() {
 
   return (
     <div className="relative" style={{
-      background: 'linear-gradient(to bottom, #1a0a2a 0%, #0a0010 25%, #000000 50%, #000000 75%, #000000 100%)',
       minHeight: '100vh'
     }}>
-      {/* Three.js Moving Space Background */}
-      <MovingSpace />
+      {/* Video Background */}
+      <video
+        autoPlay
+        muted
+        loop
+        playsInline
+        preload="auto"
+        className="fixed top-0 left-0 w-full h-full object-cover"
+        style={{
+          zIndex: 1,
+          position: 'fixed',
+          top: 0,
+          left: 0,
+          width: '100%',
+          height: '100%',
+          objectFit: 'cover'
+        }}
+      >
+        <source src="/spacebkg.mp4" type="video/mp4" />
+        Your browser does not support the video tag.
+      </video>
+
+      {/* Dark overlay to ensure text readability */}
+      <div
+        className="fixed top-0 left-0 w-full h-full"
+        style={{
+          zIndex: 2,
+          background: 'rgba(0, 0, 0, 0.3)',
+          pointerEvents: 'none'
+        }}
+      ></div>
+
+      {/* Glowing Dust Particles - positioned behind text but above video */}
+      <div style={{ zIndex: 5 }}>
+        <GlowingDust />
+      </div>
 
       {/* Full-screen Hero Section */}
-      <section className="min-h-screen flex items-center justify-center relative overflow-hidden -mt-2 md:-mt-0.1 lg:-mt-0.1">
-        <div className="container-custom text-center relative z-20">
+      <section className="min-h-screen flex items-center justify-center relative overflow-hidden -mt-2 md:-mt-0.1 lg:-mt-0.1" style={{ zIndex: 10 }}>
+        <div className="container-custom text-center relative" style={{ zIndex: 20 }}>
           {/* Yoshida Universe Theory subtitle */}
           <motion.h2
             initial={{ opacity: 0, y: 20 }}
@@ -58,7 +92,7 @@ export default function Home() {
             className="text-white/80 mb-6 relative z-10"
             style={{
               fontFamily: 'var(--font-lora)',
-              fontSize: 'clamp(1rem, 2vw, 1.5rem)',
+              fontSize: 'clamp(1.125rem, 2vw, 1.75rem)',
               fontWeight: 400,
               letterSpacing: '0.02em',
               fontStyle: 'italic',
@@ -103,7 +137,7 @@ export default function Home() {
             left: '40%',
             top: 'calc(50vh + 12rem)',
             transform: 'translateX(-50%)',
-            zIndex: 999999,
+            zIndex: 30,
             pointerEvents: 'auto'
           }}
         >
@@ -136,6 +170,7 @@ export default function Home() {
           className="absolute bottom-12 left-1/2 transform -translate-x-1/2"
           animate={{ y: [0, 10, 0] }}
           transition={{ duration: 2, repeat: Infinity }}
+          style={{ zIndex: 25 }}
         >
           <ChevronDownIcon className="w-8 h-8 text-white/60" />
         </motion.div>
@@ -149,7 +184,7 @@ export default function Home() {
         className="absolute w-full flex justify-center"
         style={{
           pointerEvents: 'none',
-          zIndex: 50,
+          zIndex: 25,
           top: 'calc(50vh + 2rem)',
           left: 0
         }}
@@ -168,7 +203,7 @@ export default function Home() {
       </motion.div>
 
       {/* Stats Section */}
-      <section className="relative py-32 px-6 z-40" style={{ backgroundColor: 'rgba(18, 24, 38, 0.9)' }}>
+      <section className="relative py-32 px-6" style={{ backgroundColor: 'rgba(18, 24, 38, 0.9)', zIndex: 15 }}>
         <div className="max-w-7xl mx-auto">
           {/* Section Title */}
           <motion.div

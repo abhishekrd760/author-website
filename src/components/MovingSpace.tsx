@@ -280,10 +280,16 @@ export default function MovingSpace() {
         // Create nebula clouds
         function createNebulaClouds() {
             const nebulaConfigs = [
-                { color: { r: 147, g: 51, b: 234 }, size: 95, opacity: 0.10 },
-                { color: { r: 59, g: 130, b: 246 }, size: 100, opacity: 0.09 },
-                { color: { r: 236, g: 72, b: 153 }, size: 90, opacity: 0.11 },
-                { color: { r: 251, g: 146, b: 60 }, size: 85, opacity: 0.08 }
+                // Regular background nebulae - increased brightness and visibility
+                { color: { r: 113, g: 56, b: 165 }, size: 35, opacity: 0.17, isBackground: false },
+                { color: { r: 60, g: 103, b: 173 }, size: 40, opacity: 0.15, isBackground: false },
+                { color: { r: 167, g: 68, b: 117 }, size: 32, opacity: 0.27, isBackground: false },
+                // Additional nebulae behind text area - increased brightness and visibility
+                { color: { r: 70, g: 25, b: 103 }, size: 45, opacity: 0.17, isBackground: true },
+                { color: { r: 108, g: 51, b: 161 }, size: 38, opacity: 0.19, isBackground: true },
+                { color: { r: 40, g: 40, b: 92 }, size: 42, opacity: 0.15, isBackground: true },
+                // Moving nebula that goes from left to right
+                { color: { r: 100, g: 80, b: 180 }, size: 50, opacity: 0.13, isBackground: false, isMoving: true }
             ]
 
             nebulaConfigs.forEach((config) => {
@@ -292,9 +298,10 @@ export default function MovingSpace() {
                 canvas.height = 512
                 const ctx = canvas.getContext('2d')!
 
-                const gradient = ctx.createRadialGradient(256, 256, 0, 256, 256, 450)
+                const gradient = ctx.createRadialGradient(256, 256, 0, 256, 256, 256)
                 gradient.addColorStop(0, `rgba(${config.color.r},${config.color.g},${config.color.b},${config.opacity})`)
-                gradient.addColorStop(0.5, `rgba(${config.color.r},${config.color.g},${config.color.b},${config.opacity * 0.5})`)
+                gradient.addColorStop(0.3, `rgba(${config.color.r},${config.color.g},${config.color.b},${config.opacity * 0.7})`)
+                gradient.addColorStop(0.6, `rgba(${config.color.r},${config.color.g},${config.color.b},${config.opacity * 0.3})`)
                 gradient.addColorStop(1, `rgba(${config.color.r},${config.color.g},${config.color.b},0)`)
                 ctx.fillStyle = gradient
                 ctx.fillRect(0, 0, 512, 512)
@@ -317,27 +324,79 @@ export default function MovingSpace() {
                 const material = new THREE.MeshBasicMaterial({
                     map: texture,
                     transparent: true,
-                    opacity: 0.75,
+                    opacity: 0.1,
                     side: THREE.DoubleSide,
-                    blending: THREE.AdditiveBlending,
-                    depthWrite: false
+                    blending: THREE.NormalBlending,
+                    depthWrite: false,
+                    alphaTest: 0.01
                 })
 
                 const cloud = new THREE.Mesh(geometry, material)
-                cloud.position.set(
-                    (Math.random() - 0.5) * 120,
-                    (Math.random() - 0.5) * 120,
-                    -170 - Math.random() * 80
-                )
+
+                // Position clouds - special positioning for background clouds behind text
+                if (config.isMoving) {
+                    // Position moving nebula starting from left side
+                    cloud.position.set(
+                        -150,  // Start from left side of screen
+                        (Math.random() - 0.5) * 80 - 15,  // Random vertical position, moved down
+                        -180 - Math.random() * 40    // Middle depth
+                    )
+                } else if (config.isBackground) {
+                    // Position behind text area (center screen, further back)
+                    cloud.position.set(
+                        (Math.random() - 0.5) * 80,  // Narrower spread horizontally
+                        (Math.random() - 0.5) * 60 + 5,  // Narrower spread vertically around text area, moved down
+                        -200 - Math.random() * 50    // Further back, behind regular nebulae
+                    )
+                } else {
+                    // Regular nebula positioning
+                    cloud.position.set(
+                        (Math.random() - 0.5) * 120,
+                        (Math.random() - 0.5) * 120 + 5,  // Moved down
+                        -170 - Math.random() * 80
+                    )
+                }
 
                 cloud.rotation.z = Math.random() * Math.PI * 2
 
-                cloud.userData = {
-                    speed: Math.random() * 0.035 + 0.015,
-                    rotationSpeed: (Math.random() - 0.5) * 0.0006,
-                    driftX: (Math.random() - 0.5) * 0.012,
-                    driftY: (Math.random() - 0.5) * 0.012
+                cloud.userData = config.isMoving ? {
+                    // Special movement for the left-to-right moving nebula
+                    rotationSpeed: 0.001,  // Very slow rotation
+                    driftX: 0.015,         // Consistent rightward movement
+                    driftY: 0,             // No vertical drift
+                    pulseSpeed: 0.4,
+                    pulseOffset: 0,
+                    baseOpacity: 0.6,
+                    randomDriftSpeed: 0,   // No random movement
+                    randomOffsetX: 0,
+                    randomOffsetY: 0,
+                    baseX: 0,
+                    baseY: 0,
+                    spinSpeedX: 0,         // No spinning
+                    spinSpeedY: 0,
+                    spinSpeedZ: 0
+                } : {
+                    rotationSpeed: (Math.random() - 0.5) * 0.002,  // Slower rotation speed
+                    driftX: (Math.random() - 0.5) * 0.010,         // Slower horizontal drift
+                    driftY: 0,         // No vertical drift
+                    pulseSpeed: Math.random() * 0.5 + 0.3,
+                    pulseOffset: Math.random() * Math.PI * 2,
+                    baseOpacity: config.isBackground ? 0.4 : 0.6,
+                    // Additional random movement parameters
+                    randomDriftSpeed: Math.random() * 0.3 + 0.2,   // Slower random movement
+                    randomOffsetX: Math.random() * Math.PI * 2,     // Random phase for X movement
+                    randomOffsetY: 0,     // No random Y movement
+                    baseX: 0,  // Will be set after positioning
+                    baseY: 0,  // Will be set after positioning
+                    // Spinning motion parameters
+                    spinSpeedX: (Math.random() - 0.5) * 0.008,     // X-axis spin
+                    spinSpeedY: (Math.random() - 0.5) * 0.006,     // Y-axis spin
+                    spinSpeedZ: (Math.random() - 0.5) * 0.004      // Z-axis spin (additional to existing rotation)
                 }
+
+                // Store base position for random movement
+                cloud.userData.baseX = cloud.position.x
+                cloud.userData.baseY = cloud.position.y
 
                 scene.add(cloud)
                 nebulaClouds.push(cloud)
@@ -453,18 +512,42 @@ export default function MovingSpace() {
                 asteroid.rotation.z += asteroid.userData.rotationZ * currentSpeed
             })
 
-            // Update nebula clouds
+            // Update nebula clouds - enhanced random movement and rotation
             nebulaClouds.forEach((cloud) => {
-                cloud.position.z += cloud.userData.speed * currentSpeed
-                cloud.position.x += cloud.userData.driftX
-                cloud.position.y += cloud.userData.driftY
-                cloud.rotation.z += cloud.userData.rotationSpeed
+                const time = absoluteTime * cloud.userData.pulseSpeed + cloud.userData.pulseOffset
+                const randomTime = absoluteTime * cloud.userData.randomDriftSpeed
 
-                if (cloud.position.z > 60) {
-                    cloud.position.z = -270
-                    cloud.position.x = (Math.random() - 0.5) * 120
-                    cloud.position.y = (Math.random() - 0.5) * 120
-                }
+                // Random sinusoidal movement around base position (slower)
+                const randomX = Math.sin(randomTime + cloud.userData.randomOffsetX) * 15
+                const randomY = 0  // No vertical random movement
+
+                // Combine linear drift with random movement
+                cloud.userData.baseX += cloud.userData.driftX
+                cloud.userData.baseY += cloud.userData.driftY
+
+                // Apply final position with random oscillation
+                cloud.position.x = cloud.userData.baseX + randomX
+                cloud.position.y = cloud.userData.baseY + randomY
+
+                // Enhanced 3D spinning motion
+                cloud.rotation.x += cloud.userData.spinSpeedX
+                cloud.rotation.y += cloud.userData.spinSpeedY
+                cloud.rotation.z += cloud.userData.rotationSpeed + cloud.userData.spinSpeedZ
+                cloud.rotation.z += Math.sin(randomTime * 0.5) * 0.001  // Slower additional random rotation
+
+                // Pulsing opacity animation
+                const material = cloud.material as THREE.MeshBasicMaterial
+                material.opacity = cloud.userData.baseOpacity + Math.sin(time) * 0.2
+
+                // Gentle scale pulsing with slight random variation
+                const scaleVariation = 1 + Math.sin(time * 0.7) * 0.15 + Math.cos(randomTime * 0.3) * 0.05
+                cloud.scale.set(scaleVariation, scaleVariation, 1)
+
+                // Keep base position within bounds by wrapping around
+                if (cloud.userData.baseX > 150) cloud.userData.baseX = -150
+                if (cloud.userData.baseX < -150) cloud.userData.baseX = 150
+                if (cloud.userData.baseY > 150) cloud.userData.baseY = -150
+                if (cloud.userData.baseY < -150) cloud.userData.baseY = 150
             })
 
             // Update stars
