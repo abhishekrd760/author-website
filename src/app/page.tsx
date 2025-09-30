@@ -50,6 +50,26 @@ export default function Home() {
       {/* Full-screen Hero Section */}
       <section className="min-h-screen flex items-center justify-center relative overflow-hidden -mt-2 md:-mt-0.1 lg:-mt-0.1">
         <div className="container-custom text-center relative z-20">
+          {/* Yoshida Universe Theory subtitle */}
+          <motion.h2
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.8, delay: 0.3 }}
+            className="text-white/80 mb-6 relative z-10"
+            style={{
+              fontFamily: 'var(--font-lora)',
+              fontSize: 'clamp(1rem, 2vw, 1.5rem)',
+              fontWeight: 400,
+              letterSpacing: '0.02em',
+              fontStyle: 'italic',
+              position: 'relative',
+              top: '-8rem',
+              pointerEvents: 'none'
+            }}
+          >
+            Yoshida Universe Theory
+          </motion.h2>
+
           {/* Main Header with Rainbow Animation - behind sun */}
           <motion.h1
             initial={{ opacity: 0, y: 30 }}
@@ -63,7 +83,7 @@ export default function Home() {
               letterSpacing: '0.02em',
               lineHeight: 1.1,
               position: 'relative',
-              top: '-6rem',
+              top: '-8rem',
               pointerEvents: 'none'
             }}
           >

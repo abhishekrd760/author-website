@@ -189,7 +189,7 @@ const Reviews = () => {
 
                                 {/* Rating Breakdown */}
                                 <div className="card">
-                                    <h3 className="text-lg font-extralight mb-4 text-white tracking-wide">Awakening Levels</h3>
+                                    <h3 className="text-lg font-extralight mb-4 text-white tracking-wide">Readers Ratings</h3>
                                     <div className="space-y-2">
                                         {[5, 4, 3, 2, 1].map((rating) => (
                                             <div key={rating} className="flex items-center gap-2 text-sm">
