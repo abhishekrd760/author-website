@@ -199,6 +199,14 @@ function StarryScene() {
 export default function StarryBackground() {
     return (
         <div className="fixed inset-0 w-full h-full pointer-events-none" style={{ zIndex: 1 }}>
+            {/* Blue tint background */}
+            <div
+                className="absolute inset-0"
+                style={{
+                    background: 'rgba(5, 10, 75, 0.3)',
+                    zIndex: 0
+                }}
+            />
             <Canvas
                 camera={{
                     position: [0, 60, 20],  // Adjusted view to better see spiral arms

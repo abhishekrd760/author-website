@@ -15,7 +15,7 @@ const About = () => {
     ]
 
     return (
-        <div className="min-h-screen relative overflow-hidden bg-gradient-to-b from-[#050110] via-[#080218] to-[#060114]">
+        <div className="min-h-screen relative overflow-hidden bg-gradient-to-b from-[#080810]/80 via-[#0a0a12]/60 to-[#06060a]/40">
             <StarryBackground />
             {/* Decorative moving star elements removed per request */}
 

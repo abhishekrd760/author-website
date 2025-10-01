@@ -142,7 +142,7 @@ const BookDetail = ({ params }: BookDetailProps) => {
 
     if (loading) {
         return (
-            <div className="min-h-screen relative overflow-hidden bg-gradient-to-b from-[#0a0315] via-[#0c0420] to-[#080212]">
+            <div className="min-h-screen relative overflow-hidden bg-gradient-to-b from-[#080810]/80 via-[#0a0a12]/60 to-[#06060a]/40">
                 <StarryBackground />
                 <div className="container-custom py-16 relative z-10">
                     <div className="grid grid-cols-1 lg:grid-cols-3 gap-12">
@@ -172,7 +172,7 @@ const BookDetail = ({ params }: BookDetailProps) => {
     }
 
     return (
-        <div className="min-h-screen relative overflow-hidden bg-gradient-to-b from-[#0a0315] via-[#0c0420] to-[#080212]">
+        <div className="min-h-screen relative overflow-hidden bg-gradient-to-b from-[#080810]/80 via-[#0a0a12]/60 to-[#06060a]/40">
             <StarryBackground />
 
             <div className="container-custom py-16 relative z-10">

@@ -85,7 +85,7 @@ const Contact = () => {
     }
 
     return (
-        <div className="min-h-screen relative overflow-hidden bg-gradient-to-b from-[#0a0315] via-[#0c0420] to-[#080212]">
+        <div className="min-h-screen relative overflow-hidden bg-gradient-to-b from-[#080810]/80 via-[#0a0a12]/60 to-[#06060a]/40">
             <StarryBackground />
 
             {/* Floating Cosmic Elements */}
