@@ -98,7 +98,7 @@ export default function Home() {
             className="text-white/80 mb-6 relative z-10"
             style={{
               fontFamily: 'var(--font-lora)',
-              fontSize: 'clamp(1.125rem, 2vw, 1.75rem)',
+              fontSize: 'clamp(1.25rem, 2.5vw, 2rem)',
               fontWeight: 400,
               letterSpacing: '0.02em',
               fontStyle: 'italic',
@@ -138,18 +138,17 @@ export default function Home() {
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 1, delay: 1.5 }}
-          className="absolute flex flex-col sm:flex-row gap-6 justify-center items-center"
+          className="absolute flex flex-col sm:flex-row gap-6 justify-center items-center w-full"
           style={{
-            left: '40%',
             top: 'calc(50vh + 12rem)',
-            transform: 'translateX(-50%)',
+            left: 0,
             zIndex: 30,
             pointerEvents: 'auto'
           }}
         >
           <Link
             href="/books"
-            className="px-8 py-4 bg-gradient-to-r from-blue-600 to-blue-600 text-white rounded-full font-medium text-lg transition-all duration-300 hover:scale-105 hover:shadow-lg hover:shadow-blue-500/25 cursor-pointer inline-block no-underline"
+            className="bg-gradient-to-r from-blue-600 to-blue-600 text-white rounded-full font-medium text-lg transition-all duration-300 hover:scale-105 hover:shadow-lg hover:shadow-blue-500/25 cursor-pointer inline-flex items-center justify-center no-underline h-[56px] w-[220px]"
             style={{
               pointerEvents: 'all',
               cursor: 'pointer',
@@ -160,7 +159,7 @@ export default function Home() {
           </Link>
           <a
             href="/about"
-            className="px-8 py-4 border-2 border-white/30 text-white rounded-full font-medium text-lg transition-all duration-300 hover:scale-105 hover:bg-white/10 bg-transparent cursor-pointer inline-block no-underline"
+            className="border-2 border-white/40 bg-white/5 text-white rounded-full font-medium text-lg transition-all duration-300 hover:scale-105 hover:bg-white/10 hover:border-white/60 cursor-pointer inline-flex items-center justify-center no-underline h-[56px] w-[220px]"
             style={{
               pointerEvents: 'all',
               cursor: 'pointer',
@@ -209,7 +208,7 @@ export default function Home() {
       </motion.div>
 
       {/* Stats Section */}
-      <section className="relative py-32 px-6" style={{ backgroundColor: 'rgba(18, 24, 38, 0.9)', zIndex: 15 }}>
+      <section className="relative py-32 px-6 bg-slate-900/60" style={{ zIndex: 15 }}>
         <div className="max-w-7xl mx-auto">
           {/* Section Title */}
           <motion.div
@@ -248,7 +247,7 @@ export default function Home() {
               className="relative group"
             >
               <Link href="/about" className="block">
-                <div className="bg-gradient-to-br from-[#1F6FEB]/20 to-[#6C63FF]/20 backdrop-blur-sm border border-white/10 rounded-2xl p-8 text-center transition-all duration-500 hover:scale-105 hover:border-[#1F6FEB]/30 hover:shadow-2xl hover:shadow-[#1F6FEB]/20 cursor-pointer">
+                <div className="backdrop-blur-sm border border-white/10 rounded-2xl p-8 text-center transition-all duration-500 hover:scale-105 hover:border-[#1F6FEB]/30 hover:shadow-2xl hover:shadow-[#1F6FEB]/20 cursor-pointer">
                   <div className="absolute inset-0 bg-gradient-to-br from-[#1F6FEB]/5 to-[#6C63FF]/5 rounded-2xl opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
                   <div className="relative z-10">
                     <div className="text-5xl mb-4">�</div>
@@ -287,7 +286,7 @@ export default function Home() {
               className="relative group"
             >
               <Link href="/books" className="block">
-                <div className="bg-gradient-to-br from-[#1F6FEB]/20 to-[#6C63FF]/20 backdrop-blur-sm border border-white/10 rounded-2xl p-8 text-center transition-all duration-500 hover:scale-105 hover:border-[#1F6FEB]/30 hover:shadow-2xl hover:shadow-[#1F6FEB]/20 cursor-pointer">
+                <div className="backdrop-blur-sm border border-white/10 rounded-2xl p-8 text-center transition-all duration-500 hover:scale-105 hover:border-[#1F6FEB]/30 hover:shadow-2xl hover:shadow-[#1F6FEB]/20 cursor-pointer">
                   <div className="absolute inset-0 bg-gradient-to-br from-[#1F6FEB]/5 to-[#6C63FF]/5 rounded-2xl opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
                   <div className="relative z-10">
                     <div className="text-5xl mb-4">📚</div>
@@ -326,7 +325,7 @@ export default function Home() {
               className="relative group"
             >
               <Link href="/contact" className="block">
-                <div className="bg-gradient-to-br from-[#1F6FEB]/20 to-[#6C63FF]/20 backdrop-blur-sm border border-white/10 rounded-2xl p-8 text-center transition-all duration-500 hover:scale-105 hover:border-[#1F6FEB]/30 hover:shadow-2xl hover:shadow-[#1F6FEB]/20 cursor-pointer">
+                <div className="backdrop-blur-sm border border-white/10 rounded-2xl p-8 text-center transition-all duration-500 hover:scale-105 hover:border-[#1F6FEB]/30 hover:shadow-2xl hover:shadow-[#1F6FEB]/20 cursor-pointer">
                   <div className="absolute inset-0 bg-gradient-to-br from-[#1F6FEB]/5 to-[#6C63FF]/5 rounded-2xl opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
                   <div className="relative z-10">
                     <div className="text-5xl mb-4">✉️</div>

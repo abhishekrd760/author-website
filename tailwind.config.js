@@ -12,6 +12,13 @@ module.exports = {
                 background: "var(--background)",
                 foreground: "var(--foreground)",
             },
+            fontFamily: {
+                'cinzel': ['var(--font-cinzel)', 'serif'],
+                'lora': ['var(--font-lora)', 'serif'],
+                'geist': ['var(--font-geist-sans)', 'sans-serif'],
+                'geist-mono': ['var(--font-geist-mono)', 'monospace'],
+                'noto-sans-jp': ['var(--font-noto-sans-jp)', 'sans-serif'],
+            },
             animation: {
                 'fade-in': 'fadeIn 0.5s ease-in',
                 'slide-up': 'slideUp 0.5s ease-out',

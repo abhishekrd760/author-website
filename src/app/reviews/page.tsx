@@ -248,7 +248,7 @@ const Reviews = () => {
                                 transition={{ duration: 0.6 }}
                                 className="mb-8"
                             >
-                                <h2 className="text-2xl font-extralight tracking-wide mb-4 text-white">
+                                <h2 className="text-2xl font-extralight tracking-wide mb-4 text-white" style={{ fontFamily: 'var(--font-lora)' }}>
                                     {filter === 'all' ? 'All Soul Experiences' : `${filter} Star Awakening Experiences`}
                                     <span className="text-white/60 text-lg ml-2 font-light">
                                         ({filteredReviews.length})
@@ -369,6 +369,7 @@ const Reviews = () => {
                                                 <button
                                                     onClick={() => setFilter('all')}
                                                     className="cosmic-button"
+                                                    style={{ fontFamily: 'var(--font-lora)' }}
                                                 >
                                                     View All Soul Experiences
                                                 </button>

@@ -34,7 +34,7 @@ const About = () => {
                         <p className="text-lg lg:text-xl text-white/80 max-w-3xl mx-auto mb-3 font-light">
                             Where consciousness meets cosmos, spirit meets science
                         </p>
-                        <p className="text-base text-white/70 font-light tracking-wide">
+                        <p className="text-lg text-white/70 font-light tracking-wide" style={{ fontFamily: 'var(--font-lora)' }}>
                             Author & Consciousness Explorer
                         </p>
                     </motion.div>
@@ -44,73 +44,73 @@ const About = () => {
             {/* Main Content */}
             <section className="py-16 relative z-10">
                 <div className="container-custom">
-                    <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center mb-16">
-                        {/* Author Photo */}
+                    <div className="mb-16">
+                        {/* Combined Author Photo and Text in Single Tile */}
                         <motion.div
-                            initial={{ opacity: 0, x: -50 }}
-                            animate={{ opacity: 1, x: 0 }}
+                            initial={{ opacity: 0, scale: 0.9 }}
+                            animate={{ opacity: 1, scale: 1 }}
                             transition={{ duration: 0.8, delay: 0.2 }}
-                            className="relative"
+                            className="card"
                         >
-                            <div className="aspect-square max-w-md mx-auto rounded-2xl overflow-hidden shadow-2xl border border-blue-400/30 relative glow-blue">
-                                <div className="absolute -top-2 -left-2 w-6 h-6 border-t-2 border-l-2 border-blue-400"></div>
-                                <div className="absolute -top-2 -right-2 w-6 h-6 border-t-2 border-r-2 border-blue-400"></div>
-                                <div className="absolute -bottom-2 -left-2 w-6 h-6 border-b-2 border-l-2 border-blue-400"></div>
-                                <div className="absolute -bottom-2 -right-2 w-6 h-6 border-b-2 border-r-2 border-blue-400"></div>
+                            <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
+                                {/* Author Photo */}
+                                <div className="relative">
+                                    <div className="aspect-square max-w-md mx-auto rounded-2xl overflow-hidden shadow-2xl border border-blue-400/30 relative glow-blue">
+                                        <div className="absolute -top-2 -left-2 w-6 h-6 border-t-2 border-l-2 border-blue-400"></div>
+                                        <div className="absolute -top-2 -right-2 w-6 h-6 border-t-2 border-r-2 border-blue-400"></div>
+                                        <div className="absolute -bottom-2 -left-2 w-6 h-6 border-b-2 border-l-2 border-blue-400"></div>
+                                        <div className="absolute -bottom-2 -right-2 w-6 h-6 border-b-2 border-r-2 border-blue-400"></div>
 
-                                <Image
-                                    src="/images/chor.jpg"
-                                    alt="Kazutoshi Yoshida - Author"
-                                    width={500}
-                                    height={500}
-                                    className="w-full h-full object-cover object-top"
-                                    unoptimized={true}
-                                    onError={(e) => {
-                                        const target = e.target as HTMLImageElement;
-                                        console.error('Image failed to load:', target.src);
-                                        // Fallback to direct img tag
-                                        target.style.display = 'none';
-                                        const fallbackImg = document.createElement('img');
-                                        fallbackImg.src = '/images/chor.jpg';
-                                        fallbackImg.alt = 'Kazutoshi Yoshida - Author';
-                                        fallbackImg.className = 'w-full h-full object-cover object-top';
-                                        target.parentNode?.appendChild(fallbackImg);
-                                    }}
-                                />
+                                        <Image
+                                            src="/images/chor.jpg"
+                                            alt="Kazutoshi Yoshida - Author"
+                                            width={500}
+                                            height={500}
+                                            className="w-full h-full object-cover object-top"
+                                            unoptimized={true}
+                                            onError={(e) => {
+                                                const target = e.target as HTMLImageElement;
+                                                console.error('Image failed to load:', target.src);
+                                                // Fallback to direct img tag
+                                                target.style.display = 'none';
+                                                const fallbackImg = document.createElement('img');
+                                                fallbackImg.src = '/images/chor.jpg';
+                                                fallbackImg.alt = 'Kazutoshi Yoshida - Author';
+                                                fallbackImg.className = 'w-full h-full object-cover object-top';
+                                                target.parentNode?.appendChild(fallbackImg);
+                                            }}
+                                        />
 
-                                <div className="absolute inset-0 bg-gradient-to-t from-blue-900/50 via-transparent to-transparent"></div>
+                                        <div className="absolute inset-0 bg-gradient-to-t from-blue-900/50 via-transparent to-transparent"></div>
+                                    </div>
+                                </div>
+
+                                {/* About Text */}
+                                <div className="space-y-6">
+                                    <h2 className="text-3xl lg:text-4xl font-extralight tracking-wide text-white mb-6" style={{ fontFamily: 'var(--font-cinzel)' }}>
+                                        The Journey
+                                    </h2>
+
+                                    <p className="text-white/80 leading-relaxed font-light text-lg" style={{ fontFamily: 'var(--font-lora)' }}>
+                                        Welcome to a realm where ancient wisdom converges with quantum consciousness,
+                                        where the infinite expanse of the cosmos mirrors the boundless potential within
+                                        each soul. This is not merely about books—it&apos;s about awakening to the eternal
+                                        dance between spirit and science.
+                                    </p>
+
+                                    <p className="text-white/70 leading-relaxed font-light text-lg" style={{ fontFamily: 'var(--font-lora)' }}>
+                                        Through decades of meditation, scientific research, and transcendental experiences,
+                                        I have discovered that time is not linear—it&apos;s a spiral, a cosmic dance that allows
+                                        us to step beyond our perceived limitations into the infinite field of pure possibility.
+                                    </p>
+
+                                    <p className="text-white/70 leading-relaxed font-light text-lg" style={{ fontFamily: 'var(--font-lora)' }}>
+                                        My work bridges the gap between mystical experiences and scientific understanding,
+                                        offering readers a pathway to transcend ordinary consciousness and step into their
+                                        true cosmic nature.
+                                    </p>
+                                </div>
                             </div>
-                        </motion.div>
-
-                        {/* About Text */}
-                        <motion.div
-                            initial={{ opacity: 0, x: 50 }}
-                            animate={{ opacity: 1, x: 0 }}
-                            transition={{ duration: 0.8, delay: 0.4 }}
-                            className="space-y-6"
-                        >
-                            <h2 className="text-3xl lg:text-4xl font-extralight tracking-wide text-white mb-6" style={{ fontFamily: 'var(--font-cinzel)' }}>
-                                The Journey
-                            </h2>
-
-                            <p className="text-white/80 leading-relaxed font-light text-lg">
-                                Welcome to a realm where ancient wisdom converges with quantum consciousness,
-                                where the infinite expanse of the cosmos mirrors the boundless potential within
-                                each soul. This is not merely about books—it&apos;s about awakening to the eternal
-                                dance between spirit and science.
-                            </p>
-
-                            <p className="text-white/70 leading-relaxed font-light">
-                                Through decades of meditation, scientific research, and transcendental experiences,
-                                I have discovered that time is not linear—it&apos;s a spiral, a cosmic dance that allows
-                                us to step beyond our perceived limitations into the infinite field of pure possibility.
-                            </p>
-
-                            <p className="text-white/70 leading-relaxed font-light">
-                                My work bridges the gap between mystical experiences and scientific understanding,
-                                offering readers a pathway to transcend ordinary consciousness and step into their
-                                true cosmic nature.
-                            </p>
                         </motion.div>
                     </div>
 
@@ -169,7 +169,7 @@ const About = () => {
                                     ∞
                                 </motion.div>
                                 <h4 className="text-xl font-light text-white mb-3" style={{ fontFamily: 'var(--font-cinzel)' }}>Infinite Consciousness</h4>
-                                <p className="text-white/70 font-light leading-relaxed">
+                                <p className="text-white/70 font-light leading-relaxed" style={{ fontFamily: 'var(--font-lora)' }}>
                                     Consciousness is not produced by the brain—it&apos;s the fundamental fabric of reality itself.
                                 </p>
                             </div>
@@ -182,7 +182,7 @@ const About = () => {
                                     ॐ
                                 </motion.div>
                                 <h4 className="text-xl font-light text-white mb-3" style={{ fontFamily: 'var(--font-cinzel)' }}>Sacred Science</h4>
-                                <p className="text-white/70 font-light leading-relaxed">
+                                <p className="text-white/70 font-light leading-relaxed" style={{ fontFamily: 'var(--font-lora)' }}>
                                     Where quantum physics meets ancient wisdom, revealing the unity of all existence.
                                 </p>
                             </div>
@@ -195,7 +195,7 @@ const About = () => {
                                     🌌
                                 </motion.div>
                                 <h4 className="text-xl font-light text-white mb-3" style={{ fontFamily: 'var(--font-cinzel)' }}>Cosmic Awakening</h4>
-                                <p className="text-white/70 font-light leading-relaxed">
+                                <p className="text-white/70 font-light leading-relaxed" style={{ fontFamily: 'var(--font-lora)' }}>
                                     Awakening to our true nature as cosmic beings experiencing temporary human form.
                                 </p>
                             </div>

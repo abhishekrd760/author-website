@@ -26,7 +26,7 @@ const Navbar = () => {
                         whileHover={{ scale: 1.05 }}
                         whileTap={{ scale: 0.95 }}
                     >
-                        <Link href="/" className="text-2xl font-extralight tracking-wide text-white cursor-pointer">
+                        <Link href="/" className="text-2xl font-cinzel tracking-wide text-white cursor-pointer">
                             Beyond Time
                         </Link>
                     </motion.div>

@@ -5,53 +5,19 @@ import { useEffect, useState } from 'react'
 import { Book, Review, Reply } from '@/types/database'
 import { notFound } from 'next/navigation'
 import ReviewForm from '@/components/ReviewForm'
+import StarryBackground from '@/components/StarryBackground'
+import Image from 'next/image'
 
 // Same hardcoded books as in books page
 const hardcodedBooks: Book[] = [
     {
-        id: '1',
-        author_id: '1',
-        title: 'The Midnight Garden',
-        description: 'A haunting tale of mystery and romance set in Victorian England. When Sarah inherits her grandmother\'s estate, she discovers secrets that have been buried for generations. As she explores the sprawling mansion and its mysterious gardens, she uncovers a love story that transcends time itself.',
-        cover_image_url: '/images/book1-cover.jpg',
-        publication_date: '2023-03-15',
-        buy_link: 'https://amazon.com/midnight-garden'
-    },
-    {
         id: '2',
         author_id: '1',
-        title: 'Whispers in the Wind',
-        description: 'An epic fantasy adventure that follows a young mage on her quest to save her kingdom from an ancient evil. Magic, friendship, and courage collide in this unforgettable story. With breathtaking world-building and characters you\'ll fall in love with, this is fantasy at its finest.',
+        title: 'Cosmic Awakening: The Science',
+        description: 'A groundbreaking synthesis of mystical experiences and scientific understanding. Journey through the quantum field of pure possibility as you learn to navigate multiple dimensions of reality. This book offers practical techniques for transcending ordinary consciousness and stepping into your cosmic nature.',
         cover_image_url: '/images/book2-cover.jpg',
         publication_date: '2022-11-08',
-        buy_link: 'https://amazon.com/whispers-wind'
-    },
-    {
-        id: '3',
-        author_id: '1',
-        title: 'City of Dreams',
-        description: 'A contemporary romance set in bustling New York City. Two ambitious professionals find love in the most unexpected places while chasing their dreams. This heartwarming story explores themes of ambition, love, and finding balance in a fast-paced world.',
-        cover_image_url: '/images/book3-cover.jpg',
-        publication_date: '2024-01-20',
-        buy_link: 'https://amazon.com/city-dreams'
-    },
-    {
-        id: '4',
-        author_id: '1',
-        title: 'Shadows of the Past',
-        description: 'A psychological thriller that will keep you on the edge of your seat. Detective Lisa Morgan must confront her own demons while hunting a serial killer who seems to know her every move. Dark secrets and unexpected twists await in this gripping tale.',
-        cover_image_url: '/images/book4-cover.jpg',
-        publication_date: '2023-08-12',
-        buy_link: 'https://amazon.com/shadows-past'
-    },
-    {
-        id: '5',
-        author_id: '1',
-        title: 'The Ocean\'s Secret',
-        description: 'A magical realism novel about a marine biologist who discovers that mermaids are real. As she delves deeper into their world, she must choose between her scientific career and protecting their ancient secrets. A beautiful tale of discovery and wonder.',
-        cover_image_url: '/images/book5-cover.jpg',
-        publication_date: '2023-12-05',
-        buy_link: 'https://amazon.com/oceans-secret'
+        buy_link: 'https://amazon.com/cosmic-awakening'
     }
 ]
 
@@ -176,22 +142,23 @@ const BookDetail = ({ params }: BookDetailProps) => {
 
     if (loading) {
         return (
-            <div className="min-h-screen bg-gray-50">
-                <div className="container-custom py-16">
+            <div className="min-h-screen relative overflow-hidden bg-gradient-to-b from-[#0a0315] via-[#0c0420] to-[#080212]">
+                <StarryBackground />
+                <div className="container-custom py-16 relative z-10">
                     <div className="grid grid-cols-1 lg:grid-cols-3 gap-12">
                         {/* Book Cover Skeleton */}
                         <div className="lg:col-span-1">
-                            <div className="aspect-[3/4] bg-gray-300 rounded-lg animate-pulse"></div>
+                            <div className="aspect-[3/4] bg-white/5 rounded-lg animate-pulse"></div>
                         </div>
 
                         {/* Book Info Skeleton */}
                         <div className="lg:col-span-2 space-y-4">
-                            <div className="h-8 bg-gray-300 rounded animate-pulse"></div>
-                            <div className="h-4 bg-gray-300 rounded animate-pulse w-1/3"></div>
+                            <div className="h-8 bg-white/5 rounded animate-pulse"></div>
+                            <div className="h-4 bg-white/5 rounded animate-pulse w-1/3"></div>
                             <div className="space-y-2">
-                                <div className="h-4 bg-gray-300 rounded animate-pulse"></div>
-                                <div className="h-4 bg-gray-300 rounded animate-pulse"></div>
-                                <div className="h-4 bg-gray-300 rounded animate-pulse w-3/4"></div>
+                                <div className="h-4 bg-white/5 rounded animate-pulse"></div>
+                                <div className="h-4 bg-white/5 rounded animate-pulse"></div>
+                                <div className="h-4 bg-white/5 rounded animate-pulse w-3/4"></div>
                             </div>
                         </div>
                     </div>
@@ -205,8 +172,10 @@ const BookDetail = ({ params }: BookDetailProps) => {
     }
 
     return (
-        <div className="min-h-screen bg-gray-50">
-            <div className="container-custom py-16">
+        <div className="min-h-screen relative overflow-hidden bg-gradient-to-b from-[#0a0315] via-[#0c0420] to-[#080212]">
+            <StarryBackground />
+
+            <div className="container-custom py-16 relative z-10">
                 {/* Book Details */}
                 <div className="grid grid-cols-1 lg:grid-cols-3 gap-12 mb-16">
                     {/* Book Cover */}
@@ -217,10 +186,12 @@ const BookDetail = ({ params }: BookDetailProps) => {
                         className="lg:col-span-1"
                     >
                         <div className="sticky top-8">
-                            <div className="aspect-[3/4] overflow-hidden rounded-lg shadow-2xl bg-gray-200">
-                                <img
+                            <div className="aspect-[3/4] overflow-hidden rounded-lg shadow-2xl bg-white/5 border border-white/10">
+                                <Image
                                     src={getRandomBookCover(book.title, book.id)}
                                     alt={book.title}
+                                    width={400}
+                                    height={533}
                                     className="w-full h-full object-cover"
                                 />
                             </div>
@@ -231,9 +202,9 @@ const BookDetail = ({ params }: BookDetailProps) => {
                                     href={book.buy_link}
                                     target="_blank"
                                     rel="noopener noreferrer"
-                                    className="btn-primary w-full block text-center text-lg py-4"
+                                    className="bg-gradient-to-r from-blue-600 to-blue-600 text-white rounded-full font-medium text-lg py-4 px-8 w-full block text-center transition-all duration-300 hover:scale-105 hover:shadow-lg hover:shadow-blue-500/25"
                                 >
-                                    Buy This Book
+                                    Awaken Your Spirit
                                 </a>
                             </div>
                         </div>
@@ -248,55 +219,51 @@ const BookDetail = ({ params }: BookDetailProps) => {
                     >
                         <div className="space-y-6">
                             <div>
-                                <h1 className="text-4xl lg:text-5xl font-bold mb-4">{book.title}</h1>
-                                <p className="text-xl text-gray-600">by Jane Doe</p>
-                                <p className="text-lg text-gray-500">
+                                <h1 className="text-4xl lg:text-5xl font-extralight tracking-wide mb-4 text-white" style={{ fontFamily: 'var(--font-cinzel)' }}>{book.title}</h1>
+                                <p className="text-xl text-blue-300/80 font-light">by Kazutoshi Yoshida</p>
+                                <p className="text-lg text-white/60 font-light">
                                     Published: {formatDate(book.publication_date)}
                                 </p>
                             </div>
 
                             {/* Rating Summary */}
                             {reviews.length > 0 && (
-                                <div className="flex items-center gap-4 py-4 border-y border-gray-200">
+                                <div className="flex items-center gap-4 py-4 border-y border-white/10">
                                     <div className="flex items-center gap-2">
                                         {renderStars(Math.round(Number(averageRating)))}
-                                        <span className="text-xl font-semibold">{averageRating}</span>
+                                        <span className="text-xl font-semibold text-white">{averageRating}</span>
                                     </div>
-                                    <span className="text-gray-600">
-                                        ({reviews.length} review{reviews.length !== 1 ? 's' : ''})
+                                    <span className="text-white/60 font-light">
+                                        ({reviews.length} cosmic review{reviews.length !== 1 ? 's' : ''})
                                     </span>
                                 </div>
                             )}
 
                             {/* Description */}
-                            <div className="prose prose-lg text-gray-700">
-                                <h2 className="text-2xl font-bold mb-4">About This Book</h2>
-                                <p className="text-lg leading-relaxed">{book.description}</p>
+                            <div className="prose prose-lg prose-invert">
+                                <h2 className="text-2xl font-extralight tracking-wide mb-4 text-white" style={{ fontFamily: 'var(--font-cinzel)' }}>About This Cosmic Journey</h2>
+                                <p className="text-lg leading-relaxed text-white/80 font-light">{book.description}</p>
                             </div>
 
                             {/* Additional Info */}
-                            <div className="bg-white rounded-lg p-6 shadow-md">
-                                <h3 className="text-xl font-bold mb-4">Book Details</h3>
+                            <div className="card">
+                                <h3 className="text-xl font-extralight tracking-wide mb-4 text-white" style={{ fontFamily: 'var(--font-cinzel)' }}>Cosmic Book Details</h3>
                                 <div className="grid grid-cols-1 md:grid-cols-2 gap-4 text-sm">
                                     <div>
-                                        <span className="font-semibold">Genre:</span>
-                                        <span className="ml-2 text-gray-600">
-                                            {book.id === '1' ? 'Mystery, Romance' :
-                                                book.id === '2' ? 'Fantasy, Adventure' :
-                                                    'Contemporary Romance'}
-                                        </span>
+                                        <span className="font-semibold text-blue-300/80">Genre:</span>
+                                        <span className="ml-2 text-white/70 font-light">Consciousness, Spirituality, Science</span>
                                     </div>
                                     <div>
-                                        <span className="font-semibold">Publication Date:</span>
-                                        <span className="ml-2 text-gray-600">{formatDate(book.publication_date)}</span>
+                                        <span className="font-semibold text-blue-300/80">Publication Date:</span>
+                                        <span className="ml-2 text-white/70 font-light">{formatDate(book.publication_date)}</span>
                                     </div>
                                     <div>
-                                        <span className="font-semibold">Language:</span>
-                                        <span className="ml-2 text-gray-600">English</span>
+                                        <span className="font-semibold text-blue-300/80">Language:</span>
+                                        <span className="ml-2 text-white/70 font-light">Universal Consciousness</span>
                                     </div>
                                     <div>
-                                        <span className="font-semibold">Format:</span>
-                                        <span className="ml-2 text-gray-600">Paperback, eBook, Audiobook</span>
+                                        <span className="font-semibold text-blue-300/80">Format:</span>
+                                        <span className="ml-2 text-white/70 font-light">Paperback, eBook, Audiobook</span>
                                     </div>
                                 </div>
                             </div>
@@ -311,12 +278,12 @@ const BookDetail = ({ params }: BookDetailProps) => {
                     transition={{ duration: 0.8, delay: 0.3 }}
                 >
                     <div className="flex justify-between items-center mb-8">
-                        <h2 className="text-3xl font-bold">Reader Reviews</h2>
+                        <h2 className="text-3xl font-extralight tracking-wide text-white" style={{ fontFamily: 'var(--font-cinzel)' }}>Cosmic Soul Reviews</h2>
                         <button
                             onClick={() => setShowReviewForm(!showReviewForm)}
-                            className="btn-primary"
+                            className="bg-gradient-to-r from-blue-600 to-blue-600 text-white rounded-full font-medium text-lg py-3 px-6 transition-all duration-300 hover:scale-105 hover:shadow-lg hover:shadow-blue-500/25"
                         >
-                            Write a Review
+                            Share Your Awakening
                         </button>
                     </div>
 
@@ -339,29 +306,29 @@ const BookDetail = ({ params }: BookDetailProps) => {
                                     <div className="flex justify-between items-start mb-4">
                                         <div>
                                             <div className="flex items-center gap-3 mb-2">
-                                                <span className="font-semibold text-lg">{review.reviewer_name}</span>
+                                                <span className="font-light text-lg text-white">{review.reviewer_name}</span>
                                                 <div className="flex">
                                                     {renderStars(review.rating)}
                                                 </div>
                                             </div>
-                                            <span className="text-sm text-gray-500">
+                                            <span className="text-sm text-white/60 font-light">
                                                 {formatDate(review.created_at)}
                                             </span>
                                         </div>
                                     </div>
 
-                                    <blockquote className="text-gray-700 mb-4 text-lg leading-relaxed">
+                                    <blockquote className="text-white/80 mb-4 text-lg leading-relaxed font-light">
                                         &ldquo;{review.review_text}&rdquo;
                                     </blockquote>
 
                                     {/* Author Replies */}
                                     {review.replies.length > 0 && (
-                                        <div className="mt-4 pl-6 border-l-4 border-blue-200 bg-blue-50 p-4 rounded-r-lg">
-                                            <div className="font-semibold text-blue-800 mb-2">Author Reply:</div>
+                                        <div className="mt-4 pl-6 border-l-4 border-blue-400/30 bg-blue-500/10 p-4 rounded-r-lg">
+                                            <div className="font-light text-blue-300/80 mb-2">Author&apos;s Cosmic Response:</div>
                                             {review.replies.map((reply) => (
-                                                <div key={reply.id} className="text-blue-700">
+                                                <div key={reply.id} className="text-blue-200/80 font-light">
                                                     <p className="mb-1">{reply.reply_text}</p>
-                                                    <span className="text-xs text-blue-600">
+                                                    <span className="text-xs text-blue-300/60">
                                                         {formatDate(reply.created_at)}
                                                     </span>
                                                 </div>
@@ -372,14 +339,14 @@ const BookDetail = ({ params }: BookDetailProps) => {
                             ))}
                         </div>
                     ) : (
-                        <div className="text-center py-12 bg-white rounded-lg">
-                            <p className="text-xl text-gray-600 mb-4">No reviews yet</p>
-                            <p className="text-gray-500 mb-6">Be the first to share your thoughts about this book!</p>
+                        <div className="text-center py-12 card">
+                            <p className="text-xl text-white/80 mb-4 font-light">No cosmic reviews yet</p>
+                            <p className="text-white/60 mb-6 font-light">Be the first to share your transformational journey with this book!</p>
                             <button
                                 onClick={() => setShowReviewForm(true)}
-                                className="btn-primary"
+                                className="bg-gradient-to-r from-blue-600 to-blue-600 text-white rounded-full font-medium text-lg py-3 px-6 transition-all duration-300 hover:scale-105 hover:shadow-lg hover:shadow-blue-500/25"
                             >
-                                Write the First Review
+                                Write the First Cosmic Review
                             </button>
                         </div>
                     )}

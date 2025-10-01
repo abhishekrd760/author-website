@@ -40,49 +40,13 @@ const getRandomBookCover = (title: string, index: number) => {
 // Cosmic consciousness books collection
 const hardcodedBooks: Book[] = [
     {
-        id: '1',
-        author_id: '1',
-        title: 'Beyond Time: A Journey into Consciousness',
-        description: 'A transformative exploration of consciousness beyond the boundaries of linear time. Discover how to access higher dimensions of awareness and unlock the infinite potential that lies dormant within your soul. This book bridges ancient wisdom with quantum physics, revealing the true nature of reality.',
-        cover_image_url: '/images/book1-cover.jpg',
-        publication_date: '2023-03-15',
-        buy_link: 'https://amazon.com/beyond-time-consciousness'
-    },
-    {
         id: '2',
         author_id: '1',
-        title: 'Cosmic Awakening: The Science of Spirit',
+        title: 'Cosmic Awakening: The Science',
         description: 'A groundbreaking synthesis of mystical experiences and scientific understanding. Journey through the quantum field of pure possibility as you learn to navigate multiple dimensions of reality. This book offers practical techniques for transcending ordinary consciousness and stepping into your cosmic nature.',
         cover_image_url: '/images/book2-cover.jpg',
         publication_date: '2022-11-08',
         buy_link: 'https://amazon.com/cosmic-awakening'
-    },
-    {
-        id: '3',
-        author_id: '1',
-        title: 'The Infinite Field: Meditation Beyond Mind',
-        description: 'Dive deep into the vast ocean of consciousness that exists beyond thought and emotion. This profound guide teaches advanced meditation techniques for accessing states of pure awareness, where time dissolves and infinite wisdom emerges. Perfect for serious seekers of truth.',
-        cover_image_url: '/images/book3-cover.jpg',
-        publication_date: '2024-01-20',
-        buy_link: 'https://amazon.com/infinite-field'
-    },
-    {
-        id: '4',
-        author_id: '1',
-        title: 'Quantum Hearts: Love in the Cosmic Dance',
-        description: 'Explore love as the fundamental force that binds the universe together. This beautiful work reveals how consciousness and love are one and the same, showing readers how to embody divine love in everyday life. A spiritual romance with the cosmos itself.',
-        cover_image_url: '/images/book4-cover.jpg',
-        publication_date: '2023-08-12',
-        buy_link: 'https://amazon.com/quantum-hearts'
-    },
-    {
-        id: '5',
-        author_id: '1',
-        title: 'Starseeds: Awakening to Your Cosmic Origins',
-        description: 'A profound journey into the understanding that we are cosmic beings having a human experience. Discover your star origins, learn to communicate with your higher self, and remember why you chose to incarnate on Earth at this pivotal time in human evolution.',
-        cover_image_url: '/images/book5-cover.jpg',
-        publication_date: '2023-12-05',
-        buy_link: 'https://amazon.com/starseeds-cosmic-origins'
     }
 ]
 
@@ -271,22 +235,22 @@ const Books = () => {
                         transition={{ duration: 0.6, delay: 0.3 }}
                         className="text-center mb-12"
                     >
-                        <h2 className="text-3xl lg:text-4xl font-extralight tracking-wide mb-4 text-white">
+                        <h2 className="text-3xl lg:text-4xl font-extralight tracking-wide mb-4 text-white" style={{ fontFamily: 'var(--font-lora)' }}>
                             The <span className="text-cosmic">Consciousness</span> Collection
                         </h2>
-                        <p className="text-xl text-white/70 max-w-2xl mx-auto font-light">
-                            Five transformative journeys into the infinite realms of cosmic awareness
+                        <p className="text-xl text-white/70 max-w-2xl mx-auto font-light" style={{ fontFamily: 'var(--font-lora)' }}>
+                            A transformative journey into the infinite realms of cosmic awareness
                         </p>
                     </motion.div>
 
-                    <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+                    <div className="flex justify-center">
                         {books.map((book, index) => (
                             <motion.div
                                 key={book.id}
                                 initial={{ opacity: 0, y: 50 }}
                                 animate={{ opacity: 1, y: 0 }}
-                                transition={{ duration: 0.6, delay: 0.5 + index * 0.1 }}
-                                className="card group hover:shadow-2xl hover:shadow-blue-500/20 transition-all duration-300"
+                                transition={{ duration: 0.6, delay: 0.4 + index * 0.1 }}
+                                className="max-w-md w-full card group hover:shadow-2xl hover:shadow-blue-500/20 transition-all duration-300"
                             >
                                 {/* Book Cover */}
                                 <div className="aspect-[3/4] overflow-hidden rounded-lg mb-6 bg-white/5 relative">
@@ -309,7 +273,7 @@ const Books = () => {
 
                                 {/* Book Info */}
                                 <div className="space-y-4">
-                                    <h3 className="text-xl font-light text-white group-hover:text-cosmic transition-colors tracking-wide">
+                                    <h3 className="text-xl font-light text-white group-hover:text-cosmic transition-colors tracking-wide" style={{ fontFamily: 'var(--font-lora)' }}>
                                         {book.title}
                                     </h3>
 
@@ -333,9 +297,9 @@ const Books = () => {
                                             href={book.buy_link}
                                             target="_blank"
                                             rel="noopener noreferrer"
-                                            className="cosmic-button px-6"
+                                            className="cosmic-button-secondary flex-1 text-center"
                                         >
-                                            Awaken
+                                            Purchase
                                         </a>
                                     </div>
                                 </div>
@@ -363,7 +327,7 @@ const Books = () => {
                             <div className="mb-6">
                                 <FractalPyramid />
                             </div>
-                            <h3 className="text-2xl font-extralight mb-4 text-white tracking-wide">
+                            <h3 className="text-2xl font-extralight mb-4 text-white tracking-wide" style={{ fontFamily: 'var(--font-lora)' }}>
                                 Ready to <span className="text-cosmic">Transcend</span> Ordinary Reality?
                             </h3>
                             <p className="text-white/70 mb-6 max-w-2xl mx-auto font-light leading-relaxed">
