@@ -6,6 +6,7 @@ import { Review, Book, Reply } from '@/types/database'
 import { api } from '@/lib/supabase'
 import Link from 'next/link'
 import StarryBackground from '@/components/StarryBackground'
+import FractalPyramid from '@/components/FractalPyramid'
 
 interface ReviewWithBook extends Review {
     book: Pick<Book, 'title' | 'id'>
@@ -81,7 +82,7 @@ const Reviews = () => {
                 {/* Hero Section */}
                 <section className="py-20 cosmic-gradient text-white relative">
                     <div className="container-custom text-center">
-                        <h1 className="text-4xl lg:text-6xl font-extralight tracking-wide mb-6 text-cosmic">Consciousness Reviews</h1>
+                        <h1 className="text-4xl lg:text-6xl font-extralight tracking-wide mb-6 text-cosmic" style={{ fontFamily: 'var(--font-cinzel)' }}>Consciousness Reviews</h1>
                         <p className="text-xl lg:text-2xl text-white/80 max-w-3xl mx-auto font-light">
                             Shared experiences from souls awakening to cosmic consciousness
                         </p>
@@ -152,7 +153,7 @@ const Reviews = () => {
                         transition={{ duration: 0.8 }}
                         className="text-center"
                     >
-                        <h1 className="text-4xl lg:text-6xl font-extralight tracking-wide mb-6 text-cosmic">Consciousness Reviews</h1>
+                        <h1 className="text-4xl lg:text-6xl font-extralight tracking-wide mb-6 text-cosmic" style={{ fontFamily: 'var(--font-cinzel)' }}>Consciousness Reviews</h1>
                         <p className="text-xl lg:text-2xl text-white/80 max-w-3xl mx-auto mb-4 font-light">
                             Transformational experiences shared by awakened souls worldwide
                         </p>
@@ -395,19 +396,9 @@ const Reviews = () => {
                                     </div>
 
                                     <div className="relative z-10">
-                                        <motion.div
-                                            animate={{
-                                                rotate: 360,
-                                                scale: [1, 1.2, 1]
-                                            }}
-                                            transition={{
-                                                rotate: { duration: 20, repeat: Infinity, ease: "linear" },
-                                                scale: { duration: 4, repeat: Infinity, ease: "easeInOut" }
-                                            }}
-                                            className="text-4xl mb-4 inline-block"
-                                        >
-                                            ✦
-                                        </motion.div>
+                                        <div className="mb-4 flex justify-center">
+                                            <FractalPyramid />
+                                        </div>
                                         <h3 className="text-2xl font-extralight mb-4 text-white tracking-wide">
                                             Ready to Share Your <span className="text-cosmic">Cosmic Journey?</span>
                                         </h3>

@@ -14,7 +14,7 @@ const CallToAction = () => {
                     viewport={{ once: true }}
                     className="max-w-4xl mx-auto"
                 >
-                    <h2 className="text-3xl lg:text-5xl font-bold mb-6">
+                    <h2 className="text-3xl lg:text-5xl font-bold mb-6" style={{ fontFamily: 'var(--font-cinzel)' }}>
                         Ready to Embark on Your Next Literary Adventure?
                     </h2>
 
@@ -32,7 +32,7 @@ const CallToAction = () => {
                             className="bg-white/10 backdrop-blur-sm rounded-lg p-6"
                         >
                             <div className="text-4xl mb-3">📚</div>
-                            <h3 className="text-xl font-semibold mb-2">Explore Books</h3>
+                            <h3 className="text-xl font-semibold mb-2" style={{ fontFamily: 'var(--font-cinzel)' }}>Explore Books</h3>
                             <p className="text-gray-300">
                                 Browse through a collection of captivating stories across multiple genres
                             </p>
@@ -46,7 +46,7 @@ const CallToAction = () => {
                             className="bg-white/10 backdrop-blur-sm rounded-lg p-6"
                         >
                             <div className="text-4xl mb-3">⭐</div>
-                            <h3 className="text-xl font-semibold mb-2">Read Reviews</h3>
+                            <h3 className="text-xl font-semibold mb-2" style={{ fontFamily: 'var(--font-cinzel)' }}>Read Reviews</h3>
                             <p className="text-gray-300">
                                 See what other readers are saying and share your own thoughts
                             </p>
@@ -60,7 +60,7 @@ const CallToAction = () => {
                             className="bg-white/10 backdrop-blur-sm rounded-lg p-6"
                         >
                             <div className="text-4xl mb-3">💌</div>
-                            <h3 className="text-xl font-semibold mb-2">Connect</h3>
+                            <h3 className="text-xl font-semibold mb-2" style={{ fontFamily: 'var(--font-cinzel)' }}>Connect</h3>
                             <p className="text-gray-300">
                                 Get in touch with the author and be part of the literary community
                             </p>

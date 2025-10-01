@@ -80,7 +80,7 @@ const ReviewForm = ({ bookId, onReviewSubmitted, onCancel }: ReviewFormProps) =>
 
     return (
         <div className="card">
-            <h3 className="text-2xl font-bold mb-6">Write a Review</h3>
+            <h3 className="text-2xl font-bold mb-6" style={{ fontFamily: 'var(--font-cinzel)' }}>Write a Review</h3>
 
             {error && (
                 <div className="bg-red-100 border border-red-400 text-red-700 px-4 py-3 rounded mb-4">

@@ -118,7 +118,7 @@ const Books = () => {
                 {/* Hero Section */}
                 <section className="py-20 cosmic-gradient text-white relative">
                     <div className="container-custom text-center">
-                        <h1 className="text-4xl lg:text-6xl font-extralight tracking-wide mb-6 text-cosmic">Cosmic Library</h1>
+                        <h1 className="text-4xl lg:text-6xl font-extralight tracking-wide mb-6 text-cosmic" style={{ fontFamily: 'var(--font-cinzel)' }}>Cosmic Library</h1>
                         <p className="text-xl lg:text-2xl text-white/80 max-w-3xl mx-auto font-light">
                             Discover books that transcend ordinary reality and awaken cosmic consciousness
                         </p>
@@ -251,7 +251,7 @@ const Books = () => {
                         transition={{ duration: 0.8 }}
                         className="text-center"
                     >
-                        <h1 className="text-4xl lg:text-6xl font-extralight tracking-wide mb-6 text-cosmic">Cosmic Library</h1>
+                        <h1 className="text-4xl lg:text-6xl font-extralight tracking-wide mb-6 text-cosmic" style={{ fontFamily: 'var(--font-cinzel)' }}>Cosmic Library</h1>
                         <p className="text-xl lg:text-2xl text-white/80 max-w-3xl mx-auto mb-4 font-light">
                             Books that bridge the gap between science and spirit, reality and consciousness
                         </p>

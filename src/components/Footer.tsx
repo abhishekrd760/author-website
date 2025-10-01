@@ -7,7 +7,7 @@ const Footer = () => {
                 <div className="grid grid-cols-1 md:grid-cols-4 gap-8">
                     {/* Author Info */}
                     <div className="md:col-span-2">
-                        <h3 className="text-2xl font-bold mb-4 text-white">Kazutoshi Yoshida</h3>
+                        <h3 className="text-2xl font-bold mb-4 text-white" style={{ fontFamily: 'var(--font-cinzel)' }}>Kazutoshi Yoshida</h3>
                         <p className="text-[#C5C6C7] mb-4 max-w-md">
                             Bestselling author of captivating fiction novels. Follow my journey and discover stories that will touch your heart.
                         </p>
@@ -32,7 +32,7 @@ const Footer = () => {
 
                     {/* Quick Links */}
                     <div>
-                        <h4 className="text-lg font-semibold mb-4 text-white">Quick Links</h4>
+                        <h4 className="text-lg font-semibold mb-4 text-white" style={{ fontFamily: 'var(--font-cinzel)' }}>Quick Links</h4>
                         <ul className="space-y-2">
                             <li><Link href="/about" className="text-[#C5C6C7] hover:text-[#1F6FEB] transition-colors">About</Link></li>
                             <li><Link href="/books" className="text-[#C5C6C7] hover:text-[#1F6FEB] transition-colors">Books</Link></li>
@@ -43,7 +43,7 @@ const Footer = () => {
 
                     {/* Contact Info */}
                     <div>
-                        <h4 className="text-lg font-semibold mb-4 text-white">Get in Touch</h4>
+                        <h4 className="text-lg font-semibold mb-4 text-white" style={{ fontFamily: 'var(--font-cinzel)' }}>Get in Touch</h4>
                         <div className="space-y-2 text-[#C5C6C7]">
                             <p>📧 jane@janedoeauthor.com</p>
                             <p>📍 New York, NY</p>

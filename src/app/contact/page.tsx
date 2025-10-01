@@ -126,7 +126,7 @@ const Contact = () => {
                         transition={{ duration: 0.8 }}
                         className="text-center"
                     >
-                        <h1 className="text-4xl lg:text-6xl font-extralight tracking-wide mb-6 text-cosmic">Cosmic Connection</h1>
+                        <h1 className="text-4xl lg:text-6xl font-extralight tracking-wide mb-6 text-cosmic" style={{ fontFamily: 'var(--font-cinzel)' }}>Cosmic Connection</h1>
                         <p className="text-xl lg:text-2xl text-white/80 max-w-3xl mx-auto mb-4 font-light">
                             Bridge the dimensions between us. Share your cosmic insights, spiritual questions,
                             or consciousness experiences.
@@ -180,7 +180,7 @@ const Contact = () => {
                                     </div>
                                 ) : (
                                     <>
-                                        <h2 className="text-3xl font-extralight mb-6 text-white tracking-wide">
+                                        <h2 className="text-3xl font-extralight mb-6 text-white tracking-wide" style={{ fontFamily: 'var(--font-cinzel)' }}>
                                             Send a Cosmic <span className="text-cosmic">Transmission</span>
                                         </h2>
 
@@ -277,7 +277,7 @@ const Contact = () => {
                         >
                             {/* Contact Information */}
                             <div className="card">
-                                <h3 className="text-2xl font-extralight mb-6 text-white tracking-wide">
+                                <h3 className="text-2xl font-extralight mb-6 text-white tracking-wide" style={{ fontFamily: 'var(--font-cinzel)' }}>
                                     Other <span className="text-cosmic">Dimensional Channels</span>
                                 </h3>
 
@@ -365,7 +365,7 @@ const Contact = () => {
 
                             {/* FAQs */}
                             <div className="card">
-                                <h3 className="text-2xl font-extralight mb-6 text-white tracking-wide">
+                                <h3 className="text-2xl font-extralight mb-6 text-white tracking-wide" style={{ fontFamily: 'var(--font-cinzel)' }}>
                                     Cosmic <span className="text-cosmic">Frequencies</span> (FAQ)
                                 </h3>
 

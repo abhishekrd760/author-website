@@ -176,12 +176,20 @@ function StarryScene() {
             {/* Stars scattered throughout the scene */}
             <Stars />
 
-            {/* Single prominent spiral galaxy for admin page */}
+            {/* First prominent spiral galaxy */}
             <Galaxy
-                position={[-80, -220, -80]}
+                position={[-200, -240, -80]}
                 size={35}
                 rotationSpeed={0.03}
                 color="#e6f3ff"
+            />
+
+            {/* Second spiral galaxy with different position and properties */}
+            <Galaxy
+                position={[160, -180, -120]}
+                size={28}
+                rotationSpeed={0.025}
+                color="#ffeef3"
             />
         </>
     )

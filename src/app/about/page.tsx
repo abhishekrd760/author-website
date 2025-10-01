@@ -20,7 +20,7 @@ const About = () => {
             {/* Decorative moving star elements removed per request */}
 
             {/* Hero Section */}
-            <section className="py-20 cosmic-gradient text-white relative">
+            <section className="py-12 cosmic-gradient text-white relative">
                 <div className="container-custom relative">
                     <motion.div
                         initial={{ opacity: 0, y: 30 }}
@@ -28,13 +28,13 @@ const About = () => {
                         transition={{ duration: 0.8 }}
                         className="text-center"
                     >
-                        <h1 className="text-4xl lg:text-6xl font-extralight tracking-wide mb-6 text-cosmic">
+                        <h1 className="text-3xl lg:text-5xl font-extralight tracking-wide mb-4 text-cosmic" style={{ fontFamily: 'var(--font-cinzel)' }}>
                             Beyond the Veil of Time
                         </h1>
-                        <p className="text-xl lg:text-2xl text-white/80 max-w-3xl mx-auto mb-4 font-light">
+                        <p className="text-lg lg:text-xl text-white/80 max-w-3xl mx-auto mb-3 font-light">
                             Where consciousness meets cosmos, spirit meets science
                         </p>
-                        <p className="text-lg text-white/70 font-light tracking-wide">
+                        <p className="text-base text-white/70 font-light tracking-wide">
                             Author & Consciousness Explorer
                         </p>
                     </motion.div>
@@ -89,8 +89,8 @@ const About = () => {
                             transition={{ duration: 0.8, delay: 0.4 }}
                             className="space-y-6"
                         >
-                            <h2 className="text-3xl lg:text-4xl font-extralight tracking-wide text-white mb-6">
-                                About <span className="text-cosmic font-semibold">Kazutoshi Yoshida</span>
+                            <h2 className="text-3xl lg:text-4xl font-extralight tracking-wide text-white mb-6" style={{ fontFamily: 'var(--font-cinzel)' }}>
+                                The Journey
                             </h2>
 
                             <p className="text-white/80 leading-relaxed font-light text-lg">
@@ -121,8 +121,8 @@ const About = () => {
                         transition={{ duration: 0.8, delay: 0.6 }}
                         className="card mb-16"
                     >
-                        <h3 className="text-3xl font-extralight tracking-wide text-white mb-8 text-center">
-                            Milestones in the <span className="text-cosmic">Cosmic Journey</span>
+                        <h3 className="text-3xl font-extralight tracking-wide text-white mb-8 text-center" style={{ fontFamily: 'var(--font-cinzel)' }}>
+                            Milestones in Consciousness
                         </h3>
 
                         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
@@ -156,7 +156,7 @@ const About = () => {
                         transition={{ duration: 0.8, delay: 1.2 }}
                         className="card"
                     >
-                        <h3 className="text-3xl font-extralight tracking-wide text-white mb-8 text-center">
+                        <h3 className="text-3xl font-extralight tracking-wide text-white mb-8 text-center" style={{ fontFamily: 'var(--font-cinzel)' }}>
                             The <span className="text-cosmic">Cosmic Philosophy</span>
                         </h3>
 
@@ -168,7 +168,7 @@ const About = () => {
                                 >
                                     ∞
                                 </motion.div>
-                                <h4 className="text-xl font-light text-white mb-3">Infinite Consciousness</h4>
+                                <h4 className="text-xl font-light text-white mb-3" style={{ fontFamily: 'var(--font-cinzel)' }}>Infinite Consciousness</h4>
                                 <p className="text-white/70 font-light leading-relaxed">
                                     Consciousness is not produced by the brain—it&apos;s the fundamental fabric of reality itself.
                                 </p>
@@ -181,7 +181,7 @@ const About = () => {
                                 >
                                     ॐ
                                 </motion.div>
-                                <h4 className="text-xl font-light text-white mb-3">Sacred Science</h4>
+                                <h4 className="text-xl font-light text-white mb-3" style={{ fontFamily: 'var(--font-cinzel)' }}>Sacred Science</h4>
                                 <p className="text-white/70 font-light leading-relaxed">
                                     Where quantum physics meets ancient wisdom, revealing the unity of all existence.
                                 </p>
@@ -194,7 +194,7 @@ const About = () => {
                                 >
                                     🌌
                                 </motion.div>
-                                <h4 className="text-xl font-light text-white mb-3">Cosmic Awakening</h4>
+                                <h4 className="text-xl font-light text-white mb-3" style={{ fontFamily: 'var(--font-cinzel)' }}>Cosmic Awakening</h4>
                                 <p className="text-white/70 font-light leading-relaxed">
                                     Awakening to our true nature as cosmic beings experiencing temporary human form.
                                 </p>

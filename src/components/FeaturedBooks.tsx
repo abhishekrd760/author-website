@@ -178,7 +178,7 @@ const FeaturedBooks = () => {
         return (
             <section className="py-16 bg-gray-900">
                 <div className="container-custom">
-                    <h2 className="text-3xl lg:text-4xl font-bold text-center mb-12 text-gray-100">Featured Books</h2>
+                    <h2 className="text-3xl lg:text-4xl font-bold text-center mb-12 text-gray-100" style={{ fontFamily: 'var(--font-cinzel)' }}>Featured Books</h2>
                     <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
                         {[1, 2, 3].map((i) => (
                             <div key={i} className="card animate-pulse">
@@ -220,7 +220,7 @@ const FeaturedBooks = () => {
                     viewport={{ once: true, margin: "-100px" }}
                     className="text-center mb-12"
                 >
-                    <h2 className="text-3xl lg:text-4xl font-bold mb-4 text-gray-100">Featured Books</h2>
+                    <h2 className="text-3xl lg:text-4xl font-bold mb-4 text-gray-100" style={{ fontFamily: 'var(--font-cinzel)' }}>Featured Books</h2>
                     <p className="text-xl text-gray-300 max-w-2xl mx-auto">
                         Discover the latest captivating stories that have enchanted readers worldwide
                     </p>
@@ -261,7 +261,7 @@ const FeaturedBooks = () => {
                                 />
                             </div>
 
-                            <h3 className="text-xl font-bold mb-2 group-hover:text-gray-300 transition-colors text-gray-100">
+                            <h3 className="text-xl font-bold mb-2 group-hover:text-gray-300 transition-colors text-gray-100" style={{ fontFamily: 'var(--font-cinzel)' }}>
                                 {book.title}
                             </h3>
 

@@ -6,6 +6,7 @@ import { useEffect, useRef } from 'react'
 import { useRouter } from 'next/navigation'
 import MovingSpace from '@/components/MovingSpace'
 import GlowingDust from '@/components/GlowingDust'
+import NebulaClouds from '@/components/NebulaClouds'
 import { ChevronDownIcon } from '@heroicons/react/24/outline'
 
 // Track homepage visit
@@ -76,6 +77,11 @@ export default function Home() {
         }}
       ></div>
 
+      {/* Nebula Clouds - positioned above video but behind dust */}
+      <div style={{ zIndex: 3 }}>
+        <NebulaClouds />
+      </div>
+
       {/* Glowing Dust Particles - positioned behind text but above video */}
       <div style={{ zIndex: 5 }}>
         <GlowingDust />
@@ -97,7 +103,7 @@ export default function Home() {
               letterSpacing: '0.02em',
               fontStyle: 'italic',
               position: 'relative',
-              top: '-8rem',
+              top: '-4rem',
               pointerEvents: 'none'
             }}
           >
@@ -117,7 +123,7 @@ export default function Home() {
               letterSpacing: '0.02em',
               lineHeight: 1.1,
               position: 'relative',
-              top: '-8rem',
+              top: '-4rem',
               pointerEvents: 'none'
             }}
           >
