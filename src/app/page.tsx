@@ -3,8 +3,6 @@
 import { motion, useInView } from 'framer-motion'
 import Link from 'next/link'
 import { useEffect, useRef } from 'react'
-import { useRouter } from 'next/navigation'
-import MovingSpace from '@/components/MovingSpace'
 import GlowingDust from '@/components/GlowingDust'
 import NebulaClouds from '@/components/NebulaClouds'
 import { ChevronDownIcon } from '@heroicons/react/24/outline'
@@ -24,8 +22,6 @@ const trackVisitor = async () => {
 }
 
 export default function Home() {
-  const router = useRouter()
-
   // Refs for animation triggers
   const authorRef = useRef(null)
   const booksRef = useRef(null)
