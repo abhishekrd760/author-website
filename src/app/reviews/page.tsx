@@ -7,6 +7,7 @@ import { api } from '@/lib/supabase'
 import Link from 'next/link'
 import StarryBackground from '@/components/StarryBackground'
 import FractalPyramid from '@/components/FractalPyramid'
+import DualVideoBackground from '@/components/DualVideoBackground'
 
 interface ReviewWithBook extends Review {
     book: Pick<Book, 'title' | 'id'>
@@ -71,21 +72,25 @@ const Reviews = () => {
     if (loading) {
         return (
             <div className="min-h-screen relative overflow-hidden">
-                {/* Cosmic Pattern Background */}
-                <div className="absolute inset-0 opacity-5">
-                    <div className="absolute inset-0" style={{
-                        backgroundImage: `url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cg fill='%23ffffff' fill-opacity='0.1'%3E%3Cpath d='M36 34v-4h-2v4h-4v2h4v4h2v-4h4v-2h-4zm0-30V0h-2v4h-4v2h4v4h2V6h4V4h-4zM6 34v-4H4v4H0v2h4v4h2v-4h4v-2H6zM6 4V0H4v4H0v2h4v4h2V6h4V4H6z'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E")`,
-                        backgroundSize: '60px 60px'
-                    }}></div>
-                </div>
+                <DualVideoBackground />
 
                 {/* Hero Section */}
-                <section className="py-20 cosmic-gradient text-white relative">
-                    <div className="container-custom text-center">
-                        <h1 className="text-4xl lg:text-6xl font-extralight tracking-wide mb-6 text-cosmic" style={{ fontFamily: 'var(--font-cinzel)' }}>Consciousness Reviews</h1>
-                        <p className="text-xl lg:text-2xl text-white/80 max-w-3xl mx-auto font-light">
-                            Shared experiences from souls awakening to cosmic consciousness
-                        </p>
+                <section className="py-12 text-white relative bg-black/3 backdrop-blur-sm z-10">
+                    <div className="container-custom relative">
+                        <motion.div
+                            initial={{ opacity: 0, y: 30 }}
+                            animate={{ opacity: 1, y: 0 }}
+                            transition={{ duration: 0.8 }}
+                            className="text-center"
+                        >
+                            <h1 className="text-3xl lg:text-5xl font-extralight tracking-wide mb-4 text-cosmic" style={{ fontFamily: 'var(--font-cinzel)' }}>Consciousness Reviews</h1>
+                            <p className="text-lg lg:text-xl text-white/80 max-w-3xl mx-auto mb-3 font-light">
+                                Shared experiences from souls awakening to cosmic consciousness
+                            </p>
+                            <p className="text-lg text-white/70 font-light tracking-wide" style={{ fontFamily: 'var(--font-lora)' }}>
+                                Author & Consciousness Explorer
+                            </p>
+                        </motion.div>
                     </div>
                 </section>
 
@@ -112,7 +117,8 @@ const Reviews = () => {
     }
 
     return (
-        <div className="min-h-screen relative overflow-hidden bg-gradient-to-b from-[#080810]/80 via-[#0a0a12]/60 to-[#06060a]/40">
+        <div className="min-h-screen relative overflow-hidden">
+            <DualVideoBackground />
             <StarryBackground />
 
             {/* Floating Cosmic Elements */}
@@ -145,20 +151,20 @@ const Reviews = () => {
             </motion.div>
 
             {/* Hero Section */}
-            <section className="py-20 cosmic-gradient text-white relative">
-                <div className="container-custom">
+            <section className="py-12 text-white relative bg-black/3 backdrop-blur-sm z-10">
+                <div className="container-custom relative">
                     <motion.div
                         initial={{ opacity: 0, y: 30 }}
                         animate={{ opacity: 1, y: 0 }}
                         transition={{ duration: 0.8 }}
                         className="text-center"
                     >
-                        <h1 className="text-4xl lg:text-6xl font-extralight tracking-wide mb-6 text-cosmic" style={{ fontFamily: 'var(--font-cinzel)' }}>Consciousness Reviews</h1>
-                        <p className="text-xl lg:text-2xl text-white/80 max-w-3xl mx-auto mb-4 font-light">
-                            Transformational experiences shared by awakened souls worldwide
+                        <h1 className="text-3xl lg:text-5xl font-extralight tracking-wide mb-4 text-cosmic" style={{ fontFamily: 'var(--font-cinzel)' }}>Consciousness Reviews</h1>
+                        <p className="text-lg lg:text-xl text-white/80 max-w-3xl mx-auto mb-3 font-light">
+                            Shared experiences from souls awakening to cosmic consciousness
                         </p>
-                        <p className="text-lg text-white/70 font-light tracking-wide">
-                            Each review is a testament to consciousness expansion
+                        <p className="text-lg text-white/70 font-light tracking-wide" style={{ fontFamily: 'var(--font-lora)' }}>
+                            Author & Consciousness Explorer
                         </p>
                     </motion.div>
                 </div>

@@ -3,6 +3,7 @@
 import { motion } from 'framer-motion'
 import Image from 'next/image'
 import DualVideoBackground from '@/components/DualVideoBackground'
+import { ArrowPathRoundedSquareIcon, BeakerIcon, SparklesIcon } from '@heroicons/react/24/outline'
 
 const About = () => {
     const achievements = [
@@ -59,6 +60,9 @@ const About = () => {
                         >
                             {/* Gradient overlay */}
                             <div className="absolute inset-0 bg-gradient-to-l from-sky-300/40 via-sky-400/20 via-sky-500/8 via-sky-600/3 to-transparent pointer-events-none"></div>
+
+                            {/* Bottom right fade overlay */}
+                            <div className="absolute bottom-0 right-0 w-full h-1/3 bg-gradient-to-t from-black/20 to-transparent pointer-events-none"></div>
 
                             <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center relative z-10">
                                 {/* Author Photo */}
@@ -171,10 +175,11 @@ const About = () => {
                         <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
                             <div className="text-center group">
                                 <motion.div
-                                    whileHover={{ scale: 1.1, rotate: 180 }}
-                                    className="w-16 h-16 mx-auto mb-4 bg-gradient-to-r from-blue-400 to-blue-600 rounded-full flex items-center justify-center text-2xl"
+                                    whileHover={{ scale: 1.2, rotate: 180 }}
+                                    className="w-16 h-16 mx-auto mb-4 flex items-center justify-center"
+                                    transition={{ duration: 0.3 }}
                                 >
-                                    ∞
+                                    <ArrowPathRoundedSquareIcon className="w-16 h-16 text-white" />
                                 </motion.div>
                                 <h4 className="text-xl font-light text-white mb-3" style={{ fontFamily: 'var(--font-cinzel)' }}>Infinite Consciousness</h4>
                                 <p className="text-white/70 font-light leading-relaxed" style={{ fontFamily: 'var(--font-lora)' }}>
@@ -184,10 +189,11 @@ const About = () => {
 
                             <div className="text-center group">
                                 <motion.div
-                                    whileHover={{ scale: 1.1, rotate: 360 }}
-                                    className="w-16 h-16 mx-auto mb-4 bg-gradient-to-r from-blue-400 to-blue-600 rounded-full flex items-center justify-center text-2xl"
+                                    whileHover={{ scale: 1.2, rotate: 360 }}
+                                    className="w-16 h-16 mx-auto mb-4 flex items-center justify-center"
+                                    transition={{ duration: 0.3 }}
                                 >
-                                    ॐ
+                                    <BeakerIcon className="w-16 h-16 text-white" />
                                 </motion.div>
                                 <h4 className="text-xl font-light text-white mb-3" style={{ fontFamily: 'var(--font-cinzel)' }}>Sacred Science</h4>
                                 <p className="text-white/70 font-light leading-relaxed" style={{ fontFamily: 'var(--font-lora)' }}>
@@ -197,10 +203,11 @@ const About = () => {
 
                             <div className="text-center group">
                                 <motion.div
-                                    whileHover={{ scale: 1.1, rotate: -180 }}
-                                    className="w-16 h-16 mx-auto mb-4 bg-gradient-to-r from-blue-400 to-blue-600 rounded-full flex items-center justify-center text-2xl"
+                                    whileHover={{ scale: 1.2, rotate: -180 }}
+                                    className="w-16 h-16 mx-auto mb-4 flex items-center justify-center"
+                                    transition={{ duration: 0.3 }}
                                 >
-                                    🌌
+                                    <SparklesIcon className="w-16 h-16 text-white" />
                                 </motion.div>
                                 <h4 className="text-xl font-light text-white mb-3" style={{ fontFamily: 'var(--font-cinzel)' }}>Cosmic Awakening</h4>
                                 <p className="text-white/70 font-light leading-relaxed" style={{ fontFamily: 'var(--font-lora)' }}>

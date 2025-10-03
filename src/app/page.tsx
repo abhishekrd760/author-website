@@ -3,9 +3,8 @@
 import { motion, useInView } from 'framer-motion'
 import Link from 'next/link'
 import { useEffect, useRef } from 'react'
-import GlowingDust from '@/components/GlowingDust'
 import NebulaClouds from '@/components/NebulaClouds'
-import { ChevronDownIcon } from '@heroicons/react/24/outline'
+import { ChevronDownIcon, UserCircleIcon, BookOpenIcon, EnvelopeIcon } from '@heroicons/react/24/outline'
 
 // Track homepage visit
 const trackVisitor = async () => {
@@ -73,14 +72,9 @@ export default function Home() {
         }}
       ></div>
 
-      {/* Nebula Clouds - positioned above video but behind dust */}
+      {/* Nebula Clouds - positioned above video */}
       <div style={{ zIndex: 3 }}>
         <NebulaClouds />
-      </div>
-
-      {/* Glowing Dust Particles - positioned behind text but above video */}
-      <div style={{ zIndex: 5 }}>
-        <GlowingDust />
       </div>
 
       {/* Full-screen Hero Section */}
@@ -246,7 +240,7 @@ export default function Home() {
                 <div className="backdrop-blur-sm border border-white/10 rounded-2xl p-8 text-center transition-all duration-500 hover:scale-105 hover:border-[#1F6FEB]/30 hover:shadow-2xl hover:shadow-[#1F6FEB]/20 cursor-pointer">
                   <div className="absolute inset-0 bg-gradient-to-br from-[#1F6FEB]/5 to-[#6C63FF]/5 rounded-2xl opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
                   <div className="relative z-10">
-                    <div className="text-5xl mb-4">�</div>
+                    <UserCircleIcon className="w-16 h-16 mx-auto mb-4 text-[#1F6FEB]" />
                     <div
                       className="text-2xl md:text-3xl font-bold mb-4 text-white"
                       style={{ fontFamily: 'var(--font-cinzel)' }}
@@ -285,7 +279,7 @@ export default function Home() {
                 <div className="backdrop-blur-sm border border-white/10 rounded-2xl p-8 text-center transition-all duration-500 hover:scale-105 hover:border-[#1F6FEB]/30 hover:shadow-2xl hover:shadow-[#1F6FEB]/20 cursor-pointer">
                   <div className="absolute inset-0 bg-gradient-to-br from-[#1F6FEB]/5 to-[#6C63FF]/5 rounded-2xl opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
                   <div className="relative z-10">
-                    <div className="text-5xl mb-4">📚</div>
+                    <BookOpenIcon className="w-16 h-16 mx-auto mb-4 text-[#1F6FEB]" />
                     <div
                       className="text-2xl md:text-3xl font-bold mb-4 text-white"
                       style={{ fontFamily: 'var(--font-cinzel)' }}
@@ -324,7 +318,7 @@ export default function Home() {
                 <div className="backdrop-blur-sm border border-white/10 rounded-2xl p-8 text-center transition-all duration-500 hover:scale-105 hover:border-[#1F6FEB]/30 hover:shadow-2xl hover:shadow-[#1F6FEB]/20 cursor-pointer">
                   <div className="absolute inset-0 bg-gradient-to-br from-[#1F6FEB]/5 to-[#6C63FF]/5 rounded-2xl opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
                   <div className="relative z-10">
-                    <div className="text-5xl mb-4">✉️</div>
+                    <EnvelopeIcon className="w-16 h-16 mx-auto mb-4 text-[#1F6FEB]" />
                     <div
                       className="text-2xl md:text-3xl font-bold mb-4 text-white"
                       style={{ fontFamily: 'var(--font-cinzel)' }}

@@ -4,6 +4,7 @@ import { motion } from 'framer-motion'
 import { useState } from 'react'
 import { supabase } from '@/lib/supabase'
 import StarryBackground from '@/components/StarryBackground'
+import DualVideoBackground from '@/components/DualVideoBackground'
 
 const Contact = () => {
     const [formData, setFormData] = useState({
@@ -85,7 +86,8 @@ const Contact = () => {
     }
 
     return (
-        <div className="min-h-screen relative overflow-hidden bg-gradient-to-b from-[#080810]/80 via-[#0a0a12]/60 to-[#06060a]/40">
+        <div className="min-h-screen relative overflow-hidden">
+            <DualVideoBackground />
             <StarryBackground />
 
             {/* Floating Cosmic Elements */}
@@ -118,21 +120,21 @@ const Contact = () => {
             </motion.div>
 
             {/* Hero Section */}
-            <section className="py-20 cosmic-gradient text-white relative">
-                <div className="container-custom">
+            {/* Hero Section */}
+            <section className="py-12 text-white relative bg-black/3 backdrop-blur-sm z-10">
+                <div className="container-custom relative">
                     <motion.div
                         initial={{ opacity: 0, y: 30 }}
                         animate={{ opacity: 1, y: 0 }}
                         transition={{ duration: 0.8 }}
                         className="text-center"
                     >
-                        <h1 className="text-4xl lg:text-6xl font-extralight tracking-wide mb-6 text-cosmic" style={{ fontFamily: 'var(--font-cinzel)' }}>Cosmic Connection</h1>
-                        <p className="text-xl lg:text-2xl text-white/80 max-w-3xl mx-auto mb-4 font-light">
-                            Bridge the dimensions between us. Share your cosmic insights, spiritual questions,
-                            or consciousness experiences.
+                        <h1 className="text-3xl lg:text-5xl font-extralight tracking-wide mb-4 text-cosmic" style={{ fontFamily: 'var(--font-cinzel)' }}>Connect Across Dimensions</h1>
+                        <p className="text-lg lg:text-xl text-white/80 max-w-3xl mx-auto mb-3 font-light">
+                            Bridge the dimensions between us. Share your cosmic insights and spiritual questions.
                         </p>
-                        <p className="text-lg text-white/70 font-light tracking-wide">
-                            Every message creates a ripple in the cosmic field
+                        <p className="text-lg text-white/70 font-light tracking-wide" style={{ fontFamily: 'var(--font-lora)' }}>
+                            Author & Consciousness Explorer
                         </p>
                     </motion.div>
                 </div>
