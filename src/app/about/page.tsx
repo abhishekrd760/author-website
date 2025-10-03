@@ -2,7 +2,7 @@
 
 import { motion } from 'framer-motion'
 import Image from 'next/image'
-import StarryBackground from '@/components/StarryBackground'
+import DualVideoBackground from '@/components/DualVideoBackground'
 
 const About = () => {
     const achievements = [
@@ -15,12 +15,12 @@ const About = () => {
     ]
 
     return (
-        <div className="min-h-screen relative overflow-hidden bg-gradient-to-b from-[#080810]/80 via-[#0a0a12]/60 to-[#06060a]/40">
-            <StarryBackground />
-            {/* Decorative moving star elements removed per request */}
+        <div className="min-h-screen relative overflow-hidden">
+            {/* Dual Video Background */}
+            <DualVideoBackground />
 
             {/* Hero Section */}
-            <section className="py-12 cosmic-gradient text-white relative">
+            <section className="py-12 text-white relative bg-black/3 backdrop-blur-sm z-10">
                 <div className="container-custom relative">
                     <motion.div
                         initial={{ opacity: 0, y: 30 }}
@@ -50,7 +50,7 @@ const About = () => {
                             initial={{ opacity: 0, scale: 0.9 }}
                             animate={{ opacity: 1, scale: 1 }}
                             transition={{ duration: 0.8, delay: 0.2 }}
-                            className="card"
+                            className="card bg-slate-900/1 backdrop-blur-sm"
                         >
                             <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
                                 {/* Author Photo */}
@@ -119,7 +119,7 @@ const About = () => {
                         initial={{ opacity: 0, y: 50 }}
                         animate={{ opacity: 1, y: 0 }}
                         transition={{ duration: 0.8, delay: 0.6 }}
-                        className="card mb-16"
+                        className="card bg-slate-900/10 backdrop-blur-sm mb-16"
                     >
                         <h3 className="text-3xl font-extralight tracking-wide text-white mb-8 text-center" style={{ fontFamily: 'var(--font-cinzel)' }}>
                             Milestones in Consciousness
@@ -154,7 +154,7 @@ const About = () => {
                         initial={{ opacity: 0, y: 50 }}
                         animate={{ opacity: 1, y: 0 }}
                         transition={{ duration: 0.8, delay: 1.2 }}
-                        className="card"
+                        className="card bg-slate-900/10 backdrop-blur-sm"
                     >
                         <h3 className="text-3xl font-extralight tracking-wide text-white mb-8 text-center" style={{ fontFamily: 'var(--font-cinzel)' }}>
                             The <span className="text-cosmic">Cosmic Philosophy</span>

@@ -111,7 +111,7 @@ export default function Home() {
             initial={{ opacity: 0, y: 30 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 1, delay: 0.5 }}
-            className="rainbow-text-slow mb-12 relative z-10"
+            className="sequential-glow mb-12 relative z-10"
             style={{
               fontFamily: 'var(--font-cinzel)',
               fontSize: 'clamp(2rem, 4vw, 6rem)',
