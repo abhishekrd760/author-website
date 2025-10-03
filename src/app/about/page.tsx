@@ -50,9 +50,17 @@ const About = () => {
                             initial={{ opacity: 0, scale: 0.9 }}
                             animate={{ opacity: 1, scale: 1 }}
                             transition={{ duration: 0.8, delay: 0.2 }}
-                            className="card bg-slate-900/1 backdrop-blur-sm"
+                            whileHover={{
+                                scale: 1.02,
+                                boxShadow: '0 0 30px rgba(56, 189, 248, 0.6), 0 0 60px rgba(56, 189, 248, 0.4)',
+                                transition: { duration: 0.3 }
+                            }}
+                            className="card backdrop-blur-sm relative cursor-pointer overflow-hidden"
                         >
-                            <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
+                            {/* Gradient overlay */}
+                            <div className="absolute inset-0 bg-gradient-to-l from-sky-300/40 via-sky-400/20 via-sky-500/8 via-sky-600/3 to-transparent pointer-events-none"></div>
+
+                            <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center relative z-10">
                                 {/* Author Photo */}
                                 <div className="relative">
                                     <div className="aspect-square max-w-md mx-auto rounded-2xl overflow-hidden shadow-2xl border border-blue-400/30 relative glow-blue">
