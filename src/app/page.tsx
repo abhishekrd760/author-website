@@ -80,45 +80,47 @@ export default function Home() {
       {/* Full-screen Hero Section */}
       <section className="min-h-screen flex items-center justify-center relative overflow-hidden -mt-2 md:-mt-0.1 lg:-mt-0.1" style={{ zIndex: 10 }}>
         <div className="container-custom text-center relative" style={{ zIndex: 20 }}>
-          {/* Yoshida Universe Theory subtitle */}
-          <motion.h2
-            initial={{ opacity: 0, y: 20 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.8, delay: 0.3 }}
-            className="text-white/80 mb-6 relative z-10"
-            style={{
-              fontFamily: 'var(--font-lora)',
-              fontSize: 'clamp(1.25rem, 2.5vw, 2rem)',
-              fontWeight: 400,
-              letterSpacing: '0.02em',
-              fontStyle: 'italic',
-              position: 'relative',
-              top: '-4rem',
-              pointerEvents: 'none'
-            }}
+          {/* Hover group for both headings */}
+          <motion.div
+            className="inline-block group cursor-pointer"
+            style={{ position: 'relative', top: '-4rem' }}
           >
-            Yoshida Universe Theory
-          </motion.h2>
+            {/* Yoshida Universe Theory subtitle */}
+            <motion.h2
+              initial={{ opacity: 0, y: 20 }}
+              animate={{ opacity: 1, y: 0 }}
+              whileHover={{ scale: 1.1 }}
+              transition={{ duration: 0.3 }}
+              className="text-white/80 mb-6 relative z-10 group-hover:scale-110 transition-transform duration-300"
+              style={{
+                fontFamily: 'var(--font-lora)',
+                fontSize: 'clamp(1.25rem, 2.5vw, 2rem)',
+                fontWeight: 400,
+                letterSpacing: '0.02em',
+                fontStyle: 'italic'
+              }}
+            >
+              Yoshida Universe Theory
+            </motion.h2>
 
-          {/* Main Header with Rainbow Animation - behind sun */}
-          <motion.h1
-            initial={{ opacity: 0, y: 30 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 1, delay: 0.5 }}
-            className="sequential-glow mb-12 relative z-10"
-            style={{
-              fontFamily: 'var(--font-cinzel)',
-              fontSize: 'clamp(2rem, 4vw, 6rem)',
-              fontWeight: 500,
-              letterSpacing: '0.02em',
-              lineHeight: 1.1,
-              position: 'relative',
-              top: '-4rem',
-              pointerEvents: 'none'
-            }}
-          >
-            Beyond Time and Space
-          </motion.h1>
+            {/* Main Header with Rainbow Animation - behind sun */}
+            <motion.h1
+              initial={{ opacity: 0, y: 30 }}
+              animate={{ opacity: 1, y: 0 }}
+              whileHover={{ scale: 1.1 }}
+              transition={{ duration: 0.3 }}
+              className="sequential-glow mb-12 relative z-10 group-hover:scale-110 transition-transform duration-300"
+              style={{
+                fontFamily: 'var(--font-cinzel)',
+                fontSize: 'clamp(2rem, 4vw, 6rem)',
+                fontWeight: 500,
+                letterSpacing: '0.02em',
+                lineHeight: 1.1
+              }}
+            >
+              Beyond Time and Space
+            </motion.h1>
+          </motion.div>
 
           {/* Call to Action Buttons */}
         </div>
@@ -175,17 +177,17 @@ export default function Home() {
       <motion.div
         initial={{ opacity: 0, y: 20 }}
         animate={{ opacity: 1, y: 0 }}
-        transition={{ duration: 1, delay: 1 }}
-        className="absolute w-full flex justify-center"
+        whileHover={{ scale: 1.1 }}
+        transition={{ duration: 0.3 }}
+        className="absolute w-full flex justify-center cursor-pointer"
         style={{
-          pointerEvents: 'none',
           zIndex: 25,
           top: 'calc(50vh + 2rem)',
           left: 0
         }}
       >
         <p
-          className="text-xl md:text-2xl lg:text-3xl text-center"
+          className="text-xl md:text-2xl lg:text-3xl text-center hover:scale-110 transition-transform duration-300"
           style={{
             fontFamily: 'var(--font-lora)',
             color: '#F4F4F4',
@@ -221,7 +223,7 @@ export default function Home() {
           </motion.div>
 
           {/* Navigation Tiles */}
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
+          <div className="grid grid-cols-3 gap-4 md:gap-8">
             {/* Author Tile */}
             <motion.div
               ref={authorRef}

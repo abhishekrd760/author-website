@@ -5,6 +5,7 @@ import { useState } from 'react'
 import { supabase } from '@/lib/supabase'
 import StarryBackground from '@/components/StarryBackground'
 import DualVideoBackground from '@/components/DualVideoBackground'
+import { SignalIcon, GlobeAltIcon, EnvelopeIcon, MapPinIcon } from '@heroicons/react/24/outline'
 
 const Contact = () => {
     const [formData, setFormData] = useState({
@@ -100,9 +101,9 @@ const Contact = () => {
                     rotate: { duration: 20, repeat: Infinity, ease: "linear" },
                     scale: { duration: 5, repeat: Infinity, ease: "easeInOut" }
                 }}
-                className="absolute top-40 right-20 text-3xl opacity-20"
+                className="absolute top-40 right-20 opacity-20"
             >
-                📡
+                <SignalIcon className="w-12 h-12 text-blue-400" />
             </motion.div>
 
             <motion.div
@@ -114,9 +115,9 @@ const Contact = () => {
                     rotate: { duration: 25, repeat: Infinity, ease: "linear" },
                     y: { duration: 7, repeat: Infinity, ease: "easeInOut" }
                 }}
-                className="absolute bottom-40 left-20 text-2xl opacity-20"
+                className="absolute bottom-40 left-20 opacity-20"
             >
-                🌐
+                <GlobeAltIcon className="w-10 h-10 text-blue-400" />
             </motion.div>
 
             {/* Hero Section */}
@@ -290,7 +291,7 @@ const Contact = () => {
                                             transition={{ duration: 0.3 }}
                                             className="w-12 h-12 bg-gradient-to-r from-blue-500/20 to-blue-500/20 rounded-full flex items-center justify-center border border-blue-400/30"
                                         >
-                                            <span className="text-blue-400 text-xl">📧</span>
+                                            <EnvelopeIcon className="w-6 h-6 text-blue-400" />
                                         </motion.div>
                                         <div>
                                             <h4 className="font-light text-white">Quantum Email</h4>
@@ -304,7 +305,7 @@ const Contact = () => {
                                             transition={{ duration: 0.3 }}
                                             className="w-12 h-12 bg-gradient-to-r from-blue-500/20 to-blue-500/20 rounded-full flex items-center justify-center border border-blue-400/30"
                                         >
-                                            <span className="text-blue-400 text-xl">🌌</span>
+                                            <MapPinIcon className="w-6 h-6 text-blue-400" />
                                         </motion.div>
                                         <div>
                                             <h4 className="font-light text-white">Cosmic Location</h4>
