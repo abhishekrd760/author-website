@@ -2,7 +2,7 @@
 
 import { motion, useInView } from 'framer-motion'
 import Link from 'next/link'
-import { useEffect, useRef } from 'react'
+import { useEffect, useRef, useState } from 'react'
 import NebulaClouds from '@/components/NebulaClouds'
 import { ChevronDownIcon, UserCircleIcon, BookOpenIcon, EnvelopeIcon } from '@heroicons/react/24/outline'
 
@@ -21,7 +21,10 @@ const trackVisitor = async () => {
 }
 
 export default function Home() {
-  // Refs for animation triggers
+  // State to control animations
+  const [startAnimation, setStartAnimation] = useState(false)
+
+  // Refs for tile animation triggers
   const authorRef = useRef(null)
   const booksRef = useRef(null)
   const connectRef = useRef(null)
@@ -31,9 +34,15 @@ export default function Home() {
   const booksInView = useInView(booksRef, { once: true, amount: 0.3 })
   const connectInView = useInView(connectRef, { once: true, amount: 0.3 })
 
-  // Track visitor when component mounts
+  // Track visitor and start animations after a brief delay
   useEffect(() => {
     trackVisitor()
+    // Start animations after 2 seconds
+    const timer = setTimeout(() => {
+      setStartAnimation(true)
+      console.log('Animation triggered!')
+    }, 2000)
+    return () => clearTimeout(timer)
   }, [])
 
   return (
@@ -82,13 +91,18 @@ export default function Home() {
         <div className="container-custom text-center relative" style={{ zIndex: 20 }}>
           {/* Hover group for both headings */}
           <motion.div
+            initial={{ opacity: 0, y: 150 }}
+            animate={startAnimation ? { opacity: 1, y: 0 } : { opacity: 0, y: 150 }}
+            transition={{
+              duration: 2.0,
+              delay: 0.3,
+              ease: [0.16, 1, 0.3, 1]
+            }}
             className="inline-block group cursor-pointer"
             style={{ position: 'relative', top: '-4rem' }}
           >
             {/* Yoshida Universe Theory subtitle */}
             <motion.h2
-              initial={{ opacity: 0, y: 20 }}
-              animate={{ opacity: 1, y: 0 }}
               whileHover={{ scale: 1.1 }}
               transition={{ duration: 0.3 }}
               className="text-white/80 mb-6 relative z-10 group-hover:scale-110 transition-transform duration-300"
@@ -105,8 +119,6 @@ export default function Home() {
 
             {/* Main Header with Rainbow Animation - behind sun */}
             <motion.h1
-              initial={{ opacity: 0, y: 30 }}
-              animate={{ opacity: 1, y: 0 }}
               whileHover={{ scale: 1.1 }}
               transition={{ duration: 0.3 }}
               className="sequential-glow mb-12 relative z-10 group-hover:scale-110 transition-transform duration-300"
@@ -127,9 +139,13 @@ export default function Home() {
 
         {/* Call to Action Buttons - Positioned absolutely in front of everything */}
         <motion.div
-          initial={{ opacity: 0, y: 20 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 1, delay: 1.5 }}
+          initial={{ opacity: 0, y: 150 }}
+          animate={startAnimation ? { opacity: 1, y: 0 } : { opacity: 0, y: 150 }}
+          transition={{
+            duration: 2.0,
+            delay: 0.9,
+            ease: [0.16, 1, 0.3, 1]
+          }}
           className="absolute flex flex-col sm:flex-row gap-6 justify-center items-center w-full"
           style={{
             top: 'calc(50vh + 12rem)',
@@ -175,10 +191,14 @@ export default function Home() {
 
       {/* Subtitle positioned in front of sun */}
       <motion.div
-        initial={{ opacity: 0, y: 20 }}
-        animate={{ opacity: 1, y: 0 }}
+        initial={{ opacity: 0, y: 120 }}
+        animate={startAnimation ? { opacity: 1, y: 0 } : { opacity: 0, y: 120 }}
+        transition={{
+          duration: 2.0,
+          delay: 0.6,
+          ease: [0.16, 1, 0.3, 1]
+        }}
         whileHover={{ scale: 1.1 }}
-        transition={{ duration: 0.3 }}
         className="absolute w-full flex justify-center cursor-pointer"
         style={{
           zIndex: 25,
