@@ -94,15 +94,10 @@ function StarryScene() {
 export default function DualVideoBackground() {
     return (
         <div className="absolute inset-0 w-full h-full pointer-events-none bg-black" style={{ zIndex: 0 }}>
-            {/* Subtle Blue tint overlay for minimal cosmic atmosphere */}
+            {/* Dark overlay for full black background */}
             <div
-                className="absolute inset-0"
+                className="absolute inset-0 bg-black"
                 style={{
-                    background: `
-                        radial-gradient(circle at center, rgba(5, 10, 75, 0.08) 0%, rgba(5, 10, 75, 0.02) 70%, transparent 100%),
-                        radial-gradient(circle at 100% 50%, rgba(5, 10, 75, 0.06) 0%, rgba(5, 10, 75, 0.01) 60%, transparent 100%),
-                        radial-gradient(circle at 0% 50%, rgba(5, 10, 75, 0.06) 0%, rgba(5, 10, 75, 0.01) 60%, transparent 100%)
-                    `,
                     zIndex: 0
                 }}
             />
@@ -133,7 +128,7 @@ export default function DualVideoBackground() {
                 style={{
                     filter: 'brightness(0.8) contrast(1.3)',
                     opacity: 0.8,
-                    top: '70vh'
+                    top: '98vh'
                 }}
             >
                 <source src="/spacenebula.mp4" type="video/mp4" />
