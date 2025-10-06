@@ -2,7 +2,9 @@ import Link from 'next/link'
 
 const Footer = () => {
     return (
-        <footer className="bg-gradient-to-br from-[#1F6FEB]/5 to-[#1F6FEB]/8 backdrop-blur-sm border-t border-white/10 relative z-50">
+        <footer className="backdrop-blur-sm border-t border-white/10 relative z-50">
+            {/* Subtle dark overlay for text readability */}
+            <div className="absolute inset-0 bg-black/20 -z-10"></div>
             <div className="container-custom py-12">
                 <div className="grid grid-cols-1 md:grid-cols-4 gap-8">
                     {/* Author Info */}
