@@ -231,7 +231,7 @@ export default function Home() {
             className="text-center mb-20"
           >
             <h2
-              className="text-4xl md:text-5xl lg:text-6xl mb-6 text-white"
+              className="text-2xl md:text-3xl lg:text-4xl mb-6 text-white"
               style={{
                 fontFamily: 'var(--font-cinzel)',
                 fontWeight: 600
@@ -264,7 +264,7 @@ export default function Home() {
                   <div className="relative z-10">
                     <UserCircleIcon className="w-16 h-16 mx-auto mb-4 text-[#1F6FEB]" />
                     <div
-                      className="text-2xl md:text-3xl font-bold mb-4 text-white"
+                      className="text-xl md:text-2xl font-bold mb-4 text-white"
                       style={{ fontFamily: 'var(--font-cinzel)' }}
                     >
                       The Author
@@ -303,7 +303,7 @@ export default function Home() {
                   <div className="relative z-10">
                     <BookOpenIcon className="w-16 h-16 mx-auto mb-4 text-[#1F6FEB]" />
                     <div
-                      className="text-2xl md:text-3xl font-bold mb-4 text-white"
+                      className="text-xl md:text-2xl font-bold mb-4 text-white"
                       style={{ fontFamily: 'var(--font-cinzel)' }}
                     >
                       The Books
@@ -342,7 +342,7 @@ export default function Home() {
                   <div className="relative z-10">
                     <EnvelopeIcon className="w-16 h-16 mx-auto mb-4 text-[#1F6FEB]" />
                     <div
-                      className="text-2xl md:text-3xl font-bold mb-4 text-white"
+                      className="text-xl md:text-2xl font-bold mb-4 text-white"
                       style={{ fontFamily: 'var(--font-cinzel)' }}
                     >
                       Connect
@@ -372,7 +372,7 @@ export default function Home() {
           >
             <div className="max-w-4xl mx-auto">
               <blockquote
-                className="text-2xl md:text-3xl lg:text-4xl text-[#F4F4F4] italic leading-relaxed mb-8"
+                className="text-xl md:text-2xl lg:text-3xl text-[#F4F4F4] italic leading-relaxed mb-8"
                 style={{ fontFamily: 'var(--font-lora)' }}
               >
                 &ldquo;In the vastness of space and time, every story matters, every journey transforms, and every reader becomes part of the infinite cosmic dance.&rdquo;
