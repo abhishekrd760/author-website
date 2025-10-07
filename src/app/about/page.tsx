@@ -7,12 +7,20 @@ import { ArrowPathRoundedSquareIcon, BeakerIcon, SparklesIcon } from '@heroicons
 
 const About = () => {
     const achievements = [
-        { year: '2020', event: 'Published "Beyond Time" - A journey into consciousness' },
-        { year: '2021', event: 'Reached spiritual bestseller list' },
-        { year: '2022', event: 'Founded the Cosmic Consciousness Institute' },
-        { year: '2023', event: 'Won the Transcendental Literature Award' },
-        { year: '2024', event: 'Launched global meditation movement' },
-        { year: '2024', event: 'Over 1 million souls awakened worldwide' }
+        { year: '1991-2025', event: 'Presented private peace messages to four presidents (Sri Lanka, Ukraine, Nepal, Indonesia) and numerous world leaders' },
+        { year: '1995-1998', event: 'Produced enlightening documentary film "Peace Stars" and festival screened in Australia, Croatia, Ukraine, and Japan' },
+        { year: '2003-2015', event: 'Participated in soil and water purification activities and well digging in Chernobyl and Sri Lanka' },
+        { year: '2011', event: 'Developed Silver Elepha - radiation protective clothing processing technology for Chernobyl' },
+        { year: '2014-2016', event: 'Donated medical equipment to Chernobyl and Sri Lanka' },
+        { year: '2003-2005', event: 'Received honors from Ukrainian Minister of Interior and Mayor of Kyiv for Chernobyl support' },
+        { year: '2011-2015', event: 'Invented quantum technologies: Fractal Pyramid, Healing Wave, Jomon Sacred Water, Motsuto Miracle' },
+        { year: '2020', event: 'Published "From the Galactic Federation to Japan"' },
+        { year: '2020-2025', event: 'Gave "Awakening Challenge" lectures globally, including at Tribhuvan University, Nepal' },
+        { year: '2022', event: 'Published "Galactic Federation GOMQ" and "Living the Galactic Age in Awakening Ecstasy"' },
+        { year: '2023', event: 'Published "Transcendent Parallel World"' },
+        { year: '2024', event: 'Published "Ascension Beauty"' },
+        { year: '2025', event: 'Published "Automatic Freedom" in Nepal' },
+        { year: '1991-2025', event: 'Hosted 20 peace ceremonies worldwide with 35,000+ participants; provided Peace School certifications to 80,000+ people' }
     ]
 
     return (
@@ -104,22 +112,24 @@ const About = () => {
                                     </h2>
 
                                     <p className="text-white/80 leading-relaxed font-light text-lg" style={{ fontFamily: 'var(--font-lora)' }}>
-                                        Welcome to a realm where ancient wisdom converges with quantum consciousness,
-                                        where the infinite expanse of the cosmos mirrors the boundless potential within
-                                        each soul. This is not merely about books—it&apos;s about awakening to the eternal
-                                        dance between spirit and science.
+                                        For over three decades, Kazutoshi Yoshida has dedicated his life to bridging science and spirituality,
+                                        working tirelessly for world peace and human consciousness evolution. From presenting private peace
+                                        messages to four presidents and Arab royal families, to hosting peace ceremonies across 20 locations
+                                        with over 35,000 participants, his mission has touched countless lives globally.
                                     </p>
 
                                     <p className="text-white/70 leading-relaxed font-light text-lg" style={{ fontFamily: 'var(--font-lora)' }}>
-                                        Through decades of meditation, scientific research, and transcendental experiences,
-                                        I have discovered that time is not linear—it&apos;s a spiral, a cosmic dance that allows
-                                        us to step beyond our perceived limitations into the infinite field of pure possibility.
+                                        His humanitarian work spans from developing radiation protective technology for Chernobyl survivors
+                                        to leading soil and water purification projects in affected regions. Recognized by the Ukrainian
+                                        government and international organizations, Yoshida&apos;s contributions have earned him honors from
+                                        world leaders for his tireless support of communities in need.
                                     </p>
 
                                     <p className="text-white/70 leading-relaxed font-light text-lg" style={{ fontFamily: 'var(--font-lora)' }}>
-                                        My work bridges the gap between mystical experiences and scientific understanding,
-                                        offering readers a pathway to transcend ordinary consciousness and step into their
-                                        true cosmic nature.
+                                        As an inventor and visionary, he has pioneered quantum technologies including the Fractal Pyramid and
+                                        Healing Wave, while authoring groundbreaking books that integrate galactic wisdom with earthly awakening.
+                                        Through his "Awakening Challenge" lectures at prestigious institutions worldwide, including Tribhuvan
+                                        University in Nepal, Yoshida continues to inspire a global movement toward conscious evolution and universal peace.
                                     </p>
                                 </div>
                             </div>
@@ -133,31 +143,52 @@ const About = () => {
                         transition={{ duration: 0.8, delay: 0.6 }}
                         className="card bg-slate-900/10 backdrop-blur-sm mb-16"
                     >
-                        <h3 className="text-3xl font-extralight tracking-wide text-white mb-8 text-center" style={{ fontFamily: 'var(--font-cinzel)' }}>
-                            Milestones in Consciousness
+                        <h3 className="text-3xl font-extralight tracking-wide text-white mb-12 text-center" style={{ fontFamily: 'var(--font-cinzel)' }}>
+                            Milestones & Achievements
                         </h3>
 
-                        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-                            {achievements.map((achievement, index) => (
-                                <motion.div
-                                    key={index}
-                                    initial={{ opacity: 0, y: 30 }}
-                                    animate={{ opacity: 1, y: 0 }}
-                                    transition={{ duration: 0.6, delay: 0.8 + index * 0.1 }}
-                                    className="relative p-6 bg-white/5 rounded-xl border border-white/10 hover:border-blue-400/30 transition-all duration-300 group"
-                                >
-                                    <div className="absolute -top-3 -left-3 w-8 h-8 bg-gradient-to-r from-blue-400 to-blue-600 rounded-full flex items-center justify-center text-white text-sm font-light">
-                                        {achievement.year.slice(-2)}
-                                    </div>
-                                    <div className="text-sm text-blue-300 font-light mb-2 tracking-wide">{achievement.year}</div>
-                                    <div className="text-white/90 font-light leading-relaxed">{achievement.event}</div>
+                        {/* Vertical Timeline - Centered with Alternating Sides */}
+                        <div className="relative max-w-6xl mx-auto">
+                            {/* Timeline Line - Centered */}
+                            <div className="absolute left-1/2 transform -translate-x-1/2 top-0 bottom-0 w-0.5 bg-gradient-to-b from-blue-400 via-blue-500 to-blue-600"></div>
 
-                                    <motion.div
-                                        className="absolute inset-0 bg-gradient-to-r from-blue-500/5 to-blue-600/5 rounded-xl opacity-0 group-hover:opacity-100 transition-opacity duration-300"
-                                        whileHover={{ scale: 1.02 }}
-                                    />
-                                </motion.div>
-                            ))}
+                            {/* Timeline Items */}
+                            <div className="space-y-6">
+                                {achievements.map((achievement, index) => {
+                                    const isLeft = index % 2 === 0;
+                                    return (
+                                        <motion.div
+                                            key={index}
+                                            initial={{ opacity: 0, x: isLeft ? -200 : 200, y: 50 }}
+                                            whileInView={{ opacity: 1, x: 0, y: 0 }}
+                                            viewport={{ once: true, amount: 0.3, margin: "0px 0px -50px 0px" }}
+                                            transition={{
+                                                duration: 0.8,
+                                                delay: index * 0.08,
+                                                ease: "easeOut"
+                                            }}
+                                            className={`relative flex ${isLeft ? 'justify-start' : 'justify-end'}`}
+                                        >
+                                            {/* Content Card */}
+                                            <div className={`w-5/12 relative`}>
+                                                <div className={`bg-white/5 rounded-lg p-6 border border-white/10 hover:border-blue-400/30 transition-all duration-300 hover:bg-white/10 group relative ${isLeft ? 'mr-4' : 'ml-4'}`}>
+                                                    <div className="flex items-baseline gap-3 mb-2">
+                                                        <span className="text-blue-300 font-semibold text-lg tracking-wide" style={{ fontFamily: 'var(--font-cinzel)' }}>
+                                                            {achievement.year}
+                                                        </span>
+                                                    </div>
+                                                    <p className="text-white/90 font-light leading-relaxed text-base" style={{ fontFamily: 'var(--font-lora)' }}>
+                                                        {achievement.event}
+                                                    </p>
+                                                </div>
+                                            </div>
+
+                                            {/* Timeline Dot - Centered */}
+                                            <div className="absolute left-1/2 transform -translate-x-1/2 top-6 w-5 h-5 bg-gradient-to-r from-blue-400 to-blue-600 rounded-full border-4 border-slate-900 z-10 hover:scale-125 transition-transform duration-300"></div>
+                                        </motion.div>
+                                    );
+                                })}
+                            </div>
                         </div>
                     </motion.div>
 
