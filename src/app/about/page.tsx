@@ -128,7 +128,7 @@ const About = () => {
                                     <p className="text-white/70 leading-relaxed font-light text-lg" style={{ fontFamily: 'var(--font-lora)' }}>
                                         As an inventor and visionary, he has pioneered quantum technologies including the Fractal Pyramid and
                                         Healing Wave, while authoring groundbreaking books that integrate galactic wisdom with earthly awakening.
-                                        Through his "Awakening Challenge" lectures at prestigious institutions worldwide, including Tribhuvan
+                                        Through his &ldquo;Awakening Challenge&rdquo; lectures at prestigious institutions worldwide, including Tribhuvan
                                         University in Nepal, Yoshida continues to inspire a global movement toward conscious evolution and universal peace.
                                     </p>
                                 </div>
