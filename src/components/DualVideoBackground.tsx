@@ -105,23 +105,24 @@ export default function DualVideoBackground() {
                 }}
             />
 
-            {/* Top Right Video - galaxy.mp4 */}
+            {/* Top Right Video - galaxy.mp4 - fixed to viewport for consistency */}
             <video
                 autoPlay
                 loop
                 muted
                 playsInline
-                className="absolute w-3/5 h-3/5 object-contain"
+                className="fixed w-3/5 h-3/5 object-contain"
                 style={{
                     filter: 'brightness(1.1) contrast(1.1)',
                     opacity: 1.0,
-                    right: '0%',
-                    top: '-10%'
+                    right: '-5%',
+                    top: '0vh',
+                    zIndex: -1
                 }}
             >
                 <source src="/galaxy.mp4" type="video/mp4" />
             </video>
-            {/* Bottom Left Video - spacenebula.mp4 */}
+            {/* Bottom Left Video - spacenebula.mp4 - absolute for scrolling */}
             <video
                 autoPlay
                 loop
@@ -131,7 +132,7 @@ export default function DualVideoBackground() {
                 style={{
                     filter: 'brightness(0.8) contrast(1.3)',
                     opacity: 0.8,
-                    top: '99vh'
+                    bottom: '-20vh'
                 }}
             >
                 <source src="/spacenebula.mp4" type="video/mp4" />
