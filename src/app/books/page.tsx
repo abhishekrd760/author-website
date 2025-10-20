@@ -8,6 +8,7 @@ import Link from 'next/link'
 import StarryBackground from '@/components/StarryBackground'
 import FractalPyramid from '@/components/FractalPyramid'
 import DualVideoBackground from '@/components/DualVideoBackground'
+import { api } from '@/lib/supabase'
 
 // Function to generate cosmic book covers
 const getRandomBookCover = (title: string, index: number) => {
@@ -22,43 +23,55 @@ const getRandomBookCover = (title: string, index: number) => {
 
     const color = colors[index % colors.length]
 
-    return `data:image/svg+xml;base64,${btoa(`
-    <svg width="300" height="400" viewBox="0 0 300 400" fill="none" xmlns="http://www.w3.org/2000/svg">
+    // Sanitize title to remove special characters that btoa can't handle
+    const sanitizedTitle = (title || 'Untitled').replace(/[^\x00-\x7F]/g, '')
+    const titleParts = sanitizedTitle.split(' ')
+    const firstLine = titleParts.slice(0, 2).join(' ')
+    const secondLine = titleParts.length > 2 ? titleParts.slice(2).join(' ') : ''
+
+    const svgString = `<svg width="300" height="400" viewBox="0 0 300 400" fill="none" xmlns="http://www.w3.org/2000/svg">
       <rect width="300" height="400" fill="${color.bg}"/>
       <rect x="20" y="20" width="260" height="360" fill="none" stroke="${color.accent}" stroke-width="2" opacity="0.5"/>
       <rect x="40" y="40" width="220" height="2" fill="${color.accent}"/>
       <rect x="40" y="60" width="180" height="1" fill="${color.accent}" opacity="0.7"/>
       <text x="150" y="200" text-anchor="middle" fill="white" font-family="Arial, sans-serif" font-size="18" font-weight="bold">
-        <tspan x="150" dy="0">${title.split(' ').slice(0, 2).join(' ')}</tspan>
-        ${title.split(' ').length > 2 ? `<tspan x="150" dy="25">${title.split(' ').slice(2).join(' ')}</tspan>` : ''}
+        <tspan x="150" dy="0">${firstLine}</tspan>
+        ${secondLine ? `<tspan x="150" dy="25">${secondLine}</tspan>` : ''}
       </text>
       <text x="150" y="250" text-anchor="middle" fill="${color.accent}" font-family="Arial, sans-serif" font-size="14">Kazutoshi Yoshida</text>
       <rect x="40" y="340" width="220" height="2" fill="${color.accent}"/>
-    </svg>
-  `)}`
-}
+    </svg>`
 
-// Cosmic consciousness books collection
-const hardcodedBooks: Book[] = [
-    {
-        id: '2',
-        author_id: '1',
-        title: 'Cosmic Awakening: The Science',
-        description: 'A groundbreaking synthesis of mystical experiences and scientific understanding. Journey through the quantum field of pure possibility as you learn to navigate multiple dimensions of reality. This book offers practical techniques for transcending ordinary consciousness and stepping into your cosmic nature.',
-        cover_image_url: '/images/book2-cover.jpg',
-        publication_date: '2022-11-08',
-        buy_link: 'https://amazon.com/cosmic-awakening'
+    try {
+        return `data:image/svg+xml;base64,${btoa(svgString)}`
+    } catch (error) {
+        // Fallback to URL encoding if btoa fails
+        return `data:image/svg+xml,${encodeURIComponent(svgString)}`
     }
-]
+}
 
 const Books = () => {
     const [books, setBooks] = useState<Book[]>([])
     const [loading, setLoading] = useState(true)
+    const [error, setError] = useState<string | null>(null)
 
     useEffect(() => {
-        // Always use hardcoded books
-        setBooks(hardcodedBooks)
-        setLoading(false)
+        // Fetch books from Supabase
+        const fetchBooks = async () => {
+            try {
+                setLoading(true)
+                setError(null)
+                const data = await api.getBooks()
+                setBooks(data)
+            } catch (err) {
+                console.error('Error fetching books:', err)
+                setError('Failed to load books. Please try again later.')
+            } finally {
+                setLoading(false)
+            }
+        }
+
+        fetchBooks()
     }, [])
 
     const formatDate = (dateString: string) => {
@@ -110,6 +123,46 @@ const Books = () => {
                                     </div>
                                 </div>
                             ))}
+                        </div>
+                    </div>
+                </section>
+            </div>
+        )
+    }
+
+    if (error) {
+        return (
+            <div className="min-h-screen relative overflow-hidden">
+                <DualVideoBackground />
+
+                {/* Hero Section */}
+                <section className="py-12 text-white relative bg-black/3 backdrop-blur-sm z-10">
+                    <div className="container-custom relative">
+                        <motion.div
+                            initial={{ opacity: 0, y: 30 }}
+                            animate={{ opacity: 1, y: 0 }}
+                            transition={{ duration: 0.8 }}
+                            className="text-center"
+                        >
+                            <h1 className="text-3xl lg:text-5xl font-extralight tracking-wide mb-4 text-cosmic" style={{ fontFamily: 'var(--font-cinzel)' }}>Cosmic Library</h1>
+                            <p className="text-lg lg:text-xl text-white/80 max-w-3xl mx-auto mb-3 font-light">
+                                Discover books that transcend ordinary reality and awaken cosmic consciousness
+                            </p>
+                        </motion.div>
+                    </div>
+                </section>
+
+                {/* Error Message */}
+                <section className="py-16 relative z-10">
+                    <div className="container-custom">
+                        <div className="text-center">
+                            <p className="text-red-400 text-lg mb-4">{error}</p>
+                            <button
+                                onClick={() => window.location.reload()}
+                                className="px-6 py-3 bg-cosmic hover:bg-cosmic-dark text-white rounded-lg transition-colors"
+                            >
+                                Retry
+                            </button>
                         </div>
                     </div>
                 </section>
@@ -249,14 +302,14 @@ const Books = () => {
                         </p>
                     </motion.div>
 
-                    <div className="flex justify-center">
+                    <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
                         {books.map((book, index) => (
                             <motion.div
                                 key={book.id}
                                 initial={{ opacity: 0, y: 50 }}
                                 animate={{ opacity: 1, y: 0 }}
                                 transition={{ duration: 0.6, delay: 0.4 + index * 0.1 }}
-                                className="max-w-md w-full card group hover:shadow-2xl hover:shadow-blue-500/20 transition-all duration-300"
+                                className="card group hover:shadow-2xl hover:shadow-blue-500/20 transition-all duration-300"
                             >
                                 {/* Book Cover */}
                                 <div className="aspect-[3/4] overflow-hidden rounded-lg mb-6 bg-white/5 relative">
