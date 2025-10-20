@@ -312,22 +312,38 @@ const Books = () => {
                                 className="card group hover:shadow-2xl hover:shadow-blue-500/20 transition-all duration-300"
                             >
                                 {/* Book Cover */}
-                                <div className="aspect-[3/4] overflow-hidden rounded-lg mb-6 bg-white/5 relative">
+                                <div className="aspect-[3/4] overflow-hidden rounded-lg mb-6 bg-gradient-to-br from-slate-900 via-slate-800 to-slate-900 relative shadow-2xl">
                                     <Image
-                                        src={getRandomBookCover(book.title, index)}
+                                        src={
+                                            book.id === 'e8b7329c-3f1e-431c-b861-5fc7286a4437'
+                                                ? '/images/galactic federation to Japan.jpg'
+                                                : book.id === 'cd59d181-8879-461c-9086-2cfcdc06271d'
+                                                    ? '/images/ascension beauty.jpg'
+                                                    : book.id === '30cda241-8a1e-4a08-b967-fe3a62271864'
+                                                        ? '/images/Live in the ecstasy of awakening.jpg'
+                                                        : book.id === '7a804c52-58fc-43fa-98ea-ab08b8f8f2ac'
+                                                            ? '/images/Transcendent Parallel World.jpg'
+                                                            : book.id === 'cf94b790-44fb-4b6c-ae75-56031ab648bb'
+                                                                ? '/images/The Galactic Federation.jpg'
+                                                                : book.cover_image_url || getRandomBookCover(book.title, index)
+                                        }
                                         alt={book.title}
                                         width={400}
                                         height={533}
-                                        className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300"
-                                    />
+                                        className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500"
+                                    />                                    {/* Elegant border overlay */}
+                                    <div className="absolute inset-0 border-2 border-white/10 rounded-lg pointer-events-none"></div>
 
                                     {/* Overlay with publication date */}
-                                    <div className="absolute top-4 right-4 bg-black/70 text-white px-3 py-1 rounded-full text-sm font-light">
+                                    <div className="absolute top-4 right-4 bg-gradient-to-br from-black/80 to-black/60 backdrop-blur-sm text-white px-4 py-2 rounded-full text-sm font-light shadow-lg border border-white/10">
                                         {new Date(book.publication_date).getFullYear()}
                                     </div>
 
-                                    {/* Cosmic glow overlay */}
-                                    <div className="absolute inset-0 bg-gradient-to-t from-blue-900/30 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
+                                    {/* Elegant cosmic glow overlay */}
+                                    <div className="absolute inset-0 bg-gradient-to-t from-indigo-900/40 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
+
+                                    {/* Shine effect on hover */}
+                                    <div className="absolute inset-0 bg-gradient-to-tr from-transparent via-white/5 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500 translate-x-[-100%] group-hover:translate-x-[100%] transition-transform duration-1000"></div>
                                 </div>
 
                                 {/* Book Info */}
