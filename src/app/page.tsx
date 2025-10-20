@@ -5,6 +5,7 @@ import Link from 'next/link'
 import { useEffect, useRef, useState } from 'react'
 import NebulaClouds from '@/components/NebulaClouds'
 import { ChevronDownIcon, UserCircleIcon, BookOpenIcon, EnvelopeIcon } from '@heroicons/react/24/outline'
+import { useLanguage } from '@/lib/LanguageProvider'
 
 // Track homepage visit
 const trackVisitor = async () => {
@@ -23,6 +24,7 @@ const trackVisitor = async () => {
 export default function Home() {
   // State to control animations
   const [startAnimation, setStartAnimation] = useState(false)
+  const { t } = useLanguage()
 
   // Refs for tile animation triggers
   const authorRef = useRef(null)
@@ -68,7 +70,7 @@ export default function Home() {
         }}
       >
         <source src="/spacebkg.mp4" type="video/mp4" />
-        Your browser does not support the video tag.
+        {t('Your browser does not support the video tag.')}
       </video>
 
       {/* Dark overlay to ensure text readability */}
@@ -114,7 +116,7 @@ export default function Home() {
                 fontStyle: 'italic'
               }}
             >
-              Yoshida Universe Theory
+              {t('Yoshida Universe Theory')}
             </motion.h2>
 
             {/* Main Header with Rainbow Animation - behind sun */}
@@ -130,7 +132,7 @@ export default function Home() {
                 lineHeight: 1.1
               }}
             >
-              Beyond Time and Space
+              {t('Beyond Time and Space')}
             </motion.h1>
           </motion.div>
 
@@ -163,7 +165,7 @@ export default function Home() {
               textDecoration: 'none'
             }}
           >
-            Explore Books
+            {t('Explore Books')}
           </Link>
           <a
             href="/about"
@@ -174,7 +176,7 @@ export default function Home() {
               textDecoration: 'none'
             }}
           >
-            About the Author
+            {t('About the Author')}
           </a>
         </motion.div>
 
@@ -215,7 +217,7 @@ export default function Home() {
             letterSpacing: '0.01em'
           }}
         >
-          An artistic journey through the universe.
+          {t('An artistic journey through the universe.')}
         </p>
       </motion.div>
 
@@ -237,7 +239,7 @@ export default function Home() {
                 fontWeight: 600
               }}
             >
-              Cosmic Impact
+              {t('Cosmic Impact')}
             </h2>
             <div className="w-24 h-1 bg-gradient-to-r from-[#1F6FEB] to-[#6C63FF] mx-auto rounded-full"></div>
           </motion.div>
@@ -267,16 +269,16 @@ export default function Home() {
                       className="text-xl md:text-2xl font-bold mb-4 text-white"
                       style={{ fontFamily: 'var(--font-cinzel)' }}
                     >
-                      The Author
+                      {t('The Author')}
                     </div>
                     <div
                       className="text-lg text-[#C5C6C7] mb-4"
                       style={{ fontFamily: 'var(--font-lora)' }}
                     >
-                      Discover the visionary mind behind the cosmic tales
+                      {t('Discover the visionary mind behind the cosmic tales')}
                     </div>
                     <div className="text-[#1F6FEB] font-semibold text-lg hover:text-[#6C63FF] transition-colors duration-300">
-                      Learn more →
+                      {t('Learn more →')}
                     </div>
                   </div>
                 </div>
@@ -306,16 +308,16 @@ export default function Home() {
                       className="text-xl md:text-2xl font-bold mb-4 text-white"
                       style={{ fontFamily: 'var(--font-cinzel)' }}
                     >
-                      The Books
+                      {t('The Books')}
                     </div>
                     <div
                       className="text-lg text-[#C5C6C7] mb-4"
                       style={{ fontFamily: 'var(--font-lora)' }}
                     >
-                      Journey through captivating stories of space and time
+                      {t('Journey through captivating stories of space and time')}
                     </div>
                     <div className="text-[#1F6FEB] font-semibold text-lg hover:text-[#6C63FF] transition-colors duration-300">
-                      Read more →
+                      {t('Read more →')}
                     </div>
                   </div>
                 </div>
@@ -345,16 +347,16 @@ export default function Home() {
                       className="text-xl md:text-2xl font-bold mb-4 text-white"
                       style={{ fontFamily: 'var(--font-cinzel)' }}
                     >
-                      Connect
+                      {t('Connect')}
                     </div>
                     <div
                       className="text-lg text-[#C5C6C7] mb-4"
                       style={{ fontFamily: 'var(--font-lora)' }}
                     >
-                      Join the conversation and share your cosmic thoughts
+                      {t('Join the conversation and share your cosmic thoughts')}
                     </div>
                     <div className="text-[#1F6FEB] font-semibold text-lg hover:text-[#6C63FF] transition-colors duration-300">
-                      Get in touch →
+                      {t('Get in touch →')}
                     </div>
                   </div>
                 </div>
@@ -375,7 +377,7 @@ export default function Home() {
                 className="text-xl md:text-2xl lg:text-3xl text-[#F4F4F4] italic leading-relaxed mb-8"
                 style={{ fontFamily: 'var(--font-lora)' }}
               >
-                &ldquo;In the vastness of space and time, every story matters, every journey transforms, and every reader becomes part of the infinite cosmic dance.&rdquo;
+                {t('“In the vastness of space and time, every story matters, every journey transforms, and every reader becomes part of the infinite cosmic dance.”')}
               </blockquote>
               <div className="flex items-center justify-center space-x-4">
                 <div className="w-12 h-0.5 bg-gradient-to-r from-transparent to-[#1F6FEB]"></div>

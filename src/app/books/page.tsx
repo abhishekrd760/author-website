@@ -9,6 +9,7 @@ import StarryBackground from '@/components/StarryBackground'
 import FractalPyramid from '@/components/FractalPyramid'
 import DualVideoBackground from '@/components/DualVideoBackground'
 import { api } from '@/lib/supabase'
+import { useLanguage } from '@/lib/LanguageProvider'
 
 // Function to generate cosmic book covers
 const getRandomBookCover = (title: string, index: number) => {
@@ -54,6 +55,7 @@ const Books = () => {
     const [books, setBooks] = useState<Book[]>([])
     const [loading, setLoading] = useState(true)
     const [error, setError] = useState<string | null>(null)
+    const { t, language } = useLanguage()
 
     useEffect(() => {
         // Fetch books from Supabase
@@ -65,21 +67,21 @@ const Books = () => {
                 setBooks(data)
             } catch (err) {
                 console.error('Error fetching books:', err)
-                setError('Failed to load books. Please try again later.')
+                setError(t('Failed to load books. Please try again later.'))
             } finally {
                 setLoading(false)
             }
         }
 
         fetchBooks()
-    }, [])
+    }, [t])
 
     const formatDate = (dateString: string) => {
-        return new Date(dateString).toLocaleDateString('en-US', {
+        return new Intl.DateTimeFormat(language === 'ja' ? 'ja-JP' : 'en-US', {
             year: 'numeric',
             month: 'long',
             day: 'numeric'
-        })
+        }).format(new Date(dateString))
     }
 
     if (loading) {
@@ -96,12 +98,12 @@ const Books = () => {
                             transition={{ duration: 0.8 }}
                             className="text-center"
                         >
-                            <h1 className="text-3xl lg:text-5xl font-extralight tracking-wide mb-4 text-cosmic" style={{ fontFamily: 'var(--font-cinzel)' }}>Cosmic Library</h1>
+                            <h1 className="text-3xl lg:text-5xl font-extralight tracking-wide mb-4 text-cosmic" style={{ fontFamily: 'var(--font-cinzel)' }}>{t('Cosmic Library')}</h1>
                             <p className="text-lg lg:text-xl text-white/80 max-w-3xl mx-auto mb-3 font-light">
-                                Discover books that transcend ordinary reality and awaken cosmic consciousness
+                                {t('Discover books that transcend ordinary reality and awaken cosmic consciousness')}
                             </p>
                             <p className="text-lg text-white/70 font-light tracking-wide" style={{ fontFamily: 'var(--font-lora)' }}>
-                                Author & Consciousness Explorer
+                                {t('Author & Consciousness Explorer')}
                             </p>
                         </motion.div>
                     </div>
@@ -144,9 +146,9 @@ const Books = () => {
                             transition={{ duration: 0.8 }}
                             className="text-center"
                         >
-                            <h1 className="text-3xl lg:text-5xl font-extralight tracking-wide mb-4 text-cosmic" style={{ fontFamily: 'var(--font-cinzel)' }}>Cosmic Library</h1>
+                            <h1 className="text-3xl lg:text-5xl font-extralight tracking-wide mb-4 text-cosmic" style={{ fontFamily: 'var(--font-cinzel)' }}>{t('Cosmic Library')}</h1>
                             <p className="text-lg lg:text-xl text-white/80 max-w-3xl mx-auto mb-3 font-light">
-                                Discover books that transcend ordinary reality and awaken cosmic consciousness
+                                {t('Discover books that transcend ordinary reality and awaken cosmic consciousness')}
                             </p>
                         </motion.div>
                     </div>
@@ -161,7 +163,7 @@ const Books = () => {
                                 onClick={() => window.location.reload()}
                                 className="px-6 py-3 bg-cosmic hover:bg-cosmic-dark text-white rounded-lg transition-colors"
                             >
-                                Retry
+                                {t('Retry')}
                             </button>
                         </div>
                     </div>
@@ -274,12 +276,12 @@ const Books = () => {
                         transition={{ duration: 0.8 }}
                         className="text-center"
                     >
-                        <h1 className="text-3xl lg:text-5xl font-extralight tracking-wide mb-4 text-cosmic" style={{ fontFamily: 'var(--font-cinzel)' }}>Cosmic Library</h1>
+                        <h1 className="text-3xl lg:text-5xl font-extralight tracking-wide mb-4 text-cosmic" style={{ fontFamily: 'var(--font-cinzel)' }}>{t('Cosmic Library')}</h1>
                         <p className="text-lg lg:text-xl text-white/80 max-w-3xl mx-auto mb-3 font-light">
-                            Discover books that transcend ordinary reality and awaken cosmic consciousness
+                            {t('Discover books that transcend ordinary reality and awaken cosmic consciousness')}
                         </p>
                         <p className="text-lg text-white/70 font-light tracking-wide" style={{ fontFamily: 'var(--font-lora)' }}>
-                            Author & Consciousness Explorer
+                            {t('Author & Consciousness Explorer')}
                         </p>
                     </motion.div>
                 </div>
@@ -295,10 +297,10 @@ const Books = () => {
                         className="text-center mb-12"
                     >
                         <h2 className="text-3xl lg:text-4xl font-extralight tracking-wide mb-4 text-white" style={{ fontFamily: 'var(--font-lora)' }}>
-                            The <span className="text-cosmic">Consciousness</span> Collection
+                            {t('The Consciousness Collection')}
                         </h2>
                         <p className="text-xl text-white/70 max-w-2xl mx-auto font-light" style={{ fontFamily: 'var(--font-lora)' }}>
-                            A transformative journey into the infinite realms of cosmic awareness
+                            {t('A transformative journey into the infinite realms of cosmic awareness')}
                         </p>
                     </motion.div>
 
@@ -353,7 +355,7 @@ const Books = () => {
                                     </h3>
 
                                     <p className="text-blue-300/80 text-sm mb-2 font-light">
-                                        Published: {formatDate(book.publication_date)}
+                                        {t('Published: {{date}}', { date: formatDate(book.publication_date) })}
                                     </p>
 
                                     <p className="text-white/70 line-clamp-4 font-light leading-relaxed">
@@ -366,7 +368,7 @@ const Books = () => {
                                             href={`/books/${book.id}`}
                                             className="cosmic-button-secondary flex-1 text-center"
                                         >
-                                            Explore Book
+                                            {t('Explore Book')}
                                         </Link>
                                         <a
                                             href={book.buy_link}
@@ -374,7 +376,7 @@ const Books = () => {
                                             rel="noopener noreferrer"
                                             className="cosmic-button-secondary flex-1 text-center"
                                         >
-                                            Purchase
+                                            {t('Purchase')}
                                         </a>
                                     </div>
                                 </div>
@@ -403,17 +405,16 @@ const Books = () => {
                                 <FractalPyramid />
                             </div>
                             <h3 className="text-2xl font-extralight mb-4 text-white tracking-wide" style={{ fontFamily: 'var(--font-lora)' }}>
-                                Ready to <span className="text-cosmic">Transcend</span> Ordinary Reality?
+                                {t('Ready to Transcend Ordinary Reality?')}
                             </h3>
                             <p className="text-white/70 mb-6 max-w-2xl mx-auto font-light leading-relaxed">
-                                Join thousands of awakened souls who have shared their transformational experiences.
-                                Reading cosmic consciousness reviews can guide you to your next evolutionary leap.
+                                {t('Join thousands of awakened souls who have shared their transformational experiences. Reading cosmic consciousness reviews can guide you to your next evolutionary leap.')}
                             </p>
                             <Link
                                 href="/reviews"
                                 className="cosmic-button inline-block"
                             >
-                                Explore Consciousness Reviews
+                                {t('Explore Consciousness Reviews')}
                             </Link>
                         </div>
                     </motion.div>

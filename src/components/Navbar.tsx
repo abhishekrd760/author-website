@@ -4,17 +4,19 @@ import Link from 'next/link'
 import { useState } from 'react'
 import { motion, AnimatePresence } from 'framer-motion'
 import { usePathname } from 'next/navigation'
+import { useLanguage } from '@/lib/LanguageProvider'
 
 const Navbar = () => {
     const [isMenuOpen, setIsMenuOpen] = useState(false)
     const pathname = usePathname()
+    const { language, toggleLanguage, t } = useLanguage()
 
     const navItems = [
-        { href: '/', label: 'Home' },
-        { href: '/about', label: 'About' },
-        { href: '/books', label: 'Books' },
-        { href: '/reviews', label: 'Reviews' },
-        { href: '/contact', label: 'Contact' },
+        { href: '/', label: t('Home') },
+        { href: '/about', label: t('About') },
+        { href: '/books', label: t('Books') },
+        { href: '/reviews', label: t('Reviews') },
+        { href: '/contact', label: t('Contact') },
     ]
 
     return (
@@ -27,12 +29,12 @@ const Navbar = () => {
                         whileTap={{ scale: 0.95 }}
                     >
                         <Link href="/" className="text-2xl font-cinzel tracking-wide text-white cursor-pointer">
-                            Beyond Time
+                            {t('Beyond Time')}
                         </Link>
                     </motion.div>
 
                     {/* Desktop Navigation */}
-                    <div className="hidden md:flex space-x-8">
+                    <div className="hidden md:flex items-center space-x-6">
                         {navItems.map((item, index) => (
                             <motion.div
                                 key={item.href}
@@ -56,13 +58,27 @@ const Navbar = () => {
                                 </Link>
                             </motion.div>
                         ))}
+                        <motion.button
+                            whileHover={{ scale: 1.05 }}
+                            whileTap={{ scale: 0.95 }}
+                            onClick={toggleLanguage}
+                            aria-label={t('Toggle language')}
+                            className="relative px-4 py-2 rounded-full border border-white/20 text-white/80 hover:text-white hover:border-white/60 transition-all duration-300 flex items-center gap-2"
+                        >
+                            <span className="text-xs uppercase tracking-widest font-semibold">
+                                {language === 'en' ? 'EN' : '日本語'}
+                            </span>
+                            <span className="text-xs text-white/60">
+                                {language === 'en' ? t('Japanese') : t('English')}
+                            </span>
+                        </motion.button>
                     </div>
 
                     {/* Mobile Menu Button */}
                     <button
                         className="md:hidden flex flex-col space-y-1 cursor-pointer"
                         onClick={() => setIsMenuOpen(!isMenuOpen)}
-                        aria-label="Toggle menu"
+                        aria-label={t('Toggle menu')}
                     >
                         <span className={`w-6 h-0.5 bg-white/80 transition-all duration-300 ${isMenuOpen ? 'rotate-45 translate-y-1.5' : ''}`} />
                         <span className={`w-6 h-0.5 bg-white/80 transition-all duration-300 ${isMenuOpen ? 'opacity-0' : ''}`} />
@@ -97,6 +113,28 @@ const Navbar = () => {
                                         </Link>
                                     </motion.div>
                                 ))}
+                                <motion.div
+                                    initial={{ opacity: 0, x: -20 }}
+                                    animate={{ opacity: 1, x: 0 }}
+                                    transition={{ duration: 0.3, delay: navItems.length * 0.1 }}
+                                    className="px-6"
+                                >
+                                    <button
+                                        onClick={() => {
+                                            toggleLanguage()
+                                            setIsMenuOpen(false)
+                                        }}
+                                        className="w-full flex items-center justify-between px-4 py-2 rounded-full border border-white/20 text-white/80 hover:text-white hover:border-white/60 transition-all duration-300"
+                                        aria-label={t('Toggle language')}
+                                    >
+                                        <span className="text-xs uppercase tracking-widest font-semibold">
+                                            {language === 'en' ? 'EN' : '日本語'}
+                                        </span>
+                                        <span className="text-xs text-white/60">
+                                            {language === 'en' ? t('Japanese') : t('English')}
+                                        </span>
+                                    </button>
+                                </motion.div>
                             </div>
                         </motion.div>
                     )}

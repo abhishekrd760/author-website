@@ -6,6 +6,7 @@ import { Book } from '@/types/database'
 import { api } from '@/lib/supabase'
 import Image from 'next/image'
 import Link from 'next/link'
+import { useLanguage } from '@/lib/LanguageProvider'
 
 // Function to generate random book cover images
 const getRandomBookCover = (title: string, index: number) => {
@@ -39,6 +40,7 @@ const getRandomBookCover = (title: string, index: number) => {
 const FeaturedBooks = () => {
     const [books, setBooks] = useState<Book[]>([])
     const [loading, setLoading] = useState(true)
+    const { t } = useLanguage()
 
     // Container variants for staggered animation
     const containerVariants = {
@@ -178,7 +180,7 @@ const FeaturedBooks = () => {
         return (
             <section className="py-16 bg-gray-900">
                 <div className="container-custom">
-                    <h2 className="text-3xl lg:text-4xl font-bold text-center mb-12 text-gray-100" style={{ fontFamily: 'var(--font-cinzel)' }}>Featured Books</h2>
+                    <h2 className="text-3xl lg:text-4xl font-bold text-center mb-12 text-gray-100" style={{ fontFamily: 'var(--font-cinzel)' }}>{t('Featured Books')}</h2>
                     <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
                         {[1, 2, 3].map((i) => (
                             <div key={i} className="card animate-pulse">
@@ -220,9 +222,9 @@ const FeaturedBooks = () => {
                     viewport={{ once: true, margin: "-100px" }}
                     className="text-center mb-12"
                 >
-                    <h2 className="text-3xl lg:text-4xl font-bold mb-4 text-gray-100" style={{ fontFamily: 'var(--font-cinzel)' }}>Featured Books</h2>
+                    <h2 className="text-3xl lg:text-4xl font-bold mb-4 text-gray-100" style={{ fontFamily: 'var(--font-cinzel)' }}>{t('Featured Books')}</h2>
                     <p className="text-xl text-gray-300 max-w-2xl mx-auto">
-                        Discover the latest captivating stories that have enchanted readers worldwide
+                        {t('Discover the latest captivating stories that have enchanted readers worldwide')}
                     </p>
                 </motion.div>
 
@@ -274,7 +276,7 @@ const FeaturedBooks = () => {
                                     href={`/books/${book.id}`}
                                     className="btn-secondary flex-1 text-center"
                                 >
-                                    Learn More
+                                    {t('Learn More')}
                                 </Link>
                                 <a
                                     href={book.buy_link}
@@ -282,7 +284,7 @@ const FeaturedBooks = () => {
                                     rel="noopener noreferrer"
                                     className="btn-primary px-4"
                                 >
-                                    Buy Now
+                                    {t('Buy Now')}
                                 </a>
                             </div>
                         </motion.div>
@@ -297,7 +299,7 @@ const FeaturedBooks = () => {
                     className="text-center mt-12"
                 >
                     <Link href="/books" className="btn-primary">
-                        View All Books
+                        {t('View All Books')}
                     </Link>
                 </motion.div>
             </div>

@@ -1,9 +1,11 @@
 'use client'
 
 import { motion } from 'framer-motion'
-import { useState } from 'react'
+import { useLanguage } from '@/lib/LanguageProvider'
 
 const LoadingScreen = () => {
+    const { t } = useLanguage()
+
     return (
         <motion.div
             className="fixed inset-0 z-50 flex items-center justify-center bg-gradient-to-b from-slate-900 via-blue-900 to-slate-900"
@@ -24,7 +26,7 @@ const LoadingScreen = () => {
                     animate={{ opacity: 1 }}
                     transition={{ duration: 0.5, delay: 0.5 }}
                 >
-                    Loading the cosmos...
+                    {t('Loading the cosmos...')}
                 </motion.p>
             </div>
         </motion.div>

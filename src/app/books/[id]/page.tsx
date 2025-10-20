@@ -7,6 +7,7 @@ import { notFound } from 'next/navigation'
 import ReviewForm from '@/components/ReviewForm'
 import StarryBackground from '@/components/StarryBackground'
 import Image from 'next/image'
+import { useLanguage } from '@/lib/LanguageProvider'
 
 // Same hardcoded books as in books page
 const hardcodedBooks: Book[] = [
@@ -67,6 +68,7 @@ const BookDetail = ({ params }: BookDetailProps) => {
     const [loading, setLoading] = useState(true)
     const [showReviewForm, setShowReviewForm] = useState(false)
     const [bookId, setBookId] = useState<string>('')
+    const { t, language } = useLanguage()
 
     useEffect(() => {
         const initializeBookId = async () => {
@@ -124,16 +126,20 @@ const BookDetail = ({ params }: BookDetailProps) => {
     }
 
     const formatDate = (dateString: string) => {
-        return new Date(dateString).toLocaleDateString('en-US', {
+        return new Intl.DateTimeFormat(language === 'ja' ? 'ja-JP' : 'en-US', {
             year: 'numeric',
             month: 'long',
             day: 'numeric'
-        })
+        }).format(new Date(dateString))
     }
 
     const averageRating = reviews.length > 0
         ? (reviews.reduce((sum, review) => sum + review.rating, 0) / reviews.length).toFixed(1)
         : 0
+
+    const reviewCountLabel = reviews.length === 1
+        ? t('{count} cosmic review', { count: reviews.length })
+        : t('{count} cosmic reviews', { count: reviews.length })
 
     const handleReviewSubmitted = (newReview: Review) => {
         setReviews(prev => [{ ...newReview, replies: [] }, ...prev])
@@ -204,7 +210,7 @@ const BookDetail = ({ params }: BookDetailProps) => {
                                     rel="noopener noreferrer"
                                     className="bg-gradient-to-r from-blue-600 to-blue-600 text-white rounded-full font-medium text-lg py-4 px-8 w-full block text-center transition-all duration-300 hover:scale-105 hover:shadow-lg hover:shadow-blue-500/25"
                                 >
-                                    Awaken Your Spirit
+                                    {t('Awaken Your Spirit')}
                                 </a>
                             </div>
                         </div>
@@ -220,9 +226,9 @@ const BookDetail = ({ params }: BookDetailProps) => {
                         <div className="space-y-6">
                             <div>
                                 <h1 className="text-4xl lg:text-5xl font-extralight tracking-wide mb-4 text-white" style={{ fontFamily: 'var(--font-cinzel)' }}>{book.title}</h1>
-                                <p className="text-xl text-blue-300/80 font-light">by Kazutoshi Yoshida</p>
+                                <p className="text-xl text-blue-300/80 font-light">{t('by {author}', { author: t('Kazutoshi Yoshida') })}</p>
                                 <p className="text-lg text-white/60 font-light">
-                                    Published: {formatDate(book.publication_date)}
+                                    {t('Published: {{date}}', { date: formatDate(book.publication_date) })}
                                 </p>
                             </div>
 
@@ -234,36 +240,36 @@ const BookDetail = ({ params }: BookDetailProps) => {
                                         <span className="text-xl font-semibold text-white">{averageRating}</span>
                                     </div>
                                     <span className="text-white/60 font-light">
-                                        ({reviews.length} cosmic review{reviews.length !== 1 ? 's' : ''})
+                                        ({reviewCountLabel})
                                     </span>
                                 </div>
                             )}
 
                             {/* Description */}
                             <div className="prose prose-lg prose-invert">
-                                <h2 className="text-2xl font-extralight tracking-wide mb-4 text-white" style={{ fontFamily: 'var(--font-cinzel)' }}>About This Cosmic Journey</h2>
+                                <h2 className="text-2xl font-extralight tracking-wide mb-4 text-white" style={{ fontFamily: 'var(--font-cinzel)' }}>{t('About This Cosmic Journey')}</h2>
                                 <p className="text-lg leading-relaxed text-white/80 font-light">{book.description}</p>
                             </div>
 
                             {/* Additional Info */}
                             <div className="card">
-                                <h3 className="text-xl font-extralight tracking-wide mb-4 text-white" style={{ fontFamily: 'var(--font-cinzel)' }}>Cosmic Book Details</h3>
+                                <h3 className="text-xl font-extralight tracking-wide mb-4 text-white" style={{ fontFamily: 'var(--font-cinzel)' }}>{t('Cosmic Book Details')}</h3>
                                 <div className="grid grid-cols-1 md:grid-cols-2 gap-4 text-sm">
                                     <div>
-                                        <span className="font-semibold text-blue-300/80">Genre:</span>
-                                        <span className="ml-2 text-white/70 font-light">Consciousness, Spirituality, Science</span>
+                                        <span className="font-semibold text-blue-300/80">{t('Genre')}:</span>
+                                        <span className="ml-2 text-white/70 font-light">{t('Consciousness, Spirituality, Science')}</span>
                                     </div>
                                     <div>
-                                        <span className="font-semibold text-blue-300/80">Publication Date:</span>
+                                        <span className="font-semibold text-blue-300/80">{t('Publication Date')}:</span>
                                         <span className="ml-2 text-white/70 font-light">{formatDate(book.publication_date)}</span>
                                     </div>
                                     <div>
-                                        <span className="font-semibold text-blue-300/80">Language:</span>
-                                        <span className="ml-2 text-white/70 font-light">Universal Consciousness</span>
+                                        <span className="font-semibold text-blue-300/80">{t('Language')}:</span>
+                                        <span className="ml-2 text-white/70 font-light">{t('Universal Consciousness')}</span>
                                     </div>
                                     <div>
-                                        <span className="font-semibold text-blue-300/80">Format:</span>
-                                        <span className="ml-2 text-white/70 font-light">Paperback, eBook, Audiobook</span>
+                                        <span className="font-semibold text-blue-300/80">{t('Format')}:</span>
+                                        <span className="ml-2 text-white/70 font-light">{t('Paperback, eBook, Audiobook')}</span>
                                     </div>
                                 </div>
                             </div>
@@ -278,12 +284,12 @@ const BookDetail = ({ params }: BookDetailProps) => {
                     transition={{ duration: 0.8, delay: 0.3 }}
                 >
                     <div className="flex justify-between items-center mb-8">
-                        <h2 className="text-3xl font-extralight tracking-wide text-white" style={{ fontFamily: 'var(--font-cinzel)' }}>Cosmic Soul Reviews</h2>
+                        <h2 className="text-3xl font-extralight tracking-wide text-white" style={{ fontFamily: 'var(--font-cinzel)' }}>{t('Cosmic Soul Reviews')}</h2>
                         <button
                             onClick={() => setShowReviewForm(!showReviewForm)}
                             className="bg-gradient-to-r from-blue-600 to-blue-600 text-white rounded-full font-medium text-lg py-3 px-6 transition-all duration-300 hover:scale-105 hover:shadow-lg hover:shadow-blue-500/25"
                         >
-                            Share Your Awakening
+                            {t('Share Your Awakening')}
                         </button>
                     </div>
 
@@ -324,7 +330,7 @@ const BookDetail = ({ params }: BookDetailProps) => {
                                     {/* Author Replies */}
                                     {review.replies.length > 0 && (
                                         <div className="mt-4 pl-6 border-l-4 border-blue-400/30 bg-blue-500/10 p-4 rounded-r-lg">
-                                            <div className="font-light text-blue-300/80 mb-2">Author&apos;s Cosmic Response:</div>
+                                            <div className="font-light text-blue-300/80 mb-2">{t('Author\'s Cosmic Response:')}</div>
                                             {review.replies.map((reply) => (
                                                 <div key={reply.id} className="text-blue-200/80 font-light">
                                                     <p className="mb-1">{reply.reply_text}</p>
@@ -340,13 +346,13 @@ const BookDetail = ({ params }: BookDetailProps) => {
                         </div>
                     ) : (
                         <div className="text-center py-12 card">
-                            <p className="text-xl text-white/80 mb-4 font-light">No cosmic reviews yet</p>
-                            <p className="text-white/60 mb-6 font-light">Be the first to share your transformational journey with this book!</p>
+                            <p className="text-xl text-white/80 mb-4 font-light">{t('No cosmic reviews yet')}</p>
+                            <p className="text-white/60 mb-6 font-light">{t('Be the first to share your transformational journey with this book!')}</p>
                             <button
                                 onClick={() => setShowReviewForm(true)}
                                 className="bg-gradient-to-r from-blue-600 to-blue-600 text-white rounded-full font-medium text-lg py-3 px-6 transition-all duration-300 hover:scale-105 hover:shadow-lg hover:shadow-blue-500/25"
                             >
-                                Write the First Cosmic Review
+                                {t('Write the First Cosmic Review')}
                             </button>
                         </div>
                     )}

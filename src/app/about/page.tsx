@@ -4,8 +4,10 @@ import { motion } from 'framer-motion'
 import Image from 'next/image'
 import DualVideoBackground from '@/components/DualVideoBackground'
 import { ArrowPathRoundedSquareIcon, BeakerIcon, SparklesIcon } from '@heroicons/react/24/outline'
+import { useLanguage } from '@/lib/LanguageProvider'
 
 const About = () => {
+    const { t } = useLanguage()
     const achievements = [
         { year: '1991-2025', event: 'Presented private peace messages to four presidents (Sri Lanka, Ukraine, Nepal, Indonesia) and numerous world leaders' },
         { year: '1995-1998', event: 'Produced enlightening documentary film "Peace Stars" and festival screened in Australia, Croatia, Ukraine, and Japan' },
@@ -38,13 +40,13 @@ const About = () => {
                         className="text-center"
                     >
                         <h1 className="text-3xl lg:text-5xl font-extralight tracking-wide mb-4 text-cosmic" style={{ fontFamily: 'var(--font-cinzel)' }}>
-                            Beyond the Veil of Time
+                            {t('Beyond the Veil of Time')}
                         </h1>
                         <p className="text-lg lg:text-xl text-white/80 max-w-3xl mx-auto mb-3 font-light">
-                            Where consciousness meets cosmos, spirit meets science
+                            {t('Where consciousness meets cosmos, spirit meets science')}
                         </p>
                         <p className="text-lg text-white/70 font-light tracking-wide" style={{ fontFamily: 'var(--font-lora)' }}>
-                            Author & Consciousness Explorer
+                            {t('Author & Consciousness Explorer')}
                         </p>
                     </motion.div>
                 </div>
@@ -108,28 +110,19 @@ const About = () => {
                                 {/* About Text */}
                                 <div className="space-y-6">
                                     <h2 className="text-3xl lg:text-4xl font-extralight tracking-wide text-white mb-6" style={{ fontFamily: 'var(--font-cinzel)' }}>
-                                        The Journey
+                                        {t('The Journey')}
                                     </h2>
 
                                     <p className="text-white/80 leading-relaxed font-light text-lg" style={{ fontFamily: 'var(--font-lora)' }}>
-                                        For over three decades, Kazutoshi Yoshida has dedicated his life to bridging science and spirituality,
-                                        working tirelessly for world peace and human consciousness evolution. From presenting private peace
-                                        messages to four presidents and Arab royal families, to hosting peace ceremonies across 20 locations
-                                        with over 35,000 participants, his mission has touched countless lives globally.
+                                        {t('For over three decades, Kazutoshi Yoshida has dedicated his life to bridging science and spirituality, working tirelessly for world peace and human consciousness evolution. From presenting private peace messages to four presidents and Arab royal families, to hosting peace ceremonies across 20 locations with over 35,000 participants, his mission has touched countless lives globally.')}
                                     </p>
 
                                     <p className="text-white/70 leading-relaxed font-light text-lg" style={{ fontFamily: 'var(--font-lora)' }}>
-                                        His humanitarian work spans from developing radiation protective technology for Chernobyl survivors
-                                        to leading soil and water purification projects in affected regions. Recognized by the Ukrainian
-                                        government and international organizations, Yoshida&apos;s contributions have earned him honors from
-                                        world leaders for his tireless support of communities in need.
+                                        {t('His humanitarian work spans from developing radiation protective technology for Chernobyl survivors to leading soil and water purification projects in affected regions. Recognized by the Ukrainian government and international organizations, Yoshida\'s contributions have earned him honors from world leaders for his tireless support of communities in need.')}
                                     </p>
 
                                     <p className="text-white/70 leading-relaxed font-light text-lg" style={{ fontFamily: 'var(--font-lora)' }}>
-                                        As an inventor and visionary, he has pioneered quantum technologies including the Fractal Pyramid and
-                                        Healing Wave, while authoring groundbreaking books that integrate galactic wisdom with earthly awakening.
-                                        Through his &ldquo;Awakening Challenge&rdquo; lectures at prestigious institutions worldwide, including Tribhuvan
-                                        University in Nepal, Yoshida continues to inspire a global movement toward conscious evolution and universal peace.
+                                        {t('As an inventor and visionary, he has pioneered quantum technologies including the Fractal Pyramid and Healing Wave, while authoring groundbreaking books that integrate galactic wisdom with earthly awakening. Through his “Awakening Challenge” lectures at prestigious institutions worldwide, including Tribhuvan University in Nepal, Yoshida continues to inspire a global movement toward conscious evolution and universal peace.')}
                                     </p>
                                 </div>
                             </div>
@@ -144,7 +137,7 @@ const About = () => {
                         className="card bg-slate-900/10 backdrop-blur-sm mb-16"
                     >
                         <h3 className="text-3xl font-extralight tracking-wide text-white mb-12 text-center" style={{ fontFamily: 'var(--font-cinzel)' }}>
-                            Milestones & Achievements
+                            {t('Milestones & Achievements')}
                         </h3>
 
                         {/* Vertical Timeline - Centered with Alternating Sides */}
@@ -178,7 +171,7 @@ const About = () => {
                                                         </span>
                                                     </div>
                                                     <p className="text-white/90 font-light leading-relaxed text-base" style={{ fontFamily: 'var(--font-lora)' }}>
-                                                        {achievement.event}
+                                                        {t(achievement.event)}
                                                     </p>
                                                 </div>
                                             </div>
@@ -200,7 +193,7 @@ const About = () => {
                         className="card bg-slate-900/10 backdrop-blur-sm"
                     >
                         <h3 className="text-3xl font-extralight tracking-wide text-white mb-8 text-center" style={{ fontFamily: 'var(--font-cinzel)' }}>
-                            The <span className="text-cosmic">Cosmic Philosophy</span>
+                            {t('The Cosmic Philosophy')}
                         </h3>
 
                         <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
@@ -212,9 +205,9 @@ const About = () => {
                                 >
                                     <ArrowPathRoundedSquareIcon className="w-16 h-16 text-white" />
                                 </motion.div>
-                                <h4 className="text-xl font-light text-white mb-3" style={{ fontFamily: 'var(--font-cinzel)' }}>Infinite Consciousness</h4>
+                                <h4 className="text-xl font-light text-white mb-3" style={{ fontFamily: 'var(--font-cinzel)' }}>{t('Infinite Consciousness')}</h4>
                                 <p className="text-white/70 font-light leading-relaxed" style={{ fontFamily: 'var(--font-lora)' }}>
-                                    Consciousness is not produced by the brain—it&apos;s the fundamental fabric of reality itself.
+                                    {t('Consciousness is not produced by the brain—it\'s the fundamental fabric of reality itself.')}
                                 </p>
                             </div>
 
@@ -226,9 +219,9 @@ const About = () => {
                                 >
                                     <BeakerIcon className="w-16 h-16 text-white" />
                                 </motion.div>
-                                <h4 className="text-xl font-light text-white mb-3" style={{ fontFamily: 'var(--font-cinzel)' }}>Sacred Science</h4>
+                                <h4 className="text-xl font-light text-white mb-3" style={{ fontFamily: 'var(--font-cinzel)' }}>{t('Sacred Science')}</h4>
                                 <p className="text-white/70 font-light leading-relaxed" style={{ fontFamily: 'var(--font-lora)' }}>
-                                    Where quantum physics meets ancient wisdom, revealing the unity of all existence.
+                                    {t('Where quantum physics meets ancient wisdom, revealing the unity of all existence.')}
                                 </p>
                             </div>
 
@@ -240,9 +233,9 @@ const About = () => {
                                 >
                                     <SparklesIcon className="w-16 h-16 text-white" />
                                 </motion.div>
-                                <h4 className="text-xl font-light text-white mb-3" style={{ fontFamily: 'var(--font-cinzel)' }}>Cosmic Awakening</h4>
+                                <h4 className="text-xl font-light text-white mb-3" style={{ fontFamily: 'var(--font-cinzel)' }}>{t('Cosmic Awakening')}</h4>
                                 <p className="text-white/70 font-light leading-relaxed" style={{ fontFamily: 'var(--font-lora)' }}>
-                                    Awakening to our true nature as cosmic beings experiencing temporary human form.
+                                    {t('Awakening to our true nature as cosmic beings experiencing temporary human form.')}
                                 </p>
                             </div>
                         </div>

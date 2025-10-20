@@ -6,8 +6,10 @@ import { supabase } from '@/lib/supabase'
 import StarryBackground from '@/components/StarryBackground'
 import DualVideoBackground from '@/components/DualVideoBackground'
 import { SignalIcon, GlobeAltIcon, EnvelopeIcon, MapPinIcon } from '@heroicons/react/24/outline'
+import { useLanguage } from '@/lib/LanguageProvider'
 
 const Contact = () => {
+    const { t } = useLanguage()
     const [formData, setFormData] = useState({
         name: '',
         email: '',
@@ -23,13 +25,13 @@ const Contact = () => {
         setError('')
 
         if (!formData.name.trim() || !formData.email.trim() || !formData.message.trim()) {
-            setError('Please fill in all fields')
+            setError(t('Please fill in all fields'))
             setIsSubmitting(false)
             return
         }
 
         if (!formData.email.includes('@')) {
-            setError('Please enter a valid email address')
+            setError(t('Please enter a valid email address'))
             setIsSubmitting(false)
             return
         }
@@ -37,7 +39,7 @@ const Contact = () => {
         try {
             if (!supabase) {
                 console.error('Supabase client not available')
-                setError('Service temporarily unavailable. Please try again later.')
+                setError(t('Service temporarily unavailable. Please try again later.'))
                 setIsSubmitting(false)
                 return
             }
@@ -73,7 +75,7 @@ const Contact = () => {
             setFormData({ name: '', email: '', message: '' })
         } catch (error) {
             console.error('Error:', error)
-            setError('Failed to send message. Please try again.')
+            setError(t('Failed to send message. Please try again.'))
         } finally {
             setIsSubmitting(false)
         }
@@ -130,12 +132,12 @@ const Contact = () => {
                         transition={{ duration: 0.8 }}
                         className="text-center"
                     >
-                        <h1 className="text-3xl lg:text-5xl font-extralight tracking-wide mb-4 text-cosmic" style={{ fontFamily: 'var(--font-cinzel)' }}>Connect Across Dimensions</h1>
+                        <h1 className="text-3xl lg:text-5xl font-extralight tracking-wide mb-4 text-cosmic" style={{ fontFamily: 'var(--font-cinzel)' }}>{t('Connect Across Dimensions')}</h1>
                         <p className="text-lg lg:text-xl text-white/80 max-w-3xl mx-auto mb-3 font-light">
-                            Bridge the dimensions between us. Share your cosmic insights and spiritual questions.
+                            {t('Bridge the dimensions between us. Share your cosmic insights and spiritual questions.')}
                         </p>
                         <p className="text-lg text-white/70 font-light tracking-wide" style={{ fontFamily: 'var(--font-lora)' }}>
-                            Author & Consciousness Explorer
+                            {t('Author & Consciousness Explorer')}
                         </p>
                     </motion.div>
                 </div>
@@ -168,23 +170,21 @@ const Contact = () => {
                                         >
                                             ✨
                                         </motion.div>
-                                        <h3 className="text-2xl font-extralight mb-4 text-cosmic tracking-wide">Message Transmitted!</h3>
+                                        <h3 className="text-2xl font-extralight mb-4 text-cosmic tracking-wide">{t('Message Transmitted!')}</h3>
                                         <p className="text-white/80 mb-6 font-light leading-relaxed">
-                                            Your cosmic transmission has been received across the dimensions!
-                                            I deeply appreciate you sharing your energy and thoughts with me.
-                                            I&apos;ll respond through the quantum field within 24-48 hours.
+                                            {t('Your cosmic transmission has been received across the dimensions! I deeply appreciate you sharing your energy and thoughts with me. I\'ll respond through the quantum field within 24-48 hours.')}
                                         </p>
                                         <button
                                             onClick={() => setSubmitted(false)}
                                             className="cosmic-button"
                                         >
-                                            Send Another Transmission
+                                            {t('Send Another Transmission')}
                                         </button>
                                     </div>
                                 ) : (
                                     <>
                                         <h2 className="text-3xl font-extralight mb-6 text-white tracking-wide" style={{ fontFamily: 'var(--font-cinzel)' }}>
-                                            Send a Cosmic <span className="text-cosmic">Transmission</span>
+                                            {t('Send a Cosmic Transmission')}
                                         </h2>
 
                                         {error && (
@@ -197,7 +197,7 @@ const Contact = () => {
                                             {/* Name */}
                                             <div>
                                                 <label htmlFor="name" className="block text-sm font-light text-white/80 mb-2">
-                                                    Your Cosmic Identity *
+                                                    {t('Your Cosmic Identity *')}
                                                 </label>
                                                 <input
                                                     type="text"
@@ -206,7 +206,7 @@ const Contact = () => {
                                                     value={formData.name}
                                                     onChange={handleChange}
                                                     className="w-full px-4 py-3 bg-white/5 border border-white/20 rounded-lg focus:ring-2 focus:ring-blue-400 focus:border-blue-400 transition-all text-white placeholder-white/40 font-light"
-                                                    placeholder="Enter your name in this dimension"
+                                                    placeholder={t('Enter your name in this dimension')}
                                                     maxLength={100}
                                                 />
                                             </div>
@@ -214,7 +214,7 @@ const Contact = () => {
                                             {/* Email */}
                                             <div>
                                                 <label htmlFor="email" className="block text-sm font-light text-white/80 mb-2">
-                                                    Quantum Communication Address *
+                                                    {t('Quantum Communication Address *')}
                                                 </label>
                                                 <input
                                                     type="email"
@@ -223,7 +223,7 @@ const Contact = () => {
                                                     value={formData.email}
                                                     onChange={handleChange}
                                                     className="w-full px-4 py-3 bg-white/5 border border-white/20 rounded-lg focus:ring-2 focus:ring-blue-400 focus:border-blue-400 transition-all text-white placeholder-white/40 font-light"
-                                                    placeholder="Enter your email for cosmic correspondence"
+                                                    placeholder={t('Enter your email for cosmic correspondence')}
                                                     maxLength={100}
                                                 />
                                             </div>
@@ -231,7 +231,7 @@ const Contact = () => {
                                             {/* Message */}
                                             <div>
                                                 <label htmlFor="message" className="block text-sm font-light text-white/80 mb-2">
-                                                    Your Cosmic Message *
+                                                    {t('Your Cosmic Message *')}
                                                 </label>
                                                 <textarea
                                                     id="message"
@@ -240,11 +240,11 @@ const Contact = () => {
                                                     value={formData.message}
                                                     onChange={handleChange}
                                                     className="w-full px-4 py-3 bg-white/5 border border-white/20 rounded-lg focus:ring-2 focus:ring-blue-400 focus:border-blue-400 transition-all text-white placeholder-white/40 font-light"
-                                                    placeholder="Share your thoughts, cosmic insights, spiritual questions, or consciousness experiences..."
+                                                    placeholder={t('Share your thoughts, cosmic insights, spiritual questions, or consciousness experiences...')}
                                                     maxLength={2000}
                                                 />
                                                 <div className="text-right text-sm text-white/50 mt-1 font-light">
-                                                    {formData.message.length}/2000 characters
+                                                    {t('{count}/2000 characters', { count: formData.message.length })}
                                                 </div>
                                             </div>
 
@@ -255,7 +255,7 @@ const Contact = () => {
                                                 className="cosmic-button w-full py-3 text-lg disabled:opacity-50 disabled:cursor-not-allowed relative overflow-hidden"
                                             >
                                                 <span className="relative z-10">
-                                                    {isSubmitting ? 'Transmitting Across Dimensions...' : 'Send Cosmic Transmission'}
+                                                    {isSubmitting ? t('Transmitting Across Dimensions...') : t('Send Cosmic Transmission')}
                                                 </span>
                                                 {isSubmitting && (
                                                     <motion.div
@@ -281,7 +281,7 @@ const Contact = () => {
                             {/* Contact Information */}
                             <div className="card">
                                 <h3 className="text-2xl font-extralight mb-6 text-white tracking-wide" style={{ fontFamily: 'var(--font-cinzel)' }}>
-                                    Other <span className="text-cosmic">Dimensional Channels</span>
+                                    {t('Other Dimensional Channels')}
                                 </h3>
 
                                 <div className="space-y-4">
@@ -294,8 +294,8 @@ const Contact = () => {
                                             <EnvelopeIcon className="w-6 h-6 text-blue-400" />
                                         </motion.div>
                                         <div>
-                                            <h4 className="font-light text-white">Quantum Email</h4>
-                                            <p className="text-white/70 font-light">consciousness@beyondtime.com</p>
+                                            <h4 className="font-light text-white">{t('Quantum Email')}</h4>
+                                            <p className="text-white/70 font-light">{t('consciousness@beyondtime.com')}</p>
                                         </div>
                                     </div>
 
@@ -308,8 +308,8 @@ const Contact = () => {
                                             <MapPinIcon className="w-6 h-6 text-blue-400" />
                                         </motion.div>
                                         <div>
-                                            <h4 className="font-light text-white">Cosmic Location</h4>
-                                            <p className="text-white/70 font-light">Third dimension, Earth realm</p>
+                                            <h4 className="font-light text-white">{t('Cosmic Location')}</h4>
+                                            <p className="text-white/70 font-light">{t('Third dimension, Earth realm')}</p>
                                         </div>
                                     </div>
 
@@ -322,15 +322,15 @@ const Contact = () => {
                                             <span className="text-amber-400 text-xl">⏰</span>
                                         </motion.div>
                                         <div>
-                                            <h4 className="font-light text-white">Response Time</h4>
-                                            <p className="text-white/70 font-light">Within 1-2 cosmic cycles (24-48 hours)</p>
+                                            <h4 className="font-light text-white">{t('Response Time')}</h4>
+                                            <p className="text-white/70 font-light">{t('Within 1-2 cosmic cycles (24-48 hours)')}</p>
                                         </div>
                                     </div>
                                 </div>
 
                                 {/* Social Media */}
                                 <div className="mt-8 pt-6 border-t border-white/10">
-                                    <h4 className="font-light mb-4 text-white">Connect across the cosmic web</h4>
+                                    <h4 className="font-light mb-4 text-white">{t('Connect across the cosmic web')}</h4>
                                     <div className="flex gap-4">
                                         <motion.a
                                             whileHover={{ scale: 1.1, rotate: 15 }}
@@ -369,34 +369,28 @@ const Contact = () => {
                             {/* FAQs */}
                             <div className="card">
                                 <h3 className="text-2xl font-extralight mb-6 text-white tracking-wide" style={{ fontFamily: 'var(--font-cinzel)' }}>
-                                    Cosmic <span className="text-cosmic">Frequencies</span> (FAQ)
+                                    {t('Cosmic Frequencies (FAQ)')}
                                 </h3>
 
                                 <div className="space-y-6">
                                     <div>
-                                        <h4 className="font-light mb-2 text-white">Do you respond to all cosmic transmissions?</h4>
+                                        <h4 className="font-light mb-2 text-white">{t('Do you respond to all cosmic transmissions?')}</h4>
                                         <p className="text-white/70 text-sm font-light leading-relaxed">
-                                            I honor every soul who reaches out across the dimensions! While the quantum field sometimes
-                                            affects my ability to respond to each transmission due to cosmic volume, I receive and read
-                                            every message with deep gratitude.
+                                            {t('I honor every soul who reaches out across the dimensions! While the quantum field sometimes affects my ability to respond to each transmission due to cosmic volume, I receive and read every message with deep gratitude.')}
                                         </p>
                                     </div>
 
                                     <div>
-                                        <h4 className="font-light mb-2 text-white">Can I request a consciousness gathering or event?</h4>
+                                        <h4 className="font-light mb-2 text-white">{t('Can I request a consciousness gathering or event?')}</h4>
                                         <p className="text-white/70 text-sm font-light leading-relaxed">
-                                            Absolutely! I love connecting with fellow cosmic travelers in person. Please include
-                                            dimensional coordinates (location), expected soul count (attendance), and cosmic purpose
-                                            (event details) in your transmission.
+                                            {t('Absolutely! I love connecting with fellow cosmic travelers in person. Please include dimensional coordinates (location), expected soul count (attendance), and cosmic purpose (event details) in your transmission.')}
                                         </p>
                                     </div>
 
                                     <div>
-                                        <h4 className="font-light mb-2 text-white">Do you review consciousness manuscripts?</h4>
+                                        <h4 className="font-light mb-2 text-white">{t('Do you review consciousness manuscripts?')}</h4>
                                         <p className="text-white/70 text-sm font-light leading-relaxed">
-                                            While I&apos;d love to guide every soul on their writing journey through higher dimensions,
-                                            cosmic law and time constraints prevent manuscript reviews. I recommend joining
-                                            consciousness circles and spiritual writing workshops!
+                                            {t('While I\'d love to guide every soul on their writing journey through higher dimensions, cosmic law and time constraints prevent manuscript reviews. I recommend joining consciousness circles and spiritual writing workshops!')}
                                         </p>
                                     </div>
 

@@ -7,6 +7,7 @@ import CosmicBackground from "@/components/CosmicBackground";
 import CosmicCursor from "@/components/CosmicCursor";
 import LoadingScreen from "@/components/LoadingScreen";
 import PageTransition from "@/components/PageTransition";
+import { LanguageProvider } from "@/lib/LanguageProvider";
 
 const geistSans = Geist({
   variable: "--font-geist-sans",
@@ -58,16 +59,18 @@ export default function RootLayout({
       <body
         className={`${geistSans.variable} ${geistMono.variable} ${notoSansJP.variable} ${cinzel.variable} ${lora.variable} antialiased min-h-screen flex flex-col`}
       >
-        <LoadingScreen />
-        <CosmicBackground />
-        <CosmicCursor />
-        <Navbar />
-        <main className="flex-grow relative z-10">
-          <PageTransition>
-            {children}
-          </PageTransition>
-        </main>
-        <Footer />
+        <LanguageProvider>
+          <LoadingScreen />
+          <CosmicBackground />
+          <CosmicCursor />
+          <Navbar />
+          <main className="flex-grow relative z-10">
+            <PageTransition>
+              {children}
+            </PageTransition>
+          </main>
+          <Footer />
+        </LanguageProvider>
       </body>
     </html>
   );

@@ -4,10 +4,12 @@ import { motion } from 'framer-motion'
 import { useEffect, useState } from 'react'
 import { ReviewWithBook } from '@/types/database'
 import { api } from '@/lib/supabase'
+import { useLanguage } from '@/lib/LanguageProvider'
 
 const RecentReviews = () => {
     const [reviews, setReviews] = useState<ReviewWithBook[]>([])
     const [loading, setLoading] = useState(true)
+    const { t } = useLanguage()
 
     useEffect(() => {
         const fetchReviews = async () => {
@@ -30,7 +32,7 @@ const RecentReviews = () => {
             <section className="py-16 bg-gray-800">
                 <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
                     <h2 className="text-3xl font-bold text-gray-100 text-center mb-12" style={{ fontFamily: 'var(--font-cinzel)' }}>
-                        What Readers Are Saying
+                        {t('What Readers Are Saying')}
                     </h2>
                     <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
                         {[1, 2, 3, 4, 5, 6].map((i) => (
@@ -64,7 +66,7 @@ const RecentReviews = () => {
                     transition={{ duration: 0.6 }}
                     style={{ fontFamily: 'var(--font-cinzel)' }}
                 >
-                    What Readers Are Saying
+                    {t('What Readers Are Saying')}
                 </motion.h2>
 
                 <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
@@ -79,7 +81,7 @@ const RecentReviews = () => {
                             <div className="flex items-center mb-4">
                                 <div className="flex">{renderStars(review.rating)}</div>
                                 <span className="ml-2 text-sm text-gray-400">
-                                    {review.rating}/5
+                                    {t('({rating}/5 stars)', { rating: review.rating })}
                                 </span>
                             </div>
 
@@ -92,7 +94,7 @@ const RecentReviews = () => {
                                     {review.reviewer_name}
                                 </p>
                                 <p className="text-sm text-gray-400">
-                                    Review for &ldquo;{review.book.title}&rdquo;
+                                    {t('Review for "{title}"', { title: review.book.title })}
                                 </p>
                                 <p className="text-xs text-gray-500 mt-1">
                                     {new Date(review.created_at).toLocaleDateString()}
@@ -112,7 +114,7 @@ const RecentReviews = () => {
                         href="/reviews"
                         className="inline-flex items-center px-6 py-3 border border-transparent text-base font-medium rounded-md text-white bg-gray-700 hover:bg-gray-600 transition-colors"
                     >
-                        Read All Reviews
+                        {t('Read All Reviews')}
                     </a>
                 </motion.div>
             </div>

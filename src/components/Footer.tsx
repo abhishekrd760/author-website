@@ -1,6 +1,11 @@
+"use client"
+
 import Link from 'next/link'
+import { useLanguage } from '@/lib/LanguageProvider'
 
 const Footer = () => {
+    const { t } = useLanguage()
+
     return (
         <footer className="backdrop-blur-sm border-t border-white/10 relative z-50">
             {/* Subtle dark overlay for text readability */}
@@ -9,9 +14,9 @@ const Footer = () => {
                 <div className="grid grid-cols-1 md:grid-cols-4 gap-8">
                     {/* Author Info */}
                     <div className="md:col-span-2">
-                        <h3 className="text-2xl font-bold mb-4 text-white" style={{ fontFamily: 'var(--font-cinzel)' }}>Kazutoshi Yoshida</h3>
+                        <h3 className="text-2xl font-bold mb-4 text-white" style={{ fontFamily: 'var(--font-cinzel)' }}>{t('Kazutoshi Yoshida')}</h3>
                         <p className="text-[#C5C6C7] mb-4 max-w-md">
-                            Bestselling author of captivating fiction novels. Follow my journey and discover stories that will touch your heart.
+                            {t('Bestselling author of captivating fiction novels. Follow my journey and discover stories that will touch your heart.')}
                         </p>
                         <div className="flex space-x-4">
                             <a href="https://twitter.com" className="text-[#C5C6C7] hover:text-[#1F6FEB] transition-colors">
@@ -34,27 +39,27 @@ const Footer = () => {
 
                     {/* Quick Links */}
                     <div>
-                        <h4 className="text-lg font-semibold mb-4 text-white" style={{ fontFamily: 'var(--font-cinzel)' }}>Quick Links</h4>
+                        <h4 className="text-lg font-semibold mb-4 text-white" style={{ fontFamily: 'var(--font-cinzel)' }}>{t('Quick Links')}</h4>
                         <ul className="space-y-2">
-                            <li><Link href="/about" className="text-[#C5C6C7] hover:text-[#1F6FEB] transition-colors">About</Link></li>
-                            <li><Link href="/books" className="text-[#C5C6C7] hover:text-[#1F6FEB] transition-colors">Books</Link></li>
-                            <li><Link href="/reviews" className="text-[#C5C6C7] hover:text-[#1F6FEB] transition-colors">Reviews</Link></li>
-                            <li><Link href="/contact" className="text-[#C5C6C7] hover:text-[#1F6FEB] transition-colors">Contact</Link></li>
+                            <li><Link href="/about" className="text-[#C5C6C7] hover:text-[#1F6FEB] transition-colors">{t('About')}</Link></li>
+                            <li><Link href="/books" className="text-[#C5C6C7] hover:text-[#1F6FEB] transition-colors">{t('Books')}</Link></li>
+                            <li><Link href="/reviews" className="text-[#C5C6C7] hover:text-[#1F6FEB] transition-colors">{t('Reviews')}</Link></li>
+                            <li><Link href="/contact" className="text-[#C5C6C7] hover:text-[#1F6FEB] transition-colors">{t('Contact')}</Link></li>
                         </ul>
                     </div>
 
                     {/* Contact Info */}
                     <div>
-                        <h4 className="text-lg font-semibold mb-4 text-white" style={{ fontFamily: 'var(--font-cinzel)' }}>Get in Touch</h4>
+                        <h4 className="text-lg font-semibold mb-4 text-white" style={{ fontFamily: 'var(--font-cinzel)' }}>{t('Get in Touch')}</h4>
                         <div className="space-y-2 text-[#C5C6C7]">
-                            <p>📧 jane@janedoeauthor.com</p>
-                            <p>📍 New York, NY</p>
+                            <p>{t('📧 jane@janedoeauthor.com')}</p>
+                            <p>{t('📍 New York, NY')}</p>
                         </div>
                     </div>
                 </div>
 
                 <div className="border-t border-white/10 mt-8 pt-8 text-center text-[#C5C6C7]">
-                    <p>&copy; {new Date().getFullYear()} Kazutoshi Yoshida. All rights reserved.</p>
+                    <p>&copy; {new Date().getFullYear()} {t('Kazutoshi Yoshida')}. {t('All rights reserved.')}</p>
                 </div>
             </div>
         </footer>

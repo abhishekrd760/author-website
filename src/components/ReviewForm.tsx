@@ -2,6 +2,7 @@
 
 import { useState } from 'react'
 import { Review } from '@/types/database'
+import { useLanguage } from '@/lib/LanguageProvider'
 
 interface ReviewFormProps {
     bookId: string
@@ -17,6 +18,7 @@ const ReviewForm = ({ bookId, onReviewSubmitted, onCancel }: ReviewFormProps) =>
     })
     const [isSubmitting, setIsSubmitting] = useState(false)
     const [error, setError] = useState('')
+    const { t } = useLanguage()
 
     const handleSubmit = async (e: React.FormEvent) => {
         e.preventDefault()
@@ -24,7 +26,7 @@ const ReviewForm = ({ bookId, onReviewSubmitted, onCancel }: ReviewFormProps) =>
         setError('')
 
         if (!formData.reviewer_name.trim() || !formData.review_text.trim()) {
-            setError('Please fill in all fields')
+            setError(t('Please fill in all fields'))
             setIsSubmitting(false)
             return
         }
@@ -55,11 +57,11 @@ const ReviewForm = ({ bookId, onReviewSubmitted, onCancel }: ReviewFormProps) =>
                 setFormData({ reviewer_name: '', review_text: '', rating: 5 })
             } else {
                 console.error('❌ Review submission failed:', result.error)
-                setError(result.error || 'Failed to submit review. Please try again.')
+                setError(result.error || t('Failed to submit review. Please try again.'))
             }
         } catch (error) {
             console.error('❌ Error submitting review:', error)
-            setError('Failed to submit review. Please try again.')
+            setError(t('Failed to submit review. Please try again.'))
         } finally {
             setIsSubmitting(false)
         }
@@ -80,7 +82,7 @@ const ReviewForm = ({ bookId, onReviewSubmitted, onCancel }: ReviewFormProps) =>
 
     return (
         <div className="card">
-            <h3 className="text-2xl font-bold mb-6" style={{ fontFamily: 'var(--font-cinzel)' }}>Write a Review</h3>
+            <h3 className="text-2xl font-bold mb-6" style={{ fontFamily: 'var(--font-cinzel)' }}>{t('Write a Review')}</h3>
 
             {error && (
                 <div className="bg-red-100 border border-red-400 text-red-700 px-4 py-3 rounded mb-4">
@@ -92,7 +94,7 @@ const ReviewForm = ({ bookId, onReviewSubmitted, onCancel }: ReviewFormProps) =>
                 {/* Name Input */}
                 <div>
                     <label htmlFor="reviewer_name" className="block text-sm font-medium text-gray-700 mb-2">
-                        Your Name
+                        {t('Your Name')}
                     </label>
                     <input
                         type="text"
@@ -100,7 +102,7 @@ const ReviewForm = ({ bookId, onReviewSubmitted, onCancel }: ReviewFormProps) =>
                         value={formData.reviewer_name}
                         onChange={(e) => setFormData(prev => ({ ...prev, reviewer_name: e.target.value }))}
                         className="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-blue-500"
-                        placeholder="Enter your name"
+                        placeholder={t('Enter your name')}
                         maxLength={100}
                     />
                 </div>
@@ -108,18 +110,18 @@ const ReviewForm = ({ bookId, onReviewSubmitted, onCancel }: ReviewFormProps) =>
                 {/* Rating */}
                 <div>
                     <label className="block text-sm font-medium text-gray-700 mb-2">
-                        Rating
+                        {t('Rating')}
                     </label>
                     <div className="flex items-center gap-2">
                         {renderStars(formData.rating)}
-                        <span className="ml-2 text-gray-600">({formData.rating}/5 stars)</span>
+                        <span className="ml-2 text-gray-600">{t('({rating}/5 stars)', { rating: formData.rating })}</span>
                     </div>
                 </div>
 
                 {/* Review Text */}
                 <div>
                     <label htmlFor="review_text" className="block text-sm font-medium text-gray-700 mb-2">
-                        Your Review
+                        {t('Your Review')}
                     </label>
                     <textarea
                         id="review_text"
@@ -127,11 +129,11 @@ const ReviewForm = ({ bookId, onReviewSubmitted, onCancel }: ReviewFormProps) =>
                         value={formData.review_text}
                         onChange={(e) => setFormData(prev => ({ ...prev, review_text: e.target.value }))}
                         className="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-blue-500"
-                        placeholder="Share your thoughts about this book..."
+                        placeholder={t('Share your thoughts about this book...')}
                         maxLength={1000}
                     />
                     <div className="text-right text-sm text-gray-500 mt-1">
-                        {formData.review_text.length}/1000 characters
+                        {t('{count}/1000 characters', { count: formData.review_text.length })}
                     </div>
                 </div>
 
@@ -142,7 +144,7 @@ const ReviewForm = ({ bookId, onReviewSubmitted, onCancel }: ReviewFormProps) =>
                         disabled={isSubmitting}
                         className="btn-primary disabled:opacity-50 disabled:cursor-not-allowed"
                     >
-                        {isSubmitting ? 'Submitting...' : 'Submit Review'}
+                        {isSubmitting ? t('Submitting...') : t('Submit Review')}
                     </button>
                     <button
                         type="button"
@@ -150,7 +152,7 @@ const ReviewForm = ({ bookId, onReviewSubmitted, onCancel }: ReviewFormProps) =>
                         className="btn-secondary"
                         disabled={isSubmitting}
                     >
-                        Cancel
+                        {t('Cancel')}
                     </button>
                 </div>
             </form>
